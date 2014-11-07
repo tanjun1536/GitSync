@@ -1,0 +1,12 @@
+@import url('fontsize.css');
+*{ margin:0; padding:0}
+body{ background-color:#ffffff;margin:10px; color:#333;font-size:16px; font-family:"微软雅黑", "宋体", Terminal}
+body.comments{background:#ffffff;}
+a{display:block;text-decoration:none;}
+a:hover{text-decoration:none;}
+:focus{outline:0;}
+:link,:visited,ins{text-decoration:none;}
+article h2 {text-align:center; font-size:20px; font-weight:600; margin-top:10px; margin-bottom:10px}
+article h5 {text-align:center; border-bottom:1px dashed #ccc; font-weight:400; padding:8px; padding-top:0px;margin-top:0px; color:#777}
+section img {max-width:96%; overflow:hidden; background:#f5f5f5; margin:8px auto; display:block;}
+section p img {max-width:96%; overflow:hidden; background:#f5f5f5; margin:8px auto; display:block;}

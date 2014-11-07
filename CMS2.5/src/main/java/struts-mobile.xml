@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="mobile" extends="struts-default">
+		<action name="TaskServiceAction!*" method="{1}" class="TaskServiceAction">
+		</action>
+		<action name="TradeServiceAction!*" method="{1}" class="TradeServiceAction">
+		</action>
+		<action name="UserServiceAction!*" method="{1}" class="UserServiceAction">
+			<result name="forgetpassword">/jsp/index/forgetpassword.jsp</result>
+			<result name="forgetpasswordsuccess">/jsp/index/forgetpasswordsuccess.jsp </result>
+			<result name="changepassword">/jsp/index/changepassword.jsp</result>
+			<result name="changepasswordsuccess">/jsp/index/changepasswordsuccess.jsp </result>
+		</action>
+		<action name="CMSServiceAction!*" method="{1}" class="CMSServiceAction">
+		</action>
+	</package>
+</struts>

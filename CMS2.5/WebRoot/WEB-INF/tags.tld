@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2eehttp://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+  <tlibversion>1.0</tlibversion>  <!-- 你自定义标签的版本数 -->   
+  <jsp-version>1.0</jsp-version>  <!-- 指定你的JSP版本，扩张标签是在JSP1.2之后兼容的 -->
+  <short-name>ctags</short-name>
+  <uri>http://www.ctags.com/tags</uri>
+  <tag>
+  	<name>selectImgButton</name>
+  	<tag-class>com.ck.controls.SelectImgBtn</tag-class>
+  	<body-content>JSP</body-content>
+  </tag>
+  <tag>
+  	<name>sections</name>
+  	<tag-class>com.gang.tags.Sections</tag-class>
+  	<body-content>JSP</body-content>
+  	<attribute>
+  		<name>id</name>
+  		<required>false</required> <!-- 是否必须 -->
+  		<rtexprvalue>true</rtexprvalue><!-- 是否允许动态加载 -->
+  		<type>java.lang.String</type>
+  	</attribute>
+  	<attribute>
+  		<name>name</name>
+  		<required>false</required> <!-- 是否必须 -->
+  		<rtexprvalue>true</rtexprvalue><!-- 是否允许动态加载 -->
+  		<type>java.lang.String</type>
+  	</attribute>
+  	<attribute>
+  		<name>style</name>
+  		<required>false</required> <!-- 是否必须 -->
+  		<rtexprvalue>true</rtexprvalue><!-- 是否允许动态加载 -->
+  		<type>java.lang.String</type>
+  	</attribute>
+  	<attribute>
+  		<name>sessName</name>
+  		<required>true</required> <!-- 是否必须 -->
+  		<rtexprvalue>true</rtexprvalue><!-- 是否允许动态加载 -->
+  		<type>java.lang.String</type>
+  	</attribute>
+  </tag>
+</taglib>

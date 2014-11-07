@@ -1,0 +1,20 @@
+@import url('fontsize.css');
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,menu,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+:focus{outline:0;}
+:link,:visited,ins{text-decoration:none;}
+
+html,body{-webkit-text-size-adjust:none;}
+body{ background-color:#ffffff;margin:1.5em 2em; color:#333; font-family:"微软雅黑", "宋体", Terminal}
+body.comments{background:#ffffff;}
+a{display:block;text-decoration:none;}
+a:hover{text-decoration:none;}
+.div{-webkit-column-count:2;-webkit-column-gap:1em;-webkit-column-rule:1px solid rgba(0,0,0,0);}
+
+article h2 {text-align:left; padding-bottom:16px; padding-top:10px; font-size:2.33em;}
+article h5 {border-bottom:1px dashed #ccc; font-weight:400; padding:6px; margin-top:0px; color:#666; font-size:1.33em}
+.atrimg { text-align:center; margin:20px auto 20px; overflow:hidden}
+.atrimg img {max-width:94%; overflow:hidden; margin:7px; box-shadow: 0 1px 6px #b9c7d5,1px 0 6px #a1b2c3;}
+section img {max-width:96%; overflow:hidden; background:#f5f5f5; margin:8px auto; display:block; box-shadow: 0 1px 6px #969696,1px 0 6px #969696}
+section p img {max-width:96%; overflow:hidden; background:#f5f5f5; margin:8px auto; display:block; box-shadow: 0 1px 6px #969696,1px 0 6px #969696}

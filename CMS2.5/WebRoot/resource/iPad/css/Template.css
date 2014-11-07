@@ -1,0 +1,53 @@
+﻿.contentDiv {
+	overflow: hidden;
+	display:block;
+	padding:18px 18px 36px 18px;
+}
+.contentDiv h1 {
+	font-size:36px;
+	margin-top:16px;
+	line-height:40px;
+}
+.contentDiv h2 {
+	font-size: 26px;
+	margin-top:10px;
+	line-height:32px;
+}
+.contentDiv h3 {
+	font-size: 18px;
+	color: #898989;
+	font-weight:400;
+	display:block;
+	margin-top:6px;
+	margin-bottom:16px;
+}
+.contentDiv time {
+	font-size: 16px;
+	color: #898989;
+	font-weight:400;
+	display:block;
+	margin-top:6px;
+	margin-bottom:16px;
+
+}
+.contentDiv section{
+	line-height:25px;
+	font-size:16px;
+	color:#333;
+    text-overflow: ellipsis;
+    overflow:hidden 
+}
+
+.imgV3_a {float:right; margin-left:18px;width:346px; height:260px; overflow:hidden}
+.imgV3_b {float:right; margin-left:16px; margin-right:4px; margin-bottom:10px;width:320px; height:160px; overflow:hidden;}
+.imgV3_c {float:none; margin-bottom:10px;width:320px; height:180px; overflow:hidden;}
+.imgH3_a {float:none; margin-top:16px; width:445px; height:276px; overflow:hidden;}
+.imgH3_b {float:right; margin-left:10px;width:280px; height:170px; overflow:hidden;}
+.imgH3_c {float:left; margin-right:16px; margin-left:4px; margin-top:4px; width:150px; height:190px; overflow:hidden;}
+
+.imgV5_a { float:none; margin-bottom:6px; width:318px; height:182px; overflow:hidden}
+.imgV5_b {margin-bottom:12px; width:130px; height:145px; margin-left:14px; overflow:hidden; float:right}
+.imgV5_c { float:left; margin-bottom:12px; margin-left:4px; width:125px; height:170px; margin-right:16px; overflow:hidden}
+.imgH5_a {float:right;margin-left:16px; margin-right:6px; width:258px; height:178px; overflow:hidden}
+.imgH5_b {margin-right:16px; margin-bottom:8px;width:288px; height:96px; overflow:hidden}
+.imgH5_c {float:none;width:288px; height:104px; overflow:hidden;}

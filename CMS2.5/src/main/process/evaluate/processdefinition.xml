@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition
+  xmlns=""  name="evaluateFile">
+   <start-state name="evaluateFile_start">
+      <transition name="to_jl_cjgd" to="jl_cjgd"></transition>
+   </start-state>
+   <!-- 合伙人或者行政人员/客户经理创建项目工单 -->
+   <task-node name="jl_cjgd">
+   	  <task name="task_jl_cjgd">
+      	<assignment class="com.xinxinsoft.process.evaluate.CreateEvaluateFileHandler"></assignment>
+      </task>
+      <transition name="to_jl_apfzr" to="jl_apfzr"></transition>
+   </task-node>
+    <!--合伙人或部门经理安排负责人和参与人 -->
+   <task-node name="jl_apfzr">
+   	  <task name="task_jl_apfzr">
+      	<assignment class="com.xinxinsoft.process.evaluate.BmjlAnPaiFuZeRenHanler"></assignment>
+      </task>
+      <transition name="to_xmfzr_jshgd" to="xmfzr_jshgd"></transition>
+   </task-node>
+     <!--项目负责人接受工单 -->
+   <task-node name="xmfzr_jshgd">
+   	  <task name="task_xmfzr_jshgd">
+      	<assignment class="com.xinxinsoft.process.evaluate.XmfzrJieSouGongDanHandler"></assignment>
+      </task>
+      <transition name="to_xmfzr_gthtsd" to="xmfzr_gthtsd"></transition>
+   </task-node>
+     <!--项目负责人沟通及合同商定 -->
+   <task-node name="xmfzr_gthtsd">
+   	  <task name="task_xmfzr_gthtsd">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.XmfzrShangDingHeTongHandler"></assignment>
+   	  </task>
+      <transition name="to_xmcyr_xcck" to="xmcyr_xcck"></transition>
+   </task-node>
+     <!--项目参与人现场查看 -->
+   <task-node name="xmcyr_xcck" signal="last-wait" create-tasks="false" end-tasks="true">
+   	  <task name="task_xmcyr_xcck">
+   	  </task>
+   	  <event type="node-enter">
+			<action name="createInstance" class="com.xinxinsoft.process.evaluate.XmcyrXianChangChaKanHandler"></action>
+		</event>
+      <transition name="to_xmcyr_scdc" to="xmcyr_scdc"></transition>
+   </task-node>
+   <!--项目参与人市场调查 -->
+   <task-node name="xmcyr_scdc" signal="last-wait" create-tasks="false" end-tasks="true">
+   	  <task name="task_xmcyr_scdc">
+   	  </task>
+   	  <event type="node-enter">
+   	  		<action name="createInstance" class="com.xinxinsoft.process.evaluate.XmcyrShiChanDiaoChaHandler"></action>
+   	  </event>
+      <transition name="to_xmcyr_cs" to="xmcyr_cs"></transition>
+   </task-node>
+   <!--项目参与人测算 -->
+   <task-node name="xmcyr_cs">
+   	  <task name="task_xmcyr_cs">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.XmcyrCeSuanHandler"></assignment>
+   	  </task>
+      <transition name="to_xmcyr_ypgzx" to="xmcyr_ypgzx"></transition>
+      <transition name="to_xmcyr_zxbg" to="xmcyr_zxbg"></transition>
+   </task-node>
+   <!-- 项目参与人报告撰写 -->
+   <task-node name="xmcyr_zxbg">
+   	  <task name="task_xmcyr_zxbg">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.XmcyrZhuanXieBaoGaoHandler"></assignment>
+   	  </task>
+      <transition name="to_xmfzr_bgsh" to="xmfzr_bgsh"></transition>
+   </task-node>
+   <!-- 项目负责人报告审核 -->
+   <task-node name="xmfzr_bgsh">
+   	  <task name="task_xmfzr_bgsh">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.XmfzrBaoGaoShenHeHandler"></assignment>
+   	  </task>
+      <transition name="to_bmjl_bgersh" to="bmjl_bgersh"></transition>
+   </task-node>
+   <!-- 部门经理报告二审 -->
+   <task-node name="bmjl_bgersh">
+   	  <task name="task_bmjl_bgersh">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.BmjlBaoGaoErShenHandler"></assignment>
+   	  </task>
+      <transition name="to_hhr_bgqf" to="hhr_bgqf"></transition>
+   </task-node>
+   <!-- 合伙人报告签发 -->
+   <task-node name="hhr_bgqf">
+   	  <task name="task_hhr_bgqf">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.HhrBaoGaoQianFaHandler"></assignment>
+   	  </task>
+      <transition name="to_xmcyr_zxbg" to="xmcyr_zxbg"></transition>
+      <transition name="to_xzrykhjl_jddygz" to="xzrykhjl_jddygz"></transition>
+   </task-node>
+   <!-- 行政人员/客户经理校对、打印、盖章 -->
+   <task-node name="xzrykhjl_jddygz">
+   	  <task name="task_xzrykhjl_jddygz">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.KhjlDaYingGaiZhangHandler"></assignment>
+   	  </task>
+      <transition name="to_xmfzr_bgjf" to="xmfzr_bgjf"></transition>
+   </task-node>
+   <!-- 项目负责人报告交付 -->
+   <task-node name="xmfzr_bgjf">
+   	  <task name="task_xmfzr_bgjf">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.XmfzrBaoGaoJiaoFuHandler"></assignment>
+   	  </task>
+      <transition name="to_xmfzr_gd" to="xmfzr_gd"></transition>
+   </task-node>
+   <!-- 项目负责人归档 -->
+   <task-node name="xmfzr_gd">
+   	  <task name="task_xmfzr_gd">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.XmfzrgGuiDangHandler"></assignment>
+   	  </task>
+      <transition name="to_end" to="end"></transition>
+   </task-node>
+   <!-- 项目参与人预评估撰写 -->
+   <task-node name="xmcyr_ypgzx">
+   	  <task name="task_xmcyr_ypgzx">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.XmcyrYuPingGuZhuanXieHandler"></assignment>
+   	  </task>
+      <transition name="to_xmfzr_ypgsh" to="xmfzr_ypgsh"></transition>
+   </task-node>
+   <!-- 项目负责人预评估审核 -->
+   <task-node name="xmfzr_ypgsh">
+   	  <task name="task_xmfzr_ypgsh">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.XmfzrYuPingGuShenHeHandler"></assignment>
+   	  </task>
+      <transition name="to_bmjl_ypers" to="bmjl_ypers"></transition>
+   </task-node>
+   <!-- 部门经理预评估二审 -->
+   <task-node name="bmjl_ypers">
+   	  <task name="task_bmjl_ypers">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.BmjlYuPingGuErShenHandler"></assignment>
+   	  </task>
+      <transition name="to_hhr_ypqf" to="hhr_ypqf"></transition>
+   </task-node>
+   <!-- 合伙人预评签发 -->
+   <task-node name="hhr_ypqf">
+   	  <task name="task_hhr_ypqf">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.HhrYuPingGuQianFaHandler"></assignment>
+   	  </task>
+      <transition name="to_xmfzr_tzkh" to="xmfzr_tzkh"></transition>
+      <transition name="to_xmcyr_ypgzx" to="xmcyr_ypgzx"></transition>
+   </task-node>
+   <!-- 项目负责人通知客户 -->
+   <task-node name="xmfzr_tzkh">
+   	  <task name="task_xmfzr_tzkh">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.XmfzrTongZhiKeHuHandler"></assignment>
+   	  </task>
+      <transition name="to_yh_khshyp" to="yh_khshyp"></transition>
+   </task-node>
+   <!-- 银行客户审核预评 -->
+   <task-node name="yh_khshyp">
+   	  <task name="task_yh_khshyp">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.YhShenHeYuPingHandler"></assignment>
+   	  </task>
+      <transition name="to_xmfzr_txyy" to="xmfzr_txyy"></transition>
+      <transition name="to_xmfzr_jltzr" to="xmfzr_jltzr"></transition>
+   </task-node>
+   <!-- 项目负责人填写原因 -->
+   <task-node name="xmfzr_txyy">
+   	  <task name="task_xmfzr_txyy">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.XmfzrTianXieYuanYinHandler"></assignment>
+   	  </task>
+      <transition name="to_end" to="end"></transition>
+   </task-node>
+   <!-- 项目负责人记录通知人 -->
+   <task-node name="xmfzr_jltzr">
+   	  <task name="task_xmfzr_jltzr">
+   	  	<assignment class="com.xinxinsoft.process.evaluate.XmfzrJiLuTongZhiRenHandler"></assignment>
+   	  </task>
+      <transition name="to_xmcyr_zxbg" to="xmcyr_zxbg"></transition>
+   </task-node>
+   <end-state name="end"></end-state>
+</process-definition>

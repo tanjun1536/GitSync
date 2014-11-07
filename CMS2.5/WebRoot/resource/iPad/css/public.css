@@ -1,0 +1,79 @@
+* {
+margin:0;
+padding:0
+}
+html, body {
+font-size:18px;
+font-family:"微软雅黑",Terminal;
+background:#FFFFFF
+}
+
+:focus {
+outline:0
+}
+
+:link,:visited,ins {
+text-decoration:none
+}
+
+h1,h2,h3,h4,h5,h6 {
+display:block;
+font-weight:600
+}
+
+ul {
+margin-bottom:18px;
+list-style:none outside
+}
+
+img,input {
+vertical-align:middle
+}
+
+.separateH {
+background-color:#d2d2d2;
+height:1px
+}
+
+.separateV {
+height:100%;
+border-right:1px #d2d2d2 solid
+}
+
+.ui-grid-a,.ui-grid-b,.ui-grid-c,.ui-grid-d {
+overflow:hidden
+}
+
+.ui-block-a,.ui-block-b,.ui-block-c,.ui-block-d,.ui-block-e {
+border:0;
+float:left;
+min-height:1px
+}
+
+.ui-grid-solo .ui-block-a {
+width:100%;
+float:none
+}
+
+.ui-grid-a .ui-block-a,.ui-grid-a .ui-block-b {
+width:50%
+}
+
+.ui-grid-b .ui-block-a,.ui-grid-b .ui-block-b,.ui-grid-b .ui-block-c {
+width:33.333%
+}
+
+.ui-grid-b .ui-block-d {
+width:66.666%
+}
+
+.ui-grid-c .ui-block-a,.ui-grid-c .ui-block-b,.ui-grid-c .ui-block-c,.ui-grid-c .ui-block-d {
+width:25%
+}
+
+.ui-grid-d .ui-block-a,.ui-grid-d .ui-block-b,.ui-grid-d .ui-block-c,.ui-grid-d .ui-block-d,.ui-grid-d .ui-block-e {
+width:20%
+}
+
+.ui-grid-a .ui-block-a,.ui-grid-b .ui-block-a,.ui-grid-c .ui-block-a,.ui-grid-d .ui-block-a {
+clear:left

@@ -1,0 +1,33 @@
+*{margin:0 auto; padding:0}
+html { height:100%; overflow:hidden; background:#efefef;}
+body {height:100%; overflow:hidden; background:#efefef; font-size:12px}
+ol,ul,li{list-style-type:none}
+img{vertical-align:top;border:0}    
+a {color:#000;text-decoration:none}
+a:hover {color:#b90b07;text-decoration:underline}  
+.clear {clear:both; height:0; overflow:hidden; display:block}
+
+.header {position:absolute; background:url(../images/header_c.png) repeat-x; left:0px; top:0px; height:67px; width:100%}
+.logo { float:left; background:url(../images/header_l.png); width:308px; height:67px}
+.top { float: right; background:url(../images/header_r.png); width:380px;height:52px; text-align:right; padding-top:15px; padding-right:20px}
+
+.side_a { position:absolute; left:0px; top:67px; bottom:0; width:216px; background:none;background:url(../images/menuBg.png) repeat-y;}
+.side_b { position:absolute; left:0px; top:101px; bottom:0; width:6px; background:url(../images/LeftBg.png) repeat-y right}
+#menu {background:url(../images/menuBg.png) repeat-y; padding-left:4px}
+.menutop {background:url(../images/menutop.png);height:42px; width:216px}
+#menu h4 {background:url(../images/nc_2over.png); width:189px;  height:33px; margin:0 auto; text-align:left; line-height:33px; text-indent:10px; margin-top:8px;color:#0965aa}
+#menu h4:hover,#menu h4:focus,#menu .on {background:url(../images/nc_2.png); width:189px;  height:33px; margin:0 auto; text-align:left; line-height:33px; text-indent:10px; margin-top:8px; color:#f37800; cursor:pointer}
+#menu ul { background:url(../images/nc_4.png) bottom center no-repeat; padding-bottom:3px}
+#menu li {background:url(../images/nc_3.png) left -2px no-repeat; height:33px; width:188px; line-height:35px; text-indent:16px; color:#444444;cursor:pointer}
+.roundCorder{ margin-left:14px;position:relative;border:1px solid #cdcdcd;
+background:#f6f7f7;-moz-border-radius:5px;-webkit-border-radius:5px;height:99%;width:98%;}
+
+.main_a {position:absolute; left:216px; top:69px; bottom:0;right:0px;overflow:auto; margin:4px; margin-left:0px;  background:none}
+.main_b {position:absolute; left:1px; top:69px; bottom:0;right:0px;overflow:auto; margin:4px; margin-left:0px;}
+.main_a iframe { width:100%; height:100%;}
+.main_b iframe { width:100%; height:100%;}
+
+.close_a {background:url(../images/nc_1.png); width:15px; height:64px; position:absolute; left:-15px; top:40%;cursor:pointer}
+.close_b {background:url(../images/nc_1a.png); width:15px; height:64px; position:absolute; left:-15px; top:40%; cursor:pointer}
+
+

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="yanshen" extends="struts-default">
+		<action name="RoleAction!*" method="{1}" class="RoleAction">
+			<result name="add">/jsp/role/AddRole.jsp</result>
+			<result name="list">/jsp/role/RoleList.jsp</result>
+			<result name="edit">/jsp/role/EditRole.jsp</result>
+		</action>
+		<action name="DepartmentAction!*" method="{1}" class="DepartmentAction">
+			<result name="add">/jsp/department/AddDepartment.jsp</result>
+			<result name="list">/jsp/department/DepartmentList.jsp</result>
+			<result name="edit">/jsp/department/EditDepartment.jsp</result>
+		</action>
+		<action name="BackUserAction!*" method="{1}" class="BackUserAction">
+			<result name="add">/jsp/user/AddBackUser.jsp</result>
+			<result name="list">/jsp/user/BackUserList.jsp</result>
+			<result name="edit">/jsp/user/EditBackUser.jsp</result>
+		</action>
+		<action name="ArticleAuditAction!*" method="{1}" class="ArticleAuditAction">
+			<result name="list" type="redirect">/jsp/audit/ArticleAuditList.jsp</result>
+			<result name="reject">/jsp/audit/ArticleAuditReject.jsp</result>
+			<result name="audit">/jsp/audit/ArticleAudit.jsp</result>
+		</action>
+		<action name="audithistory">
+			<result name="success">/jsp/audit/ArticleAuditHistory.jsp</result>
+		</action>
+		<action name="PadArticleAuditAction!*" method="{1}" class="PadArticleAuditAction">
+			<result name="list" type="redirect">/jsp/audit/PadArticleAuditList.jsp</result>
+			<result name="reject">/jsp/audit/PadArticleAuditReject.jsp</result>
+			<result name="audit">/jsp/audit/PadArticleAudit.jsp</result>
+		</action>
+		<action name="PadAudithistory">
+			<result name="success">/jsp/audit/PadArticleAuditHistory.jsp</result>
+		</action>
+		<action name="SectionFocusAction!*" method="{1}" class="SectionFocusAction">
+			<param name="allowTypes">
+				image/pjpeg,image/bmp,image/jpg,image/png,image/gif,image/jpeg
+   			</param>
+			<param name="uploadDir">uploads/images/sectionfocus</param>
+			<result name="list">/jsp/section/SectionFocusList.jsp</result>
+			<result name="add">/jsp/section/AddSectionFocus.jsp</result>
+			<result name="edit">/jsp/section/EditSectionFocus.jsp</result>
+			<result name="view">/jsp/section/ViewSectionFocus.jsp</result>
+		</action>
+		<action name="PadSectionFocusAction!*" method="{1}" class="PadSectionFocusAction">
+			<param name="allowTypes">
+				image/pjpeg,image/bmp,image/jpg,image/png,image/gif,image/jpeg
+   			</param>
+			<param name="uploadDir">uploads/images/sectionfocus</param>
+			<result name="list">/jsp/section/PadSectionFocusList.jsp</result>
+			<result name="add">/jsp/section/AddPadSectionFocus.jsp</result>
+			<result name="edit">/jsp/section/EditPadSectionFocus.jsp</result>
+			<result name="view">/jsp/section/ViewPadSectionFocus.jsp</result>
+		</action>
+		<action name="SectionFocusAuditAction!*" method="{1}" class="SectionFocusAuditAction">
+			<result name="list" type="redirect">/jsp/audit/SectionFocusAuditList.jsp?state=${state}</result>
+			<result name="reject">/jsp/audit/SectionFocusAuditReject.jsp</result>
+			<result name="audit">/jsp/audit/SectionFocusAudit.jsp</result>
+		</action>
+		<action name="focusAuditHistory">
+			<result name="success">/jsp/audit/SectionFocusAuditHistory.jsp</result>
+		</action>
+		<action name="PadSectionFocusAuditAction!*" method="{1}" class="PadSectionFocusAuditAction">
+			<result name="list" type="redirect">/jsp/audit/PadSectionFocusAuditList.jsp?state=${state}</result>
+			<result name="reject">/jsp/audit/PadSectionFocusAuditReject.jsp</result>
+			<result name="audit">/jsp/audit/PadSectionFocusAudit.jsp</result>
+		</action>
+		<action name="PadFocusAuditHistory">
+			<result name="success">/jsp/audit/PadSectionFocusAuditHistory.jsp</result>
+		</action>
+		<action name="ImageInfoAction!*" method="{1}" class="ImageInfoAction">
+			<param name="allowTypes">
+				image/pjpeg,image/bmp,image/jpg,image/png,image/gif,image/jpeg
+   			</param>
+   			<param name="uploadDir">uploads/images/section</param>
+			<result name="list">/jsp/img/ImageInfoContent.jsp</result>
+			<result name="add">/jsp/img/UploadImage.jsp</result>
+			<result name="edit" >/jsp/img/EditImage.jsp</result>
+			<result name="listaction" type="redirect">/jsp/img/ImageInfoList.jsp</result>
+			<result name="listsel">/jsp/imgcontent/SelImageInfoContent.jsp</result>
+		</action>
+		<action name="MenuAction!*" method="{1}" class="MenuAction">
+		</action>
+		<action name="ImageContentAction!*" method="{1}" class="ImageContentAction">
+			<result name="list">/jsp/imgcontent/ImageContentList.jsp</result>
+			<result name="edit">/jsp/imgcontent/EditImageContent.jsp</result>
+			<result name="add">/jsp/imgcontent/AddImageContent.jsp</result>
+		</action>
+		<action name="PadImageContentAction!*" method="{1}" class="PadImageContentAction">
+			<result name="list">/jsp/imgcontent/PadImageContentList.jsp</result>
+			<result name="edit">/jsp/imgcontent/EditPadImageContent.jsp</result>
+			<result name="add">/jsp/imgcontent/AddPadImageContent.jsp</result>
+		</action>
+		<action name="MobileImageContentAuditAction!*" method="{1}" class="MobileImageContentAuditAction">
+			<result name="list" type="redirect">
+				/jsp/audit/MobileImageContentAuditList.jsp?state=${state}
+			</result>
+			<result name="reject">/jsp/audit/MobileImageContentAuditReject.jsp</result>
+			<result name="audit">/jsp/audit/MobileImageContentAudit.jsp</result>
+		</action>
+		<action name="MobileImageContentAuditHistory">
+			<result name="success">/jsp/audit/MobileImageContentAuditHistory.jsp</result>
+		</action>
+		<action name="PadImageContentAuditAction!*" method="{1}" class="PadImageContentAuditAction">
+			<result name="list" type="redirect">
+				/jsp/audit/PadImageContentAuditList.jsp?state=${state}
+			</result>
+			<result name="reject">/jsp/audit/PadImageContentAuditReject.jsp</result>
+			<result name="audit">/jsp/audit/PadImageContentAudit.jsp</result>
+		</action>
+		<action name="PadImageContentAuditHistory">
+			<result name="success">/jsp/audit/PadImageContentAuditHistory.jsp</result>
+		</action>
+		<action name="SectionFocusMobileDistributeAction!*" method="{1}" class="SectionFocusMobileDistributeAction">
+			<param name="allowTypes">
+				image/pjpeg,image/bmp,image/jpg,image/png,image/gif,image/jpeg
+   			</param>
+		</action>
+		<action name="SectionFocusPadDistributeAction!*" method="{1}" class="SectionFocusPadDistributeAction">
+			<param name="allowTypes">
+				image/pjpeg,image/bmp,image/jpg,image/png,image/gif,image/jpeg
+   			</param>
+		</action>
+		<action name="StateLogAction!*" method="{1}" class="StateLogAction">
+		</action>
+		<action name="ArticleMobileCommentAction!*" method="{1}" class="ArticleMobileCommentAction">
+			<result name="success">/jsp/comments/ArticleMobileComment.jsp</result>
+		</action>
+		<action name="ArticlePadCommentAction!*" method="{1}" class="ArticlePadCommentAction">
+			<result name="success">/jsp/comments/ArticlePadComment.jsp</result>
+		</action>
+		<action name="PictureAction!*" method="{1}" class="PictureAction">
+		</action>
+		<action name="FrontUserAction!*" method="{1}" class="FrontUserAction">
+			<result name="success">/jsp/index/next.jsp</result>
+			<result name="phone">/jsp/index/next.jsp</result>
+			<result name="pad">/jsp/index/nextforpad.jsp</result>
+		</action>
+	</package>
+</struts>

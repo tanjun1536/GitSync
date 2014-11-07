@@ -1,0 +1,12 @@
+.xheditor_tool_image {
+	background: transparent url(../images/image.png) no-repeat 16px 16px;
+	background-position: 2px 2px;
+}
+.xheditor_tool_video {
+	background: transparent url(../images/video.png) no-repeat 16px 16px;
+	background-position: 2px 2px;
+}
+.xheditor_tool_audio {
+	background: transparent url(../images/audio.png) no-repeat 16px 16px;
+	background-position: 2px 2px;
+}

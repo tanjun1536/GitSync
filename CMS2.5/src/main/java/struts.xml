@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<include file="struts-yanshen.xml"></include>
+	<include file="struts-mobile.xml"></include>
+	<constant name="struts.action.extension" value="action" />
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.objectFactory.spring.autoWire" value="name" />
+	<constant name="struts.multipart.maxSize" value="100000000" />
+	<package name="veryfuck" extends="struts-default">
+		<action name="LoginAction" class="LoginAction">
+			<result name="index">/jsp/index/index.jsp</result>
+			<result name="login">/jsp/index/login.jsp</result>
+			<result name="input">/jsp/index/error.jsp</result>
+
+		</action>
+		<action name="SectionAction!*" method="{1}" class="SectionAction">
+			<param name="allowTypes">
+				image/pjpeg,image/bmp,image/jpg,image/png,image/gif,image/jpeg
+			</param>
+			<param name="uploadDir">uploads/images/section</param>
+
+			<result name="add">/jsp/section/AddSection.jsp</result>
+			<result name="list">/jsp/section/SectionList.jsp</result>
+			<result name="input">/jsp/index/error.jsp</result>
+
+		</action>
+		<!-- <action name="ArticleMobileAction!*" method="{1}" -->
+		<!-- class="ArticleMobileAction"> -->
+		<!-- <param name="allowTypes"> -->
+		<!-- image/pjpeg,image/bmp,image/jpg,image/png,image/gif,image/jpeg -->
+		<!-- </param> -->
+		<!-- <param name="uploadDir">uploads/images/section</param> -->
+		<!-- <result name="input">/jsp/index/error.jsp</result> -->
+		<!-- <result name="add">/jsp/article/AddArticleMobile.jsp</result> -->
+		<!-- <result name="list">/jsp/article/ArticleMobileList.jsp</result> -->
+		<!-- <result name="edit">/jsp/article/AddArticleMobile.jsp</result> -->
+		<!-- <result name="ArtList">/jsp/article/artList.jsp</result> -->
+		<!-- </action> -->
+		<action name="ArticlePadAction!*" method="{1}" class="ArticlePadAction">
+			<param name="allowTypes">
+				image/pjpeg,image/bmp,image/jpg,image/png,image/gif,image/jpeg
+			</param>
+			<result name="input">/jsp/index/error.jsp</result>
+			<result name="add">/jsp/article/AddArticlePad.jsp</result>
+			<result name="edit">/jsp/article/AddArticlePad.jsp</result>
+			<result name="list">/jsp/article/ArticlePadList.jsp</result>
+			<!-- <result name="ArtList">/jsp/article/artList.jsp</result> -->
+		</action>
+		<action name="ArticleMobileDistributeAction!*" method="{1}"
+			class="ArticleMobileDistributeAction">
+			<param name="allowTypes">
+				image/pjpeg,image/bmp,image/jpg,image/png,image/gif,image/jpeg
+			</param>
+			<result name="input">/jsp/index/error.jsp</result>
+			<result name="add">/jsp/article/AddArticlePad.jsp</result>
+			<result name="edit">/jsp/article/AddArticlePad.jsp</result>
+			<result name="list">/jsp/article/ArticlePadList.jsp</result>
+		</action>
+		<action name="ArticlePadDistributeAction!*" method="{1}"
+			class="ArticlePadDistributeAction">
+			<param name="allowTypes">
+				image/pjpeg,image/bmp,image/jpg,image/png,image/gif,image/jpeg
+			</param>
+			<result name="input">/jsp/index/error.jsp</result>
+			<result name="add">/jsp/article/AddArticlePad.jsp</result>
+			<result name="edit">/jsp/article/AddArticlePad.jsp</result>
+			<result name="list">/jsp/article/ArticlePadList.jsp</result>
+		</action>
+		<action name="PadPageLayoutAction!*" method="{1}"
+			class="PadPageLayoutAction">
+			<param name="allowTypes">
+				image/pjpeg,image/bmp,image/jpg,image/png,image/gif,image/jpeg
+			</param>
+			<result name="input">/jsp/index/error.jsp</result>
+			<result name="add">/jsp/layout/AddPadPageLayout.jsp</result>
+			<result name="list">/jsp/layout/PadPageLayoutList.jsp</result>
+			<result name="edit">/jsp/layout/AddPadPageLayout.jsp</result>
+		</action>
+		<action name="VersionAction!*" method="{1}" class="VersionAction">
+			<param name="uploadDir">uploads/apks</param>
+			<result name="input">/jsp/index/error.jsp</result>
+			<result name="add">/jsp/version/AddVersion.jsp</result>
+			<result name="list">/jsp/version/VersionList.jsp</result>
+			<result name="edit">/jsp/version/AddVersion.jsp</result>
+		</action>
+		<action name="FeedBackAction!*" method="{1}" class="FeedBackAction">
+			<result name="input">/jsp/index/error.jsp</result>
+			<result name="phone">/jsp/index/next.jsp</result>
+			<result name="pad">/jsp/index/nextforpad.jsp</result>
+		</action>
+		<action name="StatisticsAction!*" method="{1}" class="StatisticsAction">
+			<result name="clientdistribute">/jsp/statistics/ClientDistribute.jsp</result>
+		</action>
+		<action name="ArticleMobileAction!*" method="{1}"
+			class="ArticleMobileAction">
+			<result name="add">/jsp/article/ArticleMobileAdd.jsp</result>
+			<result name="edit">/jsp/article/ArticleMobileEdit.jsp</result>
+			<result name="audit">/jsp/article/ArticleMobileAudit.jsp</result>
+			<result name="list">/jsp/article/ArticleMobileList.jsp</result>
+		</action>
+		<action name="ArticleMobileNewsAction!*" method="{1}"
+			class="ArticleMobileNewsAction">
+			<result name="list">/jsp/article/ArticleMobileList.jsp</result>
+		</action>
+		<action name="ArticleMobileShopAction!*" method="{1}"
+			class="ArticleMobileShopAction">
+			<result name="list">/jsp/article/ArticleMobileList.jsp</result>
+		</action>
+		<action name="ArticleMobileGoodsAction!*" method="{1}"
+			class="ArticleMobileGoodsAction">
+			<result name="list">/jsp/article/ArticleMobileList.jsp</result>
+		</action>
+		<action name="ArticleMobileLinkAction!*" method="{1}"
+			class="ArticleMobileLinkAction">
+			<result name="list">/jsp/article/ArticleMobileList.jsp</result>
+		</action>
+		<action name="SectionTypeAction!*" method="{1}" class="SectionTypeAction">
+			<result name="add">/jsp/sectiontype/SectionTypeAdd.jsp</result>
+			<result name="edit">/jsp/sectiontype/SectionTypeAdd.jsp</result>
+			<result name="list">/jsp/sectiontype/SectionTypeList.jsp</result>
+		</action>
+		<action name="ShareAction!*" method="{1}" class="ShareAction">
+		</action>
+		<action name="ExposeAction!*" method="{1}" class="ExposeAction">
+		<result name="view">/jsp/expose/ExposeView.jsp</result>
+		</action>
+		<action name="HotAction!*" method="{1}" class="HotAction">
+			<result name="list">/jsp/hot/HotList.jsp</result>
+		</action>
+		<action name="PushAction!*" method="{1}" class="PushAction">
+			<result name="add">/jsp/push/PushAdd.jsp</result>
+			<result name="list">/jsp/push/PushList.jsp</result>
+		</action>
+		<action name="MessageAction!*" method="{1}" class="MessageAction">
+			<result name="list">/jsp/message/MessageList.jsp</result>
+			<result name="edit">/jsp/message/MessageAdd.jsp</result>
+		</action>
+		<action name="PM25Action!*" method="{1}" class="PM25Action">
+		</action>
+		<action name="ProductAction!*" method="{1}" class="ProductAction">
+			<result name="add">/jsp/product/AddProduct.jsp</result>
+			<result name="edit">/jsp/product/AddProduct.jsp</result>
+			<result name="list">/jsp/product/ProductList.jsp</result>
+		</action>
+		<action name="ProductTypeAction!*" method="{1}" class="ProductTypeAction">
+			<result name="add">/jsp/product/AddProductType.jsp</result>
+			<result name="edit">/jsp/product/AddProductType.jsp</result>
+			<result name="list">/jsp/product/ProductTypeList.jsp</result>
+		</action>
+		<action name="OrdersAction!*" method="{1}" class="OrdersAction">
+			<result name="add">/jsp/product/AddProductType.jsp</result>
+			<result name="edit">/jsp/product/AddProductType.jsp</result>
+			<result name="list">/jsp/product/OrdersList.jsp</result>
+		</action>
+
+	</package>
+</struts>

@@ -1,0 +1,60 @@
+*{margin:0; padding:0}
+html { height:100%;  background:#f8f8f8;_overflow-x:hidden}
+body {font-family:"微软雅黑", "宋体", tahoma, Terminal;font-size:12px; margin:8px}
+table{ margin:0 auto;}
+img {border:none}
+ol,ul,li,p{list-style-type:none; list-style:none;margin:0px; padding:0px}
+li table{display:inline-block;overflow:hidden;}
+label,input,img{vertical-align:middle}
+a {color:#000;text-decoration:none}
+a:hover {color:#b90b07;text-decoration:underline}  
+.clear {clear:both; height:0; overflow:hidden; display:block;}
+
+
+.header_a {background:url(../images/nc_6.png) no-repeat; width:11px; height:33px; float:left}
+.header_b {background:url(../images/nc_7.png) no-repeat; height:33px; width:12px; float:right}
+.header_c {background:url(../images/nc_5.png) repeat-x; height:33px; margin:0 12px 0 11px;line-height:33px;}
+
+.formdiv {margin-top:20px}
+.formdiv li {min-height:29px; margin-bottom:8px}
+.formdiv .label {width:100px; text-align:right; display:inline-block;vertical-align:top;}
+.formdiv input, .formdiv textarea, .formdiv select{ vertical-align: middle; padding:0px 0 0 3px; line-height:22px; min-height:22px; font-size:12px}
+
+.Imgdiv {margin-top:0px}
+.ImgdivL {width:200px; float:left}
+.ImgdivR {margin-left:220PX;_display:inline;border-left:1px solid #CCC}
+.Imgdiv .title {height:36px; line-height:36px; padding-left:10px; border-bottom:1px solid #ccc}
+.receipt{width:99%;}
+.receipt ul {margin:2px 0 5px 10px}
+.receipt li {width:200px; height:180px; display:block; float:left; padding:1px; margin:10px 0px 0 10px; position:relative}
+.receipt img {width:180px; height:120px; padding:5px; border:1px dashed #CCC; margin-bottom:5px}
+.receipt p {line-height:20px; padding-left:5px}
+.receipt p input {border:none; margin-right:2px}
+.receipt p span { margin-right:10px}
+
+.sreachdiv {margin-top:10px; margin-left:10px}
+.sreachdiv li {min-height:29px; margin-bottom:8px; display:inline-block}
+.sreachdiv .label {width:76px; text-align:right; display:inline-block;vertical-align:middle}
+.sreachdiv input, .sreachdiv textarea, .sreachdiv select{ vertical-align: middle; padding:0px 0 0 3px; line-height:20px; min-height:20px; font-size:12px}
+.sreachdiv {margin-top:10px;}
+
+.btn {background:url(../images/nc_8.png) no-repeat; width:91px; height:25px; border:none; cursor:pointer; color:#294f76; margin:0 1px;}
+.btn_over {background:url(../images/nc_8a.png) no-repeat; width:91px; height:25px; border:none; cursor:pointer; color:#ffffff; margin:0 1px;}
+.btnSmall {background:url(../images/nc_9.png) no-repeat; width:82px; height:24px; border:none; cursor:pointer; color:#294f76; margin:0 1px; padding:0}
+.btnSmall_over {background:url(../images/nc_9b.png) no-repeat; width:82px; height:24px; border:none; cursor:pointer; color:#000; margin:0 1px;padding:0}
+
+.smallLay_a{border:2px solid #bbbbbb; padding:0px; text-align:left;-webkit-box-shadow:2px 2px 3px #ccc;-moz-box-shadow:3px 3px 6px #f9f9f9; background:#FFF; cursor:move;border-top-left-radius: 5x; border-top-right-radius: 5x; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;
+}
+.smallLay_a header {height:30px; color:#333333;font-size:13px; font-weight:600; line-height:28px; text-indent:6px; position:relative; margin:0; background:url(../images/nc_10.png) repeat-x}
+.tip_abox {padding:10px; text-align:left;}
+.smallLay_a img {margin:10px; width:240px; height:160px; overflow:hidden; float:right}
+.tip_abox ul {padding:10px}
+.tip_abox li {padding-top:6px}
+.tip_abox h3 { border-bottom:1px dashed #CCC; padding-bottom:10px}
+.tip_abox label {text-align:left; width:100px; vertical-align:top}
+.tip_abox input,textarea{ padding:2px; width:136px; color:#666666}
+.tip_abtom {height:25px; text-align:center; margin-top:10px; padding-top:15px; padding-bottom:16px; border-top:1px dashed #CCC}
+
+.domexz {margin:10px 0 10px 105px;height:130px;}
+.domexz dt {float:left; display:inline-block;border:1px solid #CCC; background:#FFF;  padding:3px; width:81px; height:100px; margin-right:20px}
+.domexz dt p{padding:6px}

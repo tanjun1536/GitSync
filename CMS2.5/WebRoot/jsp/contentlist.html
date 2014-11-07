@@ -1,0 +1,613 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0040)http://debug.cdcmxc.com/mcms/contentlist -->
+<html>
+<head>
+    <title></title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <style type="text/css">
+        a:link
+        {
+            color: #036;
+            text-decoration: none;
+        }
+        a:visited
+        {
+            color: #036;
+            text-decoration: none;
+        }
+        a:hover
+        {
+            text-decoration: underline;
+        }
+        body
+        {
+			background-color:#D1DBED;
+            font-size: 12px;
+			margin-left:5px;
+        }
+        table
+        {
+            font-family: "微软雅黑" , Verdana;
+            color: #000;
+            font-size: 12px;
+        }
+		
+    </style>
+</head>
+<body leftmargin="0" topmargin="0">
+    <script>
+        var SelectAllFlag = false;
+        function selectAllRows() {
+            form = document.tableform;
+            if (SelectAllFlag == false) { SelectAllFlag = true; }
+            else { SelectAllFlag = false; }
+
+            for (var i = 0; i < form.elements.length; i++) {
+                var e = form.elements[i];
+                if (e.name == 'id[]') {
+                    e.checked = SelectAllFlag;
+                }
+            }
+        }
+        function createPage() {
+            document.location.href = "wcms/contentedit.jsp?areaId=1000";
+        }
+        function deletePage(url) {
+            if (confirm("\n确定 删除当前数据?")) {
+                document.location.href = url;
+            }
+        }
+    </script>
+    <div style="background-image: url(includes/images/list_title.gif); padding-bottom: 0px;
+        line-height: 26px; padding-left: 10px; padding-right: 10px; background-repeat: repeat-x;
+        color:#0000FF; font-size: 10pt; font-weight: bold; padding-top: 0px">
+        &nbsp;文章列表</div>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td>
+                    <form method="get" name="tableform">
+                    <table  border="0">
+                        <tbody>
+                            <tr>
+                                <td height="24">
+                                    <input onClick="javascript:createPage();" value="新建" type="button">&nbsp;&nbsp;&nbsp;
+                                    <script>                                        function clearbatch() { document.tableform.batchexec.value = "-1"; document.tableform.submit(); } </script>
+                                    <script>                                        function showMobile(uri) { newWin = window.open(uri, 'newWin', 'height=500,width=320,top=10,left=10,toolbar=no,menubar=no,location=no,scrollbars=yes,status=no'); } </script>
+                                    <select name="batchexec">
+                                        <option selected value="-1">批量操作</option>
+                                        <option value="0">批量删除</option>
+                                        <option value="2">批量审核</option>
+                                        <option value="3">批量发布</option>
+                                        <option value="4">重新发布</option>
+                                    </select>
+                                    &nbsp;&nbsp;<input id="doaction" onClick="javascript:document.tableform.submit();"
+                                        name="doaction" value="应用" type="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select
+                                            name="areaId">
+                                            <option selected value="1000">集团</option>
+                                            <option value="10000000">---南充日报</option>
+                                            <option value="100000000000">------新闻</option>
+                                            <option value="1000000000000000">---------时事新闻</option>
+                                            <option value="1000000000000001">---------天下成都</option>
+                                            <option value="1000000000000002">---------test</option>
+                                            <option value="10000002">---南充晚报</option>
+                                            <option value="100000020000">------新闻</option>
+                                            <option value="1000000200000000">---------头条</option>
+                                            <option value="1000000200000001">---------都市</option>
+                                            <option value="1000000200000002">---------寰球</option>
+                                            <option value="1000000200000003">---------体娱</option>
+                                        </select>
+                                    <select name="filter">
+                                        <option selected value="-1">所有状态</option>
+                                        <option value="0">文章草稿</option>
+                                        <option value="1">内容审核</option>
+                                        <option value="2">发布审核</option>
+                                        <option value="3">正式发布</option>
+                                    </select>
+                                    <input id="post-query-submit" class="submit" onClick="javascript:clearbatch();" value="筛选"
+                                        type="button">
+                                    &nbsp;&nbsp;&nbsp;
+                                    <br>
+                                    <br>
+                                    开始日期：<select name="B_year">
+                                        <option selected value="2012">2012</option>
+                                        <option value="2011">2011</option>
+                                        <option value="2010">2010</option>
+                                        <option value="2009">2009</option>
+                                        <option value="2008">2008</option>
+                                        <option value="2007">2007</option>
+                                        <option value="2006">2006</option>
+                                        <option value="2005">2005</option>
+                                        <option value="2004">2004</option>
+                                        <option value="2003">2003</option>
+                                    </select>年
+                                    <select name="B_month">
+                                        <option value="01">01</option>
+                                        <option selected value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>月
+                                    <select name="B_date">
+                                        <option selected value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>日 &nbsp;结束日期：<select name="E_year">
+                                        <option selected value="2012">2012</option>
+                                        <option value="2011">2011</option>
+                                        <option value="2010">2010</option>
+                                        <option value="2009">2009</option>
+                                        <option value="2008">2008</option>
+                                        <option value="2007">2007</option>
+                                        <option value="2006">2006</option>
+                                        <option value="2005">2005</option>
+                                        <option value="2004">2004</option>
+                                        <option value="2003">2003</option>
+                                    </select>年
+                                    <select name="E_month">
+                                        <option value="01">01</option>
+                                        <option selected value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>月
+                                    <select name="E_date">
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option selected value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>日
+                                    <select name="searchField">
+                                        <option selected value="TITLE">内容标题</option>
+                                        <option value="CONTEXT">内容正文</option>
+                                        <option value="AUTHOR">内容来源</option>
+                                        <option value="USER_ID">创建人</option>
+                                        <option value="CENSOR_USER">审核人</option>
+                                        <option value="ISSUE_USER">发布人</option>
+                                    </select>
+                                    <input style="width: 80px" id="search-input" name="searchkey"><input value="搜索" type="submit">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <table style="border: #0000FF 1px solid;" border="0" cellspacing="1" cellpadding="1" >
+                        <tbody>
+                            <tr>
+                                <td style="width: 10px; background-color:#0000FF; height:24px; text-align:center; color:white">
+                                    <div align="center">
+                                        &nbsp;</div>
+                                </td>
+                                <td style="width: 30px;background-color:#0000FF; height:24px; text-align:center; color:white">
+                                   序
+                                </td>
+                                <td style="width: 30px;background-color:#0000FF; height:24px; text-align:center; color:white">                                  
+                                            选
+                                </td>
+                                <td style="width: 30px;background-color:#0000FF; height:24px; text-align:center; color:white">
+                                   删除
+                                </td>
+                                <td style="width: 30px;background-color:#0000FF; height:24px; text-align:center; color:white">
+                                   操作
+                                </td>
+                                <td style="width: 90px;background-color:#0000FF; height:24px; text-align:center; color:white">
+                                   状态
+                                </td>
+                                <td style="width: 30px;background-color:#0000FF; height:24px; color:white">
+                                   标题
+                                </td>
+                                <td style="width: 30px;background-color:#0000FF; height:24px;color:white">
+                                   焦点
+                                </td>
+                                <td style="width: 150px;background-color:#0000FF; height:24px; color:white">
+                                   时间
+                                </td>
+                                <td style="width: 30px;background-color:#0000FF; height:24px; color:white">
+                                    访问
+                                </td>
+                                <td style="width: 270px;background-color:#0000FF; height:24px;">
+                                    <font color="white">分类</font>
+                                </td>
+                                <td style="width: 420px;background-color:#0000FF; height:24px;">
+                                    <font color="white">标题</font>
+                                </td>                                
+                            </tr>
+                            <tr bgcolor="#ffffff">
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        &nbsp;</div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        1</div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <input name="id[]" value="10485" type="checkbox"></div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <a onClick="javascript:deletePage('contentlist?areaId=1000&amp;action=delete&amp;id=10485');"
+                                            href="http://debug.cdcmxc.com/mcms/contentlist#">
+                                            <img title="删除本条记录" border="0" align="absMiddle" src="images/delete.png" width="16"
+                                                height="16"></a></div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <a href="http://debug.cdcmxc.com/mcms/wcms/contentedit.jsp?areaId=1000&amp;id=10485">
+                                            <img title="编辑和查看本条记录" border="0" align="absMiddle" src="images/list.png" width="16"
+                                                height="16"></a></div>
+                                </td>
+                                <td height="24">
+                                    <div align="center">
+                                        【<font color="green">正式发布</font>】</div>
+                                </td>
+                                <td height="24">&nbsp;
+                                    
+                                </td>
+                                <td height="24">&nbsp;
+                                    
+                                </td>
+                                <td height="24">
+                                    2012-02-16 15:07:33
+                                </td>
+                                <td height="24">
+                                    9
+                                </td>
+                                <td height="24">
+                                    集团-新闻抢先报-新闻-时事快讯
+                                </td>
+                                <td height="24">
+                                    <a onClick="javascript:showMobile('http://debug.cdcmxc.com:80/mcms/3g/getcontent.jsp?id=10485')"
+                                        href="http://debug.cdcmxc.com/mcms/contentlist#">网友曝光新闻20120216150733</a>
+                                </td>
+                                
+                            </tr>
+                            <tr bgcolor="#7CB9FC">
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        &nbsp;</div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        2</div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <input name="id[]" value="10484" type="checkbox"></div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <a onClick="javascript:deletePage('contentlist?areaId=1000&amp;action=delete&amp;id=10484');"
+                                            href="http://debug.cdcmxc.com/mcms/contentlist#">
+                                            <img title="删除本条记录" border="0" align="absMiddle" src="images/delete.png" width="16"
+                                                height="16"></a></div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <a href="http://debug.cdcmxc.com/mcms/wcms/contentedit.jsp?areaId=1000&amp;id=10484">
+                                            <img title="编辑和查看本条记录" border="0" align="absMiddle" src="images/list.png" width="16"
+                                                height="16"></a></div>
+                                </td>
+                                <td height="24">
+                                    <div align="center">
+                                        【文章草稿】</div>
+                                </td>
+                                <td height="24">&nbsp;
+                                    
+                                </td>
+                                <td height="24">&nbsp;
+                                    
+                                </td>
+                                <td height="24">
+                                    2012-02-16 15:06:29
+                                </td>
+                                <td height="24">
+                                    0
+                                </td>
+                                <td height="24">
+                                    集团-新闻抢先报-新闻-时事快讯
+                                </td>
+                                <td height="24">
+                                    <a onClick="javascript:showMobile('http://debug.cdcmxc.com:80/mcms/3g/getcontent.jsp?id=10484')"
+                                        href="http://debug.cdcmxc.com/mcms/contentlist#">网友曝光新闻20120216150629</a>
+                                </td>
+                               
+                            </tr>
+                            <tr bgcolor="#ffffff">
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        &nbsp;</div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        3</div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <input name="id[]" value="10483" type="checkbox"></div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <a onClick="javascript:deletePage('contentlist?areaId=1000&amp;action=delete&amp;id=10483');"
+                                            href="http://debug.cdcmxc.com/mcms/contentlist#">
+                                            <img title="删除本条记录" border="0" align="absMiddle" src="images/delete.png" width="16"
+                                                height="16"></a></div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <a href="http://debug.cdcmxc.com/mcms/wcms/contentedit.jsp?areaId=1000&amp;id=10483">
+                                            <img title="编辑和查看本条记录" border="0" align="absMiddle" src="images/list.png" width="16"
+                                                height="16"></a></div>
+                                </td>
+                                <td height="24">
+                                    <div align="center">
+                                        【文章草稿】</div>
+                                </td>
+                                <td height="24">&nbsp;
+                                    
+                                </td>
+                                <td height="24">&nbsp;
+                                    
+                                </td>
+                                <td height="24">
+                                    2012-02-16 15:01:16
+                                </td>
+                                <td height="24">
+                                    0
+                                </td>
+                                <td height="24">
+                                    集团-新闻抢先报-新闻-时事快讯
+                                </td>
+                                <td height="24">
+                                    <a onClick="javascript:showMobile('http://debug.cdcmxc.com:80/mcms/3g/getcontent.jsp?id=10483')"
+                                        href="http://debug.cdcmxc.com/mcms/contentlist#">网友曝光新闻20120216150116</a>
+                                </td>
+                                
+                            </tr>
+                            <tr bgcolor="#7CB9FC">
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        &nbsp;</div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        4</div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <input name="id[]" value="10482" type="checkbox"></div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <a onClick="javascript:deletePage('contentlist?areaId=1000&amp;action=delete&amp;id=10482');"
+                                            href="http://debug.cdcmxc.com/mcms/contentlist#">
+                                            <img title="删除本条记录" border="0" align="absMiddle" src="images/delete.png" width="16"
+                                                height="16"></a></div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <a href="http://debug.cdcmxc.com/mcms/wcms/contentedit.jsp?areaId=1000&amp;id=10482">
+                                            <img title="编辑和查看本条记录" border="0" align="absMiddle" src="images/list.png" width="16"
+                                                height="16"></a></div>
+                                </td>
+                                <td height="24">
+                                    <div align="center">
+                                        【文章草稿】</div>
+                                </td>
+                                <td height="24">&nbsp;
+                                    
+                                </td>
+                                <td height="24">&nbsp;
+                                    
+                                </td>
+                                <td height="24">
+                                    2012-02-16 14:57:36
+                                </td>
+                                <td height="24">
+                                    0
+                                </td>
+                                <td height="24">
+                                    集团-新闻抢先报-新闻-时事快讯
+                                </td>
+                                <td height="24">
+                                    <a onClick="javascript:showMobile('http://debug.cdcmxc.com:80/mcms/3g/getcontent.jsp?id=10482')"
+                                        href="http://debug.cdcmxc.com/mcms/contentlist#">网友曝光新闻20120216145736</a>
+                                </td>
+                               
+                            </tr>
+                            <tr bgcolor="#ffffff">
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        &nbsp;</div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        5</div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <input name="id[]" value="10481" type="checkbox"></div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <a onClick="javascript:deletePage('contentlist?areaId=1000&amp;action=delete&amp;id=10481');"
+                                            href="http://debug.cdcmxc.com/mcms/contentlist#">
+                                            <img title="删除本条记录" border="0" align="absMiddle" src="images/delete.png" width="16"
+                                                height="16"></a></div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <a href="http://debug.cdcmxc.com/mcms/wcms/contentedit.jsp?areaId=1000&amp;id=10481">
+                                            <img title="编辑和查看本条记录" border="0" align="absMiddle" src="images/list.png" width="16"
+                                                height="16"></a></div>
+                                </td>
+                                <td height="24">
+                                    <div align="center">
+                                        【<font color="green">正式发布</font>】</div>
+                                </td>
+                                <td height="24">&nbsp;
+                                    
+                                </td>
+                                <td height="24">&nbsp;
+                                    
+                                </td>
+                                <td height="24">
+                                    2012-02-15 10:59:04
+                                </td>
+                                <td height="24">
+                                    2
+                                </td>
+                                <td height="24">
+                                    集团-新闻抢先报-新闻-时事快讯
+                                </td>
+                                <td height="24">
+                                    <a onClick="javascript:showMobile('http://debug.cdcmxc.com:80/mcms/3g/getcontent.jsp?id=10481')"
+                                        href="http://debug.cdcmxc.com/mcms/contentlist#">标题11113344</a>
+                                </td>
+                               
+                            </tr>
+                            <tr bgcolor="#7CB9FC">
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        &nbsp;</div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        6</div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <input name="id[]" value="10479" type="checkbox"></div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <a onClick="javascript:deletePage('contentlist?areaId=1000&amp;action=delete&amp;id=10479');"
+                                            href="http://debug.cdcmxc.com/mcms/contentlist#">
+                                            <img title="删除本条记录" border="0" align="absMiddle" src="images/delete.png" width="16"
+                                                height="16"></a></div>
+                                </td>
+                                <td height="24" align="center">
+                                    <div align="center">
+                                        <a href="http://debug.cdcmxc.com/mcms/wcms/contentedit.jsp?areaId=1000&amp;id=10479">
+                                            <img title="编辑和查看本条记录" border="0" align="absMiddle" src="images/list.png" width="16"
+                                                height="16"></a></div>
+                                </td>
+                                <td height="24">
+                                    <div align="center">
+                                        【<font color="green">正式发布</font>】</div>
+                                </td>
+                                <td height="24">&nbsp;
+                                    
+                                </td>
+                                <td height="24">&nbsp;
+                                    
+                                </td>
+                                <td height="24">
+                                    2012-02-07 15:49:17
+                                </td>
+                                <td height="24">
+                                    4
+                                </td>
+                                <td height="24">
+                                    集团-新闻抢先报-新闻-时事快讯
+                                </td>
+                                <td height="24">
+                                    <a onClick="javascript:showMobile('http://debug.cdcmxc.com:80/mcms/3g/getcontent.jsp?id=10479')"
+                                        href="http://debug.cdcmxc.com/mcms/contentlist#">代报料20120111164230</a>
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <table  border="0">
+                        <tbody>
+                            <tr>
+                                <td height="24">                                   
+                                    【<a href="#">首页</a>】 【<a href="#">上一页</a>】
+                                    【<a href="#">下一页</a>】 【<a href="#">尾页</a>】
+                                    【第 1 页，共 1 页 / 共 6 行 / 每页 50 行】
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <div>
+                    </div>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

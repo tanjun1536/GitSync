@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+	default-autowire="autodetect">
+	<!--action -->
+	<bean id="LoginAction" class="com.gang.action.login.LoginAction" scope="prototype"></bean>
+	<bean id="SectionAction" class="com.gang.action.section.SectionAction" scope="prototype"></bean>
+	<bean id="ArticleMobileAction" class="com.gang.action.article.ArticleMobileAction" scope="prototype"></bean>
+	<bean id="ArticlePadAction" class="com.gang.action.article.ArticlePadAction" scope="prototype"></bean>
+	<bean id="RoleAction" class="com.gang.action.role.RoleAction" scope="prototype"></bean>
+	<bean id="DepartmentAction" class="com.gang.action.department.DepartmentAction" scope="prototype"></bean>
+	<bean id="BackUserAction" class="com.gang.action.user.BackUserAction" scope="prototype"></bean>
+	<bean id="ArticleAuditAction" class="com.gang.action.article.ArticleAuditAction" scope="prototype"></bean>
+	<bean id="SectionFocusAction" class="com.gang.action.section.SectionFocusAction" scope="prototype"></bean>
+	<bean id="SectionFocusAuditAction" class="com.gang.action.section.SectionFocusAuditAction" scope="prototype"></bean>
+	<bean id="ImageInfoAction" class="com.gang.action.image.ImageInfoAction" scope="prototype"></bean>
+	<bean id="MenuAction" class="com.gang.action.menu.MenuAction" scope="prototype"></bean>
+	<bean id="ImageContentAction" class="com.gang.action.imagecontent.ImageContentAction" scope="prototype"></bean>
+	<bean id="PadImageContentAction" class="com.gang.action.imagecontent.PadImageContentAction" scope="prototype"></bean>
+	<bean id="PadPageLayoutAction" class="com.gang.action.layout.PadPageLayoutAction" scope="prototype"></bean>
+	<bean id="MobileImageContentAuditAction" class="com.gang.action.imagecontent.MobileImageContentAuditAction" scope="prototype"></bean>
+	<bean id="PadImageContentAuditAction" class="com.gang.action.imagecontent.PadImageContentAuditAction" scope="prototype"></bean>
+	<bean id="PadSectionFocusAction" class="com.gang.action.section.PadSectionFocusAction" scope="prototype"></bean>
+	<bean id="ArticleMobileDistributeAction" class="com.gang.action.distribute.ArticleMobileDistributeAction" scope="prototype"></bean>
+	<bean id="ArticlePadDistributeAction" class="com.gang.action.distribute.ArticlePadDistributeAction" scope="prototype"></bean>
+	<bean id="PadSectionFocusAuditAction" class="com.gang.action.section.PadSectionFocusAuditAction" scope="prototype"></bean>
+	<bean id="PadArticleAuditAction" class="com.gang.action.article.PadArticleAuditAction" scope="prototype"></bean>
+	<bean id="SectionFocusMobileDistributeAction" class="com.gang.action.distribute.SectionFocusMobileDistributeAction" scope="prototype"></bean>
+	<bean id="SectionFocusPadDistributeAction" class="com.gang.action.distribute.SectionFocusPadDistributeAction" scope="prototype"></bean>
+	<bean id="StateLogAction" class="com.gang.action.log.StateLogAction" scope="prototype"></bean>
+	<bean id="ArticleMobileCommentAction" class="com.gang.action.comment.ArticleMobileCommentAction" scope="prototype"></bean>
+	<bean id="ArticlePadCommentAction" class="com.gang.action.comment.ArticlePadCommentAction" scope="prototype"></bean>
+	<bean id="PictureAction" class="com.gang.action.screen.PictureAction" scope="prototype"></bean>
+	<bean id="FrontUserAction" class="com.gang.action.user.FrontUserAction" scope="prototype"></bean>
+	<!--service -->
+	<bean id="springContextUtil" class="com.gang.comms.SpringContextUtil" />
+	<bean id="LoginService" class="com.gang.service.login.LoginService"></bean>
+	<bean id="SectionServie" class="com.gang.service.section.SectionService"></bean>
+	<bean id="ArticleServie" class="com.gang.service.article.ArticleService"></bean>
+	<bean id="SystemService" class="com.gang.service.system.SystemService"></bean>
+	<bean id="RoleService" class="com.gang.service.role.RoleService"></bean>
+	<bean id="DictService" class="com.gang.service.dict.DictService"></bean>
+	<bean id="MenuService" class="com.gang.service.menu.MenuService"></bean>
+	<bean class="com.gang.service.department.DepartmentService"></bean>
+	<bean id="BackUserService" class="com.gang.service.user.BackUserService"></bean>
+	<bean id="ArticleAuditService" class="com.gang.service.article.ArticleAuditService"></bean>
+	<bean id="SectionFocusService" class="com.gang.service.section.SectionFocusService"></bean>
+	<bean class="com.gang.service.section.SectionFocusAuditService"></bean>
+	<bean class="com.gang.service.process.StateService"></bean>
+	<bean class="com.gang.service.image.ImageInfoService"></bean>
+	<bean id="TemplateService" class="com.gang.service.template.TemplateService"></bean>
+	<bean class="com.gang.service.imagecontent.ImageContentService"></bean>
+	<bean class="com.gang.service.imagecontent.PadImageContentService"></bean>
+	<bean id="PadPageLayoutService" class="com.gang.service.layout.PadPageLayoutService"></bean>
+	<bean class="com.gang.service.imagecontent.MobileImageContentAuditService"></bean>
+	<bean class="com.gang.service.imagecontent.PadImageContentAuditService"></bean>
+	<bean id="PadSectionFocusService" class="com.gang.service.section.PadSectionFocusService"></bean>
+	<bean class="com.gang.service.distribute.ArticleMobileDistributeService"></bean>
+	<bean class="com.gang.service.distribute.ArticlePadDistributeService"></bean>
+	<bean class="com.gang.service.section.PadSectionFocusAuditService"></bean>
+	<bean class="com.gang.service.article.PadArticleAuditService"></bean>
+	<bean class="org.apache.cxf.jaxws.context.WebServiceContextImpl" />
+	<bean class="com.gang.service.distribute.SectionFocusMobileDistributeService"></bean>
+	<bean class="com.gang.service.distribute.SectionFocusPadDistributeService"></bean>
+	<bean class="com.gang.service.log.StateLogService"></bean>
+	<bean class="com.gang.service.comment.ArticleMobileCommentService"></bean>
+	<bean class="com.gang.service.comment.ArticlePadCommentService"></bean>
+	<bean class="com.gang.service.screen.PictureService"></bean>
+	<bean class="com.gang.service.user.FrontUserService"></bean>
+	<bean class="com.gang.service.user.FeedBackService"></bean>
+	<bean class="com.gang.service.version.VersionService"></bean>
+	<bean class="com.gang.service.sectiontype.SectionTypeService"></bean>
+	<bean class="com.gang.service.statistics.StatisticsService"></bean>
+	<bean class="com.gang.service.expose.ExposeService"></bean>
+	<bean class="com.gang.service.hot.HotService"></bean>
+	<bean class="com.gang.service.push.PushService"></bean>
+	<bean class="com.gang.service.message.MessageService"></bean>
+	<bean id="FeedBackAction" class="com.gang.action.user.FeedBackAction" scope="prototype"></bean>
+	<bean id="VersionAction" class="com.gang.action.version.VersionAction" scope="prototype"></bean>
+	<bean id="StatisticsAction" class="com.gang.action.statistics.StatisticsAction" scope="prototype"></bean>
+	<bean id="ArticleMobileNewsAction" class="com.gang.action.article.ArticleMobileNewsAction" scope="prototype"></bean>
+	<bean id="ArticleMobileGoodsAction" class="com.gang.action.article.ArticleMobileGoodsAction" scope="prototype"></bean>
+	<bean id="ArticleMobileShopAction" class="com.gang.action.article.ArticleMobileShopAction" scope="prototype"></bean>
+	<bean id="ArticleMobileLinkAction" class="com.gang.action.article.ArticleMobileLinkAction" scope="prototype"></bean>
+	<bean id="SectionTypeAction" class="com.gang.action.sectiontype.SectionTypeAction" scope="prototype"></bean>
+	<bean id="ShareAction" class="com.gang.action.share.ShareAction" scope="prototype"></bean>
+	<bean id="ExposeAction" class="com.gang.action.expose.ExposeAction" scope="prototype"></bean>
+	<bean id="HotAction" class="com.gang.action.hot.HotAction" scope="prototype"></bean>
+	<bean id="PushAction" class="com.gang.action.push.PushAction" scope="prototype"></bean>
+	<bean id="MessageAction" class="com.gang.action.message.MessageAction" scope="prototype"></bean>
+	<bean id="PM25Action" class="com.gang.action.pm25.PM25Action" scope="singleton"></bean>
+	<!-- Mobile Action -->
+	<bean id="TaskServiceAction" class="com.gang.action.mobile.TaskServiceAction" scope="prototype"></bean>
+	<bean id="TradeServiceAction" class="com.gang.action.mobile.TradeServiceAction" scope="prototype"></bean>
+	<bean id="UserServiceAction" class="com.gang.action.mobile.UserServiceAction" scope="prototype"></bean>
+	<bean id="CMSServiceAction" class="com.gang.action.mobile.CMSServiceAction" scope="prototype"></bean>
+	<bean class="com.gang.service.mobile.UserService"></bean>
+	<bean class="com.gang.service.mobile.TaskService"></bean>
+	<bean class="com.gang.service.mobile.TradeService"></bean>
+	
+	<!-- Prize Action -->
+	<bean id="ProductAction" class="com.gang.action.product.ProductAction" scope="prototype"></bean>
+	<bean id="ProductTypeAction" class="com.gang.action.product.ProductTypeAction" scope="prototype"></bean>
+	<bean id="OrdersAction" class="com.gang.action.orders.OrdersAction" scope="prototype"></bean>
+	<bean class="com.gang.service.product.ProductService"></bean>
+	<bean class="com.gang.service.product.ProductTypeService"></bean>
+	<bean class="com.gang.service.orders.OrdersService"></bean>
+</beans>

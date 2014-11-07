@@ -1,0 +1,67 @@
+.list_carousel {
+	background-color: #ccc;
+	margin: 0px;
+	width: 500px;
+}
+
+.list_carousel ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+}
+.list_carousel li {
+	color: #999;
+	text-align: center;
+	background-color: #eee;
+	border: 1px solid #999;
+	width: 60px;
+	height: 110px;
+	padding: 0;
+	margin: 5px;
+	display: block;
+	float: left;
+}
+.list_carousel li span
+{
+	margin: 0px;
+}
+.list_carousel.responsive {
+	width: auto;
+	margin-left: 0;
+}
+
+.clearfix {
+	float: none;
+	clear: both;
+}
+
+.prev {
+	float: left;
+	margin-left: 5px;
+}
+
+.next {
+	float: right;
+	margin-right: 5px;
+}
+
+.pager {
+	float: left;
+	width: 300px;
+	text-align: center;
+}
+
+.pager a {
+	margin: 0 5px;
+	text-decoration: none;
+}
+
+.pager a.selected {
+	text-decoration: underline;
+}
+.caroufredsel_wrapper .mvbox
+{
+	width: 575px;
+	height: 122px;
+}

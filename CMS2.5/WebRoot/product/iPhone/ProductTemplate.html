@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport"
+	content="width=device-width,minimum-scale=1.0,maximum-scale=1,user-scalable=no" />
+<title>Post</title>
+<base href="${basepath}">
+<script type="text/javascript"
+	src="product/iPhone/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="product/iPhone/js/global.js"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="product/iPhone/css/style.css" />
+	<script type="text/javascript">
+		var basePath="${basepath}";
+		function buyproduct(product_id,user_name,hash_password)
+		{
+		   
+			var url=basePath+'TradeServiceAction!buy.action?user_name='+user_name+'&hash_password='+hash_password+'&product_id='+product_id;
+			$.ajax({
+					type : "GET",
+					url : url,
+					datatype : "json",
+					success : function(data) {
+					   data=eval('('+data+')');
+						alert(data.result.message);
+					},
+					error : function() {
+						data=eval('('+data+')');
+						alert(data.result.message);
+					}
+				});
+		}
+		//onclick="buyproduct('4','test@163.com','d945e41c72f1aec69330e48e16ee24f5')"
+	</script>
+
+</head>
+
+<body>
+
+	<h2>名称：${product.name!""}</h2>
+	<h5>价格：${product.price!""}</h5>
+	<h5>数量：${product.stock!""}</h5>
+	<img alt="" src="${product.image!""}">
+	<a href="icity://buyproduct"><button >兑换</button></a>
+	
+</body>
+</html>

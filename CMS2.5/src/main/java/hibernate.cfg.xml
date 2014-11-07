@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+	    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+	    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/admin?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8</property>
+	    <property name="hibernate.connection.username">root</property>
+	    <property name="hibernate.connection.password">admin</property>
+		<!-- package com/xinxinsoft/entity/core -->
+		<mapping resource="com/xinxinsoft/entity/core/Company.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/core/LoginUser.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/core/MenuItem.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/core/Role.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/core/SystemOrganization.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/core/SystemUser.hbm.xml" />
+		<!--成本法房地产 -->
+		<mapping resource="com/xinxinsoft/entity/costMethod/FdccbfGcb.hbm.xml" />
+		<!--成本法土地 -->
+		<mapping resource="com/xinxinsoft/entity/costMethod/TdcbfGcb.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/costMethod/TdcbfTdgcbl.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/costMethod/TdcbfXzb.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/costMethod/TdcbwxXzb.hbm.xml" />
+		<!-- 剩余法 -->
+		<mapping resource="com/xinxinsoft/entity/residualMethod/CompletedRealEstateResidualMethod.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/residualMethod/DiscountFactor.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/residualMethod/LandResidualMethod.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/residualMethod/RealEstateResidualMethod.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/residualMethod/ResidualMethodCorrectCoefficient.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/residualMethod/UnfinishedRealEstateResidualMethod.hbm.xml" />
+		<!-- 收益法 -->
+		<mapping resource="com/xinxinsoft/entity/syf/SyfHtzj.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/syf/SyfZjwd.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/syf/SyfZjdz.hbm.xml" />
+		<!-- 测算 -->
+		<mapping resource="com/xinxinsoft/entity/cesuan/Csjg.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/cesuan/Xiangmu.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/cesuan/Gjdx.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/cesuanshezhi/Parameter.hbm.xml" />
+
+		<!-- package com/xinxinsoft/entity/evaluate -->
+		<mapping resource="com/xinxinsoft/entity/client/Client.hbm.xml"/>
+		<mapping resource="com/xinxinsoft/entity/fwdak/Fwdak.hbm.xml"/>
+		<mapping resource="com/xinxinsoft/entity/lpalk/Lpalk.hbm.xml"/>
+		<mapping resource="com/xinxinsoft/entity/task/Staffs.hbm.xml"/>
+		<mapping resource="com/xinxinsoft/entity/task/Fxjl.hbm.xml"/>
+		<mapping resource="com/xinxinsoft/entity/task/Jxkh.hbm.xml"/>
+				
+		<!-- package com/xinxinsoft/entity/process -->
+		<mapping resource="com/xinxinsoft/entity/process/Attachment.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/process/Record.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/process/Types.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/process/Values.hbm.xml" />
+
+		<!-- 风险点 -->
+		<mapping resource="com/xinxinsoft/entity/riskSetting/RiskControl.hbm.xml" />
+		<!--模版定义 -->
+		<mapping resource="com/xinxinsoft/entity/templatedefine/ChildFactor.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/templatedefine/EstimateMethod.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/templatedefine/Factor.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/templatedefine/Template.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/templatedefine/StandardLandPriceDefaultValue.hbm.xml" />
+		<mapping resource="com/xinxinsoft/entity/templatedefine/MarketCompareEvaluationItem.hbm.xml" />
+		
+		<!-- 报告 -->
+		<mapping resource="com/xinxinsoft/entity/report/Report.hbm.xml" />
+		<!-- JBPM -->
+		<mapping resource="org/jbpm/graph/action/Script.hbm.xml" />
+		<mapping resource="org/jbpm/identity/User.hbm.xml" />
+		<mapping resource="org/jbpm/identity/Group.hbm.xml" />
+		<mapping resource="org/jbpm/identity/Membership.hbm.xml" />
+		<mapping resource="org/jbpm/db/hibernate.queries.hbm.xml" />
+		<mapping resource="org/jbpm/graph/def/ProcessDefinition.hbm.xml" />
+		<mapping resource="org/jbpm/graph/def/Node.hbm.xml" />
+		<mapping resource="org/jbpm/graph/def/Transition.hbm.xml" />
+		<mapping resource="org/jbpm/graph/def/Event.hbm.xml" />
+		<mapping resource="org/jbpm/graph/def/Action.hbm.xml" />
+		<mapping resource="org/jbpm/graph/def/SuperState.hbm.xml" />
+		<mapping resource="org/jbpm/graph/def/ExceptionHandler.hbm.xml" />
+		<mapping resource="org/jbpm/instantiation/Delegation.hbm.xml" />
+		<mapping resource="org/jbpm/graph/node/StartState.hbm.xml" />
+		<mapping resource="org/jbpm/graph/node/EndState.hbm.xml" />
+		<mapping resource="org/jbpm/graph/node/ProcessState.hbm.xml" />
+		<mapping resource="org/jbpm/graph/node/Decision.hbm.xml" />
+		<mapping resource="org/jbpm/graph/node/Fork.hbm.xml" />
+		<mapping resource="org/jbpm/graph/node/Join.hbm.xml" />
+		<mapping resource="org/jbpm/graph/node/State.hbm.xml" />
+		<mapping resource="org/jbpm/graph/node/TaskNode.hbm.xml" />
+		<mapping resource="org/jbpm/context/def/ContextDefinition.hbm.xml" />
+		<mapping resource="org/jbpm/context/def/VariableAccess.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/def/TaskMgmtDefinition.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/def/Swimlane.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/def/Task.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/def/TaskController.hbm.xml" />
+		<mapping resource="org/jbpm/module/def/ModuleDefinition.hbm.xml" />
+		<mapping resource="org/jbpm/bytes/ByteArray.hbm.xml" />
+		<mapping resource="org/jbpm/file/def/FileDefinition.hbm.xml" />
+		<mapping resource="org/jbpm/scheduler/def/CreateTimerAction.hbm.xml" />
+		<mapping resource="org/jbpm/scheduler/def/CancelTimerAction.hbm.xml" />
+		<mapping resource="org/jbpm/graph/exe/Comment.hbm.xml" />
+		<mapping resource="org/jbpm/graph/exe/ProcessInstance.hbm.xml" />
+		<mapping resource="org/jbpm/graph/exe/Token.hbm.xml" />
+		<mapping resource="org/jbpm/graph/exe/RuntimeAction.hbm.xml" />
+		<mapping resource="org/jbpm/module/exe/ModuleInstance.hbm.xml" />
+		<mapping resource="org/jbpm/context/exe/ContextInstance.hbm.xml" />
+		<mapping resource="org/jbpm/context/exe/TokenVariableMap.hbm.xml" />
+		<mapping resource="org/jbpm/context/exe/VariableInstance.hbm.xml" />
+		<mapping
+			resource="org/jbpm/context/exe/variableinstance/ByteArrayInstance.hbm.xml" />
+		<mapping resource="org/jbpm/context/exe/variableinstance/DateInstance.hbm.xml" />
+		<mapping
+			resource="org/jbpm/context/exe/variableinstance/DoubleInstance.hbm.xml" />
+		<mapping
+			resource="org/jbpm/context/exe/variableinstance/HibernateLongInstance.hbm.xml" />
+		<mapping
+			resource="org/jbpm/context/exe/variableinstance/HibernateStringInstance.hbm.xml" />
+		<mapping resource="org/jbpm/context/exe/variableinstance/LongInstance.hbm.xml" />
+		<mapping resource="org/jbpm/context/exe/variableinstance/NullInstance.hbm.xml" />
+		<mapping
+			resource="org/jbpm/context/exe/variableinstance/StringInstance.hbm.xml" />
+		<mapping resource="org/jbpm/msg/Message.hbm.xml" />
+		<mapping resource="org/jbpm/msg/db/TextMessage.hbm.xml" />
+		<mapping resource="org/jbpm/command/ExecuteActionCommand.hbm.xml" />
+		<mapping resource="org/jbpm/command/ExecuteNodeCommand.hbm.xml" />
+		<mapping resource="org/jbpm/command/SignalCommand.hbm.xml" />
+		<mapping resource="org/jbpm/command/TaskInstanceEndCommand.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/exe/TaskMgmtInstance.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/exe/TaskInstance.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/exe/PooledActor.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/exe/SwimlaneInstance.hbm.xml" />
+		<mapping resource="org/jbpm/scheduler/exe/Timer.hbm.xml" />
+		<mapping resource="org/jbpm/logging/log/ProcessLog.hbm.xml" />
+		<mapping resource="org/jbpm/logging/log/MessageLog.hbm.xml" />
+		<mapping resource="org/jbpm/logging/log/CompositeLog.hbm.xml" />
+		<mapping resource="org/jbpm/graph/log/ActionLog.hbm.xml" />
+		<mapping resource="org/jbpm/graph/log/NodeLog.hbm.xml" />
+		<mapping resource="org/jbpm/graph/log/ProcessInstanceCreateLog.hbm.xml" />
+		<mapping resource="org/jbpm/graph/log/ProcessInstanceEndLog.hbm.xml" />
+		<mapping resource="org/jbpm/graph/log/ProcessStateLog.hbm.xml" />
+		<mapping resource="org/jbpm/graph/log/SignalLog.hbm.xml" />
+		<mapping resource="org/jbpm/graph/log/TokenCreateLog.hbm.xml" />
+		<mapping resource="org/jbpm/graph/log/TokenEndLog.hbm.xml" />
+		<mapping resource="org/jbpm/graph/log/TransitionLog.hbm.xml" />
+		<mapping resource="org/jbpm/context/log/VariableLog.hbm.xml" />
+		<mapping resource="org/jbpm/context/log/VariableCreateLog.hbm.xml" />
+		<mapping resource="org/jbpm/context/log/VariableDeleteLog.hbm.xml" />
+		<mapping resource="org/jbpm/context/log/VariableUpdateLog.hbm.xml" />
+		<mapping
+			resource="org/jbpm/context/log/variableinstance/ByteArrayUpdateLog.hbm.xml" />
+		<mapping resource="org/jbpm/context/log/variableinstance/DateUpdateLog.hbm.xml" />
+		<mapping
+			resource="org/jbpm/context/log/variableinstance/DoubleUpdateLog.hbm.xml" />
+		<mapping
+			resource="org/jbpm/context/log/variableinstance/HibernateLongUpdateLog.hbm.xml" />
+		<mapping
+			resource="org/jbpm/context/log/variableinstance/HibernateStringUpdateLog.hbm.xml" />
+		<mapping resource="org/jbpm/context/log/variableinstance/LongUpdateLog.hbm.xml" />
+		<mapping
+			resource="org/jbpm/context/log/variableinstance/StringUpdateLog.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/log/TaskLog.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/log/TaskCreateLog.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/log/TaskAssignLog.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/log/TaskEndLog.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/log/SwimlaneLog.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/log/SwimlaneCreateLog.hbm.xml" />
+		<mapping resource="org/jbpm/taskmgmt/log/SwimlaneAssignLog.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
