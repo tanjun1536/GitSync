@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/jquery.json-2.3.min.js" />
+<load href="__PUBLIC__/js/Jquery.Query.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+		var tid;
+		var ctid;
+		var date;
+		var code;
+		var overtime;
+		var devicecode;
+
+	$(function() {
+		 tid=$.query.get('tid');
+		 ctid=$.query.get('ctid');
+		 date=$.query.get('sdate');
+		 code="{.sechudlcode}";//$.query.get('sechudlcode');
+		 overtime=$.query.get('overtimeid');
+		 devicecode=$.query.get('devicecode');
+		 $("#maintenancedate").val(date);
+		// $("#maintenancecode").val(code);
+		$("#type").change(function() {
+			getChildType();
+		});
+		$("#childtype").change(function() {
+			getDevice();
+			getOverTime();
+		});
+		$("#devicecode").change(function() {
+			var name=$("#devicecode").find("option:selected").attr("name");
+			if(name!='')
+				{
+					$('#devicename').val(name);
+					$('#devicenameTd').html(name);
+				}
+		});
+		$("#overtime").change(function(){
+			//查询明细
+			getDetails();
+		});
+		if(tid)$("#type").val(tid).trigger('change');
+	});
+	function getChildType() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getDeviceChildType",
+			data : "id=" + $("#type").val(),
+			success : function(data) {
+				$("#childtype").empty();
+				$("<option value='0'>請選擇</option>").appendTo("#childtype");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#childtype");
+				});
+				if(ctid)$("#childtype").val(ctid).trigger('change');
+			}
+		});
+
+	}
+	var c={@case};
+	function getOverTime() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getOverTime",
+			data :{"case":c,"type":$("#type").val(),"childtype":$("#childtype").val()},
+			success : function(data) {
+				$("#overtime").empty();
+				$("<option value='0'>請選擇</option>").appendTo("#overtime");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#overtime");
+				});
+				if(overtime) $("#overtime").val(overtime).trigger('change');
+			}
+		});
+
+	}
+	function getDevice() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getDevice",
+			data :{"case":c,"type":$("#type").val(),"childtype":$("#childtype").val()},
+			success : function(data) {
+				$("#devicecode").empty();
+				$("<option value='0'>請選擇</option>").appendTo("#devicecode");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option name='"+ decodeURI(json[k]['name'])+"' value='" + json[k]['devicecode'] + "'>" + decodeURI(json[k]['devicecode']) + "</option>").appendTo("#devicecode");
+				});
+				if(devicecode) $("#devicecode").val(devicecode).trigger('change');
+			}
+		});
+
+	}
+	function getDetails() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getDetails",
+			data :{"id":$("#overtime").val()},
+			success : function(data) {
+				
+				var table = $('#detailTable');
+				table.empty();
+				$('<tr><th width="125" scope="col">項目</th><th width="98" scope="col">資料類型</th><th width="121" scope="col">實際資料</th><th width="191" scope="col">說明</th><th width="158" scope="col">備註</th></tr>').appendTo("#detailTable");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					var id=json[k]['id'];
+					var project=json[k]['project'];
+					var type=json[k]['type'];
+					var descript=json[k]['descript'];
+					var standard=json[k]['standard'];
+					var floor=json[k]['floor'];
+					var cap=json[k]['cap'];
+					var len =table.find("tr").length;
+					var row = len%2 ==1?$("<tr></tr>"):$("<tr class='trcolor'></tr>");
+					//var type=$("input[type=radio]:checked").val();
+					row.append($('<td><input id="detailId" type="hidden" value="'+id+'" /><input id="project" type="hidden" value="'+project+'" /></td>').append(project));
+					if(type=='一般')
+						{
+							row.append($("<td></td>").append('<input id="typeHd" type="hidden" value="一般" />一般'));
+							row.append($("<td></td>").append('<input name="result'+k+'" type="radio" value="正常" checked="checked"/> 正常 <input name="result'+k+'" type="radio" value="異常" /> 異常'));
+							
+						}
+					else
+						{
+							row.append($("<td></td>").append('<input id="floor" type="hidden" value="'+floor+'" /><input id="cap" type="hidden" value="'+cap+'" /><input id="typeHd" type="hidden" value="標準值" />標準值'+standard));
+							row.append($("<td></td>").append('數值 <input type="text" id="standard" name="standard" style="width: 30px" />'));
+						}
+					row.append($("<td></td>").append('<input id="descript" type="hidden" value="'+descript+'" />').append(descript));
+					row.append($("<td></td>").append('<input type="text" name="remark" id="remark" style="width: 150px" />'));
+					table.append(row);
+				});
+			}
+		});
+
+	}
+	function check()
+	{
+		var array=new Array();
+		$("#detailTable").find("tr").each(function(i,v){
+				if(i>0)
+				{
+					var obj={};
+					obj.detail=$(this).find("#detailId").val();
+					obj.project=$(this).find("#project").val();
+					obj.type=$(this).find("#typeHd").val();
+					obj.descript=$(this).find("#descript").val();
+					var type=$(this).find("#typeHd").val();
+					
+					if(type=='一般')
+						{
+							obj.result=$(this).find("input[type=radio]:checked").val();
+							obj.floor=0;
+							obj.cap=0;
+						}
+					else
+						{
+							obj.floor=$(this).find("#floor").val();
+							obj.cap=$(this).find("#cap").val();
+							obj.result=$(this).find("#standard").val();
+						}
+					obj.remark=$(this).find("#remark").val();
+					array.push(obj);
+				}
+		}); 
+// 		alert($.toJSON(array));
+		$("#form1").append($('<input type="hidden" name="details" />').val($.toJSON(array)));
+		return  validator.empty('maintenancecode', '請輸入保養編號!')&&validator.index('devicecode', '請選擇設備編號');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">保養管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/insertMaintenanceRecord?case={@case}" method="post" onsubmit="return check()" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="case" value="{@case}" /> 
+					<input type="hidden" name="sechudl" value="{.sechudlid}" /> 
+					<input type="hidden" name="overtime" value="{.overtimeid}" />
+					 <input type="hidden" name="times" value="{.ts}" /> 
+					 <input type="hidden" name="deviceid" value="{.deviceid}" />
+					 <input type="hidden" name="state"  id="state"/>
+
+
+
+					<div class="topic2">新增 / 修改紀錄</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th scope="row">保養編號</th>
+							<td><input type="text" name="maintenancecode" id="maintenancecode" value="{$linecode}" readonly="readonly"/></td>
+						</tr>
+						<tr>
+							<th scope="row">保養人</th>
+							<input type="hidden" name="maintenanceuser" value="{@SESSION_USER.name}" />
+							<td>{@SESSION_USER.name}</td>
+						</tr>
+						<tr>
+							<th width="107" scope="row">保養日期</th>
+							<td width="585"><input type="text" id="maintenancedate" name="maintenancedate" class="Wdate" onfocus="WdatePicker()" /></td>
+						</tr>
+						<tr>
+							<th scope="row">設備編號</th>
+							<td><select name="type" id="type">
+									<option value="請選擇" selected="selected">請選擇</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="childtype" id="childtype">
+									<option value="請選擇" selected="selected">請選擇</option>
+							</select> <select name="devicecode" id="devicecode">
+									<option value="請選擇" selected="selected">請選擇</option>
+							</select></td>
+						</tr>
+						<tr>
+							<input type="hidden" name="devicename" id="devicename" />
+							<th scope="row">設備名稱</th>
+							<td id="devicenameTd"></td>
+						</tr>
+						<tr>
+							<th scope="row">保養週期</th>
+							<td><select name="overtime" id="overtime">
+									<option value="請選擇" selected="selected">請選擇</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">證照等級</th>
+							<td><input type="text" name="cergrade" /></td>
+						</tr>
+						<tr>
+							<th scope="row">所需工具</th>
+							<td><input type="text" name="reqtools" /></td>
+						</tr>
+						<tr>
+							<th scope="row">所需料件</th>
+							<td><input type="text" name="reqmertials" /></td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td><input type="text" name="remark" /></td>
+						</tr>
+						<tr>
+							<th scope="row">保養時間</th>
+							<td><input type="text" name="baoyangdate" /></td>
+						</tr>
+						<tr>
+							<th scope="row">紀錄人</th>
+							<td><input type="text" name="jiluren"  value="{@SESSION_USER.name}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">實際工作人員</th>
+							<td><input type="text" name="shijigongzuorenyuan" /></td>
+						</tr>
+					</table>
+					<div class="topic2">保養明細</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop" id="detailTable">
+						<tr>
+							<th width="125" scope="col">項目</th>
+							<th width="98" scope="col">資料類型</th>
+							<th width="121" scope="col">實際資料</th>
+							<th width="191" scope="col">說明</th>
+							<th width="158" scope="col">備註</th>
+						</tr>
+					</table>
+					<div style="margin-top: 10px">
+						<input type="submit" name="Submit" value="確定" />
+						 <input type="reset" name="qx" value="取消" /> 
+						 <input type="submit" name="gj" onclick="$('#state').val('關機');" value="關機" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">點交驗收管理 - 點交驗收列表</div>
+			<div class="mainInfo">
+				<form action="__URL__/acceptSave" method="post"
+					enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="code" value="{@SESSION_USER.code}" />
+					<input type="hidden" name="id" value="{$accept.id}" />
+					<div class="topic2">新增/修改案件</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="111" scope="row">日期</th>
+							<td width="581"><input type="text" name="casedate" class="Wdate" onfocus="WdatePicker()" value="{$accept.casedate}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">案件名稱</th>
+							<td><input type="text" name="casename" value="{$accept.casename}"
+								style="width: 400px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">主要建物地址</th>
+							<td><input type="text" name="address" value="{$accept.address}"
+								style="width: 400px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">總金額</th>
+							<td><input type="text" name="totalmoney" value="{$accept.totalmoney}"/></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input
+								type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<script type="text/javascript">
+	$(function() {
+		//2個查詢都可以
+		//$("#tab_Detail input").live('keyup',function(){
+		$("#tab_Detail input[type='text']").live(
+				'keyup',
+				function() {
+					$("#tdTotal").html(
+							fn.getFloat($("#m1").val()) + fn.getFloat($("#m2").val()) + fn.getFloat($("#m3").val()) + fn.getFloat($("#m4").val()) + fn.getFloat($("#m5").val()) + fn.getFloat($("#m6").val()) + fn.getFloat($("#m7").val()) + fn.getFloat($("#m8").val()) + fn.getFloat($("#m9").val()) + fn.getFloat($("#m10").val()) + fn.getFloat($("#m11").val())
+									+ fn.getFloat($("#m12").val()));
+				});
+		$("#createdate").val(new Date().format("yyyy/MM/dd hh:mm"));
+		$("#tdCreateDate").html($("#createdate").val());
+	});
+	function check() {
+		return true;
+	}
+	function addDetail() {
+		if (validator.index('subject', '請選擇科目!') && validator.empty('m1', '請輸入1月預算!') && validator.empty('m2', '請輸入2月預算!') && validator.empty('m3', '請輸入3月預算!') && validator.empty('m4', '請輸入4月預算!') && validator.empty('m5', '請輸入5月預算!') && validator.empty('m6', '請輸入6月預算!') && validator.empty('m7', '請輸入7月預算!') && validator.empty('m8', '請輸入8月預算!')
+				&& validator.empty('m9', '請輸入9月預算!') && validator.empty('m10', '請輸入10月預算!') && validator.empty('m11', '請輸入11月預算!') && validator.empty('m12', '請輸入12月預算!')
+
+		) {
+			var table = $('#tab_Detail');
+			var len = $("#tab_Detail tr").length;
+			var row = len % 2 == 0 ? $("<tr class=\"trcolor\"></tr>") : $("<tr></tr>");
+			var hValue = $('#subject').find("option:selected").text() + "," + $('#m1').val() + "," + $('#m2').val() + "," + $('#m3').val() + "," + $('#m4').val() + "," + $('#m5').val() + "," + $('#m6').val() + "," + $('#m7').val() + "," + $('#m8').val() + "," + $('#m9').val() + "," + $('#m10').val() + "," + $('#m11').val() + "," + $('#m12').val() + "," + $("#tdTotal").html();
+			row.append($("<td></td>").append($('#subject option:selected').text()).append($("<input type='hidden' value='" + hValue + "' name ='budgetdetail[]' />")));
+			row.append($("<td align=\"right\"></td>").append($('#m1').val()));
+			row.append($("<td align=\"right\"></td>").append($('#m2').val()));
+			row.append($("<td align=\"right\"></td>").append($('#m3').val()));
+			row.append($("<td align=\"right\"></td>").append($('#m4').val()));
+			row.append($("<td align=\"right\"></td>").append($('#m5').val()));
+			row.append($("<td align=\"right\"></td>").append($('#m6').val()));
+			row.append($("<td align=\"right\"></td>").append($('#m7').val()));
+			row.append($("<td align=\"right\"></td>").append($('#m8').val()));
+			row.append($("<td align=\"right\"></td>").append($('#m9').val()));
+			row.append($("<td align=\"right\"></td>").append($('#m10').val()));
+			row.append($("<td align=\"right\"></td>").append($('#m11').val()));
+			row.append($("<td align=\"right\"></td>").append($('#m12').val()));
+			row.append($("<td align=\"right\"></td>").append($("#tdTotal").html()));
+			row.append($("<td></td>").append($('<img onclick="$(this).parent().parent().remove();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+			table.append(row);
+			$('#object').val('');
+			$('#m1').val('');
+			$('#m2').val('');
+			$('#m3').val('');
+			$('#m4').val('');
+			$('#m5').val('');
+			$('#m6').val('');
+			$('#m7').val('');
+			$('#m8').val('');
+			$('#m9').val('');
+			$('#m10').val('');
+			$('#m11').val('');
+			$('#m12').val('');
+			$('#tdTotal').html('');
+		}
+
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">會計系統 - 預算管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/addBudget" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="code" value="{@SESSION_USER.code}" />
+					<input type="hidden" name="id" value="{$budget.id}" />
+					 <input type="hidden" name="createdate" value="{$budget.createdate|date='Y-m-d',strtotime(###)}" />
+					<div class="topic2">新增 / 修改預算編列資料</div>
+
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="88" scope="row">建立日期</th>
+							<td width="255" id="tdCreateDate">{$budget.createdate|date='Y-m-d',strtotime(###)}</td>
+							<th width="101" scope="row">編列人</th>
+							<td width="246"><input type="text" name="createuser" value="{$budget.createuser}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">預算名稱</th>
+							<td colspan="3"><input type="text" name="name" value="{$budget.name}" /></td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tab_month" id="tab_Detail">
+						<tr>
+							<th width="161" scope="col">部門名稱</th>
+							<th width="34" scope="col">1月</th>
+							<th width="34" scope="col">2月</th>
+							<th width="34" scope="col">3月</th>
+							<th width="34" scope="col">4月</th>
+							<th width="34" scope="col">5月</th>
+							<th width="34" scope="col">6月</th>
+							<th width="34" scope="col">7月</th>
+							<th width="34" scope="col">8月</th>
+							<th width="34" scope="col">9月</th>
+							<th width="36" scope="col">10月</th>
+							<th width="36" scope="col">11月</th>
+							<th width="42" scope="col">12月</th>
+							<th width="80" scope="col"><div style="width: 60px">總計</div></th>
+							<th width="17" scope="col">&nbsp;</th>
+						</tr>
+						<tr class="trcolor1">
+							<td><select id="subject" style="width: 120px">
+									<option value="選擇部門">選擇部門</option>
+									<volist id="item" name="departs">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select></td>
+							<td><input type="text" id="m1" style="width: 25px" /></td>
+							<td><input type="text" id="m2" style="width: 25px" /></td>
+							<td><input type="text" id="m3" style="width: 25px" /></td>
+							<td><input type="text" id="m4" style="width: 25px" /></td>
+							<td><input type="text" id="m5" style="width: 25px" /></td>
+							<td><input type="text" id="m6" style="width: 25px" /></td>
+							<td><input type="text" id="m7" style="width: 25px" /></td>
+							<td><input type="text" id="m8" style="width: 25px" /></td>
+							<td><input type="text" id="m9" style="width: 25px" /></td>
+							<td><input type="text" id="m10" style="width: 25px" /></td>
+							<td><input type="text" id="m11" style="width: 25px" /></td>
+							<td><input type="text" id="m12" style="width: 25px" /></td>
+							<td align="right" id="tdTotal"></td>
+							<td><img src="__PUBLIC__/images/add_16.png" alt="新增" onclick="addDetail()" style="cursor: pointer;" width="16" height="16" border="0" /></td>
+						</tr>
+						<volist id="item" name="details"> <volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if> 
+						<td>{$item.subject}<input type="hidden" name="budgetdetail[]" value="{$item.subject},{$item.m1},{$item.m2},{$item.m3},{$item.m4},{$item.m5},{$item.m6},{$item.m7},{$item.m8},{$item.m9},{$item.m10},{$item.m11},{$item.m12},{$item.total}" /></td>
+						<td align="right">{$item.m1}</td>
+						<td align="right">{$item.m2}</td>
+						<td align="right">{$item.m3}</td>
+						<td align="right">{$item.m4}</td>
+						<td align="right">{$item.m5}</td>
+						<td align="right">{$item.m6}</td>
+						<td align="right">{$item.m7}</td>
+						<td align="right">{$item.m8}</td>
+						<td align="right">{$item.m9}</td>
+						<td align="right">{$item.m10}</td>
+						<td align="right">{$item.m11}</td>
+						<td align="right">{$item.m12}</td>
+						<td align="right">{$item.total}</td>
+						<td><img onclick="$(this).parent().parent().remove();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" /></td>
+						</tr>
+						</volist>
+					</table>
+					<div align="center" style="margin-top: 10px">
+						<input type="submit" name="Submit" value="確認" /> <input type="reset" name="Submit2" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

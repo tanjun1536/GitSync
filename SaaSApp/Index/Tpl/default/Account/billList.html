@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">會計系統 - 傳票管理</div>
+			<div class="mainInfo">
+				<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<div class="topic2">傳票搜尋</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="90" scope="row"><span class="search">傳票號碼</span></th>
+							<td width="602"><input type="text" name="sbillcode" /></td>
+						</tr>
+						<tr>
+							<th scope="row"><span class="search">日期</span></th>
+							<td><input type="text" name="sdate" class="Wdate" onfocus="WdatePicker()" /> ~ <input type="text" name="edate" class="Wdate" onfocus="WdatePicker()" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="mailNav">
+					<if condition="check_power('新增',$ext) eq 1">
+					<a href="__URL__/addBillPage">新增傳票</a>		
+							</if>
+					
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="136" scope="col">傳票號碼</th>
+						<th width="96" scope="col">傳票日期</th>
+						<th width="116" scope="col">借方金額總計</th>
+						<th width="104" scope="col">貸方金額總計</th>
+						<th width="48" scope="col">操作</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center"><a href="__URL__/billView?id={$item.id}">{$item.billcode}</a></td>
+					<td align="center">{$item.billdate|date='Y/m/d',strtotime(###)}</td>
+					<td align="center">{$item.jfmoney}</td>
+					<td align="center">{$item.dfmoney}</td>
+					<td align="center">
+					<if condition="check_power('刪除',$ext) eq 1">
+					<a href="__URL__/deleteBill?id={$item.id}" onclick="return confirm('是否刪除該數據?')">刪除</a>	
+							</if>
+					</td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

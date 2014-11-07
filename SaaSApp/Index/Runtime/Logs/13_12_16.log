@@ -1,0 +1,2602 @@
+[ 2013-12-16T09:53:12+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-12-16T09:53:12+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-12-16T09:53:15+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.035622s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.001709s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007938s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.187495s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.006908s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.100231s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.011200s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.001685s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.001596s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.017258s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004345s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007034s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006170s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004249s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004989s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004511s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005270s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004479s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004750s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005516s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004615s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007144s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004399s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004468s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005077s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004853s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.004524s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004488s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004730s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004891s ]
+[ 2013-12-16T09:53:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005470s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004610s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004746s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.004698s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004819s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004649s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004688s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006586s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004906s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004247s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.009425s ]
+[ 2013-12-16T09:53:16+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 80 行.
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.004680s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008673s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.070066s ]
+[ 2013-12-16T09:53:16+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.068890s ]
+[ 2013-12-16T09:53:27+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 4 行.
+[ 2013-12-16T09:53:27+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.007448s ]
+[ 2013-12-16T09:53:27+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  LIMIT 1  [ RunTime:0.001427s ]
+[ 2013-12-16T09:53:27+08:00 ] SQL: SELECT * FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  ORDER BY id desc LIMIT 0,20  [ RunTime:0.002271s ]
+[ 2013-12-16T09:53:30+08:00 ] SQL: SHOW COLUMNS FROM `case_content` [ RunTime:0.007173s ]
+[ 2013-12-16T09:53:30+08:00 ] SQL: select * from case_content where id =26 [ RunTime:0.000902s ]
+[ 2013-12-16T09:53:30+08:00 ] NOTIC: [8] Undefined index: caseName 6a80fc463fa49e147ec5390fac1af20e.php 第 107 行.
+[ 2013-12-16T09:53:41+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.006584s ]
+[ 2013-12-16T09:53:41+08:00 ] NOTIC: [8] Undefined index: state CaseAction.class.php 第 2406 行.
+[ 2013-12-16T09:53:41+08:00 ] NOTIC: [8] Undefined index: syear CaseAction.class.php 第 2407 行.
+[ 2013-12-16T09:53:41+08:00 ] NOTIC: [8] Undefined index: eyear CaseAction.class.php 第 2408 行.
+[ 2013-12-16T09:53:41+08:00 ] NOTIC: [8] Undefined index: smonth CaseAction.class.php 第 2409 行.
+[ 2013-12-16T09:53:41+08:00 ] NOTIC: [8] Undefined index: emonth CaseAction.class.php 第 2410 行.
+[ 2013-12-16T09:53:41+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_attendance` WHERE `case` = 26 LIMIT 1  [ RunTime:0.000828s ]
+[ 2013-12-16T09:53:41+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE `case` = 26 ORDER BY id desc LIMIT 0,20  [ RunTime:0.002125s ]
+[ 2013-12-16T09:53:42+08:00 ] NOTIC: [8] Undefined index: caseName da2d29e5426aaeb919487777d3fd9795.php 第 121 行.
+[ 2013-12-16T09:53:46+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.010719s ]
+[ 2013-12-16T09:53:46+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.000848s ]
+[ 2013-12-16T09:53:46+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance_detail` [ RunTime:0.007267s ]
+[ 2013-12-16T09:53:46+08:00 ] SQL: SELECT 
+			  attendance,
+			  userid,
+			  username,
+			  MAX(IF(`day` = 1, workcode, '')) AS day1,
+			  MAX(IF(`day` = 2, workcode, '')) AS day2,
+			  MAX(IF(`day` = 3, workcode, '')) AS day3,
+			  MAX(IF(`day` = 4, workcode, '')) AS day4,
+			  MAX(IF(`day` = 5, workcode, '')) AS day5,
+			  MAX(IF(`day` = 6, workcode, '')) AS day6,
+			  MAX(IF(`day` = 7, workcode, '')) AS day7,
+			  MAX(IF(`day` = 8, workcode, '')) AS day8,
+			  MAX(IF(`day` = 9, workcode, '')) AS day9,
+			  MAX(IF(`day` = 10, workcode, '')) AS day10,
+			  MAX(IF(`day` = 11, workcode, '')) AS day11,
+			  MAX(IF(`day` = 12, workcode, '')) AS day12,
+			  MAX(IF(`day` = 13, workcode, '')) AS day13,
+			  MAX(IF(`day` = 14, workcode, '')) AS day14,
+			  MAX(IF(`day` = 15, workcode, '')) AS day15,
+			  MAX(IF(`day` = 16, workcode, '')) AS day16,
+			  MAX(IF(`day` = 17, workcode, '')) AS day17,
+			  MAX(IF(`day` = 18, workcode, '')) AS day18,
+			  MAX(IF(`day` = 19, workcode, '')) AS day19,
+			  MAX(IF(`day` = 20, workcode, '')) AS day20,
+			  MAX(IF(`day` = 21, workcode, '')) AS day21,
+			  MAX(IF(`day` = 22, workcode, '')) AS day22,
+			  MAX(IF(`day` = 23, workcode, '')) AS day23,
+			  MAX(IF(`day` = 24, workcode, '')) AS day24,
+			  MAX(IF(`day` = 25, workcode, '')) AS day25,
+			  MAX(IF(`day` = 26, workcode, '')) AS day26,
+			  MAX(IF(`day` = 27, workcode, '')) AS day27,
+			  MAX(IF(`day` = 28, workcode, '')) AS day28,
+			  MAX(IF(`day` = 29, workcode, '')) AS day29,
+			  MAX(IF(`day` = 30, workcode, '')) AS day30,
+			  MAX(IF(`day` = 31, workcode, '')) AS day31
+			FROM
+			  case_attendance_detail  WHERE attendance= 1
+			GROUP BY userid,
+			  username,
+			  attendance  [ RunTime:0.019191s ]
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: cat debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: cat debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: categories debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: sql debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: data debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: data debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: cat debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: data debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: datas debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: categories debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: cat2 debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: PageInfo debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: sql debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: data debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: cat2 debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: cat debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: PageInfo debug-eval 第 1 行.
+[ 2013-12-16T09:53:47+08:00 ] NOTIC: [8] Undefined variable: datas debug-eval 第 1 行.
+[ 2013-12-16T09:55:52+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.007291s ]
+[ 2013-12-16T09:55:52+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.001034s ]
+[ 2013-12-16T09:55:53+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance_detail` [ RunTime:0.008443s ]
+[ 2013-12-16T09:55:53+08:00 ] SQL: SELECT 
+			  attendance,
+			  userid,
+			  username,
+			  MAX(IF(`day` = 1, workcode, '')) AS day1,
+			  MAX(IF(`day` = 2, workcode, '')) AS day2,
+			  MAX(IF(`day` = 3, workcode, '')) AS day3,
+			  MAX(IF(`day` = 4, workcode, '')) AS day4,
+			  MAX(IF(`day` = 5, workcode, '')) AS day5,
+			  MAX(IF(`day` = 6, workcode, '')) AS day6,
+			  MAX(IF(`day` = 7, workcode, '')) AS day7,
+			  MAX(IF(`day` = 8, workcode, '')) AS day8,
+			  MAX(IF(`day` = 9, workcode, '')) AS day9,
+			  MAX(IF(`day` = 10, workcode, '')) AS day10,
+			  MAX(IF(`day` = 11, workcode, '')) AS day11,
+			  MAX(IF(`day` = 12, workcode, '')) AS day12,
+			  MAX(IF(`day` = 13, workcode, '')) AS day13,
+			  MAX(IF(`day` = 14, workcode, '')) AS day14,
+			  MAX(IF(`day` = 15, workcode, '')) AS day15,
+			  MAX(IF(`day` = 16, workcode, '')) AS day16,
+			  MAX(IF(`day` = 17, workcode, '')) AS day17,
+			  MAX(IF(`day` = 18, workcode, '')) AS day18,
+			  MAX(IF(`day` = 19, workcode, '')) AS day19,
+			  MAX(IF(`day` = 20, workcode, '')) AS day20,
+			  MAX(IF(`day` = 21, workcode, '')) AS day21,
+			  MAX(IF(`day` = 22, workcode, '')) AS day22,
+			  MAX(IF(`day` = 23, workcode, '')) AS day23,
+			  MAX(IF(`day` = 24, workcode, '')) AS day24,
+			  MAX(IF(`day` = 25, workcode, '')) AS day25,
+			  MAX(IF(`day` = 26, workcode, '')) AS day26,
+			  MAX(IF(`day` = 27, workcode, '')) AS day27,
+			  MAX(IF(`day` = 28, workcode, '')) AS day28,
+			  MAX(IF(`day` = 29, workcode, '')) AS day29,
+			  MAX(IF(`day` = 30, workcode, '')) AS day30,
+			  MAX(IF(`day` = 31, workcode, '')) AS day31
+			FROM
+			  case_attendance_detail  WHERE attendance= 1
+			GROUP BY userid,
+			  username,
+			  attendance  [ RunTime:0.005187s ]
+[ 2013-12-16T09:59:38+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.007149s ]
+[ 2013-12-16T09:59:38+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.001407s ]
+[ 2013-12-16T09:59:38+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance_detail` [ RunTime:0.007338s ]
+[ 2013-12-16T09:59:38+08:00 ] SQL: SELECT 
+			  attendance,
+			  userid,
+			  username,
+			  MAX(IF(`day` = 1, workcode, '')) AS day1,
+			  MAX(IF(`day` = 2, workcode, '')) AS day2,
+			  MAX(IF(`day` = 3, workcode, '')) AS day3,
+			  MAX(IF(`day` = 4, workcode, '')) AS day4,
+			  MAX(IF(`day` = 5, workcode, '')) AS day5,
+			  MAX(IF(`day` = 6, workcode, '')) AS day6,
+			  MAX(IF(`day` = 7, workcode, '')) AS day7,
+			  MAX(IF(`day` = 8, workcode, '')) AS day8,
+			  MAX(IF(`day` = 9, workcode, '')) AS day9,
+			  MAX(IF(`day` = 10, workcode, '')) AS day10,
+			  MAX(IF(`day` = 11, workcode, '')) AS day11,
+			  MAX(IF(`day` = 12, workcode, '')) AS day12,
+			  MAX(IF(`day` = 13, workcode, '')) AS day13,
+			  MAX(IF(`day` = 14, workcode, '')) AS day14,
+			  MAX(IF(`day` = 15, workcode, '')) AS day15,
+			  MAX(IF(`day` = 16, workcode, '')) AS day16,
+			  MAX(IF(`day` = 17, workcode, '')) AS day17,
+			  MAX(IF(`day` = 18, workcode, '')) AS day18,
+			  MAX(IF(`day` = 19, workcode, '')) AS day19,
+			  MAX(IF(`day` = 20, workcode, '')) AS day20,
+			  MAX(IF(`day` = 21, workcode, '')) AS day21,
+			  MAX(IF(`day` = 22, workcode, '')) AS day22,
+			  MAX(IF(`day` = 23, workcode, '')) AS day23,
+			  MAX(IF(`day` = 24, workcode, '')) AS day24,
+			  MAX(IF(`day` = 25, workcode, '')) AS day25,
+			  MAX(IF(`day` = 26, workcode, '')) AS day26,
+			  MAX(IF(`day` = 27, workcode, '')) AS day27,
+			  MAX(IF(`day` = 28, workcode, '')) AS day28,
+			  MAX(IF(`day` = 29, workcode, '')) AS day29,
+			  MAX(IF(`day` = 30, workcode, '')) AS day30,
+			  MAX(IF(`day` = 31, workcode, '')) AS day31
+			FROM
+			  case_attendance_detail  WHERE attendance= 1
+			GROUP BY userid,
+			  username,
+			  attendance  [ RunTime:0.005400s ]
+[ 2013-12-16T10:02:38+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.007636s ]
+[ 2013-12-16T10:02:38+08:00 ] NOTIC: [8] Undefined index: state CaseAction.class.php 第 2406 行.
+[ 2013-12-16T10:02:38+08:00 ] NOTIC: [8] Undefined index: syear CaseAction.class.php 第 2407 行.
+[ 2013-12-16T10:02:38+08:00 ] NOTIC: [8] Undefined index: eyear CaseAction.class.php 第 2408 行.
+[ 2013-12-16T10:02:38+08:00 ] NOTIC: [8] Undefined index: smonth CaseAction.class.php 第 2409 行.
+[ 2013-12-16T10:02:38+08:00 ] NOTIC: [8] Undefined index: emonth CaseAction.class.php 第 2410 行.
+[ 2013-12-16T10:02:38+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_attendance` WHERE `case` = 26 LIMIT 1  [ RunTime:0.000837s ]
+[ 2013-12-16T10:02:38+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE `case` = 26 ORDER BY id desc LIMIT 0,20  [ RunTime:0.000999s ]
+[ 2013-12-16T10:02:39+08:00 ] NOTIC: [8] Undefined index: caseName da2d29e5426aaeb919487777d3fd9795.php 第 121 行.
+[ 2013-12-16T10:02:42+08:00 ] SQL: UPDATE case_attendance SET status='已審核' WHERE id=1 [ RunTime:0.000651s ]
+[ 2013-12-16T10:02:43+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.007770s ]
+[ 2013-12-16T10:02:43+08:00 ] NOTIC: [8] Undefined index: state CaseAction.class.php 第 2406 行.
+[ 2013-12-16T10:02:43+08:00 ] NOTIC: [8] Undefined index: syear CaseAction.class.php 第 2407 行.
+[ 2013-12-16T10:02:43+08:00 ] NOTIC: [8] Undefined index: eyear CaseAction.class.php 第 2408 行.
+[ 2013-12-16T10:02:43+08:00 ] NOTIC: [8] Undefined index: smonth CaseAction.class.php 第 2409 行.
+[ 2013-12-16T10:02:43+08:00 ] NOTIC: [8] Undefined index: emonth CaseAction.class.php 第 2410 行.
+[ 2013-12-16T10:02:43+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_attendance` WHERE `case` = 26 LIMIT 1  [ RunTime:0.001566s ]
+[ 2013-12-16T10:02:43+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE `case` = 26 ORDER BY id desc LIMIT 0,20  [ RunTime:0.000958s ]
+[ 2013-12-16T10:02:43+08:00 ] NOTIC: [8] Undefined index: caseName da2d29e5426aaeb919487777d3fd9795.php 第 121 行.
+[ 2013-12-16T10:02:55+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.010483s ]
+[ 2013-12-16T10:02:55+08:00 ] NOTIC: [8] Undefined index: state CaseAction.class.php 第 2406 行.
+[ 2013-12-16T10:02:55+08:00 ] NOTIC: [8] Undefined index: syear CaseAction.class.php 第 2407 行.
+[ 2013-12-16T10:02:55+08:00 ] NOTIC: [8] Undefined index: eyear CaseAction.class.php 第 2408 行.
+[ 2013-12-16T10:02:55+08:00 ] NOTIC: [8] Undefined index: smonth CaseAction.class.php 第 2409 行.
+[ 2013-12-16T10:02:55+08:00 ] NOTIC: [8] Undefined index: emonth CaseAction.class.php 第 2410 行.
+[ 2013-12-16T10:02:55+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_attendance` WHERE `case` = 26 LIMIT 1  [ RunTime:0.000856s ]
+[ 2013-12-16T10:02:55+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE `case` = 26 ORDER BY id desc LIMIT 0,20  [ RunTime:0.000848s ]
+[ 2013-12-16T10:02:56+08:00 ] NOTIC: [8] Undefined index: caseName da2d29e5426aaeb919487777d3fd9795.php 第 121 行.
+[ 2013-12-16T10:02:57+08:00 ] SQL: UPDATE case_attendance SET state='已審核' WHERE id=1 [ RunTime:0.097134s ]
+[ 2013-12-16T10:02:57+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.007269s ]
+[ 2013-12-16T10:02:57+08:00 ] NOTIC: [8] Undefined index: state CaseAction.class.php 第 2406 行.
+[ 2013-12-16T10:02:57+08:00 ] NOTIC: [8] Undefined index: syear CaseAction.class.php 第 2407 行.
+[ 2013-12-16T10:02:57+08:00 ] NOTIC: [8] Undefined index: eyear CaseAction.class.php 第 2408 行.
+[ 2013-12-16T10:02:57+08:00 ] NOTIC: [8] Undefined index: smonth CaseAction.class.php 第 2409 行.
+[ 2013-12-16T10:02:57+08:00 ] NOTIC: [8] Undefined index: emonth CaseAction.class.php 第 2410 行.
+[ 2013-12-16T10:02:57+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_attendance` WHERE `case` = 26 LIMIT 1  [ RunTime:0.000821s ]
+[ 2013-12-16T10:02:57+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE `case` = 26 ORDER BY id desc LIMIT 0,20  [ RunTime:0.000822s ]
+[ 2013-12-16T10:02:58+08:00 ] NOTIC: [8] Undefined index: caseName da2d29e5426aaeb919487777d3fd9795.php 第 121 行.
+[ 2013-12-16T10:04:07+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.008632s ]
+[ 2013-12-16T10:04:07+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.000857s ]
+[ 2013-12-16T10:04:07+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance_detail` [ RunTime:0.007902s ]
+[ 2013-12-16T10:04:07+08:00 ] SQL: SELECT 
+			  attendance,
+			  userid,
+			  username,
+			  MAX(IF(`day` = 1, workcode, '')) AS day1,
+			  MAX(IF(`day` = 2, workcode, '')) AS day2,
+			  MAX(IF(`day` = 3, workcode, '')) AS day3,
+			  MAX(IF(`day` = 4, workcode, '')) AS day4,
+			  MAX(IF(`day` = 5, workcode, '')) AS day5,
+			  MAX(IF(`day` = 6, workcode, '')) AS day6,
+			  MAX(IF(`day` = 7, workcode, '')) AS day7,
+			  MAX(IF(`day` = 8, workcode, '')) AS day8,
+			  MAX(IF(`day` = 9, workcode, '')) AS day9,
+			  MAX(IF(`day` = 10, workcode, '')) AS day10,
+			  MAX(IF(`day` = 11, workcode, '')) AS day11,
+			  MAX(IF(`day` = 12, workcode, '')) AS day12,
+			  MAX(IF(`day` = 13, workcode, '')) AS day13,
+			  MAX(IF(`day` = 14, workcode, '')) AS day14,
+			  MAX(IF(`day` = 15, workcode, '')) AS day15,
+			  MAX(IF(`day` = 16, workcode, '')) AS day16,
+			  MAX(IF(`day` = 17, workcode, '')) AS day17,
+			  MAX(IF(`day` = 18, workcode, '')) AS day18,
+			  MAX(IF(`day` = 19, workcode, '')) AS day19,
+			  MAX(IF(`day` = 20, workcode, '')) AS day20,
+			  MAX(IF(`day` = 21, workcode, '')) AS day21,
+			  MAX(IF(`day` = 22, workcode, '')) AS day22,
+			  MAX(IF(`day` = 23, workcode, '')) AS day23,
+			  MAX(IF(`day` = 24, workcode, '')) AS day24,
+			  MAX(IF(`day` = 25, workcode, '')) AS day25,
+			  MAX(IF(`day` = 26, workcode, '')) AS day26,
+			  MAX(IF(`day` = 27, workcode, '')) AS day27,
+			  MAX(IF(`day` = 28, workcode, '')) AS day28,
+			  MAX(IF(`day` = 29, workcode, '')) AS day29,
+			  MAX(IF(`day` = 30, workcode, '')) AS day30,
+			  MAX(IF(`day` = 31, workcode, '')) AS day31
+			FROM
+			  case_attendance_detail  WHERE attendance= 1
+			GROUP BY userid,
+			  username,
+			  attendance  [ RunTime:0.005507s ]
+[ 2013-12-16T10:12:14+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.008226s ]
+[ 2013-12-16T10:12:14+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.001330s ]
+[ 2013-12-16T10:12:14+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance_detail` [ RunTime:0.008875s ]
+[ 2013-12-16T10:12:14+08:00 ] SQL: SELECT 
+			  attendance,
+			  userid,
+			  username,
+			  MAX(IF(`day` = 1, workcode, '')) AS day1,
+			  MAX(IF(`day` = 2, workcode, '')) AS day2,
+			  MAX(IF(`day` = 3, workcode, '')) AS day3,
+			  MAX(IF(`day` = 4, workcode, '')) AS day4,
+			  MAX(IF(`day` = 5, workcode, '')) AS day5,
+			  MAX(IF(`day` = 6, workcode, '')) AS day6,
+			  MAX(IF(`day` = 7, workcode, '')) AS day7,
+			  MAX(IF(`day` = 8, workcode, '')) AS day8,
+			  MAX(IF(`day` = 9, workcode, '')) AS day9,
+			  MAX(IF(`day` = 10, workcode, '')) AS day10,
+			  MAX(IF(`day` = 11, workcode, '')) AS day11,
+			  MAX(IF(`day` = 12, workcode, '')) AS day12,
+			  MAX(IF(`day` = 13, workcode, '')) AS day13,
+			  MAX(IF(`day` = 14, workcode, '')) AS day14,
+			  MAX(IF(`day` = 15, workcode, '')) AS day15,
+			  MAX(IF(`day` = 16, workcode, '')) AS day16,
+			  MAX(IF(`day` = 17, workcode, '')) AS day17,
+			  MAX(IF(`day` = 18, workcode, '')) AS day18,
+			  MAX(IF(`day` = 19, workcode, '')) AS day19,
+			  MAX(IF(`day` = 20, workcode, '')) AS day20,
+			  MAX(IF(`day` = 21, workcode, '')) AS day21,
+			  MAX(IF(`day` = 22, workcode, '')) AS day22,
+			  MAX(IF(`day` = 23, workcode, '')) AS day23,
+			  MAX(IF(`day` = 24, workcode, '')) AS day24,
+			  MAX(IF(`day` = 25, workcode, '')) AS day25,
+			  MAX(IF(`day` = 26, workcode, '')) AS day26,
+			  MAX(IF(`day` = 27, workcode, '')) AS day27,
+			  MAX(IF(`day` = 28, workcode, '')) AS day28,
+			  MAX(IF(`day` = 29, workcode, '')) AS day29,
+			  MAX(IF(`day` = 30, workcode, '')) AS day30,
+			  MAX(IF(`day` = 31, workcode, '')) AS day31
+			FROM
+			  case_attendance_detail  WHERE attendance= 1
+			GROUP BY userid,
+			  username,
+			  attendance  [ RunTime:0.005229s ]
+[ 2013-12-16T10:12:14+08:00 ] NOTIC: [8] Undefined variable: data 2ae9c4d67efbe2ed6ffd20f9da771454.php 第 11 行.
+[ 2013-12-16T10:12:48+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.011592s ]
+[ 2013-12-16T10:12:48+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.000847s ]
+[ 2013-12-16T10:12:48+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance_detail` [ RunTime:0.006798s ]
+[ 2013-12-16T10:12:48+08:00 ] SQL: SELECT 
+			  attendance,
+			  userid,
+			  username,
+			  MAX(IF(`day` = 1, workcode, '')) AS day1,
+			  MAX(IF(`day` = 2, workcode, '')) AS day2,
+			  MAX(IF(`day` = 3, workcode, '')) AS day3,
+			  MAX(IF(`day` = 4, workcode, '')) AS day4,
+			  MAX(IF(`day` = 5, workcode, '')) AS day5,
+			  MAX(IF(`day` = 6, workcode, '')) AS day6,
+			  MAX(IF(`day` = 7, workcode, '')) AS day7,
+			  MAX(IF(`day` = 8, workcode, '')) AS day8,
+			  MAX(IF(`day` = 9, workcode, '')) AS day9,
+			  MAX(IF(`day` = 10, workcode, '')) AS day10,
+			  MAX(IF(`day` = 11, workcode, '')) AS day11,
+			  MAX(IF(`day` = 12, workcode, '')) AS day12,
+			  MAX(IF(`day` = 13, workcode, '')) AS day13,
+			  MAX(IF(`day` = 14, workcode, '')) AS day14,
+			  MAX(IF(`day` = 15, workcode, '')) AS day15,
+			  MAX(IF(`day` = 16, workcode, '')) AS day16,
+			  MAX(IF(`day` = 17, workcode, '')) AS day17,
+			  MAX(IF(`day` = 18, workcode, '')) AS day18,
+			  MAX(IF(`day` = 19, workcode, '')) AS day19,
+			  MAX(IF(`day` = 20, workcode, '')) AS day20,
+			  MAX(IF(`day` = 21, workcode, '')) AS day21,
+			  MAX(IF(`day` = 22, workcode, '')) AS day22,
+			  MAX(IF(`day` = 23, workcode, '')) AS day23,
+			  MAX(IF(`day` = 24, workcode, '')) AS day24,
+			  MAX(IF(`day` = 25, workcode, '')) AS day25,
+			  MAX(IF(`day` = 26, workcode, '')) AS day26,
+			  MAX(IF(`day` = 27, workcode, '')) AS day27,
+			  MAX(IF(`day` = 28, workcode, '')) AS day28,
+			  MAX(IF(`day` = 29, workcode, '')) AS day29,
+			  MAX(IF(`day` = 30, workcode, '')) AS day30,
+			  MAX(IF(`day` = 31, workcode, '')) AS day31
+			FROM
+			  case_attendance_detail  WHERE attendance= 1
+			GROUP BY userid,
+			  username,
+			  attendance  [ RunTime:0.005061s ]
+[ 2013-12-16T10:13:15+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.008334s ]
+[ 2013-12-16T10:13:15+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.011536s ]
+[ 2013-12-16T10:13:15+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance_detail` [ RunTime:0.009935s ]
+[ 2013-12-16T10:13:15+08:00 ] SQL: SELECT 
+			  attendance,
+			  userid,
+			  username,
+			  MAX(IF(`day` = 1, workcode, '')) AS day1,
+			  MAX(IF(`day` = 2, workcode, '')) AS day2,
+			  MAX(IF(`day` = 3, workcode, '')) AS day3,
+			  MAX(IF(`day` = 4, workcode, '')) AS day4,
+			  MAX(IF(`day` = 5, workcode, '')) AS day5,
+			  MAX(IF(`day` = 6, workcode, '')) AS day6,
+			  MAX(IF(`day` = 7, workcode, '')) AS day7,
+			  MAX(IF(`day` = 8, workcode, '')) AS day8,
+			  MAX(IF(`day` = 9, workcode, '')) AS day9,
+			  MAX(IF(`day` = 10, workcode, '')) AS day10,
+			  MAX(IF(`day` = 11, workcode, '')) AS day11,
+			  MAX(IF(`day` = 12, workcode, '')) AS day12,
+			  MAX(IF(`day` = 13, workcode, '')) AS day13,
+			  MAX(IF(`day` = 14, workcode, '')) AS day14,
+			  MAX(IF(`day` = 15, workcode, '')) AS day15,
+			  MAX(IF(`day` = 16, workcode, '')) AS day16,
+			  MAX(IF(`day` = 17, workcode, '')) AS day17,
+			  MAX(IF(`day` = 18, workcode, '')) AS day18,
+			  MAX(IF(`day` = 19, workcode, '')) AS day19,
+			  MAX(IF(`day` = 20, workcode, '')) AS day20,
+			  MAX(IF(`day` = 21, workcode, '')) AS day21,
+			  MAX(IF(`day` = 22, workcode, '')) AS day22,
+			  MAX(IF(`day` = 23, workcode, '')) AS day23,
+			  MAX(IF(`day` = 24, workcode, '')) AS day24,
+			  MAX(IF(`day` = 25, workcode, '')) AS day25,
+			  MAX(IF(`day` = 26, workcode, '')) AS day26,
+			  MAX(IF(`day` = 27, workcode, '')) AS day27,
+			  MAX(IF(`day` = 28, workcode, '')) AS day28,
+			  MAX(IF(`day` = 29, workcode, '')) AS day29,
+			  MAX(IF(`day` = 30, workcode, '')) AS day30,
+			  MAX(IF(`day` = 31, workcode, '')) AS day31
+			FROM
+			  case_attendance_detail  WHERE attendance= 1
+			GROUP BY userid,
+			  username,
+			  attendance  [ RunTime:0.007910s ]
+[ 2013-12-16T10:17:08+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:17:08+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:17:08+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:17:08+08:00 ] NOTIC: [8] Undefined index: stype BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:17:08+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 [ RunTime:0.159414s ]
+[ 2013-12-16T10:17:08+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  limit 0,20 ) e [ RunTime:0.273607s ]
+[ 2013-12-16T10:17:08+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.007021s ]
+[ 2013-12-16T10:17:08+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000835s ]
+[ 2013-12-16T10:17:09+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:17:09+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:17:09+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:17:09+08:00 ] NOTIC: [8] Undefined variable: mt 770ae8f4c0eb6336dc72fb87da62750a.php 第 13 行.
+[ 2013-12-16T10:17:09+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:17:21+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:17:21+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:17:21+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:17:21+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND devicetype=45  [ RunTime:0.094384s ]
+[ 2013-12-16T10:17:21+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND devicetype=45  limit 0,20 ) e [ RunTime:0.001744s ]
+[ 2013-12-16T10:17:21+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.008032s ]
+[ 2013-12-16T10:17:21+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000901s ]
+[ 2013-12-16T10:17:21+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:17:21+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:17:21+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:17:21+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:20:25+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:20:25+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:20:25+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:20:25+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND devicetype=45  [ RunTime:0.078519s ]
+[ 2013-12-16T10:20:25+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND devicetype=45  limit 0,20 [ RunTime:0.000766s ]
+[ 2013-12-16T10:20:25+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.007093s ]
+[ 2013-12-16T10:20:25+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.002394s ]
+[ 2013-12-16T10:20:26+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:20:26+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:20:26+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:20:26+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:20:29+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:20:29+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:20:29+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:20:29+08:00 ] NOTIC: [8] Undefined index: stype BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:20:29+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 [ RunTime:0.081482s ]
+[ 2013-12-16T10:20:29+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  limit 0,20 [ RunTime:0.000735s ]
+[ 2013-12-16T10:20:29+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.008236s ]
+[ 2013-12-16T10:20:29+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000830s ]
+[ 2013-12-16T10:20:30+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:20:30+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:20:30+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:20:30+08:00 ] NOTIC: [8] Undefined variable: mt 770ae8f4c0eb6336dc72fb87da62750a.php 第 13 行.
+[ 2013-12-16T10:20:30+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:20:31+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:20:31+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:20:31+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:20:31+08:00 ] NOTIC: [8] Undefined index: stype BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:20:31+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 [ RunTime:0.083110s ]
+[ 2013-12-16T10:20:31+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  limit 0,20 [ RunTime:0.000757s ]
+[ 2013-12-16T10:20:31+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.007277s ]
+[ 2013-12-16T10:20:31+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000980s ]
+[ 2013-12-16T10:20:32+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:20:32+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:20:32+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:20:32+08:00 ] NOTIC: [8] Undefined variable: mt 770ae8f4c0eb6336dc72fb87da62750a.php 第 13 行.
+[ 2013-12-16T10:20:32+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:21:04+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:21:04+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:21:04+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:27:01+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND devicetype=45  [ RunTime:0.090772s ]
+[ 2013-12-16T10:27:01+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND devicetype=45  limit 0,20 [ RunTime:0.001193s ]
+[ 2013-12-16T10:27:01+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.010979s ]
+[ 2013-12-16T10:27:01+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000936s ]
+[ 2013-12-16T10:27:02+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:27:02+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:27:02+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:27:02+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:27:07+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:27:07+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:27:07+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:27:09+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND devicetype=45  [ RunTime:0.086707s ]
+[ 2013-12-16T10:27:09+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sd.devicetype=45  ) z limit 0,20 [ RunTime:0.312785s ]
+[ 2013-12-16T10:27:10+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.008427s ]
+[ 2013-12-16T10:27:10+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.002441s ]
+[ 2013-12-16T10:27:10+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:27:10+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:27:10+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:27:10+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:27:17+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:27:17+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:27:17+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:27:17+08:00 ] NOTIC: [8] Undefined index: stype BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:27:20+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 [ RunTime:0.084563s ]
+[ 2013-12-16T10:27:21+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  ) z limit 20,20 [ RunTime:0.317814s ]
+[ 2013-12-16T10:27:21+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.019545s ]
+[ 2013-12-16T10:27:21+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.001295s ]
+[ 2013-12-16T10:27:21+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:27:21+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:27:21+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:27:21+08:00 ] NOTIC: [8] Undefined variable: mt 770ae8f4c0eb6336dc72fb87da62750a.php 第 13 行.
+[ 2013-12-16T10:27:21+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:29:59+08:00 ] ERR: (ThinkException) Action:getParameter您所请求的方法不存在！
+[ 2013-12-16T10:30:22+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:30:22+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:30:22+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:30:22+08:00 ] NOTIC: [8] Undefined index: stype BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:30:26+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 [ RunTime:0.080845s ]
+[ 2013-12-16T10:30:27+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  ) z limit 20,20 [ RunTime:0.316429s ]
+[ 2013-12-16T10:30:27+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.007097s ]
+[ 2013-12-16T10:30:27+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.001063s ]
+[ 2013-12-16T10:30:27+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:30:27+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:30:27+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:30:27+08:00 ] NOTIC: [8] Undefined variable: mt 770ae8f4c0eb6336dc72fb87da62750a.php 第 13 行.
+[ 2013-12-16T10:30:27+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:31:02+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:02+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:02+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:02+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND devicetype=45  [ RunTime:0.078375s ]
+[ 2013-12-16T10:31:02+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sd.devicetype=45  ) z limit 0,20 [ RunTime:0.314229s ]
+[ 2013-12-16T10:31:02+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.006912s ]
+[ 2013-12-16T10:31:02+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.001626s ]
+[ 2013-12-16T10:31:03+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:31:03+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:31:03+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:31:03+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:31:08+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:08+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:08+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:08+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND devicetype=45  [ RunTime:0.087000s ]
+[ 2013-12-16T10:31:08+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sd.devicetype=45  ) z limit 20,20 [ RunTime:0.316114s ]
+[ 2013-12-16T10:31:08+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.006654s ]
+[ 2013-12-16T10:31:08+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.001339s ]
+[ 2013-12-16T10:31:09+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:31:09+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:31:09+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:31:09+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:31:16+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:16+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:16+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:17+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND devicetype=48  [ RunTime:0.101891s ]
+[ 2013-12-16T10:31:17+08:00 ] NOTIC: [8] Undefined variable: list BaseAction.class.php 第 264 行.
+[ 2013-12-16T10:31:17+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.009389s ]
+[ 2013-12-16T10:31:17+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.001481s ]
+[ 2013-12-16T10:31:17+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:31:17+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:31:17+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:31:17+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:31:23+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:23+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:23+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:23+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND devicetype=45  [ RunTime:0.081762s ]
+[ 2013-12-16T10:31:23+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sd.devicetype=45  ) z limit 0,20 [ RunTime:0.325552s ]
+[ 2013-12-16T10:31:23+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.008671s ]
+[ 2013-12-16T10:31:23+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000823s ]
+[ 2013-12-16T10:31:24+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:31:24+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:31:24+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:31:24+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:31:28+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:28+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:28+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:31:28+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND devicetype=45  [ RunTime:0.080794s ]
+[ 2013-12-16T10:31:28+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sd.devicetype=45  ) z limit 20,20 [ RunTime:0.310400s ]
+[ 2013-12-16T10:31:28+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.009989s ]
+[ 2013-12-16T10:31:28+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.001683s ]
+[ 2013-12-16T10:31:29+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:31:29+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:31:29+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:31:29+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:32:13+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:32:13+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:32:13+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND state='已保養'  AND devicetype=45  [ RunTime:0.082395s ]
+[ 2013-12-16T10:32:13+08:00 ] NOTIC: [8] Undefined variable: list BaseAction.class.php 第 264 行.
+[ 2013-12-16T10:32:13+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.007694s ]
+[ 2013-12-16T10:32:13+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.004077s ]
+[ 2013-12-16T10:32:14+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:32:14+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:32:14+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:32:17+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:32:17+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:32:17+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND state='未保養'  AND devicetype=45  [ RunTime:0.084134s ]
+[ 2013-12-16T10:32:17+08:00 ] NOTIC: [8] Undefined variable: list BaseAction.class.php 第 264 行.
+[ 2013-12-16T10:32:17+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.007606s ]
+[ 2013-12-16T10:32:17+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000849s ]
+[ 2013-12-16T10:32:17+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:32:17+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:32:17+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:32:24+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:32:24+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:32:24+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:32:24+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND devicetype=45  [ RunTime:0.084004s ]
+[ 2013-12-16T10:32:25+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sd.devicetype=45  ) z limit 0,20 [ RunTime:0.299350s ]
+[ 2013-12-16T10:32:25+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.006976s ]
+[ 2013-12-16T10:32:25+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000831s ]
+[ 2013-12-16T10:32:25+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:32:25+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:32:25+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:32:25+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:32:41+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:32:41+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:36:33+08:00 ] SQL: SELECT COUNT(*) FROM (
+				SELECT 
+				  *
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      ) s ) e WHERE `case`=26
+			
+		 AND state='未保養'  AND devicetype=45  [ RunTime:0.076729s ]
+[ 2013-12-16T10:36:33+08:00 ] NOTIC: [8] Undefined variable: list BaseAction.class.php 第 264 行.
+[ 2013-12-16T10:36:33+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.006753s ]
+[ 2013-12-16T10:36:33+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.001045s ]
+[ 2013-12-16T10:36:33+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:36:33+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:36:33+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:37:31+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:37:31+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:37:34+08:00 ] SQL: SELECT COUNT(*) FROM (SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND state='未保養'  AND sd.devicetype=45  ) z) Temp [ RunTime:0.018313s ]
+[ 2013-12-16T10:37:34+08:00 ] NOTIC: [8] Undefined variable: list BaseAction.class.php 第 264 行.
+[ 2013-12-16T10:37:34+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.007200s ]
+[ 2013-12-16T10:37:34+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000936s ]
+[ 2013-12-16T10:37:34+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:37:34+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:37:34+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:37:39+08:00 ] NOTIC: [8] Undefined index: state BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:37:39+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:37:39+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:37:42+08:00 ] SQL: SELECT COUNT(*) FROM (SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sd.devicetype=45  ) z) Temp [ RunTime:0.305154s ]
+[ 2013-12-16T10:37:42+08:00 ] SQL: SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sd.devicetype=45  ) z limit 0,20 [ RunTime:0.329126s ]
+[ 2013-12-16T10:37:42+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.007865s ]
+[ 2013-12-16T10:37:42+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000839s ]
+[ 2013-12-16T10:37:43+08:00 ] NOTIC: [8] Undefined variable: state 770ae8f4c0eb6336dc72fb87da62750a.php 第 10 行.
+[ 2013-12-16T10:37:43+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:37:43+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:37:43+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:38:20+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:38:20+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:38:23+08:00 ] SQL: SELECT COUNT(*) FROM (SELECT * FROM (SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND state='未保養'  AND sd.devicetype=45  )z)y) Temp [ RunTime:0.016585s ]
+[ 2013-12-16T10:38:23+08:00 ] NOTIC: [8] Undefined variable: list BaseAction.class.php 第 264 行.
+[ 2013-12-16T10:38:23+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.006405s ]
+[ 2013-12-16T10:38:23+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000840s ]
+[ 2013-12-16T10:38:23+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:38:23+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:38:23+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:38:31+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:38:31+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:38:53+08:00 ] SQL: SELECT COUNT(*) FROM (SELECT * FROM (SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND state='未保養'  AND sd.devicetype=45  )z)y) Temp [ RunTime:0.017006s ]
+[ 2013-12-16T10:38:53+08:00 ] NOTIC: [8] Undefined variable: list BaseAction.class.php 第 264 行.
+[ 2013-12-16T10:38:53+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.007208s ]
+[ 2013-12-16T10:38:53+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000848s ]
+[ 2013-12-16T10:38:54+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:38:54+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:38:54+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:40:37+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:40:37+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:40:40+08:00 ] SQL: SELECT COUNT(*) FROM (SELECT * FROM (SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sd.devicetype=45  )z)y WHERE state='未保養' ) Temp [ RunTime:0.316384s ]
+[ 2013-12-16T10:40:40+08:00 ] SQL: SELECT * FROM (SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sd.devicetype=45  )z)y WHERE state='未保養'  limit 0,20 [ RunTime:0.346861s ]
+[ 2013-12-16T10:40:40+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.006855s ]
+[ 2013-12-16T10:40:40+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.000875s ]
+[ 2013-12-16T10:40:41+08:00 ] NOTIC: [8] Undefined variable: sdate 770ae8f4c0eb6336dc72fb87da62750a.php 第 11 行.
+[ 2013-12-16T10:40:41+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:40:41+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:41:01+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:41:04+08:00 ] SQL: SELECT COUNT(*) FROM (SELECT * FROM (SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sechduldate>='2013-10-06'  AND sd.devicetype=45  )z)y WHERE state='未保養' ) Temp [ RunTime:0.257978s ]
+[ 2013-12-16T10:41:05+08:00 ] SQL: SELECT * FROM (SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sechduldate>='2013-10-06'  AND sd.devicetype=45  )z)y WHERE state='未保養'  limit 0,20 [ RunTime:0.280700s ]
+[ 2013-12-16T10:41:05+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.009241s ]
+[ 2013-12-16T10:41:05+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.001276s ]
+[ 2013-12-16T10:41:05+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:41:05+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T10:41:12+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-12-16T10:41:16+08:00 ] SQL: SELECT COUNT(*) FROM (SELECT * FROM (SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sechduldate>='2013-10-06'  AND sd.devicetype=45  )z)y WHERE state='未保養' ) Temp [ RunTime:0.282908s ]
+[ 2013-12-16T10:41:16+08:00 ] SQL: SELECT * FROM (SELECT 
+				  *,
+				  (
+				    CASE
+				      WHEN alreadymaintenance = 0 
+				      THEN '未保養' 
+				       WHEN alreadymaintenance = needmaintenance 
+				      THEN '已保養' 
+				      ELSE
+					'保養中'
+				    END
+				  ) AS state 
+				FROM
+				  (SELECT 
+				    sd.*,
+				    t.`name` AS tname,
+				    ct.`name` AS cname,
+				    s.`code`,s.`case`,
+				    w.workcode,
+				    ov.name otname,
+				    (SELECT 
+				      COUNT(d.id) 
+				    FROM
+				      case_device d 
+				    WHERE d.`case` = s.`case` 
+				      AND d.`childtype` = sd.devicechildtype) AS needmaintenance,
+				    (SELECT 
+				      COUNT(id) 
+				    FROM
+				      `case_device_maintenance_scheduling_daily_maintenaced` al 
+				    WHERE al.`sechudl` = s.`id` 
+				      AND al.`overtime` = sd.`overtime` 
+				      AND al.`times` = sd.`times`) AS alreadymaintenance 
+				  FROM
+				    `case_device_maintenance_scheduling` s 
+				    INNER JOIN `case_device_maintenance_scheduling_daily` sd 
+				      ON s.`id` = sd.`sechdul` 
+				    INNER JOIN case_device_type t 
+				      ON t.`id` = sd.`devicetype` 
+				    INNER JOIN case_device_child_type ct 
+				      ON ct.`id` = sd.`devicechildtype`
+				    INNER JOIN `case_device_maintenance_overtime` ov 
+				    ON ov.`id`=sd.`overtime`
+				    INNER JOIN `case_work` w ON w.`id`=ov.`work`
+				      WHERE s.`case`=26  AND sechduldate>='2013-10-06'  AND sd.devicetype=45  )z)y WHERE state='未保養'  limit 20,20 [ RunTime:0.274677s ]
+[ 2013-12-16T10:41:16+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.006990s ]
+[ 2013-12-16T10:41:16+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 26 [ RunTime:0.001491s ]
+[ 2013-12-16T10:41:17+08:00 ] NOTIC: [8] Undefined variable: edate 770ae8f4c0eb6336dc72fb87da62750a.php 第 12 行.
+[ 2013-12-16T10:41:17+08:00 ] NOTIC: [8] Undefined index: caseName 770ae8f4c0eb6336dc72fb87da62750a.php 第 126 行.
+[ 2013-12-16T12:24:49+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-12-16T12:24:49+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-12-16T12:24:53+08:00 ] ERR: (ThinkException) ����Ŀ�����������ܾ����޷����ӡ�
+
+[ 2013-12-16T12:25:36+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-12-16T12:25:36+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-12-16T12:25:37+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.245711s ]
+[ 2013-12-16T12:25:37+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.000770s ]
+[ 2013-12-16T12:25:37+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.237537s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.368890s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.089835s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.414956s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.050415s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.000890s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.000625s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.084697s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004303s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.008251s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004525s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.010710s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004325s ]
+[ 2013-12-16T12:25:38+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007999s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004423s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003562s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004388s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004202s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003771s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004010s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004176s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003536s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004162s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003751s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.003551s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003547s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003711s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004647s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004092s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003796s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003752s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.004032s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003592s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003506s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003608s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004988s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004467s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003643s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003603s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007469s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.000676s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007146s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.057167s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.008437s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.011625s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.007564s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.000790s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.000626s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.004178s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003637s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003539s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003415s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004063s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003757s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003791s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003484s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003445s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004059s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004781s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003914s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003568s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005162s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004607s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007345s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003934s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.003798s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003782s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003626s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003978s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003614s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003552s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003515s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.003981s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004181s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003714s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003536s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003905s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003793s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003555s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003512s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.006726s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.075050s ]
+[ 2013-12-16T12:25:39+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.072433s ]
+[ 2013-12-16T12:25:44+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-12-16T12:25:44+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-12-16T12:26:51+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-12-16T12:26:51+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-12-16T12:26:54+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009101s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.000774s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.006699s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.049143s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.010429s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.011476s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.007954s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.000946s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.000770s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.003632s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003674s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003970s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003858s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003605s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004368s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004008s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003987s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004933s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003917s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004424s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005854s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.009141s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004491s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004221s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004307s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004624s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.004223s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004202s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004126s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004020s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003507s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003776s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004097s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.003713s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003963s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004572s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004429s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003579s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003611s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007076s ]
+[ 2013-12-16T12:26:54+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004246s ]
+[ 2013-12-16T12:26:55+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007691s ]
+[ 2013-12-16T12:26:55+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.070907s ]
+[ 2013-12-16T12:26:55+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.074893s ]
+[ 2013-12-16T12:27:26+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-12-16T12:27:26+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-12-16T12:27:27+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007747s ]
+[ 2013-12-16T12:27:27+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.000981s ]
+[ 2013-12-16T12:27:27+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.006719s ]
+[ 2013-12-16T12:27:27+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.046052s ]
+[ 2013-12-16T12:27:27+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.007923s ]
+[ 2013-12-16T12:27:27+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.011804s ]
+[ 2013-12-16T12:27:27+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.007615s ]
+[ 2013-12-16T12:27:27+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.000945s ]
+[ 2013-12-16T12:27:27+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.000711s ]
+[ 2013-12-16T12:27:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.003837s ]
+[ 2013-12-16T12:27:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004497s ]
+[ 2013-12-16T12:27:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003532s ]
+[ 2013-12-16T12:27:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003742s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005017s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006080s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004522s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006371s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003990s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006525s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006016s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003570s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003759s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007776s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003829s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003819s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004293s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.003670s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003623s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003536s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004444s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004068s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003897s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005926s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.004492s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004439s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004493s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004079s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004036s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004275s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003781s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003637s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.006433s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.076591s ]
+[ 2013-12-16T12:27:28+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.071950s ]
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: cat debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: categories debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: cat debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: datas debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: PageInfo debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: cat2 debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: sql debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: data debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: data debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: cat debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: datas debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: sql debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: data debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: data debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: categories debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: cat debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: cat2 debug-eval 第 1 行.
+[ 2013-12-16T12:29:45+08:00 ] NOTIC: [8] Undefined variable: PageInfo debug-eval 第 1 行.
+[ 2013-12-16T12:29:49+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.

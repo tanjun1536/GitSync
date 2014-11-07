@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<script type="text/javascript">
+var depart ="{$depart}";
+var team ="{$team}";
+	$(function() {
+		$("#sdepart").change(function() {
+			getTeam("#sdepart","#steam");
+		});
+		if(depart)$("#sdepart").val(depart).trigger('change');
+	});
+	function getTeam(depart, teams) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getTeam",
+			data : "pid=" + $(depart).val(),
+			success : function(data) {
+				$(teams).empty();
+				$("<option value=''>請選擇单位</option>").appendTo(teams);
+				var json = eval(data);
+				if(!json)return;
+				$.each(json, function(k) {
+					$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name'])  + "</option>").appendTo(teams);
+				});
+				if(team)$("#steam").val(team);
+			}
+		});
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">員工管理</div>
+			<div class="mainInfo">
+				<form id="form2" name="form2" method="post" action="">
+					<div class="mailNav">
+						<a href="__URL__/add">新增員工</a> 
+						<select name="sdepart" id="sdepart">
+							<option value="">請選擇部門</option>
+							<volist id="item" name="departs">
+							<option value="{$item.id}">{$item.name}</option>
+							</volist>
+						</select> <select name="steam" id="steam">
+							<option value="">請選擇組別</option>
+						</select> 姓名：<input type="text" name="skey" value="{$username}" /><input type="submit" name="Submit3" value="搜尋" />
+					</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="0"
+						class="tab_thtop">
+						<tr>
+							<th width="98" scope="col">部門</th>
+							<th width="98" scope="col">單位</th>
+							<th width="98" scope="col">編號</th>
+							<th width="98" scope="col">姓名</th>
+							<th width="124" scope="col">員工編號</th>
+							<th width="129" scope="col">連絡電話</th>
+							<th width="200" scope="col">Email</th>
+							<th width="62" scope="col">在職</th>
+							<th width="90" scope="col">操作</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						
+						<td align="center">{$item.dname}</td>
+						<td align="center">{$item.tname}</td>
+						<td align="center">{$item.id}</td>
+						<td align="center">{$item.name}</td>
+						<td align="center">{$item.ucode}</td>
+						<td align="center">{$item.phone}</td>
+						<td align="center">{$item.email}</td>
+						<td align="center"><eq name="item.isonduty" value="1">在職<else/>離職</eq></td>
+						<td align="center"><a href="__URL__/edit?id={$item.id}">修改</a>
+							| <a onclick="return confirm('確認刪除選擇的數據?');"
+							href="__URL__/delete?id={$item.id}">刪除</a></td>
+						</tr>
+						</volist>
+					</table>
+					<div class="pages">{$page}</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

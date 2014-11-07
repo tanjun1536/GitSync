@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">文件管理 - 簽呈類別管理</div>
+			<div class="mainInfo">
+				<div class="mailNav">
+					<a href="__URL__/editChildElec?id={$item.id}">修改</a>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+					<tr>
+						<th scope="row">類別</th>
+						<td>{$elecv.pname}</td>
+					</tr>
+					<tr>
+						<th scope="row">名稱</th>
+						<td><label>{$elecv.name}</label></td>
+					</tr>
+					<tr>
+						<th width="70" scope="row">時間</th>
+						<td width="622">{$elecv.hours}小時</td>
+					</tr>
+					<tr>
+						<th scope="row">金額</th>
+						<td>{$elecv.smoney} ~{$elecv.emoney}</td>
+					</tr>
+					<tr>
+						<th scope="row">說明</th>
+						<td>{$elecv.remark}</td>
+					</tr>
+				</table>
+				<div class="back">
+					<a href="javascript:window.history.go(-1)">》 回上頁 </a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

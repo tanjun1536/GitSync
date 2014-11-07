@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<script type="text/JavaScript">
+	function Check(o) {
+		$("#state").val(o.value);
+		$("#form1").submit();
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 異動管理</div>
+			<div class="mainInfo">
+				<div class="topic2">審核出庫單</div>
+				<form id="form1" name="form1" method="post"
+					action="__URL__/stockChangeCheck">
+					<input type="hidden" name="id" value="{$sc.id}" /> <input
+						type="hidden" name="state" id="state" /> <input type="hidden"
+						name="checkuser" id="checkuser" value="{@SESSION_USER.name}" /> <input
+						type="hidden" name="checkdate" id="checkdate" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="91" scope="row">倉庫代號</th>
+							<td width="242">{$sc.outwarehousecode}</td>
+							<th width="91" scope="row">倉庫名稱</th>
+							<td width="266">{$sc.outwarehousename}</td>
+						</tr>
+						<tr>
+							<th scope="row">出庫日期</th>
+							<td>{$sc.outdate|date='Y/m/d',strtotime(###)}</td>
+							<th scope="row">出庫性質</th>
+							<td>{$sc.outtypename}</td>
+						</tr>
+						<tr>
+							<th scope="row">出庫人</th>
+							<td>{$sc.outuser}</td>
+							<th scope="row">出庫時間</th>
+							<td>{$sc.outhour}時{$sc.outminute}分</td>
+						</tr>
+						<tr>
+							<th scope="row">審核人</th>
+							<td>{$sc.checkuser}</td>
+							<th scope="row">審核日期</th>
+							<td><notempty name="sc.checkdate">{$sc.checkdate|date='Y/m/d',strtotime(###)}</notempty></td>
+						</tr>
+						<tr>
+							<th scope="row">出貨單號</th>
+							<td colspan="3">{$sc.outcode}</td>
+							<!-- 						<th scope="row">發票號碼</th> -->
+							<!-- 						<td>{$sc.billcode}</td> -->
+						</tr>
+						<tr>
+							<th scope="row">對象</th>
+							<td>{$obj.name}</td>
+							<th scope="row">訂單編號</th>
+							<td>{$sc.ordercode}</td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td colspan="3">{$sc.remark}</td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0"
+						class="tab_thtop">
+						<tr>
+							<th width="144" scope="col">商品編號</th>
+							<th width="205" scope="col">商品名稱</th>
+							<th width="69" scope="col">單價</th>
+							<th width="47" scope="col">數量</th>
+							<th width="75" scope="col">小計</th>
+							<th width="153" scope="col">備註</th>
+						</tr>
+						<volist name="scd" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center">{$item.productcode}</td>
+						<td>{$item.productname}</td>
+						<td align="center">{$item.price}</td>
+						<td align="center">{$item.quantity}</td>
+						<td align="center">{$item.subtotal}</td>
+						<td>{$item.remark}</td>
+						</tr>
+						</volist>
+						<tr class="trcolor3">
+							<td colspan="4" align="right"><strong>總計入庫金額：</strong></td>
+							<td align="center">{$sc.totalmoney}</td>
+							<td>元</td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0"
+						class="tab_thtop">
+						<tr>
+							<th scope="col">備註</th>
+						</tr>
+						<tr>
+							<td><textarea name="remark" rows="5" style="width: 680px">{$sc.remark}</textarea></td>
+						</tr>
+					</table>
+					<div align="center" style="margin-top: 10px">
+						<input type="button" name="Submit" onclick="Check(this)"
+							value="核可" /> <input type="button" onclick="Check(this)"
+							name="Submit2" value="不同意" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

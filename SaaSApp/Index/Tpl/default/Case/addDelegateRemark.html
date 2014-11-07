@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">叫修單管理</div>
+			<div class="mainInfo">
+				<div class="topic2">委外說明</div>
+				<form id="form1" name="form1" method="post" action="__URL__/updateDelegateRemark?case={@case}">
+					<input type="hidden" name="id" value="{$repair.id}"/>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th scope="row">叫修單編號</th>
+							<td>{$repair.repaircode}</td>
+							<th scope="row">叫修日期</th>
+							<td>{$repair.repairdate|date='Y/m/d',strtotime(###)}</td>
+						</tr>
+						<tr>
+							<th width="119" scope="row">樓層區域</th>
+							<td width="328">{$repair.bname}／{$repair.bfname}／{$repair.aname}</td>
+							<th width="94" scope="row">叫修申請人</th>
+							<td width="149">{$repair.requestuser}</td>
+						</tr>
+						<tr>
+							<th scope="row">設備類別</th>
+							<td colspan="3">{$repair.tname}／{$repair.ctname}</td>
+						</tr>
+						<tr>
+							<th scope="row">設備編號／名稱</th>
+							<td colspan="3"><label>{$repair.devicecode}<br /> {$repair.devicename}
+							</label></td>
+						</tr>
+						<tr>
+							<th scope="row">委外說明</th>
+							<td colspan="3"><textarea name="delegateremark" rows="10" style="width: 490px">{$repair.delegateremark}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><span style="margin-top: 10px"> <input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" />
+							</span></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	function calSubTotal(o) {
+		var v = parseInt(o.value);
+		if (isNaN(v)) {
+			alert('请输入数字!');
+			o.value = '';
+			$('#' + o.id).parent().next().html('');
+		} else {
+			var p = parseInt($('#' + o.id).parent().prev().html());
+			if (v > p) {
+				alert('到貨數不能大於未到數!');
+				o.value = '';
+				$('#' + o.id).parent().next().html('');
+			} else {
+				var price = $('#' + o.id).parent().find('input[type=hidden]').val();
+				$('#' + o.id).parent().next().html(price * v);
+			}
+
+		}
+		calTotal();
+	}
+	function calTotal() {
+		var total = 0;
+		$("#purchasedetail tr").each(function(i) {
+			var td = $(this).find("td")[6];
+			if (td)
+				if ($(td).html() != '')
+					total += parseFloat($(td).html());
+		});
+		$("#total").html(total);
+		$("#totalmoney").val(total);
+	}
+	function check() {
+
+		var details = new Array();
+		var len = $("#purchasedetail tr").length;
+		$("#purchasedetail tr").each(function(i) {
+			if (i > 0 && i < len - 1) {
+				var tds = $(this).find("td");
+				var detail = new Array();
+				detail.push($(tds[0]).html());
+				detail.push($(tds[1]).html());
+				detail.push($(tds[2]).html());
+				detail.push($(tds[3]).html());
+				detail.push($(tds[4]).html());
+				var p = $(tds[5]).find('input[type=hidden]').val();
+				var q = $(tds[5]).find('input[type=text]').val();
+				if (q == '' || isNaN(parseInt(q))) {
+					detail.push(0);
+					detail.push(0);
+				} else {
+					detail.push(q);
+					detail.push($(tds[6]).html());
+				}
+				detail.push(p);
+
+				details.push(detail.join(','));
+			}
+
+		});
+		$("#checkdetail").val(details.join(';'));
+		return true;
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 驗貨管理</div>
+			<div class="mainInfo">
+				<form id="form2" name="form2" method="post" onsubmit="return check()" action="__URL__/addStockCheck">
+					<input type="hidden" name="id" value="{$sc.id}" /> 
+					<input type="hidden" name="totalmoney" id="totalmoney" value="0" /> 
+					<input type="hidden" name="checkdetail" id="checkdetail" /> 
+					<div class="topic2">修改驗貨單</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="88" scope="row">驗貨單編號</th>
+							<td>{$sc.checkcode}</td>
+						</tr>
+						<tr>
+							<th scope="row">採購對象</th>
+							<td>{$sc.mname}</td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop" id="purchasedetail">
+						<tr>
+							<th width="109" scope="col">採購單編號</th>
+							<th width="123" scope="col">商品編號</th>
+							<th width="185" scope="col">商品名稱</th>
+							<th width="72" scope="col">採購數</th>
+							<th width="67" scope="col">未到數</th>
+							<th width="71" scope="col">到貨數</th>
+							<th width="66" scope="col">小計($)</th>
+						</tr>
+						<volist name="scd" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center">{$item.purchasecode}</td>
+						<td align="center">{$item.productcode}</td>
+						<td align="center">{$item.productname}</td>
+						<td align="center">{$item.quantity}</td>
+						<td align="center">{$item.uncome}</td>
+						<td align="center"><input type="text"  id="fuck{$i}" type='text' value="{$item.income}" onkeyup='calSubTotal(this);'  style='width: 50px'  /><input type='hidden' value="{$item.price}" /></td>
+						<td align="center">{$item.subtotal}</td>
+						</tr>
+						</volist>
+						<tr class="trcolor3">
+							<td colspan="6" align="right"><strong>本次到貨金額：</strong></td>
+							<td align="center" id="total">{$sc.totalmoney}</td>
+						</tr>
+					</table>
+					<div align="center" style="margin-top: 10px">
+						<input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

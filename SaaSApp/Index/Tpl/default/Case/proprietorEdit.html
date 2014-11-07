@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	var unit="{$prop.unit}";
+	var state="{$prop.state}";
+	$(function() {
+		var m = $(this).val() / $("#unit option:selected").attr('space');
+		$("#charge").keyup(function() {
+			
+			m = Math.round(m, 2);
+			$("#priceperm3").val(m);
+			$("#tdpriceperm3").html(m);
+		});
+		if(unit)$("#unit").val(unit);
+		
+		$("input[type=radio][value=" +state+ "]").attr("checked", true);
+	});
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">業主管理 - 承租戶管理</div>
+			<div class="mainInfo">
+				<div class="topic2">新增／修改承租戶管理</div>
+				<form action="__URL__/proprietorAdd" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="case" value="{@case}" /> 
+					<input type="hidden" name="id" value="{$prop.id}" /> 
+					<input type="hidden" name="priceperm3" id="priceperm3" value="{$prop.priceperm3}" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="188" scope="row">客戶名稱</th>
+							<td width="504"><input type="text" name="name" value="{$prop.name}"/></td>
+						</tr>
+						<tr>
+							<th scope="row">統一編號或身份證字號</th>
+							<td><input type="text" name="card"  value="{$prop.card}"/></td>
+						</tr>
+						<tr>
+							<th scope="row">租用區域</th>
+							<td><select name="unit" id="unit">
+									<option value="" selected="selected">請選擇</option>
+									<volist id="item" name="units">
+									<option space="{$item.space}" value="{$item.id}">{$item.code}-{$item.name}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡人</th>
+							<td><input type="text" name="linker"  value="{$prop.linker}"/></td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡電話</th>
+							<td><input type="text" name="phone"  value="{$prop.phone}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">行動電話</th>
+							<td><input type="text" name="mobile"  value="{$prop.mobile}"/></td>
+						</tr>
+						<tr>
+							<th scope="row">EMAIL</th>
+							<td><input type="text" name="email"  value="{$prop.email}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">合約開始時間</th>
+							<td><input type="text" name="startdate" class="Wdate" onfocus="WdatePicker()"  value="{$prop.startdate}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">合約到期時間</th>
+							<td><input type="text" name="enddate" class="Wdate" onfocus="WdatePicker()"  value="{$prop.enddate}"/></td>
+						</tr>
+						<tr>
+							<th scope="row">每月費用</th>
+							<td><input type="text" name="charge" id="charge"  value="{$prop.charge}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">每坪單價</th>
+
+							<td id="tdpriceperm3">{$prop.priceperm3}</td>
+						</tr>
+						<tr>
+							<th scope="row">合約附件</th>
+							<td><input type="file" name="att" /> <a href="__URL__/down?name={$prop.atts|urlencode}" > {$prop.atts}</a></td>
+						</tr>
+						<tr>
+							<th scope="row">合約</th>
+							<td><input name="state" type="radio" value="合約中" checked="checked" /> 開啟 <input name="state" type="radio" value="停止合約" /> 停止</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit2" value="確定" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

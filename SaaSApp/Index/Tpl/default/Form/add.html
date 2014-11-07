@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	function check() {
+		return validator.empty('name', '請輸入名稱!') && validator.index('type', '請選擇類別!');
+	}
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">資源分享 - 常用表單</div>
+			<div class="mainInfo">
+				<div style="margin-bottom: 10px">
+					<form action="__URL__/insert" method="post" onsubmit="return check()" enctype="multipart/form-data" name="form3" id="form3">
+						<div class="topic2">新增表單</div>
+						<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+							<tr>
+								<th width="124" scope="row">名稱</th>
+								<td width="568"><input type="text" name="name" id="name" style="width: 400px" /></td>
+							</tr>
+							<tr>
+								<th scope="row">類別</th>
+								<td><select name="type" id="type">
+										<option value="請選擇">請選擇</option>
+										<volist id="item" name="types">
+										<option value="{$item.id}">{$item.name}</option>
+										</volist>
+								</select> <a href="__URL__/category">新增類別</a></td>
+							</tr>
+							<tr>
+								<th scope="row">上傳檔案</th>
+								<td><input type="file" name="file" /></td>
+							</tr>
+							<tr>
+								<th scope="row">&nbsp;</th>
+								<td><input type="submit" name="Submit3" value="確定" /></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

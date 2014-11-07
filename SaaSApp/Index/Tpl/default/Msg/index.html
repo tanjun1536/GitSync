@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">一般訊息</div>
+			<div class="mainInfo">
+				<div class="mailNav">
+					<a href="__URL__/create">寫信</a><a href="__URL__/send"> 寄件備份</a><a href="__URL__/index" class="select">收件夾(<strong>{@MSG_COMM}</strong>)
+					</a>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="mailList">
+					<tr>
+						<th width="100" scope="col">寄件者</th>
+						<th width="26" scope="col">&nbsp;</th>
+						<th width="478" scope="col">主旨</th>
+						<th width="91" scope="col">寄件日期</th>
+					</tr>
+					<volist id="item" name="list"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td>{$item.sendername}</td>
+					<td><img src="__PUBLIC__/images/bring.gif" alt="" width="18" height="19" /></td>
+					<td><a href="__URL__/view?id={$item.id}<if condition="$item.isread eq 0 ">&noread=1</if>"><if condition="$item.isread eq 0 "> <strong>{$item.title}(未讀)</strong><else />{$item.title}(已讀)</if></a></td>
+					<td>{$item.senddate|date='y/m/d',strtotime(###)}</td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

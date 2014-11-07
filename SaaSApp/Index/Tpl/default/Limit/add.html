@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/jquery.json-2.3.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	$(function() {
+		$("dt input[type=checkbox]").change(function() {
+			$(this).parent().next().find("input[type=checkbox]").attr('checked', $(this).attr('checked') == 'checked');
+		});
+	});
+	var rms=new Array();
+	function check() {
+		//根据div里面的dt dd de查找
+
+		$("dl").each(function(i) {
+			$(this).find("div").each(function(j) {
+				//主菜单
+				var mmc = $(this).find("dt input[type=checkbox]")[0];
+				// 				alert(mmc);
+				if (mmc['checked'] == true) {
+					var mm = new Object();
+					mm.mi = mmc.value;
+					mm.ext = null;
+					//主菜单权限
+					var exts = new Array();
+					var selector = "#ext"+mmc.value+" input[type=checkbox]:checked";
+					$(this).find(selector).each(function(x) {
+						exts.push($(this).val());
+					});
+					mm.ext=exts.length == 0 ? null : exts.join(',');
+
+					rms.push(mm);
+					//子菜单
+					$(this).find("dd input[type=checkbox]:checked ").each(function(k) {
+						if ($(this).attr('menu')) {
+							var exts = new Array();
+							var selector = "#ext"+$(this).val()+" input[type=checkbox]:checked";
+							$(this).parent().find(selector).each(function(x) {
+								exts.push($(this).val());
+							});
+							rms.push({
+								'mi' : $(this).val(),
+								'ext' : exts.length == 0 ? null : exts.join(',')
+							});
+						}
+
+					});
+
+				}
+			});
+		});
+		$("#menus").val($.toJSON(rms));
+		//alert($("#menus").val());
+		return window.validator.empty("name", "請輸入組別名稱") && window.validator.length("請選擇功能權限");
+	}
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">權限管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/insert" onsubmit="return check();" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<div class="topic2">新增 / 修改組別</div>
+					<input type="hidden"  id="menus" name="menus"/> 
+					<input type="hidden"   name="code" value="{@SESSION_USER.code}"/> 
+					<input type="hidden" name="id" value="{$role.id}" id="id" /> 
+					<table width="695" border="0" align="center" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="110" scope="row">組別名稱</th>
+							<td width="582"> 
+							 <input type="text" name="name" id="name" value="{$role.name}" /></td>
+						</tr>
+						<tr>
+							<th width="110" scope="row">排序</th>
+							<td width="582"> 
+							 <input type="text" name="ordernumber" id="ordernumber" value="{$role.ordernumber}" /></td>
+						</tr>
+					</table>
+					<table width="100%" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th colspan="2" scope="col">權限設定</th>
+						</tr>
+						<tr>
+							<td width="48%" valign="top">
+								<div class="txt_green">
+									<strong>基本功能權限設定</strong>
+								</div>
+								<dl style="margin-top: 10px">
+									<volist id="item" name="menus">
+									
+										<if condition="$item.type eq 0">
+										<div>
+										<dt>
+											<in name="item.id" value="$rm">
+											 <input type="checkbox"  checked="checked" value="{$item.id}" menu="true" /> <else />
+											  <input type="checkbox"   value="{$item.id}" menu="true" /> </in>
+											{$item.name}
+											<notempty name="item.ext"> ( <label id="ext{$item.id}">
+											<volist name=":explode(',',$item['ext'])" id="ext">
+											
+												<?php 
+												$hasExt=false;
+												foreach($exts as $key=>$val)
+												{
+													if($val['id']===$item['id'])
+													{
+														if(count(explode(trim($ext),trim($val['ext']) ))>1)
+															echo '<input type="checkbox" checked="checked"  value="'.$ext.'" />&nbsp;'.$ext.'&nbsp;';
+														else
+															echo '<input type="checkbox"  value="'.$ext.'" />&nbsp;'.$ext.'&nbsp;';
+														$hasExt=true;
+													}
+												}
+												if($hasExt==false)
+												{
+													echo '<input type="checkbox"  value="'.$ext.'" />&nbsp;'.$ext.'&nbsp;';
+												}
+												$hasExt=false;
+												?>
+											 </volist></label>) </notempty> {$item.endtag}
+										</dt>
+										<notempty name="item.children">
+										<dd>
+											<volist id="citem" name="item.children"> 
+											<in name="citem.id" value="$rm">
+											 <input type="checkbox"  checked="checked" value="{$citem.id}" menu="true" /> <else />
+											  <input type="checkbox"   value="{$citem.id}" menu="true" /> </in> {$citem.name} 
+										
+											<notempty name="citem.ext"> ( <label id="ext{$citem.id}">
+											<volist name=":explode(',',$citem['ext'])" id="ext">
+												<?php 
+												$hasExt=false;
+												foreach($exts as $key=>$val)
+												{
+													
+													if($val['id']===$citem['id'])
+													{
+														if(count(explode(trim($ext),trim($val['ext']) ))>1)
+															echo '<input type="checkbox" checked="checked"  value="'.$ext.'" />&nbsp;'.$ext.'&nbsp;';
+														else
+															echo '<input type="checkbox"  value="'.$ext.'" />&nbsp;'.$ext.'&nbsp;';
+														$hasExt=true;
+													}
+												}
+												if($hasExt==false)
+												{
+													echo '<input type="checkbox"  value="'.$ext.'" />&nbsp;'.$ext.'&nbsp;';
+												}
+												$hasExt=false;
+												?>
+											 </volist></label>) </notempty> {$citem.endtag} </volist>
+										</dd>
+										</notempty></div> </if>
+									
+									</volist>
+								</dl>
+							</td>
+							<td width="52%" valign="top">
+								<div class="txt_green">
+									<strong>專案權限設定</strong>
+								</div>
+								<dl style="margin-top: 10px">
+									<volist id="item" name="menus">
+									
+										<if condition="$item.type eq 1">
+										<div>
+										<dt>
+											<in name="item.id" value="$rm">
+											 <input type="checkbox"  checked="checked" value="{$item.id}" /> <else />
+											  <input type="checkbox"   value="{$item.id}" /> </in>
+											{$item.name}
+										</dt>
+										<notempty name="item.children">
+										<dd>
+											<volist id="citem" name="item.children"> 
+											<in name="citem.id" value="$rm">
+											 <input type="checkbox"  checked="checked" value="{$citem.id}" menu="true" /> <else />
+											  <input type="checkbox"   value="{$citem.id}" menu="true" /> </in> {$citem.name} 
+										
+											<notempty name="citem.ext"> ( <label id="ext{$citem.id}">
+											<volist name=":explode(',',$citem['ext'])" id="ext">
+												<?php 
+												$hasExt=false;
+												foreach($exts as $key=>$val)
+												{
+													
+													if($val['id']===$citem['id'])
+													{
+														if(count(explode(trim($ext),trim($val['ext']) ))>1)
+															echo '<input type="checkbox" checked="checked"  value="'.$ext.'" />&nbsp;'.$ext.'&nbsp;';
+														else
+															echo '<input type="checkbox"  value="'.$ext.'" />&nbsp;'.$ext.'&nbsp;';
+														$hasExt=true;
+													}
+												}
+												if($hasExt==false)
+												{
+													echo '<input type="checkbox"  value="'.$ext.'" />&nbsp;'.$ext.'&nbsp;';
+												}
+												$hasExt=false;
+												?>
+											 </volist></label>) </notempty> {$citem.endtag} </volist>
+										</dd>
+										</notempty></div>  </if>
+									
+									</volist>
+								</dl>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center" valign="top">
+							<input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

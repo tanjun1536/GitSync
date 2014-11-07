@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">提醒 - 過去紀錄</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="">
+					<div class="mailNav">
+						日期<input type="text" name="sdate" class="Wdate"
+							onfocus="WdatePicker()" /> 
+						<input type="submit" name="Submit" value="搜尋" />
+					</div>
+				</form>
+				<table width="695" border="0" cellpadding="0" cellspacing="0"
+					class="tab_thtop">
+					<tr>
+						<th width="122" scope="col">日期</th>
+						<th width="96" scope="col">開始時間</th>
+						<th width="90" scope="col">結束時間</th>
+						<th width="385" scope="col">內容</th>
+					</tr>
+					<volist id="item" name="list"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.date|date='Y-m-d',strtotime(###)}
+						({$item.date|getWeek})</td>
+					<td align="center">{$item.shour}:{$item.sminute}</td>
+					<td align="center">{$item.ehour}:{$item.eminute}</td>
+					<td><a href="__APP__/work/view?id={$item.id}">{$item.description|getCut}</a></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

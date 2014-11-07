@@ -1,0 +1,147 @@
+[ 2014-09-09T21:02:21+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php ç¬¬ 4 è¡Œ.
+[ 2014-09-09T21:02:21+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php ç¬¬ 5 è¡Œ.
+[ 2014-09-09T21:02:32+08:00 ] ERR: (ThinkException) ÓÉÓÚÄ¿±ê¼ÆËã»ú»ý¼«¾Ü¾ø£¬ÎÞ·¨Á¬½Ó¡£
+
+[ 2014-09-09T21:02:52+08:00 ] ERR: (ThinkException) ÓÉÓÚÄ¿±ê¼ÆËã»ú»ý¼«¾Ü¾ø£¬ÎÞ·¨Á¬½Ó¡£
+
+[ 2014-09-09T21:03:11+08:00 ] ERR: (ThinkException) ÓÉÓÚÄ¿±ê¼ÆËã»ú»ý¼«¾Ü¾ø£¬ÎÞ·¨Á¬½Ó¡£
+
+[ 2014-09-09T21:03:31+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.054003s ]
+[ 2014-09-09T21:03:31+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.002000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.131007s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.314018s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.116007s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.133008s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.044002s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.083004s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.017001s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005001s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.004000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='å°ˆæ¡ˆç®¡ç†') and rm.`rid`=20 [ RunTime:0.003000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-09T21:03:32+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-09T21:03:33+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php ç¬¬ 79 è¡Œ.
+[ 2014-09-09T21:03:34+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.003001s ]
+[ 2014-09-09T21:03:34+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.006000s ]
+[ 2014-09-09T21:03:34+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc [ RunTime:0.038003s ]
+[ 2014-09-09T21:03:34+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc limit 0,20 [ RunTime:0.038002s ]
+[ 2014-09-09T21:04:24+08:00 ] SQL: SELECT * FROM user WHERE depart=(SELECT depart FROM user WHERE id=30) [ RunTime:0.003001s ]
+[ 2014-09-09T21:04:24+08:00 ] SQL: select * from depart where `code` = '13108617' [ RunTime:0.083005s ]
+[ 2014-09-09T21:04:24+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php ç¬¬ 240 è¡Œ.
+[ 2014-09-09T21:04:24+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php ç¬¬ 240 è¡Œ.
+[ 2014-09-09T21:04:24+08:00 ] NOTIC: [8] Undefined index: depart BaseAction.class.php ç¬¬ 240 è¡Œ.
+[ 2014-09-09T21:04:24+08:00 ] NOTIC: [8] Undefined index: team BaseAction.class.php ç¬¬ 240 è¡Œ.
+[ 2014-09-09T21:04:24+08:00 ] SQL: SELECT c.*,TIMEDIFF(c.downtime,c.ontime) difftime,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.depart=20 and u.team=39 [ RunTime:0.132007s ]
+[ 2014-09-09T21:04:24+08:00 ] SQL: SELECT c.*,TIMEDIFF(c.downtime,c.ontime) difftime,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.depart=20 and u.team=39 order by c.id desc  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-09-09T21:04:24+08:00 ] NOTIC: [8] Undefined variable: sdate 3021a20df15dd790fbbeb72c17596457.php ç¬¬ 190 è¡Œ.
+[ 2014-09-09T21:04:24+08:00 ] NOTIC: [8] Undefined variable: edate 3021a20df15dd790fbbeb72c17596457.php ç¬¬ 190 è¡Œ.
+[ 2014-09-09T21:04:26+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.037002s ]
+[ 2014-09-09T21:04:26+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001000s ]
+[ 2014-09-09T21:04:28+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php ç¬¬ 240 è¡Œ.
+[ 2014-09-09T21:04:28+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php ç¬¬ 240 è¡Œ.
+[ 2014-09-09T21:04:29+08:00 ] SQL: SELECT c.*,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.id=308 [ RunTime:0.008001s ]
+[ 2014-09-09T21:04:29+08:00 ] SQL: SELECT c.*,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.id=308 order by c.date desc limit 0,20 [ RunTime:0.008001s ]
+[ 2014-09-09T21:04:29+08:00 ] NOTIC: [8] Undefined variable: sdate fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 145 è¡Œ.
+[ 2014-09-09T21:04:29+08:00 ] NOTIC: [8] Undefined variable: edate fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 145 è¡Œ.
+[ 2014-09-09T21:05:03+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.006000s ]
+[ 2014-09-09T21:05:03+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.000000s ]
+[ 2014-09-09T21:05:59+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php ç¬¬ 240 è¡Œ.
+[ 2014-09-09T21:05:59+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php ç¬¬ 240 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] SQL: SELECT c.*,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.id=308 [ RunTime:0.002000s ]
+[ 2014-09-09T21:06:00+08:00 ] SQL: SELECT c.*,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.id=308 order by c.date desc limit 0,20 [ RunTime:0.000000s ]
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined variable: sdate fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 145 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined variable: edate fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 145 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:00+08:00 ] NOTIC: [8] Undefined index: difftime fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 163 è¡Œ.
+[ 2014-09-09T21:06:46+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php ç¬¬ 240 è¡Œ.
+[ 2014-09-09T21:06:46+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php ç¬¬ 240 è¡Œ.
+[ 2014-09-09T21:06:47+08:00 ] SQL: SELECT c.*,TIMEDIFF(c.downtime,c.ontime) difftime,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.id=308 [ RunTime:0.009000s ]
+[ 2014-09-09T21:06:47+08:00 ] SQL: SELECT c.*,TIMEDIFF(c.downtime,c.ontime) difftime,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.id=308 order by c.date desc limit 0,20 [ RunTime:0.008001s ]
+[ 2014-09-09T21:06:47+08:00 ] NOTIC: [8] Undefined variable: sdate fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 145 è¡Œ.
+[ 2014-09-09T21:06:47+08:00 ] NOTIC: [8] Undefined variable: edate fd22a9b4bf0c3b1a3e46e4a9d51a59c1.php ç¬¬ 145 è¡Œ.

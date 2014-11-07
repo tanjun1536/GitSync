@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<script type="text/javascript">
+	$(function() {
+		$("#clientid").change(function() {
+			$("#tdarea").html($(this).find("option:selected").attr("area"));
+		});
+		$("#clientid").val('{$pay.clientid}').trigger('change');
+		$("input[name='paymethod'][value='{$pay.paymethod}']").attr('checked',true);
+	});
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">業主管理 - 繳費紀錄</div>
+			<div class="mainInfo">
+				<div class="topic2">新增／修改繳費記錄</div>
+				<form action="__URL__/payAdd" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" id="paymonth" name="paymonth" value="{$pay.paymonth}" /> 
+					<input type="hidden" id="paydate" name="paydate" value="{$pay.paydate}" />
+					 <input type="hidden" id="case" name="case" value="{@case}" />
+					 <input type="hidden"  name="id" value="{$pay.id}" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="124" scope="row">客戶名稱</th>
+							<td width="568"><select name="clientid" id="clientid">
+									<option value="請選擇" area="">請選擇</option>
+									<volist id="item" name="cps">
+									<option value="{$item.id}" area="{$item.area}">{$item.name}</option>
+									</volist>
+							</select> 或 <input type="text" name="clientname" value="{$pay.clientname}"/></td>
+						</tr>
+						<tr>
+							<th scope="row">承租區域</th>
+							<td id="tdarea"></td>
+						</tr>
+						<tr>
+							<th scope="row">帳款月份</th>
+							<td id="tdpaymonth">{$pay.paymonth}</td>
+						</tr>
+						<tr>
+							<th scope="row">繳款時間</th>
+							<td id="tdpaydate">{$pay.paydate|date='Y/m/d',strtotime(###)}</td>
+						</tr>
+						<tr>
+							<th scope="row">繳款金額</th>
+							<td><input type="text" name="paymoney" value="{$pay.paymoney}"/></td>
+						</tr>
+						<tr>
+							<th scope="row">繳費方式</th>
+							<td><input name="paymethod" type="radio" checked="checked" value="匯款" /> 匯款 <input name="paymethod" type="radio" value="現金" /> 現金 <input name="paymethod" type="radio" value="支票" /> 支票</td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td><textarea name="remark" rows="6" style="width: 500px">{$pay.remark}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit2" value="確定" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

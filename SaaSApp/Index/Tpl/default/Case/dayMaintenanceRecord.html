@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<script type="text/javascript" src="__PUBLIC__/js/My97DatePicker/WdatePicker.js"></script>
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	var d = "{$state}";
+	var s = "{$sdate}";
+	var e = "{$edate}";
+	var mt = "{$mt}";
+	$(function() {
+		if (s)
+			$("#sdate").val(s);
+		if (e)
+			$("#edate").val(e);
+		if (d)
+			$("#state").val(d);
+		if (mt)
+			$("#stype").val(mt);
+	});
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">設備管理 - 日保養紀錄</div>
+			<div class="mainInfo">
+				<form id="form2" name="form2" method="post" action="__URL__/dayMaintenanceRecord?case={@case}">
+					<div class="mailNav">
+						主類別 <select name="stype" id="stype">
+							<option value="">請選擇</option>
+							<volist id="item" name="types">
+							<option value="{$item.id}">{$item.name}</option>
+							</volist>
+						</select> 狀態搜尋 <select name="state" id="state">
+							<option value="">請選擇</option>
+							<option value="已保養">已保養</option>
+							<option value="保養中">保養中</option>
+							<option value="未保養">未保養</option>
+						</select> 日期： <input type="text" name="sdate" id="sdate" class="Wdate" onfocus="WdatePicker()" style="width: 80px" /> ~ <input type="text" name="edate" id="edate" class="Wdate" onfocus="WdatePicker()" style="width: 80px" /> <input type="submit" name="Submit" value="搜尋" />
+					</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="123" scope="col">排程日期</th>
+							<th width="139" scope="col">排程編號</th>
+							<th width="139" scope="col">保養週期</th>
+							<th width="139" scope="col">班別</th>
+							<th width="112" scope="col">主類別</th>
+							<th width="117" scope="col">子類別</th>
+							<th width="84" scope="col">狀態</th>
+							<th width="118" scope="col">操作</th>
+						</tr>
+						<volist id="item" name="list"> <if condition="$i%2 eq 1">
+						<tr class="trcolor1">
+							<else />
+							<tr class="trcolor2">
+						</if>
+						<td align="center">{$item.sechduldate|date='Y/m/d',strtotime(###)}</td>
+						<td align="center">{$item.code}</td>
+						<td align="center">{$item.otname}</td>
+						<td align="center">{$item.workcode}</td>
+						<td align="center">{$item.tname}</td>
+						<td align="center"><if condition="check_power('保養',$ext) eq 1"> <a href="__URL__/dayMaintenanceRecordDevice?case={@case}&sechudlcode={$item.code}&sechudlid={$item.sechdul}&overtimeid={$item.overtime}&t={$item.times}&ctid={$item.devicechildtype}&d={$item.sechduldate}">{$item.cname}</a> <else /> {$item.cname} </if></td>
+						<td align="center">{$item.state}</td>
+						<td align="center"><if condition="check_power('異動',$ext) eq 1"> <a href="__URL__/changeMaintenanceScheduling?case={@case}&id={$item.id}&mn={$item.tname}&cn={$item.cname}&dt={$item.sechduldate|date='Y/m/d',strtotime(###)}&sechudlcode={$item.code}"> 異動</a> </if></td>
+						</tr>
+						</volist>
+					</table>
+				</form>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

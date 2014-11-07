@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/jquery.caretInsert.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	var shour="{$work.shour}";
+	var sminute="{$work.sminute}";
+	var ehour="{$work.ehour}";
+	var eminute="{$work.eminute}";
+	var type="{$work.type}";
+	var awoke="{$work.awoke}";
+	$(function(){
+		
+	if (shour) {
+			$("#shour").val(shour);
+		}
+		if (sminute) {
+			$("#sminute").val(sminute);
+		}
+		if (ehour) {
+			$("#ehour").val(ehour);
+		}
+		if (eminute) {
+			$("#eminute").val(eminute);
+		}
+		if (type) {
+			$("#type").val(type);
+		}
+		if (awoke) {
+			$("input[type=radio][value='" + awoke + "']").attr('checked', true);
+		}
+	});
+
+	function validate() {
+		return validator.empty('date', '請選擇日期!')
+				&& validator.index('shour', '請選擇開始小時!')
+				&& validator.index('sminute', '請選擇開始分鐘!')
+				&& validator.index('ehour', '請選擇結束小時!')
+				&& validator.index('eminute', '請選擇結束分鐘!')
+				&& validator.index('type', '請選擇類別!');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">新增工作日誌</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" onsubmit="return validate();" method="post" action="__URL__/insert">
+					<input  type="hidden"  name="id"  value="{$work.id}"/>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="106" scope="row">日期</th>
+							<td width="586"><input id="date" name="date"  type="text" class="Wdate" value="{$work.date|formatDate}" onFocus="WdatePicker()"  /></td>
+						</tr>
+						<tr>
+							<th scope="row">時間</th>
+							<td>開始 <select id="shour" name="shour">
+									<option value="時">時</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+							</select> ： <select id="sminute" name="sminute">
+									<option value="分">分</option>
+									<option value="00">00</option>
+									<option value="30">30</option>
+							</select> ；結束 <select id="ehour" name="ehour">
+									<option value="時">時</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+							</select> ： <select name="eminute" id="eminute">
+									<option value="分">分</option>
+									<option value="00">00</option>
+									<option value="30">30</option>
+							</select><input type="checkbox" name="overday" value="1"  /> 跨日
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">類別</th>
+							<td><select name="type" id="type">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="type">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">簡述</th>
+							<td>加入常用片語： <label> <select id="phrase" onchange="if($('#phrase').val()!='')$('#description').insertAtCaret($('#phrase').val());">
+										<option value="請選擇">請選擇</option>
+										<volist id="item" name="phrase">
+										<option value="{$item.name}">{$item.name}</option>
+										</volist>
+								</select>
+							</label> <br /> <textarea id="description" name="description" rows="8" style="width: 500px">{$work.description}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td><textarea name="remark" rows="8" style="width: 500px">{$work.remark}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">狀態</th>
+							<td><select name="status" id="status">
+									<option value="預定工作" selected="selected">預定工作</option>
+									<option value="完成工作">完成工作</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">提醒</th>
+							<td><input name="awoke" type="radio" value="1" /> 加入提醒
+							 <input name="awoke" type="radio" value="0" checked="checked" /> 不提醒</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

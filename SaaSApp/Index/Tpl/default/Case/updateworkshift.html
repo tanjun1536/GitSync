@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	function addDetail() {
+		if (validator.index("member", "請選擇專案員工")
+				&& validator.empty("movedate", "請選擇日期")
+				&& validator.index("oldworktype", "請選擇班別")
+				&& validator.index("newworktype", "請選擇調班後班別")) {
+			var tab = $("#tabDetail");
+			var len = $("#tabDetail tr").length;
+			var row = len % 2 == 0 ? $("<tr class=\"trcolor\"></tr>")
+					: $("<tr></tr>");
+			var hValue = $('#member').val() + "," + $('#movedate').val() + ","
+					+ $('#oldworktype').val() + "," + $('#newworktype').val();
+			row
+					.append($("<td align=\"center\"></td>")
+							.append($('#member').val())
+							.append(
+									$("<input type='hidden' value='" + hValue + "' name ='detail[]' />")));
+			row.append($("<td align=\"center\"></td>").append(
+					$('#movedate').val()));
+			row.append($("<td align=\"center\"></td>").append(
+					$('#oldworktype').val()));
+			row.append($("<td align=\"center\"></td>").append(
+					$('#newworktype').val()));
+			row
+					.append($("<td align=\"center\"></td>")
+							.append(
+									$('<img onclick="$(this).parent().parent().remove();calTotal();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+			tab.append(row);
+			$('#member').val('');
+			$('#movedate').val('');
+			$('#oldworktype').val('');
+			$('#newworktype').val('');
+		}
+
+	}
+	function check() {
+		var datas = [];
+		$("#tabDetail tr").each(function(i) {
+			if (i > 0) {
+				var tds = $(this).find("td");
+				var data = new Object();
+				data.code = $(tds[0]).html();
+				data.area = $(tds[1]).html();
+				data.username = $(tds[2]).html();
+				data.gaugecode = $(tds[3]).html();
+				data.type = $(tds[4]).html();
+				data.predegree = $(tds[5]).html();
+				data.alldegree = $(tds[6]).find('input').val();
+				data.thisdegree = $(tds[7]).html();
+				datas.push(data);
+			}
+		});
+		$("#data").val($.toJSON(datas));
+		//alert($.toJSON(datas));
+		return true;
+	}
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">專案管理- 調班管理</div>
+			<div class="mainInfo">
+				<div class="topic2">新增/ 修改調班單</div>
+				<form id="form1" name="form1" method="post" action="__URL__/insertWorkShift?case={@case}" onsubmit="return check();">
+					<input type="hidden" name="case" value="{$move.case}" />
+					<input type="hidden" name="id" value="{$move.id}" />
+					 <input type="hidden" name="keyusername" value="{$move.keyusername}" /> <input type="hidden" name="keyuserid" value="{$move.keyuserid}" /> <input type="hidden" name="movetime" value="{$move.movetime}" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="95" scope="row">調班單號</th>
+							<td width="249"><input type="text" name="movecode" value="{$move.movecode}" /></td>
+							<th width="102" scope="row">KEY單人</th>
+							<td width="244">{$move.keyusername}</td>
+						</tr>
+						<tr>
+							<th scope="row">調班月份</th>
+							<td>西元 <input type="text" name="moveyear" style="width: 70px" value="{$move.moveyear}" /> 年 <select name="movemonth">
+									<option value="1月">1月</option>
+									<option value="2月">2月</option>
+									<option value="3月">3月</option>
+									<option value="4月">4月</option>
+									<option value="5月">5月</option>
+									<option value="6月">6月</option>
+									<option value="7月">7月</option>
+									<option value="8月">8月</option>
+									<option value="9月">9月</option>
+									<option value="10月">10月</option>
+									<option value="11月">11月</option>
+									<option value="12月">12月</option>
+							</select>
+							</td>
+							<th scope="row">KEY單時間</th>
+							<td>{$move.movetime}</td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop" id="tabDetail">
+						<tr>
+							<th width="167" scope="col">員工姓名</th>
+							<th width="159" scope="col">日期</th>
+							<th width="148" scope="col">班別</th>
+							<th width="168" scope="col">調班後班別</th>
+							<th width="51" scope="col">操作</th>
+						</tr>
+						<tr>
+							<td align="center"><select id="member">
+									<option value="">請選擇專案員工</option>
+									<volist id="item" name="users">
+									<option value="{$item.name}({$item.ucode})">{$item.name}({$item.ucode})</option>
+									</volist>
+							</select></td>
+							<td align="center"><input type="text" id="movedate" class="Wdate" onfocus="WdatePicker()" /></td>
+							<td align="center"><select id="oldworktype">
+									<option value="">請選擇</option>
+									<volist id="item" name="works">
+									<option value="{$item.workcode}">{$item.workcode}</option>
+									</volist>
+							</select></td>
+							<td align="center"><select id="newworktype">
+									<option value="">請選擇</option>
+									<volist id="item" name="works">
+									<option value="{$item.workcode}">{$item.workcode}</option>
+									</volist>
+							</select></td>
+							<td align="center"><a href="javascript:void(0)"><img onclick="addDetail()" src="__PUBLIC__/images/add_16.png" alt="新增" width="16" height="16" border="0" /></a></td>
+						</tr>
+						<volist id="item" name="details"> <if condition="$i%2 eq 0">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center">{$item.username}<input type="hidden" value="{$item.username},{$item.movetime},{$item.oldworktype},{$item.newworktype}" name="detail[]"></td>
+						<td align="center">{$item.movetime}</td>
+						<td align="center">{$item.oldworktype}</td>
+						<td align="center">{$item.newworktype}</td>
+						<td align="center"><img onclick="$(this).parent().parent().remove();calTotal();" style="cursor: pointer" src="/SaaSApp/Public/images/close_16.png" alt="刪除" width="16" height="16" border="0"></td>
+						</tr>
+						</volist>
+					</table>
+					<div align="center" style="margin-top: 10px">
+						<input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

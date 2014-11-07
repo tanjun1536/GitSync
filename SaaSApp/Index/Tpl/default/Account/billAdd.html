@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<script type="text/javascript">
+	function check()
+	{
+		return true;
+	}
+	function addDetail() {
+		if (validator.empty('object', '請輸入對象!') ) {
+			var table = $('#tab_Detail');
+			var len = $("#tab_Detail tr").length;
+			var row = len % 2 == 0 ? $("<tr class=\"trcolor\"></tr>") : $("<tr></tr>");
+			var hValue = $('#subject').val() + "," + $('#object').val() + "," + $('#summary').val() + "," + $('#jfmoney').val() + "," + $('#dfmoney').val();
+			row.append($("<td></td>").append($('#subject option:selected').text()).append($("<input type='hidden' value='" + hValue + "' name ='billdetail[]' />")));
+			row.append($("<td></td>").append($('#object').val()));
+			row.append($("<td></td>").append($('#summary').val()));
+			row.append($("<td></td>").append($('#jfmoney').val()));
+			row.append($("<td></td>").append($('#dfmoney').val()));
+			row.append($("<td></td>").append($('<img onclick="$(this).parent().parent().remove();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+			table.append(row);
+			$('#object').val('');
+			$('#summary').val('');
+			$('#jfmoney').val('');
+			$('#dfmoney').val('');
+		}
+
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">會計系統 - 傳票管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/addBill" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" value="{@SESSION_USER.code}" name="code" />
+					<div class="topic2">新增傳票</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="88" scope="row"><span class="search">傳票號碼</span></th>
+							<td width="255"><input type="text" name="billcode" /></td>
+							<th width="101" scope="row">傳票日期</th>
+							<td width="246"><input type="text" name="billdate" class="Wdate" onfocus="WdatePicker()" /></td>
+						</tr>
+						<tr>
+							<th scope="row">建檔日期</th>
+							<td colspan="3"><input type="text" name="createdate" class="Wdate" onfocus="WdatePicker()" /></td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop" id="tab_Detail">
+						<tr>
+							<th width="173" scope="col">科目名稱</th>
+							<th width="230" scope="col">對象</th>
+							<th width="117" scope="col">摘要</th>
+							<th width="83" scope="col">借方金額</th>
+							<th width="70" scope="col">貸方金額</th>
+							<th width="20" scope="col">&nbsp;</th>
+						</tr>
+						<tr >
+							<td><select name="subject" id="subject">
+									<volist id="item" name="accs">
+									<option value="{$item.id}">{$item.accountname}</option>
+									</volist>
+							</select></td>
+							<td>
+								<!-- <select name="select4"> --> <!-- 									<option value="請選擇">請選擇</option> 
+ 							</select>--> <input type="text" name="object" id="object" />
+							</td>
+							<td align="center"><input type="text" name="summary" id="summary" style="width: 80px" /></td>
+
+							<td align="center"><input type="text" name="jfmoney" id="jfmoney" style="width: 60px" /></td>
+							<td align="center"><input type="text" name="dfmoney" id="dfmoney" style="width: 60px" /></td>
+							<td><img src="__PUBLIC__/images/add_16.png" onclick="addDetail()" style="cursor: pointer;" alt="新增" width="16" height="16" border="0" /></td>
+						</tr>
+						
+					</table>
+					<div align="center" style="margin-top: 10px">
+						<input type="submit" name="Submit" value="新增" /> <input type="reset" name="Submit2" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

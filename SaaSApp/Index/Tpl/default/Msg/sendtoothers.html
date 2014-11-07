@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+<!--
+	function check() {
+		return window.validator.empty("partersname", "請選擇收件人") ;
+	}
+	function MM_openBrWindow(theURL, winName, features) { //v2.0
+		var selUsers = document.getElementById("partersid").value;
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "?selUsers=" + selUsers, winName, features);
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">一般訊息</div>
+			<div class="mainInfo">
+				<div class="mailNav">
+					<a href="__URL__/create" class="select">寫信</a><a href="__URL__/send">寄件備份</a><a href="__URL__/index">收件夾 (<strong>{@MSG_COMM}</strong>)
+					</a>
+				</div>
+				<form action="__URL__/addSendtoothers" onsubmit="return check()" method="post" enctype="multipart/form-data" name="form2" id="form2">
+					{__NOTOKEN__}
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="91" scope="row"><span class="txt_y">＊</span>收件者</th>
+							<td width="601"><input type="hidden" id="partersid" name="receiversid" style="width: 550px" /> <input type="text" id="partersname" readonly="readonly" name="receiversname" style="width: 550px" /> <a href="#"><img src="__PUBLIC__/images/add_16.png" alt="" width="16" height="16" border="0" style="margin-bottom: -3px" onclick="MM_openBrWindow('__APP__/User/friendcheckbox','','scrollbars=yes,width=755,height=570')" /></a></td>
+						</tr>
+						<tr>
+							<th scope="row"><span class="txt_y">＊</span>主旨</th>
+							<td><input name="title" type="text" style="width: 550px" value="FW: {$msg.title}" /></td>
+						</tr>
+						<tr>
+							<th valign="top" scope="row"><span class="txt_y">＊</span>內容</th>
+							<td><textarea name="cont" rows="16" style="width: 550px">{$msg.cont}</textarea></td>
+						</tr>
+						<tr>
+							<th valign="top" scope="row">附件</th>
+
+							<td><notempty name="msg.atts"> <input type="hidden" name="atts[]" value="{$mag.atts}" />
+								<div>
+									<volist name=":explode(',',$msg['atts'])" id="att"> <a href="__URL__/down?name={$att|urlencode}" target="_blank">{$att}</a>； </volist>
+								</div>
+								</notempty> 檔案1： <input type="file" name="atts[]" /> <br /> 檔案2： <input type="file" name="atts[]" /> <br /> 檔案3： <input type="file" name="atts[]" /> <br /> 檔案4： <input type="file" name="atts[]" /> <br /> 檔案5： <input type="file" name="atts[]" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit2" value="傳送" /> <input type="reset" name="Submit3" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

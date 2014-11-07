@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<script type="text/javascript">
+	function check() {
+		if ($('#name').val() == '') {
+			alert('請輸入類別名稱');
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">工作日誌 - 類別管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/{$action}" method="post" onsubmit="return check();" enctype="multipart/form-data" name="form1" id="form1">
+					<div class="topic2">新增 / 修改類別</div>
+					<table width="695" border="0" align="center" cellpadding="0" cellspacing="1" class="tabThSide">
+						<notempty name="id"> <input type="hidden" name="id" value="{$id}" /> </notempty>
+						<tr>
+							<th width="110" scope="row">類別名稱</th>
+							<td width="587"><input type="text" name="name" id="name" value="{$type.name}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">代碼</th>
+							<td><input type="text" name="ccode" value="{$type.ccode}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="mailNav">
+					<a href="__URL__/childcategory">子類別列表</a>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="175" scope="col">代碼</th>
+						<th width="386" scope="col">主類別名稱</th>
+						<th width="124" scope="col">操作</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.ccode}</td>
+					<td align="center">{$item.name}</td>
+					<td align="center"><a href="__URL__/editcategory?id={$item.id}">修改</a> | <a onclick="return confirm('確實要刪除選擇的數據嗎？');" href="__URL__/deletecategory?id={$item.id}">刪除</a></td>
+					</tr>
+					</volist>
+				</table>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

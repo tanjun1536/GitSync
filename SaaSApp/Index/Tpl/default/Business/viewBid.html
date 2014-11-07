@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">業務管理 - 業務報價管理</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="">
+					<div class="mailNav">
+						<a href="__URL__/editBid?id={$bid.id}">修改報價單</a>
+					</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="105" scope="row">報價單編號</th>
+							<td width="239">{$bid.bidcode}</td>
+							<th width="99" scope="row">報價日期</th>
+							<td width="247">{$bid.biddate}</td>
+						</tr>
+						<tr>
+							<th scope="row">客戶名稱</th>
+							<td>{$bid.clientname}</td>
+							<th scope="row">統一編號</th>
+							<td>{$bid.uniquecode}</td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡人</th>
+							<td>{$bid.linker}</td>
+							<th scope="row">聯絡電話</th>
+							<td>{$bid.linkerphone}</td>
+						</tr>
+						<tr>
+							<th scope="row">報價金額</th>
+							<td>{$bid.bidprice}</td>
+							<th scope="row">發票種類</th>
+							<td>{$bid.billtype}</td>
+						</tr>
+						<tr>
+							<th scope="row">簽約金額</th>
+							<td>{$bid.signprice}</td>
+							<th scope="row">發票號碼</th>
+							<td>{$bid.billcode}</td>
+						</tr>
+						<tr>
+							<th scope="row">成交金額</th>
+							<td colspan="3">{$bid.concludedprice}</td>
+						</tr>
+						<tr>
+							<th scope="row">報價項目</th>
+							<td colspan="3"><table width="550" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<th width="176" scope="col">名稱</th>
+										<th width="176" scope="col">單位</th>
+										<th width="183" scope="col">價格</th>
+									</tr>
+									<volist name="detail" id="item">
+									<tr>
+										<td>{$item.name}</td>
+										<td>{$item.unit}</td>
+										<td>{$item.price}</td>
+									</tr>
+									</volist>
+								</table></td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td colspan="3">{$bid.remark}</td>
+						</tr>
+					</table>
+					<div align="center">
+						<input type="submit" name="Submit" value="議價" /> <input type="submit" name="Submit2" value="簽約確定" /> <input type="submit" name="Submit3" value="完工" />
+					</div>
+					<div class="back">
+						<a href="javascript:window.history.go(-1)">》回上頁</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

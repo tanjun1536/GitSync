@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">工程管理 - 工程報價</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="">
+					<div class="topic2">搜尋</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="104" scope="row">BU單位</th>
+							<td colspan="3"><input type="text" name="sdepart"
+								style="width: 250px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">報價日期</th>
+							<td width="240"><input type="text" name="sdate"
+								class="Wdate" onfocus="WdatePicker()" /></td>
+							<th width="102" scope="row">狀態</th>
+							<td width="244"><select name="sstate">
+									<option value="" selected="selected">請選擇</option>
+									<option value="未送簽">未送簽</option>
+									<option value="已送簽">已送簽</option>
+									<option value="簽核">簽核</option>
+									<option value="作廢">作廢</option>
+									<option value="已承接">已承接</option>
+									<option value="已請款">已請款</option>
+									<option value="已結案">已結案</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2"
+								value="搜尋" /></td>
+						</tr>
+					</table>
+					<div class="mailNav">
+						<a href="__URL__/PriceAdd">新增工程管理報價單</a>
+					</div>
+				</form>
+				<table width="695" border="0" cellpadding="0" cellspacing="1"
+					class="tabThSide">
+					<tr>
+						<th width="107" scope="col">BU單位</th>
+						<th width="114" scope="col">報價單號</th>
+						<th width="110" scope="col">客戶名稱</th>
+						<th width="121" scope="col">工程名稱</th>
+						<th width="68" scope="col">成交價</th>
+						<th width="62" scope="col">狀態</th>
+						<th width="105" scope="col">操作</th>
+					</tr>
+					<volist id="item" name="list"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+
+					<td>{$item.BUunitName}</td>
+					<td align="center"><a href="__URL__/PriceView?id={$item.id}">{$item.pricecode}</a></td>
+					<td align="center">{$item.clientname}</td>
+					<td align="center">{$item.projectname}</td>
+					<td align="center">{$item.strikeprice}</td>
+					<td align="center">{$item.state}</td>
+					<td align="center">
+					  <if condition="$item.state eq '未送簽'">
+						<div>
+							<a href="__URL__/changeState?id={$item.id}&state=作廢">作廢</a> | <a href="__URL__/changeState?id={$item.id}&state=已送簽">送簽</a>
+						</div>
+						<div>
+							<a href="__URL__/PriceEdit?id={$item.id}">修改</a> | <a href="__URL__/PriceDelete?id={$item.id}">刪除</a>
+						</div>
+						<elseif condition="$item.state eq '已送簽'" />
+						<div>
+							<a href="__URL__/changeState?id={$item.id}&state=簽核">簽核</a> | <a href="__URL__/PriceDelete?id={$item.id}">刪除</a>
+						</div>
+						<elseif condition="$item.state eq '簽核'" />
+						<div>
+							<a href="__URL__/changeState?id={$item.id}&state=已承接">已承接</a> | <a href="__URL__/PricePrint?id={$item.id}"
+								target="_blank">列印 </a>
+						</div>
+						<div>
+							<a href="__URL__/changeState?id={$item.id}&state=作廢">作廢</a> | <a href="__URL__/PriceDelete?id={$item.id}">刪除</a>
+						</div>
+						<elseif condition="$item.state eq '作廢'" />
+						<div>
+							<a href="__URL__/PriceDelete?id={$item.id}">刪除</a>
+						</div>
+						<elseif condition="$item.state eq '已承接'"/>
+						<div>
+							<a href="__URL__/changeState?id={$item.id}&state=已請款">已請款</a> | <a href="__URL__/PricePrint?id={$item.id}">列印 </a>
+						</div>
+						<div>
+							<a href="__URL__/changeState?id={$item.id}&state=作廢">作廢</a> | <a href="__URL__/PriceDelete?id={$item.id}">刪除</a>
+						</div>
+						<elseif condition="$item.state eq '已請款'" />
+						<div>
+							<a href="__URL__/changeState?id={$item.id}&state=已結案">已結案</a> | <a href="__URL__/PricePrint?id={$item.id}">列印 </a>
+						</div>
+						<div>
+							<a href="__URL__/changeState?id={$item.id}&state=作廢">作廢</a> | <a href="__URL__/PriceDelete?id={$item.id}">刪除</a>
+						</div>
+						<elseif condition="$item.state eq '已結案'" />
+						<div>
+							<a href="__URL__/PriceDelete?id={$item.id}">刪除</a> | <a href="__URL__/PricePrint?id={$item.id}">列印 </a>
+						</div></if></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

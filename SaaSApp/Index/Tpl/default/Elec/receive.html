@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">文件管理 - 電子簽呈</div>
+			<div class="mainInfo">
+				<div class="mailNav">
+					<form id="form2" name="form2" method="post" action="">
+						<a href="__URL__/add">新增簽呈</a>
+						<a href="__URL__/index">寄出的簽呈</a>
+						<a href="__URL__/receive" class="select">收到的簽呈</a> 開始日期 <input type="text" name="requesterdate" class="Wdate" onfocus="WdatePicker();" style="width: 100px" /> <select name="state">
+							<option value="">選擇狀態</option>
+							<notempty name="state"> <if condition="$state eq '申請'">
+							<option value="申請" selected="selected">申請</option>
+							<else />
+							<option value="申請">申請</option>
+							</if> <if condition="$state eq '簽核中'">
+							<option value="簽核中" selected="selected">簽核中</option>
+							<else />
+							<option value="簽核中">簽核中</option>
+							</if> <if condition="$state eq '生效'">
+							<option value="生效" selected="selected">生效</option>
+							<else />
+							<option value="生效">生效</option>
+							</if> <if condition="$state eq '作廢'">
+							<option value="作廢" selected="selected">作廢</option>
+							<else />
+							<option value="作廢">作廢</option>
+							</if> <if condition="$state eq '不同意'">
+							<option value="不同意" selected="selected">不同意</option>
+							<else />
+							<option value="不同意">不同意</option>
+							</if> <else />
+							<option value="選擇狀態">選擇狀態</option>
+							<option value="申請">申請</option>
+							<option value="簽核中">簽核中</option>
+							<option value="生效">生效</option>
+							<option value="作廢">作廢</option>
+							<option value="不同意">不同意</option>
+							</notempty>
+
+						</select> <input type="submit" name="Submit3" value="搜尋" />
+
+					</form>
+				</div>
+				<form id="form1" name="form1" method="post" action="__URL__/aggree">
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="mailList">
+						<tr>
+							<th width="28" scope="col">&nbsp;</th>
+							<th width="74" scope="col">申請日期</th>
+							<th width="63" scope="col">申請人</th>
+							<th width="95" scope="col">類別</th>
+							<th width="242" scope="col">名稱</th>
+							<th width="139" scope="col">起迄時間</th>
+							<th width="54" scope="col">
+								<div align="center">狀態</div>
+							</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center"><input type="checkbox" name="id[]" value="{$item.id}" /></td>
+						<td>{$item.requesterdate|date='y/m/d',strtotime(###)}</td>
+						<td>{$item.requestername} <br /> ({$item.requestercode})
+						</td>
+						<td>{$item.typename}</td>
+						<td><a href="__URL__/check?id={$item.id}">{$item.typechildname}</a></td>
+						<td>起：{$item.sdate|date='y/m/d',strtotime(###)} {$item.shour}:{$item.sminute} <br /> 迄：{$item.edate|date='y/m/d',strtotime(###)} {$item.ehour}:{$item.eminute}
+						</td>
+						<td align="center">{$item.state}</td>
+						</tr>
+						</volist>
+					</table>
+					<div style="margin-top: 10px">
+						<input type="submit" name="Submit" value="簽核同意" /> <label></label>
+					</div>
+				</form>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

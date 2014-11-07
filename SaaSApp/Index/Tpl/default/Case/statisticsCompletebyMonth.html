@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>月叫修數量統計表</title>
+<load href="__PUBLIC__/{@style}/css/basic.css" />
+</head>
+
+<body>
+	<div class="txt_w" style="margin: 10px 20px 20px">
+		<strong>{$year} 年 {$month} 月</strong> 月完工數量統計表
+	</div>
+	<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+		<div style="margin: 10px 20px 20px">
+			西元 <input type="text" name="year" style="width: 100px" /> 年 <select name="month">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+			</select> 月 <input type="submit" name="Submit2" value="搜尋" />
+		</div>
+	</form>
+	<div style="margin: 0px 10px">
+		<table border="0" cellpadding="0" cellspacing="1" class="tab_month">
+			<tr>
+				<th colspan="1" rowspan="2" scope="col"><div style="width: 190px">項目/日期</div></th>
+				<th width="30" scope="col">1</th>
+				<th width="30" scope="col">2</th>
+				<th width="30" scope="col">3</th>
+				<th width="30" scope="col">4</th>
+				<th width="30" scope="col">5</th>
+				<th width="30" scope="col">6</th>
+				<th width="30" scope="col">7</th>
+				<th width="30" scope="col">8</th>
+				<th width="30" scope="col">9</th>
+				<th width="30" scope="col">10</th>
+				<th width="30" scope="col">11</th>
+				<th width="30" scope="col">12</th>
+				<th width="30" scope="col">13</th>
+				<th width="30" scope="col">14</th>
+				<th width="30" scope="col">15</th>
+				<th width="30" scope="col">16</th>
+				<th width="30" scope="col">17</th>
+				<th width="30" scope="col">18</th>
+				<th width="30" scope="col">19</th>
+				<th width="30" scope="col">20</th>
+				<th width="30" scope="col">21</th>
+				<th width="30" scope="col">22</th>
+				<th width="30" scope="col">23</th>
+				<th width="30" scope="col">24</th>
+				<th width="30" scope="col">25</th>
+				<th width="30" scope="col">26</th>
+				<th width="30" scope="col">27</th>
+				<th width="30" scope="col">28</th>
+				<th width="30" scope="col">29</th>
+				<th width="30" scope="col">30</th>
+				<th width="30" scope="col">31</th>
+				<th width="35" rowspan="2" class="thcolor3" scope="col">統計</th>
+				<th width="40" rowspan="2" scope="col">備註</th>
+			</tr>
+			<tr>
+				<volist id="item" name="dates">
+				<th scope="col">{$item|getWeek}</th>
+				</volist>
+			</tr>
+			<volist id="item" name="list">
+			<tr>
+				<if condition="$item.n eq '總數' ">
+				<th colspan="1" class="thcolor1" scope="row">總數</th>
+				<td class="tdcolor1">{$item.day1}</td>
+				<td class="tdcolor1">{$item.day2}</td>
+				<td class="tdcolor1">{$item.day3}</td>
+				<td class="tdcolor1">{$item.day4}</td>
+				<td class="tdcolor1">{$item.day5}</td>
+				<td class="tdcolor1">{$item.day6}</td>
+				<td class="tdcolor1">{$item.day7}</td>
+				<td class="tdcolor1">{$item.day8}</td>
+				<td class="tdcolor1">{$item.day9}</td>
+				<td class="tdcolor1">{$item.day10}</td>
+				<td class="tdcolor1">{$item.day11}</td>
+				<td class="tdcolor1">{$item.day12}</td>
+				<td class="tdcolor1">{$item.day13}</td>
+				<td class="tdcolor1">{$item.day14}</td>
+				<td class="tdcolor1">{$item.day15}</td>
+				<td class="tdcolor1">{$item.day16}</td>
+				<td class="tdcolor1">{$item.day17}</td>
+				<td class="tdcolor1">{$item.day18}</td>
+				<td class="tdcolor1">{$item.day19}</td>
+				<td class="tdcolor1">{$item.day20}</td>
+				<td class="tdcolor1">{$item.day21}</td>
+				<td class="tdcolor1">{$item.day22}</td>
+				<td class="tdcolor1">{$item.day23}</td>
+				<td class="tdcolor1">{$item.day24}</td>
+				<td class="tdcolor1">{$item.day25}</td>
+				<td class="tdcolor1">{$item.day26}</td>
+				<td class="tdcolor1">{$item.day27}</td>
+				<td class="tdcolor1">{$item.day28}</td>
+				<td class="tdcolor1">{$item.day29}</td>
+				<td class="tdcolor1">{$item.day30}</td>
+				<td class="tdcolor1">{$item.day31}</td>
+				<td class="tdcolor2">{$item.rt}</td>
+				<td>&nbsp;</td>
+				<elseif condition="$item.n eq '比例%'" />
+				<th colspan="1" class="thcolor2" scope="row">{$item.n}</th>
+				<td>{$item.day1}</td>
+				<td>{$item.day2}</td>
+				<td>{$item.day3}</td>
+				<td>{$item.day4}</td>
+				<td>{$item.day5}</td>
+				<td>{$item.day6}</td>
+				<td>{$item.day7}</td>
+				<td>{$item.day8}</td>
+				<td>{$item.day9}</td>
+				<td>{$item.day10}</td>
+				<td>{$item.day11}</td>
+				<td>{$item.day12}</td>
+				<td>{$item.day13}</td>
+				<td>{$item.day14}</td>
+				<td>{$item.day15}</td>
+				<td>{$item.day16}</td>
+				<td>{$item.day17}</td>
+				<td>{$item.day18}</td>
+				<td>{$item.day19}</td>
+				<td>{$item.day20}</td>
+				<td>{$item.day21}</td>
+				<td>{$item.day22}</td>
+				<td>{$item.day23}</td>
+				<td>{$item.day24}</td>
+				<td>{$item.day25}</td>
+				<td>{$item.day26}</td>
+				<td>{$item.day27}</td>
+				<td>{$item.day28}</td>
+				<td>{$item.day29}</td>
+				<td>{$item.day30}</td>
+				<td>{$item.day31}</td>
+				<td class="tdcolor2">{$item.rt}</td>
+				<td>{$item.rb}</td>
+				<else />
+				<th>{$item.n}</th>
+				<td>{$item.day1}</td>
+				<td>{$item.day2}</td>
+				<td>{$item.day3}</td>
+				<td>{$item.day4}</td>
+				<td>{$item.day5}</td>
+				<td>{$item.day6}</td>
+				<td>{$item.day7}</td>
+				<td>{$item.day8}</td>
+				<td>{$item.day9}</td>
+				<td>{$item.day10}</td>
+				<td>{$item.day11}</td>
+				<td>{$item.day12}</td>
+				<td>{$item.day13}</td>
+				<td>{$item.day14}</td>
+				<td>{$item.day15}</td>
+				<td>{$item.day16}</td>
+				<td>{$item.day17}</td>
+				<td>{$item.day18}</td>
+				<td>{$item.day19}</td>
+				<td>{$item.day20}</td>
+				<td>{$item.day21}</td>
+				<td>{$item.day22}</td>
+				<td>{$item.day23}</td>
+				<td>{$item.day24}</td>
+				<td>{$item.day25}</td>
+				<td>{$item.day26}</td>
+				<td>{$item.day27}</td>
+				<td>{$item.day28}</td>
+				<td>{$item.day29}</td>
+				<td>{$item.day30}</td>
+				<td>{$item.day31}</td>
+				<td class="tdcolor2"><a target="_blank" href="__URL__/statisticscompletedetail?case={@case}&year={$year}&month={$month}&maintype={$item.mt}">{$item.rt}</a></td>
+				<td>{$item.rb}</td>
+				</if>
+			</tr>
+			</volist>
+		</table>
+	</div>
+</body>
+</html>

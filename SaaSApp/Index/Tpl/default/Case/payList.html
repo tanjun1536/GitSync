@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">業主管理 - 繳費紀錄</div>
+			<div class="mainInfo">
+				<div class="topic2">繳費紀錄</div>
+				<form id="form1" name="form1" method="post" action="">
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="114" scope="row">客戶名稱</th>
+							<td width="229"><input type="text" name="sclientname" /></td>
+							<th width="117" scope="row">帳款月份</th>
+							<td width="230"><select name="smonth">
+									<option value="">選擇</option>
+									<option value="1">01</option>
+									<option value="2">02</option>
+									<option value="3">03</option>
+									<option value="4">04</option>
+									<option value="5">05</option>
+									<option value="6">06</option>
+									<option value="7">07</option>
+									<option value="8">08</option>
+									<option value="9">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2" value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="mailNav">
+					<a href="__URL__/payAddPage">新增紀錄</a>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="135" scope="col">客戶名稱</th>
+						<th width="168" scope="col">承租區域編號</th>
+						<th width="78" scope="col">帳款月份</th>
+						<th width="83" scope="col">繳款時間</th>
+						<th width="81" scope="col">繳款金額</th>
+						<th width="76" scope="col">繳費方式</th>
+						<th width="72" scope="col">操作</th>
+					</tr>
+					<volist id="item" name="list"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<tr>
+						<td>{$item.name}</td>
+						<td><div class="txt_green">{$item.code}</div>
+							<div>{$item.uname}</div></td>
+						<td align="center">{$item.paymonth}</td>
+						<td align="center">{$item.paydate|date='Y/m/d',strtotime(###)}</td>
+						<td align="center">{$item.paymoney}</td>
+						<td align="center">{$item.paymethod}</td>
+						<td align="center"><a href="__URL__/payEdit?id={$item.id}">修改</a><br /> <a onclick="return confirm('是否刪除選擇的數據?')" href="__URL__/payDelete?id={$item.id}">刪除</a></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

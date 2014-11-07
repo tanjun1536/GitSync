@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/ajaxfileupload.js" />
+<load href="__PUBLIC__/js/Concurrent.Thread-full-20090713.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<script type="text/javascript">
+	var clientcity = null;
+	var billcity = null;
+	$(function() {
+		$('#billprov').change(function() {
+			getCity('#billprov', '#billcity');
+		});
+		$('#clientprov').change(function() {
+			getCity('#clientprov', '#clientcity');
+		});
+		$('#deliverprov').change(function() {
+			getCity('#deliverprov', '#delivercity');
+		});
+
+		$('#billcity').change(function() {
+			billcity = $(this).val();
+		});
+		$('#clientcity').change(function() {
+			clientcity = $(this).val();
+		});
+	});
+	function getCity(province, city) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getCity",
+			data : "pid=" + $(province).val(),
+			success : function(data) {
+				$(city).empty();
+				$("<option value='請選擇'>請選擇</option>").appendTo(city);
+				var json = eval(data);
+				$.each(json, function(k) {
+					$(
+							"<option value='" + json[k]['id'] + "'>"
+									+ decodeURI(json[k]['name']) + "</option>")
+							.appendTo(city);
+				});
+				if (city == '#clientcity') {
+					if(billcity)
+						{
+							$("#clientcity").val(billcity).trigger('change');
+							billcity=null;
+						}
+				} else {
+					if(clientcity)
+					{
+						$("#delivercity").val(clientcity);
+						clientcity=null;
+					}
+				}
+			}
+		});
+	}
+	function copyclient() {
+
+		$('#clientprov').val($('#billprov').val()).trigger('change');
+		$('#clientcity').val($('#billcity').val());
+		$('#clientaddress').val($('#billaddress').val());
+	}
+	function copydeliver() {
+		$('#deliverprov').val($('#clientprov').val()).trigger('change');
+		$('#delivercity').val($('#clientprov').val());
+		$('#deliveraddress').val($('#clientaddress').val());
+	}
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">客戶管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/saveCustomer" method="post"
+					enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="code" value="{@SESSION_USER.code}" />
+					<div class="topic2">新增 / 修改客戶</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th scope="row">客戶編號</th>
+							<td><input type="text" name="clientcode" /></td>
+						</tr>
+						<tr>
+							<th width="131" scope="row">公司抬頭</th>
+							<td width="561"><input type="text" name="clienttitle"
+								style="width: 300px" /></td>
+						</tr>
+						<tr>
+							<th width="161" scope="row">客戶名稱</th>
+							<td width="531"><input type="text" name="companyname"
+								style="width: 300px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">行業類別</th>
+							<td><select name="hytype">
+									<volist id="item" name="ctlist">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">會員等級</th>
+							<td><input name="membergrade" type="radio" value="A"
+								checked="checked" /> A <input name="membergrade" type="radio"
+								value="B" /> B <input name="membergrade" type="radio" value="C" />
+								C <input name="membergrade" type="radio" value="D" /> D <input
+								name="membergrade" type="radio" value="E" /> E</td>
+						</tr>
+						<tr>
+							<th scope="row">統一編號</th>
+							<td><input type="text" name="uniquecode" /></td>
+						</tr>
+						<tr>
+							<th scope="row">公司電話</th>
+							<td>電話一 <input type="text" name="phone1" /> ；電話二 <input
+								type="text" name="phone2" /></td>
+						</tr>
+						<tr>
+							<th scope="row">傳真</th>
+							<td><input type="text" name="fax" /></td>
+						</tr>
+						<tr>
+							<th scope="row">發票地址</th>
+							<td><select name="billprov" id="billprov">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="provinces">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="billcity" id="billcity">
+									<option value="請選擇">請選擇</option>
+							</select> <input type="text" id="billaddress" name="billaddress" style="width: 300px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">發票方式</th>
+							<td><input name="billtype" type="radio" value="二聯"
+								checked="checked" /> 二聯 <input name="billtype" type="radio"
+								value="三聯" /> 三聯</td>
+						</tr>
+						<tr>
+							<th scope="row">客戶地址</th>
+							<td><select name="clientprov" id="clientprov">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="provinces">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="clientcity" id="clientcity">
+									<option value="請選擇">請選擇</option>
+							</select> <input type="text" id="clientaddress" name="clientaddress" style="width: 300px" />
+								<input type="button" value="同上" onclick="copyclient()" /></td>
+						</tr>
+						<tr>
+							<th scope="row">送貨地址</th>
+							<td><select name="deliverprov" id="deliverprov">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="provinces">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="delivercity" id="delivercity">
+									<option value="請選擇">請選擇</option>
+							</select> <input type="text" id="deliveraddress" name="deliveraddress" style="width: 300px" />
+								<input type="button" value="同上" onclick="copydeliver()" /></td>
+						</tr>
+						<tr>
+							<th scope="row">送貨案場</th>
+							<td><input type="text" name="delivercase" /></td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡人一</th>
+							<td>姓名 <input type="text" name="linkername1" /> ；職位 <input
+								type="text" name="linkerduty1" /> <br /> 電話 <input type="text"
+								name="linkerphone1" /> ；手機 <input type="text"
+								name="linkermobile1" /> <br /> Email <input type="text"
+								name="linkeremail1" />；部門 <input type="text" name="unit1" /></td>
+						</tr>
+						<tr>
+							<th scope="row"><p>聯絡人二</p></th>
+							<td>姓名 <input type="text" name="linkername2" /> ；職位 <input
+								type="text" name="linkerduty2" /> <br /> 電話 <input type="text"
+								name="linkerphone2" /> ；手機 <input type="text"
+								name="linkermobile2" /> <br /> Email <input type="text"
+								name="linkeremail2" />；部門 <input type="text" name="unit2" /></td>
+						</tr>
+						<tr>
+							<th scope="row">付款銀行</th>
+							<td><input type="text" name="paybank" /></td>
+						</tr>
+						<tr>
+							<th scope="row">所屬分行</th>
+							<td><input type="text" name="belongbank" /></td>
+						</tr>
+						<tr>
+							<th scope="row">銀行帳號</th>
+							<td><input type="text" name="bankcode" /></td>
+						</tr>
+						<tr>
+							<th scope="row">付款方式</th>
+							<td><input name="paymanner" type="radio" value="匯款"
+								checked="checked" /> 匯款 <input name="paymanner" type="radio"
+								value="貨到付款" /> 貨到付款 <input name="paymanner" type="radio"
+								value="月結" /> 月結</td>
+						</tr>
+						<tr>
+							<th scope="row">單據方式</th>
+							<td><input name="billmanner" type="radio" value="隨貨附發票 "
+								checked="checked" /> 隨貨附發票 <input name="billmanner"
+								type="radio" value="KEY單月結" /> KEY單月結</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input
+								type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

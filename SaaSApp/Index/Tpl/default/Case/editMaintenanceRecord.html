@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/jquery.json-2.3.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	var type="{$data.type}";
+	var childtype="{$data.childtype}";
+	var overtime="{$data.overtime}";
+	var devicecode="{$data.devicecode}";	
+	$(function() {
+		$("#type").change(function() {
+			getChildType();
+		});
+		$("#childtype").change(function() {
+			getDevice();
+			getOverTime();
+		});
+		$("#devicecode").change(function() {
+			var name=$("#devicecode").find("option:selected").attr("name");
+			if(name!='')
+				{
+					$('#devicename').val(name);
+					$('#devicenameTd').html(name);
+				}
+		});
+		if(type!='')
+			{
+				$("#type").val(type).trigger("change");
+			}
+
+	});
+	function getChildType() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getDeviceChildType",
+			data : "id=" + $("#type").val(),
+			success : function(data) {
+				$("#childtype").empty();
+				$("<option value='0'>請選擇</option>").appendTo("#childtype");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#childtype");
+				});
+				if(childtype!='')$("#childtype").val(childtype).trigger("change");
+			}
+		});
+
+	}
+	var c={@case};
+	function getOverTime() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getOverTime",
+			data :{"case":c,"type":$("#type").val(),"childtype":$("#childtype").val()},
+			success : function(data) {
+				$("#overtime").empty();
+				$("<option value='0'>請選擇</option>").appendTo("#overtime");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#overtime");
+				});
+				if(overtime!='')$("#overtime").val(overtime)
+			}
+		});
+
+	}
+	function getDevice() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getDevice",
+			data :{"case":c,"type":$("#type").val(),"childtype":$("#childtype").val()},
+			success : function(data) {
+				$("#devicecode").empty();
+				$("<option value='0'>請選擇</option>").appendTo("#devicecode");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option name='"+ decodeURI(json[k]['name'])+"' value='" + json[k]['devicecode'] + "'>" + decodeURI(json[k]['devicecode']) + "</option>").appendTo("#devicecode");
+				});
+				if(devicecode!='')$("#devicecode").val(devicecode).trigger("change");
+			}
+		});
+
+	}
+	function check()
+	{
+		var array=new Array();
+		$("#detailTable").find("tr").each(function(i,v){
+				if(i>0)
+				{
+					var obj={};
+					obj.detail=$(this).find("#detailId").val();
+					var type=$(this).find("#typeHd").val();
+					
+					if(type=='一般')
+						{
+							obj.result=$(this).find("input[type=radio]:checked").val();
+							
+						}
+					else
+						{
+							obj.result=$(this).find("#standard").val();
+						}
+					obj.remark=$(this).find("#remark").val();
+					array.push(obj);
+				}
+		}); 
+		$("#form1").append($('<input type="hidden" name="details" />').val($.toJSON(array)));
+		return  validator.empty('maintenancecode', '請輸入保養編號!')&&validator.index('devicecode', '請選擇設備編號');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">保養管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/insertMaintenanceRecord?case={@case}" method="post" onsubmit="return check()" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="case" value="{@case}" /> <input name="id" type="hidden" value="{$data.id}" />
+					<div class="topic2">新增 / 修改紀錄</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th scope="row">保養編號</th>
+							<td><input type="text" name="maintenancecode" id="maintenancecode" value="{$data.maintenancecode}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">保養人</th>
+							<input type="hidden" name="maintenanceuser" value="{$data.maintenanceuser}" />
+							<td>{$data.maintenanceuser}</td>
+						</tr>
+						<tr>
+							<th width="107" scope="row">保養日期</th>
+							<td width="585"><input type="text" name="maintenancedate" class="Wdate" onfocus="WdatePicker()" value="{$data.maintenancedate|date='Y/m/d',strtotime(###)}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">設備編號</th>
+							<td><select name="type" id="type">
+									<option value="請選擇" selected="selected">請選擇</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="childtype" id="childtype">
+									<option value="請選擇" selected="selected">請選擇</option>
+							</select> <select name="devicecode" id="devicecode">
+									<option value="請選擇" selected="selected">請選擇</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">設備名稱</th>
+							<td id="devicenameTd"></td>
+							<input type="hidden" name="devicename" id="devicename" value="{$data.devicename}" />
+						</tr>
+						<tr>
+							<th scope="row">保養週期</th>
+							<td><select name="overtime" id="overtime">
+									<option value="請選擇" selected="selected">請選擇</option>
+							</select></td>
+						</tr>
+					</table>
+					<div class="topic2">保養明細</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop" id="detailTable">
+						<tr>
+							<th width="125" scope="col">項目</th>
+							<th width="98" scope="col">資料類型</th>
+							<th width="121" scope="col">實際資料</th>
+							<th width="191" scope="col">說明</th>
+							<th width="158" scope="col">備註</th>
+						</tr>
+
+						<volist id="item" name="details"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center"><input id="detailId" type="hidden" value="{$item.id}" />{$item.project}</td>
+						<if condition="$item.type eq '一般' ">
+						<td align="center"><input id="typeHd" type="hidden" value="一般" />一般</td>
+						<td align="center"><if condition="$item.result eq '正常' "> <input name="radiobutton{$i}" type="radio" checked="checked" value="正常" /> 正常 <input name="radiobutton{$i}" type="radio" value="異常" /> 異常<br />
+							<else /> <input name="radiobutton{$i}" type="radio" value="正常 " /> 正常 <input name="radiobutton{$i}" type="radio" value="異常" checked="checked" /> 異常<br />
+							</if></td>
+						<else />
+
+						<td><input id="typeHd" type="hidden" value="數值" />標準值{$item.standard}</td>
+						<td>數值 <input type="text" id="standard" name="standard" style="width: 30px" value="{$item.result}" /></td>
+						</if>
+						<td>{$item.decript}</td>
+						<td><input type="text" name="remark" id="remark" value="{$item.remark}" style="width: 150px" /></td>
+						</tr>
+						</volist>
+					</table>
+					<div style="margin-top: 10px">
+						<input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">專案管理- 調班管理</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="">
+					<div class="mailNav">
+						<if condition="check_power('新增',$ext) eq 1"> <a href="__URL__/addworkshift?case={@case}">新增調班單</a> </if>
+						調班單號 <input type="text" name="textfield" /> <select name="select">
+							<option value="選擇月份">選擇月份</option>
+							<option value="不限月份">不限月份</option>
+							<option value="1月">1月</option>
+							<option value="2月">2月</option>
+							<option value="3月">3月</option>
+							<option value="4月">4月</option>
+							<option value="5月">5月</option>
+							<option value="6月">6月</option>
+							<option value="7月">7月</option>
+							<option value="8月">8月</option>
+							<option value="9月">9月</option>
+							<option value="10月">10月</option>
+							<option value="11月">11月</option>
+							<option value="12月">12月</option>
+						</select> <input type="submit" name="Submit" value="搜尋" />
+					</div>
+				</form>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="180" scope="col">調班單號</th>
+						<th width="145" scope="col">調班月份</th>
+						<th width="143" scope="col">KEY單時間</th>
+						<th width="129" scope="col">KEY單人</th>
+						<th width="96" scope="col">操作</th>
+					</tr>
+					<volist id="item" name="list"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+						<td align="center"><a href="__URL__/workShiftView?id={$item.id}">{$item.movecode}</a></td>
+						<td align="center">{$item.movemonth}</td>
+						<td align="center">{$item.movetime}</td>
+						<td align="center">{$item.keyusername}</td>
+						<td align="center"><a href="__URL__/workShiftUpdate?id={$item.id}">修改</a> | <a onclick="return confirm('確認刪除選擇的數據?')" href="__URL__/workShiftDelete?id={$item.id}">刪除</a></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	var buildId = "{$area.build}";
+	var floorId = "{$area.floor}";
+	
+	var build="{$build}";
+	var floor="{$floor}";
+	
+	$(function() {
+		$("#build").change(function() {
+			getFloor("#build", "#floor");
+		});
+		$("#b").change(function() {
+			getFloor("#b", "#f");
+		});
+		if (buildId) {
+			$("#build").val(buildId).trigger("change");
+		}
+		if(build)$("#b").val(build).trigger('change');
+			
+	});
+	function getFloor(b, f) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getFloor",
+			data : "bid=" + $(b).val(),
+			success : function(data) {
+				$("#floor").empty();
+				$("<option value='選擇樓層'>選擇樓層</option>").appendTo(f);
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo(f);
+				});
+				if (floorId)
+					$("#floor").val(floorId);
+				if(floor)$("#f").val(floor);
+			}
+		});
+
+	}
+	function check() {
+		return validator.index('build', '請選擇棟別') && validator.index('floor', '請選擇樓層') && validator.empty('name', '請輸入區域名稱');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">設備管理 - 建物區域管理</div>
+			<div class="mainInfo">
+				<form onsubmit="return check()" action="__URL__/addBuildingFloorArea?case={@case}" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="case" value="{@case}" /> <input type="hidden" name="id" value="{$area.id}" />
+					<div class="topic2">新增 / 修改區域</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="87" scope="row">區域名稱</th>
+							<td width="603"><select name="build" id="build">
+									<option value="選擇棟別">選擇棟別</option>
+									<volist id="item" name="builds">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="floor" id="floor">
+									<option value="選擇樓層">選擇樓層</option>
+							</select> <input type="text" name="name" id="name" value="{$area.name}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td> <input type="text" name="remark" id="name" value="{$area.remark}" style="width:300px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">區域說明</th>
+							<td> <input type="text" name="description" id="description" value="{$area.description}" style="width:300px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit2" value="確定" /></td>
+						</tr>
+					</table>
+				</form>
+				<form id="form2" name="form2" method="post" action="">
+					<div class="mailNav">
+					<if condition="check_power('區域',$ext) eq 1">
+<a href="__URL__/buildingFloorArea?case={@case}">區域</a>
+							</if>
+							<if condition="check_power('樓層',$ext) eq 1">
+<a href="__URL__/buildingFloor?case={@case}">樓層</a>
+							</if>
+							<if condition="check_power('棟別',$ext) eq 1">
+<a href="__URL__/building?case={@case}">棟別</a>
+							</if>
+						 <select name="b" id="b">
+							<option value="">選擇棟別</option>
+							<volist id="item" name="builds">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+						</select> <select name="f" id="f">
+							<option value="">選擇樓層</option>
+						</select> <input type="submit" name="Submit" value="搜尋" />
+					</div>
+				</form>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="100" scope="col">棟別</th>
+						<th width="100" scope="col">樓層</th>
+						<th width="100" scope="col">區域</th>
+						<th width="200" scope="col">備註</th>
+						<th width="113" scope="col">操作</th>
+					</tr>
+					<volist id="item" name="list"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.bname}</td>
+					<td align="center">{$item.fname}</td>
+					<td align="center">{$item.name}</td>
+					<td align="center">{$item.remark}</td>
+					<td align="center"><a href="__URL__/editBuildingFloorArea?case={@case}&id={$item.id}">修改</a> | <a onclick="return confirm('是否刪除選擇的數據?')" href="__URL__/deleteBuildingFloorArea?case={@case}&id={$item.id}">刪除</a></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

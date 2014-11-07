@@ -1,0 +1,83 @@
+<div class="sideLeft">
+	<div>
+		<a href="__APP__/User/profile"> <img src="__PUBLIC__/<php>if(empty($_SESSION['SESSION_USER']['userimage'])) echo 'images/3_03.jpg';  else echo 'Uploads/'.$_SESSION['SESSION_USER']['userimage'];</php>" alt="" width="151" border="0" />
+		</a>
+	</div>
+	<div class="name">
+		<a href="__APP__/User/Profile"><php> echo $_SESSION['SESSION_USER']['name']</php></a>
+	</div>
+	<div class="menuSide">
+		<ul>
+			<volist id="item" name="CaseMenu"> <empty name="item.children">
+			<li><img src="{$item.image}" alt="" width="23" height="23" /><a href="{$item.link}">{$item.name}</a></li>
+			<else />
+			
+			<li><img src="{$item.image}" alt="" width="23" height="23" />
+			<notempty name="item.link">
+			<a href="{$item.link}">{$item.name}</a>
+			<else/>
+			{$item.name}
+			</notempty>
+				<ul>
+					<volist id="citem" name="item.children">
+					<li><a href="{$citem.link}">{$citem.name}</a></li>
+					</volist>
+				</ul></li>
+			</empty>
+		
+		</volist>
+<!-- 			<li><img src="__PUBLIC__/images/hire_me.png" alt="" width="23" height="23" /><a href="__URL__/index">專案管理</a> -->
+<!-- 				<ul> -->
+<!-- 					<li><a href="__URL__/view?case={@case}">專案內容</a></li> -->
+<!-- 					<li><a href="__URL__/team?case={@case}">組別設定</a></li> -->
+<!-- 					<li><a href="__URL__/work?case={@case}">班別設定</a></li> -->
+<!-- 					<li><a href="__URL__/member?case={@case}">所屬人員</a></li> -->
+<!-- 					<li><a href="__URL__/looker?case={@case}">查看人員</a></li> -->
+<!-- 					<li><a href="__URL__/attendance?case={@case}">差勤管理</a></li> -->
+<!-- 					<li><a href="__URL__/costanalysis?case={@case}">成本分析</a></li> -->
+<!-- 					<li><a href="__URL__/file?case={@case}">相關文件</a></li> -->
+<!-- 					<li><a href="__URL__/moveshift?case={@case}">調班管理</a></li> -->
+<!-- 				</ul></li> -->
+<!-- 			<li><img src="__PUBLIC__/images/database_32.png" alt="" width="23" height="23" />設備管理 -->
+<!-- 				<ul> -->
+<!-- 					<li><a href="__URL__/deviceIndex?case={@case}">設備列表</a></li> -->
+<!-- 					<li><a href="__URL__/buildingFloorArea?case={@case}">建物區域管理</a></li> -->
+<!-- 					<li><a href="__URL__/deviceType?case={@case}">類別設定</a></li> -->
+<!-- 					<li><a href="__URL__/maintenanceScheduling?case={@case}">月保養排程</a></li> -->
+<!-- 					<li><a href="__URL__/dayMaintenanceRecord?case={@case}">日保養排程</a></li> -->
+<!-- 					<li><a href="__URL__/maintenanceOverTime?case={@case}">保養週期</a></li> -->
+<!-- 				</ul></li> -->
+<!-- 			<li><img src="__PUBLIC__/images/screwdriver_32.png" alt="" width="23" height="23" />保養管理 -->
+<!-- 				<ul> -->
+<!-- 					<li><a href="__URL__/maintenanceRecord?case={@case}">保養紀錄</a></li> -->
+<!-- 					<li><a href="__URL__/maintenanceRecordDetail?case={@case}">保養明細管理</a></li> -->
+<!-- 				</ul></li> -->
+<!-- 			<li><img src="__PUBLIC__/images/tools_32.png" alt="" width="23" height="23" />維修管理 -->
+<!-- 				<ul> -->
+<!-- 					<li><a href="__URL__/repair?case={@case}">維修列表</a></li> -->
+<!-- 					<li><a href="__URL__/addRepair?case={@case}">申請叫修</a></li> -->
+<!-- 					<li><a href="__URL__/doRepair?case={@case}">派工</a></li> -->
+<!-- 					<li><a href="__URL__/repairFinish?case={@case}">完工回報</a></li> -->
+<!-- 					<li><a href="__URL__/delegateRepair?case={@case}">委外管理</a></li> -->
+<!-- 					<li><a href="__URL__/projectBid?case={@case}">工程報價</a></li> -->
+<!-- 					<li><a href="__URL__/warnSetting?case={@case}">警示設定</a></li> -->
+<!-- 				</ul></li> -->
+<!-- 			<li><img src="__PUBLIC__/images/statistics.png" alt="" width="23" height="23" />統計資料 -->
+<!-- 				<ul> -->
+<!-- 					<li><a href="__URL__/statisticsbymonth?case={@case}" target="_blank">月叫修數量統計表</a></li> -->
+<!-- 					<li><a href="__URL__/statisticsbymonthDetail?case={@case}" target="_blank">月叫修明細統計表</a></li> -->
+<!-- 					<li><a href="__URL__/statisticsbyyear?case={@case}" target="_blank">年度叫修數量統計表</a></li> -->
+<!-- 					<li><a href="__URL__/statisticsbyyearDetail?case={@case}" target="_blank">年度叫修明細統計表</a></li> -->
+<!-- 					<li><a href="__URL__/statisticsCompletebyMonth?case={@case}" target="_blank">月完工數量統計表</a></li> -->
+<!-- 					<li><a href="__URL__/statisticsCompletebyMonthDetail?case={@case}" target="_blank">月完工明細統計表</a></li> -->
+<!-- 					<li><a href="__URL__/statisticsCompletebyYear?case={@case}" target="_blank">年度完工數量統計表 </a></li> -->
+<!-- 					<li><a href="__URL__/statisticsCompletebyYearDetail?case={@case}" target="_blank">年度完工明細統計表 </a></li> -->
+<!-- 					<li><a href="__URL__/statisticsMaintenancebyMonth?case={@case}" target="_blank">月保養數量統計表  </a></li> -->
+<!-- 					<li><a href="__URL__/statisticsMaintenancebyMonthDetail?case={@case}" target="_blank">月保養明細統計表  </a></li> -->
+<!-- 					<li><a href="__URL__/statisticsMaintenancebyYear?case={@case}" target="_blank">年度保養數量統計表  </a></li> -->
+<!-- 					<li><a href="__URL__/statisticsMaintenancebyYearDetail?case={@case}" target="_blank">年度保養明細統計表  </a></li> -->
+<!-- 					<li><a href="__URL__/statisticsbyfault?case={@case}" target="_blank">故障完修時間統計表 </a></li> -->
+<!-- 				</ul></li> -->
+		</ul>
+	</div>
+</div>

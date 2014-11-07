@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">會計系統 - 預算管理</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="">
+					<div class="mailNav">
+						<a href="__URL__/addBudgetPage">新增預算編列資料</a> 日期<input type="text"
+							name="sdate"  class="Wdate" onfocus="WdatePicker()"/> 預算名稱 <input type="text" name="ysm" /> <input
+							type="submit" name="Submit" value="搜尋"  />
+					</div>
+				</form>
+				<table width="695" border="0" cellpadding="0" cellspacing="0"
+					class="tab_thtop">
+					<tr>
+						<th width="125" scope="col">建立日期</th>
+						<th width="343" scope="col">預算名稱</th>
+						<th width="141" scope="col">編列人</th>
+						<th width="84" scope="col">操作</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.createdate|date='Y-m-d',strtotime(###)}</td>
+					<td><a href="__URL__/viewBudget?id={$item.id}">{$item.name}</a></td>
+					<td align="center">{$item.createuser}</td>
+					<td><a href="__URL__/editBudget?id={$item.id}">修改</a> | <a
+						href="__URL__/deleteBudget?id={$item.id}"
+						onclick="return confirm('是否刪除該數據?')">刪除</a></td>
+					</tr>
+					</volist>
+				</table>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

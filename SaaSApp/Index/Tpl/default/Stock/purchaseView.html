@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 採購管理</div>
+			<div class="mainInfo">
+				<table width="695" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="437"><div class="topic2">採購單</div></td>
+						<td width="258" valign="bottom"><div class="mailNav">
+								<a href="__URL__/purchaseEdit?id={$sp.id}">修改採購單</a>
+							</div></td>
+					</tr>
+				</table>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+					<tr>
+						<th width="100" scope="row">採購編號</th>
+						<td width="296">{$sp.purchasecode}</td>
+						<th width="83" scope="row">採購日期</th>
+						<td width="211">{$sp.purchasedate|date='Y/m/d',strtotime(###)}</td>
+					</tr>
+					<tr>
+						<th scope="row">採購對象</th>
+						<td>{$sp.mname}</td>
+						<th scope="row">採購者</th>
+						<td>{$sp.purchaseuser}</td>
+					</tr>
+					<tr>
+						<th scope="row">審核日期</th>
+						<td><notempty name="sp.checkdate">{$sp.checkdate|date='Y/m/d',strtotime(###)}</notempty></td>
+						<th scope="row">審核人</th>
+						<td>{$sp.checkuser}</td>
+					</tr>
+					<tr>
+						<th scope="row">備註</th>
+						<td colspan="3">{$sp.remark}</td>
+					</tr>
+				</table>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="162" scope="col">商品編號</th>
+						<th width="274" scope="col">商品名稱</th>
+						<th width="84" scope="col">單價</th>
+						<th width="71" scope="col">數量</th>
+						<th width="78" scope="col">小計</th>
+					</tr>
+					<volist name="spd" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.productcode}</td>
+					<td>{$item.productname}</td>
+					<td align="center">{$item.price}</td>
+					<td align="center">{$item.quantity}</td>
+					<td align="center">{$item.subtotal}</td>
+					</tr>
+					</volist>
+					<tr class="trcolor3">
+						<td colspan="4" align="right"><strong>總計金額：</strong></td>
+						<td align="center">{$sp.totalmoney}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

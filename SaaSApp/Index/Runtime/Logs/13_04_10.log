@@ -1,0 +1,475 @@
+[ 2013-04-10T10:04:49+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-04-10T10:04:49+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-04-10T10:04:56+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.070006s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.002838s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.096357s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.021251s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.042964s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.007278s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.080212s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001425s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001141s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.110099s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.004301s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.003905s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002236s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002530s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002194s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002280s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002349s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002153s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002207s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002098s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002131s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002180s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002227s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002288s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002147s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002383s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002096s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002293s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002319s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002068s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002390s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002219s ]
+[ 2013-04-10T10:04:56+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002218s ]
+[ 2013-04-10T10:04:57+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002207s ]
+[ 2013-04-10T10:04:57+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002406s ]
+[ 2013-04-10T10:04:57+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002119s ]
+[ 2013-04-10T10:04:57+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002363s ]
+[ 2013-04-10T10:04:57+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002274s ]
+[ 2013-04-10T10:04:57+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002263s ]
+[ 2013-04-10T10:04:57+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2013-04-10T10:04:57+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 21 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.005584s ]
+[ 2013-04-10T10:04:57+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-04-10T10:04:57+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 [ RunTime:0.130582s ]
+[ 2013-04-10T10:04:57+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 limit 0,20 [ RunTime:0.007942s ]
+[ 2013-04-10T10:05:05+08:00 ] NOTIC: [8] Undefined index: key UserAction.class.php 第 4 行.
+[ 2013-04-10T10:05:05+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008759s ]
+[ 2013-04-10T10:05:05+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  code='13108617'  LIMIT 1  [ RunTime:0.020806s ]
+[ 2013-04-10T10:05:05+08:00 ] SQL: SELECT * FROM `user` WHERE  code='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001530s ]
+[ 2013-04-10T10:05:40+08:00 ] NOTIC: [8] Undefined index: key UserAction.class.php 第 4 行.
+[ 2013-04-10T10:05:40+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008043s ]
+[ 2013-04-10T10:05:40+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  code='13108617'  LIMIT 1  [ RunTime:0.001454s ]
+[ 2013-04-10T10:05:40+08:00 ] SQL: SELECT * FROM `user` WHERE  code='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001429s ]
+[ 2013-04-10T10:06:32+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008880s ]
+[ 2013-04-10T10:06:32+08:00 ] SQL: SELECT * FROM `user` WHERE code = '13108617' [ RunTime:0.005287s ]
+[ 2013-04-10T10:06:32+08:00 ] NOTIC: [8] Undefined index: key DepartAction.class.php 第 8 行.
+[ 2013-04-10T10:06:32+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007324s ]
+[ 2013-04-10T10:06:32+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000914s ]
+[ 2013-04-10T10:06:32+08:00 ] SQL: SELECT 
+			  d.`id`,
+			  d.`name`,
+			  (SELECT NAME FROM `user` WHERE id= d.`leader`) AS leader,
+			  (SELECT 
+			    COUNT(id) 
+			  FROM
+			    `user` u 
+			  WHERE u.`depart` = d.`id`) AS users 
+			FROM
+			  depart d 
+			WHERE d.code ='13108617' [ RunTime:0.003658s ]
+[ 2013-04-10T10:06:32+08:00 ] SQL: SELECT 
+			  d.`id`,
+			  d.`name`,
+			  (SELECT NAME FROM `user` WHERE id= d.`leader`) AS leader,
+			  (SELECT 
+			    COUNT(id) 
+			  FROM
+			    `user` u 
+			  WHERE u.`depart` = d.`id`) AS users 
+			FROM
+			  depart d 
+			WHERE d.code ='13108617' limit 0,20 [ RunTime:0.003551s ]
+[ 2013-04-10T10:06:33+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-10T10:06:33+08:00 ] NOTIC: [8] Undefined variable: depart 8490a8a9e283217b7cf18b7d22fe2f49.php 第 13 行.
+[ 2013-04-10T10:06:33+08:00 ] NOTIC: [8] Undefined variable: id 8490a8a9e283217b7cf18b7d22fe2f49.php 第 233 行.
+[ 2013-04-10T10:06:33+08:00 ] NOTIC: [8] Undefined variable: depart 8490a8a9e283217b7cf18b7d22fe2f49.php 第 237 行.
+[ 2013-04-10T10:07:26+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008456s ]
+[ 2013-04-10T10:07:26+08:00 ] SQL: SELECT * FROM `user` WHERE code = '13108617' [ RunTime:0.005666s ]
+[ 2013-04-10T10:07:27+08:00 ] NOTIC: [8] Undefined index: key DepartAction.class.php 第 8 行.
+[ 2013-04-10T10:07:27+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007222s ]
+[ 2013-04-10T10:07:27+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000849s ]
+[ 2013-04-10T10:07:27+08:00 ] SQL: SELECT 
+			  d.`id`,
+			  d.`name`,
+			  (SELECT NAME FROM `user` WHERE id= d.`leader`) AS leader,
+			  (SELECT 
+			    COUNT(id) 
+			  FROM
+			    `user` u 
+			  WHERE u.`depart` = d.`id`) AS users 
+			FROM
+			  depart d 
+			WHERE d.code ='13108617' [ RunTime:0.003580s ]
+[ 2013-04-10T10:07:27+08:00 ] SQL: SELECT 
+			  d.`id`,
+			  d.`name`,
+			  (SELECT NAME FROM `user` WHERE id= d.`leader`) AS leader,
+			  (SELECT 
+			    COUNT(id) 
+			  FROM
+			    `user` u 
+			  WHERE u.`depart` = d.`id`) AS users 
+			FROM
+			  depart d 
+			WHERE d.code ='13108617' limit 0,20 [ RunTime:0.004212s ]
+[ 2013-04-10T10:07:27+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-10T10:07:27+08:00 ] NOTIC: [8] Undefined variable: depart 8490a8a9e283217b7cf18b7d22fe2f49.php 第 13 行.
+[ 2013-04-10T10:07:27+08:00 ] NOTIC: [8] Undefined variable: id 8490a8a9e283217b7cf18b7d22fe2f49.php 第 233 行.
+[ 2013-04-10T10:07:27+08:00 ] NOTIC: [8] Undefined variable: depart 8490a8a9e283217b7cf18b7d22fe2f49.php 第 237 行.
+[ 2013-04-10T10:07:59+08:00 ] NOTIC: [8] Undefined index: key TeamAction.class.php 第 4 行.
+[ 2013-04-10T10:07:59+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.012931s ]
+[ 2013-04-10T10:07:59+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001637s ]
+[ 2013-04-10T10:08:00+08:00 ] SQL: SELECT t.id,t.`name` ,d.`name` AS depart,(SELECT COUNT(id) FROM user WHERE team =t.`id`) AS users FROM team t INNER JOIN depart d ON t.`depart`=d.`id` where d.code='13108617' [ RunTime:0.066943s ]
+[ 2013-04-10T10:08:00+08:00 ] SQL: SELECT t.id,t.`name` ,d.`name` AS depart,(SELECT COUNT(id) FROM user WHERE team =t.`id`) AS users FROM team t INNER JOIN depart d ON t.`depart`=d.`id` where d.code='13108617' limit 0,20 [ RunTime:0.007183s ]
+[ 2013-04-10T10:08:00+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-10T10:08:00+08:00 ] NOTIC: [8] Undefined variable: id 6e879e1371105e0473d50680cd956284.php 第 232 行.
+[ 2013-04-10T10:08:00+08:00 ] NOTIC: [8] Undefined variable: team 6e879e1371105e0473d50680cd956284.php 第 245 行.
+[ 2013-04-10T10:08:05+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008726s ]
+[ 2013-04-10T10:08:05+08:00 ] SQL: SELECT * FROM `user` WHERE code = '13108617' [ RunTime:0.003964s ]
+[ 2013-04-10T10:08:06+08:00 ] NOTIC: [8] Undefined index: key DepartAction.class.php 第 8 行.
+[ 2013-04-10T10:08:06+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007030s ]
+[ 2013-04-10T10:08:06+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000854s ]
+[ 2013-04-10T10:08:06+08:00 ] SQL: SELECT 
+			  d.`id`,
+			  d.`name`,
+			  (SELECT NAME FROM `user` WHERE id= d.`leader`) AS leader,
+			  (SELECT 
+			    COUNT(id) 
+			  FROM
+			    `user` u 
+			  WHERE u.`depart` = d.`id`) AS users 
+			FROM
+			  depart d 
+			WHERE d.code ='13108617' [ RunTime:0.003652s ]
+[ 2013-04-10T10:08:06+08:00 ] SQL: SELECT 
+			  d.`id`,
+			  d.`name`,
+			  (SELECT NAME FROM `user` WHERE id= d.`leader`) AS leader,
+			  (SELECT 
+			    COUNT(id) 
+			  FROM
+			    `user` u 
+			  WHERE u.`depart` = d.`id`) AS users 
+			FROM
+			  depart d 
+			WHERE d.code ='13108617' limit 0,20 [ RunTime:0.003269s ]
+[ 2013-04-10T10:08:06+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-10T10:08:06+08:00 ] NOTIC: [8] Undefined variable: depart 8490a8a9e283217b7cf18b7d22fe2f49.php 第 13 行.
+[ 2013-04-10T10:08:06+08:00 ] NOTIC: [8] Undefined variable: id 8490a8a9e283217b7cf18b7d22fe2f49.php 第 233 行.
+[ 2013-04-10T10:08:06+08:00 ] NOTIC: [8] Undefined variable: depart 8490a8a9e283217b7cf18b7d22fe2f49.php 第 237 行.
+[ 2013-04-10T10:08:14+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008454s ]
+[ 2013-04-10T10:08:14+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  code='13108617'  and depart=20 LIMIT 1  [ RunTime:0.001443s ]
+[ 2013-04-10T10:08:14+08:00 ] SQL: SELECT * FROM `user` WHERE  code='13108617'  and depart=20 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001998s ]
+[ 2013-04-10T10:08:14+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006893s ]
+[ 2013-04-10T10:08:14+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000864s ]
+[ 2013-04-10T10:08:37+08:00 ] SQL: SELECT t.id,t.`lcode` ,t.`remark`,(SELECT COUNT(id) FROM user WHERE level =t.`id`) AS users FROM level t  where t.code='13108617' [ RunTime:0.078033s ]
+[ 2013-04-10T10:08:37+08:00 ] SQL: SELECT t.id,t.`lcode` ,t.`remark`,(SELECT COUNT(id) FROM user WHERE level =t.`id`) AS users FROM level t  where t.code='13108617' limit 0,20 [ RunTime:0.007311s ]
+[ 2013-04-10T10:08:37+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-10T10:08:38+08:00 ] NOTIC: [8] Undefined variable: level e51b778f3319fcf098a9398360b8669a.php 第 234 行.
+[ 2013-04-10T10:08:38+08:00 ] NOTIC: [8] Undefined variable: level e51b778f3319fcf098a9398360b8669a.php 第 238 行.
+[ 2013-04-10T10:08:38+08:00 ] NOTIC: [8] Undefined variable: level e51b778f3319fcf098a9398360b8669a.php 第 240 行.
+[ 2013-04-10T10:08:39+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.012345s ]
+[ 2013-04-10T10:08:39+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE   level =10 LIMIT 1  [ RunTime:0.002447s ]
+[ 2013-04-10T10:08:39+08:00 ] SQL: SELECT * FROM `user` WHERE   level =10 ORDER BY id desc LIMIT 0,20  [ RunTime:0.002539s ]
+[ 2013-04-10T10:10:51+08:00 ] SQL: SELECT t.id,t.`lcode` ,t.`remark`,(SELECT COUNT(id) FROM user WHERE level =t.`id`) AS users FROM level t  where t.code='13108617' [ RunTime:0.003787s ]
+[ 2013-04-10T10:10:51+08:00 ] SQL: SELECT t.id,t.`lcode` ,t.`remark`,(SELECT COUNT(id) FROM user WHERE level =t.`id`) AS users FROM level t  where t.code='13108617' limit 0,20 [ RunTime:0.003872s ]
+[ 2013-04-10T10:10:51+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-10T10:10:51+08:00 ] NOTIC: [8] Undefined variable: level e51b778f3319fcf098a9398360b8669a.php 第 234 行.
+[ 2013-04-10T10:10:51+08:00 ] NOTIC: [8] Undefined variable: level e51b778f3319fcf098a9398360b8669a.php 第 238 行.
+[ 2013-04-10T10:10:51+08:00 ] NOTIC: [8] Undefined variable: level e51b778f3319fcf098a9398360b8669a.php 第 240 行.
+[ 2013-04-10T10:10:58+08:00 ] NOTIC: [8] Undefined index: key TeamAction.class.php 第 4 行.
+[ 2013-04-10T10:10:58+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006858s ]
+[ 2013-04-10T10:10:58+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000888s ]
+[ 2013-04-10T10:10:58+08:00 ] SQL: SELECT t.id,t.`name` ,d.`name` AS depart,(SELECT COUNT(id) FROM user WHERE team =t.`id`) AS users FROM team t INNER JOIN depart d ON t.`depart`=d.`id` where d.code='13108617' [ RunTime:0.015162s ]
+[ 2013-04-10T10:10:58+08:00 ] SQL: SELECT t.id,t.`name` ,d.`name` AS depart,(SELECT COUNT(id) FROM user WHERE team =t.`id`) AS users FROM team t INNER JOIN depart d ON t.`depart`=d.`id` where d.code='13108617' limit 0,20 [ RunTime:0.007188s ]
+[ 2013-04-10T10:10:58+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-10T10:10:58+08:00 ] NOTIC: [8] Undefined variable: id 6e879e1371105e0473d50680cd956284.php 第 232 行.
+[ 2013-04-10T10:10:58+08:00 ] NOTIC: [8] Undefined variable: team 6e879e1371105e0473d50680cd956284.php 第 245 行.
+[ 2013-04-10T10:12:24+08:00 ] NOTIC: [8] Undefined index: key TeamAction.class.php 第 4 行.
+[ 2013-04-10T10:12:24+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.008154s ]
+[ 2013-04-10T10:12:24+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000991s ]
+[ 2013-04-10T10:12:24+08:00 ] SQL: SELECT t.id,t.`name` ,d.`name` AS depart,(SELECT COUNT(id) FROM user WHERE team =t.`id`) AS users FROM team t INNER JOIN depart d ON t.`depart`=d.`id` where d.code='13108617' [ RunTime:0.015581s ]
+[ 2013-04-10T10:12:24+08:00 ] SQL: SELECT t.id,t.`name` ,d.`name` AS depart,(SELECT COUNT(id) FROM user WHERE team =t.`id`) AS users FROM team t INNER JOIN depart d ON t.`depart`=d.`id` where d.code='13108617' limit 0,20 [ RunTime:0.006899s ]
+[ 2013-04-10T10:12:24+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-10T10:12:24+08:00 ] NOTIC: [8] Undefined variable: id 6e879e1371105e0473d50680cd956284.php 第 232 行.
+[ 2013-04-10T10:12:24+08:00 ] NOTIC: [8] Undefined variable: team 6e879e1371105e0473d50680cd956284.php 第 245 行.
+[ 2013-04-10T10:13:06+08:00 ] NOTIC: [8] Undefined index: key TeamAction.class.php 第 4 行.
+[ 2013-04-10T10:13:06+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006814s ]
+[ 2013-04-10T10:13:06+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000920s ]
+[ 2013-04-10T10:13:06+08:00 ] SQL: SELECT t.id,t.`name` ,d.`name` AS depart,(SELECT COUNT(id) FROM user WHERE team =t.`id`) AS users FROM team t INNER JOIN depart d ON t.`depart`=d.`id` where d.code='13108617' [ RunTime:0.015242s ]
+[ 2013-04-10T10:13:06+08:00 ] SQL: SELECT t.id,t.`name` ,d.`name` AS depart,(SELECT COUNT(id) FROM user WHERE team =t.`id`) AS users FROM team t INNER JOIN depart d ON t.`depart`=d.`id` where d.code='13108617' limit 0,20 [ RunTime:0.006994s ]
+[ 2013-04-10T10:13:07+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-10T10:13:07+08:00 ] NOTIC: [8] Undefined variable: id 6e879e1371105e0473d50680cd956284.php 第 234 行.
+[ 2013-04-10T10:13:07+08:00 ] NOTIC: [8] Undefined variable: team 6e879e1371105e0473d50680cd956284.php 第 247 行.
+[ 2013-04-10T10:13:10+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008228s ]
+[ 2013-04-10T10:13:10+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE   team =27 LIMIT 1  [ RunTime:0.002376s ]
+[ 2013-04-10T10:13:10+08:00 ] SQL: SELECT * FROM `user` WHERE   team =27 ORDER BY id desc LIMIT 0,20  [ RunTime:0.005866s ]
+[ 2013-04-10T10:13:14+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.011913s ]
+[ 2013-04-10T10:13:14+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE   team =28 LIMIT 1  [ RunTime:0.001561s ]
+[ 2013-04-10T10:13:14+08:00 ] SQL: SELECT * FROM `user` WHERE   team =28 ORDER BY id desc LIMIT 0,20  [ RunTime:0.002523s ]
+[ 2013-04-10T10:13:30+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.006591s ]
+[ 2013-04-10T10:13:30+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001130s ]
+[ 2013-04-10T10:13:30+08:00 ] NOTIC: [8] Undefined index: date BaseAction.class.php 第 240 行.
+[ 2013-04-10T10:13:30+08:00 ] NOTIC: [8] Undefined index: team BaseAction.class.php 第 240 行.
+[ 2013-04-10T10:13:30+08:00 ] SQL: SELECT 
+			  COUNT(*)
+			FROM
+			  `user` u 
+			  LEFT JOIN `check` c 
+			    ON u.`id` = c.`uid` 
+			    AND DATEDIFF(c.`date`, '2013-04-10') = 0 
+			WHERE u.depart =20 [ RunTime:0.260493s ]
+[ 2013-04-10T10:13:30+08:00 ] SQL: SELECT 
+			  '2013-04-10' AS 'datetime',
+			  u.`id` uid,c.`id` cid,
+			  u.`ucode`,
+			  u.`name`,
+			  c.`ontime`,
+			  c.`downtime`,
+			  c.`type`,
+			  c.`status`,
+			  c.`overday`
+			FROM
+			  `user` u 
+			  LEFT JOIN `check` c 
+			    ON u.`id` = c.`uid` 
+			    AND DATEDIFF(c.`date`, '2013-04-10') = 0 
+			WHERE u.depart =20 limit 0,20 [ RunTime:0.000852s ]
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:13:31+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:06+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007948s ]
+[ 2013-04-10T10:14:06+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001043s ]
+[ 2013-04-10T10:14:06+08:00 ] NOTIC: [8] Undefined index: date BaseAction.class.php 第 240 行.
+[ 2013-04-10T10:14:06+08:00 ] NOTIC: [8] Undefined index: team BaseAction.class.php 第 240 行.
+[ 2013-04-10T10:14:06+08:00 ] SQL: SELECT 
+			  COUNT(*)
+			FROM
+			  `user` u 
+			  LEFT JOIN `check` c 
+			    ON u.`id` = c.`uid` 
+			    AND DATEDIFF(c.`date`, '2013-04-10') = 0 
+			WHERE u.depart =20 [ RunTime:0.127216s ]
+[ 2013-04-10T10:14:06+08:00 ] SQL: SELECT 
+			  '2013-04-10' AS 'datetime',
+			  u.`id` uid,c.`id` cid,
+			  u.`ucode`,
+			  u.`name`,
+			  c.`ontime`,
+			  c.`downtime`,
+			  c.`type`,
+			  c.`status`,
+			  c.`overday`
+			FROM
+			  `user` u 
+			  LEFT JOIN `check` c 
+			    ON u.`id` = c.`uid` 
+			    AND DATEDIFF(c.`date`, '2013-04-10') = 0 
+			WHERE u.depart =20 limit 0,20 [ RunTime:0.001141s ]
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:14:07+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:15:45+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.008105s ]
+[ 2013-04-10T10:15:45+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001041s ]
+[ 2013-04-10T10:15:45+08:00 ] NOTIC: [8] Undefined index: date BaseAction.class.php 第 240 行.
+[ 2013-04-10T10:15:45+08:00 ] NOTIC: [8] Undefined index: team BaseAction.class.php 第 240 行.
+[ 2013-04-10T10:15:45+08:00 ] SQL: SELECT 
+			  COUNT(*)
+			FROM
+			  `user` u 
+			  LEFT JOIN `check` c 
+			    ON u.`id` = c.`uid` 
+			    AND DATEDIFF(c.`date`, '2013-04-10') = 0 
+			WHERE u.depart =20 [ RunTime:0.124099s ]
+[ 2013-04-10T10:15:45+08:00 ] SQL: SELECT 
+			  '2013-04-10' AS 'datetime',
+			  u.`id` uid,c.`id` cid,
+			  u.`ucode`,
+			  u.`name`,
+			  c.`ontime`,
+			  c.`downtime`,
+			  c.`type`,
+			  c.`status`,
+			  c.`overday`
+			FROM
+			  `user` u 
+			  LEFT JOIN `check` c 
+			    ON u.`id` = c.`uid` 
+			    AND DATEDIFF(c.`date`, '2013-04-10') = 0 
+			WHERE u.depart =20 limit 0,20 [ RunTime:0.001069s ]
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:16+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.010539s ]
+[ 2013-04-10T10:17:16+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.000998s ]
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined index: date BaseAction.class.php 第 240 行.
+[ 2013-04-10T10:17:16+08:00 ] NOTIC: [8] Undefined index: team BaseAction.class.php 第 240 行.
+[ 2013-04-10T10:17:16+08:00 ] SQL: SELECT 
+			  COUNT(*)
+			FROM
+			  `user` u 
+			  LEFT JOIN `check` c 
+			    ON u.`id` = c.`uid` 
+			    AND DATEDIFF(c.`date`, '2013-04-10') = 0 
+			WHERE u.depart =20 [ RunTime:0.135538s ]
+[ 2013-04-10T10:17:16+08:00 ] SQL: SELECT 
+			  '2013-04-10' AS 'datetime',
+			  u.`id` uid,c.`id` cid,
+			  u.`ucode`,
+			  u.`name`,
+			  c.`ontime`,
+			  c.`downtime`,
+			  c.`type`,
+			  c.`status`,
+			  c.`overday`
+			FROM
+			  `user` u 
+			  LEFT JOIN `check` c 
+			    ON u.`id` = c.`uid` 
+			    AND DATEDIFF(c.`date`, '2013-04-10') = 0 
+			WHERE u.depart =20 limit 0,20 [ RunTime:0.026741s ]
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:17:17+08:00 ] NOTIC: [8] Undefined variable: team a2ce8b5195000633dce263dcf5818e75.php 第 231 行.
+[ 2013-04-10T10:21:16+08:00 ] SQL: SHOW COLUMNS FROM `elec` [ RunTime:0.007732s ]
+[ 2013-04-10T10:21:16+08:00 ] SQL: SHOW COLUMNS FROM `electype` [ RunTime:0.008192s ]
+[ 2013-04-10T10:21:16+08:00 ] SQL: SHOW COLUMNS FROM `elecchildtype` [ RunTime:0.007417s ]
+[ 2013-04-10T10:21:16+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM elec Elec  JOIN electype Electype ON Elec.electype=Electype.id  JOIN elecchildtype Elecchildtype ON Elec.elecchildtype=Elecchildtype.id WHERE Elec.code='13108617'  and Elec.requester=10 LIMIT 1  [ RunTime:0.001033s ]
+[ 2013-04-10T10:21:16+08:00 ] SQL: SELECT Elec.id AS id,Elec.requester AS requester,Elec.requestername AS requestername,Elec.requestercode AS requestercode,Elec.requesterdate AS requesterdate,Elec.electype AS electype,Elec.elecchildtype AS elecchildtype,Elec.sdate AS sdate,Elec.shour AS shour,Elec.sminute AS sminute,Elec.edate AS edate,Elec.ehour AS ehour,Elec.eminute AS eminute,Elec.je AS je,Elec.descript AS descript,Elec.remark AS remark,Elec.checkersid AS checkersid,Elec.checkersname AS checkersname,Elec.atts AS atts,Elec.state AS state,Elec.nextchecker AS nextchecker,Elec.code AS code,Electype.name AS typename,Elecchildtype.name AS typechildname FROM elec Elec  JOIN electype Electype ON Elec.electype=Electype.id  JOIN elecchildtype Elecchildtype ON Elec.elecchildtype=Elecchildtype.id WHERE Elec.code='13108617'  and Elec.requester=10 ORDER BY Elec.id desc LIMIT 0,20  [ RunTime:0.001513s ]
+[ 2013-04-10T10:21:19+08:00 ] SQL: SHOW COLUMNS FROM `electype` [ RunTime:0.007613s ]
+[ 2013-04-10T10:21:19+08:00 ] SQL: SELECT * FROM `electype` [ RunTime:0.001031s ]
+[ 2013-04-10T10:21:19+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007435s ]
+[ 2013-04-10T10:21:19+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001274s ]

@@ -1,0 +1,256 @@
+[ 2013-04-18T19:53:22+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-04-18T19:53:22+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-04-18T19:53:28+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.101134s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001935s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.101463s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.031105s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.060508s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.004751s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.068054s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001618s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001519s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.171306s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.003534s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002573s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002334s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002625s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002308s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002153s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002193s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002314s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002043s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002149s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002168s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002163s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002070s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002475s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002340s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002753s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002325s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002458s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002214s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002165s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002688s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002610s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002859s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002284s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002510s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002178s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.003214s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002186s ]
+[ 2013-04-18T19:53:28+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002685s ]
+[ 2013-04-18T19:53:29+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2013-04-18T19:53:29+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 21 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.002407s ]
+[ 2013-04-18T19:53:29+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-04-18T19:53:29+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 [ RunTime:0.121190s ]
+[ 2013-04-18T19:53:29+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 limit 0,20 [ RunTime:0.004735s ]
+[ 2013-04-18T19:53:41+08:00 ] NOTIC: [8] Undefined index: date MeetingAction.class.php 第 5 行.
+[ 2013-04-18T19:53:41+08:00 ] NOTIC: [8] Undefined index: state MeetingAction.class.php 第 6 行.
+[ 2013-04-18T19:53:41+08:00 ] SQL: SHOW COLUMNS FROM `meeting` [ RunTime:0.071864s ]
+[ 2013-04-18T19:53:41+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `meeting` WHERE  code='13108617'  LIMIT 1  [ RunTime:0.001893s ]
+[ 2013-04-18T19:53:41+08:00 ] SQL: SELECT * FROM `meeting` WHERE  code='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001580s ]
+[ 2013-04-18T19:53:42+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 224 行.
+[ 2013-04-18T19:53:42+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 227 行.
+[ 2013-04-18T19:53:42+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 230 行.
+[ 2013-04-18T19:53:42+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 233 行.
+[ 2013-04-18T19:53:44+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007083s ]
+[ 2013-04-18T19:53:44+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000901s ]
+[ 2013-04-18T19:53:59+08:00 ] SQL: SELECT
+		m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+		FROM meeting m
+		INNER JOIN user hu
+		ON hu.id=m.hoster
+		INNER JOIN user ru
+		ON ru.id=m.recorder
+		INNER JOIN user su
+		ON su.id=m.starter WHERE m.id=94 [ RunTime:0.013585s ]
+[ 2013-04-18T19:53:59+08:00 ] SQL: SHOW COLUMNS FROM `meetingchoice` [ RunTime:0.050253s ]
+[ 2013-04-18T19:53:59+08:00 ] SQL: SELECT * FROM `meetingchoice` WHERE meetingid=94 [ RunTime:0.001301s ]
+[ 2013-04-18T19:53:59+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-18T19:55:25+08:00 ] SQL: SELECT
+				  m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+				FROM meeting m 
+				INNER JOIN user hu
+				ON hu.id=m.hoster
+				INNER JOIN user ru
+				ON ru.id=m.recorder
+				INNER JOIN user su
+				ON su.id=m.starter WHERE m.id=94 [ RunTime:0.001244s ]
+[ 2013-04-18T19:55:26+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-18T19:55:56+08:00 ] SQL: SELECT
+				  m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+				FROM meeting m 
+				INNER JOIN user hu
+				ON hu.id=m.hoster
+				INNER JOIN user ru
+				ON ru.id=m.recorder
+				INNER JOIN user su
+				ON su.id=m.starter WHERE m.id=94 [ RunTime:0.001395s ]
+[ 2013-04-18T19:55:57+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-18T19:56:37+08:00 ] SQL: SHOW COLUMNS FROM `meeting` [ RunTime:0.008124s ]
+[ 2013-04-18T19:56:41+08:00 ] SQL: SHOW COLUMNS FROM `meeting` [ RunTime:0.013629s ]
+[ 2013-04-18T19:56:44+08:00 ] SQL: UPDATE `meeting` SET `factpartersid`='303,295,243,207',`factpartersname`='魏顯驍(s130102),江忠倫(s120123),李廣傑(S090644),劉方旭(S110120)',`cont`='' WHERE ( `id` = '94' ) [ RunTime:0.001187s ]
+[ 2013-04-18T19:56:48+08:00 ] SQL: SHOW COLUMNS FROM `meetingchoice` [ RunTime:0.013037s ]
+[ 2013-04-18T19:56:52+08:00 ] NOTIC: [8] Use of undefined constant id - assumed 'id' MeetingAction.class.php 第 179 行.
+[ 2013-04-18T19:56:53+08:00 ] SQL: INSERT INTO `meetingchoice` (`cont`,`users`,`meetingid`) VALUES ('测试决议事项1','魏顯驍(s130102),江忠倫(s120123)','94') [ RunTime:0.000940s ]
+[ 2013-04-18T19:56:55+08:00 ] NOTIC: [8] Use of undefined constant id - assumed 'id' MeetingAction.class.php 第 179 行.
+[ 2013-04-18T19:56:56+08:00 ] SQL: INSERT INTO `meetingchoice` (`cont`,`users`,`meetingid`) VALUES ('测试决议事项2','江忠倫(s120123),李廣傑(S090644)','94') [ RunTime:0.000999s ]
+[ 2013-04-18T19:56:58+08:00 ] NOTIC: [8] Undefined index: date MeetingAction.class.php 第 5 行.
+[ 2013-04-18T19:56:58+08:00 ] NOTIC: [8] Undefined index: state MeetingAction.class.php 第 6 行.
+[ 2013-04-18T19:56:58+08:00 ] SQL: SHOW COLUMNS FROM `meeting` [ RunTime:0.009563s ]
+[ 2013-04-18T19:56:58+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `meeting` WHERE  code='13108617'  LIMIT 1  [ RunTime:0.001183s ]
+[ 2013-04-18T19:56:58+08:00 ] SQL: SELECT * FROM `meeting` WHERE  code='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001532s ]
+[ 2013-04-18T19:56:59+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 224 行.
+[ 2013-04-18T19:56:59+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 227 行.
+[ 2013-04-18T19:56:59+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 230 行.
+[ 2013-04-18T19:56:59+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 233 行.
+[ 2013-04-18T19:57:06+08:00 ] SQL: SELECT
+				  m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+				FROM meeting m 
+				INNER JOIN user hu
+				ON hu.id=m.hoster
+				INNER JOIN user ru
+				ON ru.id=m.recorder
+				INNER JOIN user su
+				ON su.id=m.starter WHERE m.id=94 [ RunTime:0.001133s ]
+[ 2013-04-18T19:57:07+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-18T19:57:16+08:00 ] SQL: SELECT
+		m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+		FROM meeting m
+		INNER JOIN user hu
+		ON hu.id=m.hoster
+		INNER JOIN user ru
+		ON ru.id=m.recorder
+		INNER JOIN user su
+		ON su.id=m.starter WHERE m.id=94 [ RunTime:0.001076s ]
+[ 2013-04-18T19:57:16+08:00 ] SQL: SHOW COLUMNS FROM `meetingchoice` [ RunTime:0.006959s ]
+[ 2013-04-18T19:57:16+08:00 ] SQL: SELECT * FROM `meetingchoice` WHERE meetingid=94 [ RunTime:0.000876s ]
+[ 2013-04-18T19:57:17+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-18T19:59:43+08:00 ] SQL: SELECT
+				  m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+				FROM meeting m 
+				INNER JOIN user hu
+				ON hu.id=m.hoster
+				INNER JOIN user ru
+				ON ru.id=m.recorder
+				INNER JOIN user su
+				ON su.id=m.starter WHERE m.id=94 [ RunTime:0.001119s ]
+[ 2013-04-18T19:59:44+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-18T19:59:44+08:00 ] NOTIC: [8] Undefined variable: choices 05618d973fb277c35fce96d8796ec8aa.php 第 388 行.
+[ 2013-04-18T19:59:51+08:00 ] SQL: SELECT
+				  m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+				FROM meeting m 
+				INNER JOIN user hu
+				ON hu.id=m.hoster
+				INNER JOIN user ru
+				ON ru.id=m.recorder
+				INNER JOIN user su
+				ON su.id=m.starter WHERE m.id=94 [ RunTime:0.001057s ]
+[ 2013-04-18T19:59:52+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-18T19:59:52+08:00 ] NOTIC: [8] Undefined variable: choices 05618d973fb277c35fce96d8796ec8aa.php 第 388 行.
+[ 2013-04-18T20:00:05+08:00 ] SQL: SELECT
+				  m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+				FROM meeting m 
+				INNER JOIN user hu
+				ON hu.id=m.hoster
+				INNER JOIN user ru
+				ON ru.id=m.recorder
+				INNER JOIN user su
+				ON su.id=m.starter WHERE m.id=94 [ RunTime:0.001131s ]
+[ 2013-04-18T20:00:05+08:00 ] SQL: SHOW COLUMNS FROM `meetingchoice` [ RunTime:0.007573s ]
+[ 2013-04-18T20:00:05+08:00 ] SQL: SELECT * FROM `meetingchoice` WHERE meetingid=94 [ RunTime:0.000903s ]
+[ 2013-04-18T20:00:06+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-18T20:00:58+08:00 ] SQL: SELECT
+				  m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+				FROM meeting m 
+				INNER JOIN user hu
+				ON hu.id=m.hoster
+				INNER JOIN user ru
+				ON ru.id=m.recorder
+				INNER JOIN user su
+				ON su.id=m.starter WHERE m.id=94 [ RunTime:0.001100s ]
+[ 2013-04-18T20:00:58+08:00 ] SQL: SHOW COLUMNS FROM `meetingchoice` [ RunTime:0.010306s ]
+[ 2013-04-18T20:00:58+08:00 ] SQL: SELECT * FROM `meetingchoice` WHERE meetingid=94 [ RunTime:0.000882s ]
+[ 2013-04-18T20:00:59+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-04-18T20:01:18+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 4 行.
+[ 2013-04-18T20:01:18+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.079669s ]
+[ 2013-04-18T20:01:18+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  code='13108617'  LIMIT 1  [ RunTime:0.000869s ]
+[ 2013-04-18T20:01:18+08:00 ] SQL: SELECT * FROM `case` WHERE  code='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001071s ]
+[ 2013-04-18T20:04:39+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 4 行.
+[ 2013-04-18T20:04:39+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.008340s ]
+[ 2013-04-18T20:04:39+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  code='13108617'  LIMIT 1  [ RunTime:0.001075s ]
+[ 2013-04-18T20:04:39+08:00 ] SQL: SELECT * FROM `case` WHERE  code='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001545s ]
+[ 2013-04-18T20:04:41+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.007827s ]
+[ 2013-04-18T20:04:41+08:00 ] SQL: SELECT c.*,za.`name` AS zaname,za.`ucode` AS zacode,yw.`name` AS ywname,yw.`ucode` AS ywcode,dd.`name` AS ddname,dd.`ucode` AS ddcode FROM `case` c INNER JOIN `user` za ON c.`casefzr`= za.`id` INNER JOIN `user` yw ON c.`businessfzr`=yw.`id` INNER JOIN `user` dd ON c.`casedd`=dd.`id` where c.id= 9 [ RunTime:0.001404s ]
+[ 2013-04-18T20:04:44+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform` [ RunTime:0.007865s ]
+[ 2013-04-18T20:04:44+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_copyform` WHERE `case` = 9 LIMIT 1  [ RunTime:0.001225s ]
+[ 2013-04-18T20:04:44+08:00 ] SQL: SELECT * FROM `case_copyform` WHERE `case` = 9 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001148s ]
+[ 2013-04-18T20:04:48+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history` [ RunTime:0.007203s ]
+[ 2013-04-18T20:04:48+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_copyform_history` WHERE `case` = 9 LIMIT 1  [ RunTime:0.000865s ]
+[ 2013-04-18T20:04:48+08:00 ] SQL: SELECT * FROM `case_copyform_history` WHERE `case` = 9 ORDER BY id desc LIMIT 0,20  [ RunTime:0.000953s ]
+[ 2013-04-18T20:04:50+08:00 ] SQL: SELECT 
+		  ccf.*,
+		  IF(
+		    ISNULL(cch.alldegree),
+		    0,
+		    cch.alldegree
+		  ) predegree 
+		FROM
+		  `case_copyform` ccf 
+		  LEFT JOIN 
+		    (SELECT 
+		      c.* 
+		    FROM
+		      `case_copyform_history` m 
+		      INNER JOIN `case_copyform_history_detail` c 
+		        ON m.id = c.`copyid` 
+		    WHERE m.id = 
+		      (SELECT 
+		        MAX(id) 
+		      FROM
+		        `case_copyform_history` 
+		      WHERE `case` = 9)) cch 
+		    ON ccf.`gaugecode` = cch.`gaugecode`  WHERE ccf.`case` = 9 [ RunTime:0.002111s ]

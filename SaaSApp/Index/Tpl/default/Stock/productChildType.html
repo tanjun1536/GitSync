@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	var bt = "{$ct.btype}";
+	var mt = "{$ct.mtype}";
+	$(function() {
+		$("#btype").change(function() {
+			getMainType();
+		});
+		if (bt)
+			$("#btype").val(bt).trigger('change');
+	});
+
+	function getMainType() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getMainType",
+			data : "type=" + $("#btype").val(),
+			success : function(data) {
+				$("#mtype").empty();
+				$("<option value=''>請選擇子類別</option>").appendTo("#mtype");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#mtype");
+				});
+				if (mt)
+					$("#mtype").val(mt)
+			}
+
+		});
+
+	}
+	function check() {
+		return validator.empty('day', '請選擇日期');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">商品管理 - 商品類別</div>
+			<div class="mainInfo">
+				<form action="__URL__/addProductChildType" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="id" style="width: 400px" value="{$ct.id}" />
+					<div class="topic2">商品子類別</div>
+<!-- 					<table width="695" border="0" align="center" cellpadding="0" cellspacing="1" class="tabThSide"> -->
+<!-- 						<tr> -->
+<!-- 							<th width="134" scope="row">新增 / 修改子類別</th> -->
+<!-- 							<td width="558"><select name="btype" id="btype"> -->
+<!-- 							<option value="">請選擇大類別</option> -->
+<!-- 									<volist id="item" name="btypes"> -->
+<!-- 									<option value="{$item.id}">{$item.name}</option> -->
+<!-- 									</volist> -->
+<!-- 							</select> <select name="mtype" id="mtype"> -->
+<!-- 							<option value="">請選擇主類別</option> -->
+<!-- 									<volist id="item" name="mtypes"> -->
+<!-- 									<option value="{$item.id}">{$item.name}</option> -->
+<!-- 									</volist> -->
+<!-- 							</select> <input type="text" name="name" value="{$ct.name}" /> <input type="submit" name="Submit" value="確定" /></td> -->
+<!-- 						</tr> -->
+<!-- 					</table> -->
+				</form>
+				<form id="form2" name="form2" method="post" action="">
+					<div class="mailNav">
+						<a href="__URL__/productCChildType">次類別列表</a><a href="__URL__/productChildType">子類別列表</a><a href="__URL__/productMainType">主類別列表</a><a href="__URL__/productBigType">大類別列表</a>
+					</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="214" scope="col">所屬類別</th>
+							<th width="244" scope="col">子類別</th>
+							<th width="235" scope="col">操作</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center">{$item.c1name}</td>
+						<td align="center"><a href="__URL__/productCChildType?bt={$item.bid}&mt={$item.mid}&ct={$item.id}">{$item.c2name}</a></td>
+						<td align="center"><a href="__URL__/updateProductChildType?id={$item.id}">修改</a> | <a onclick="return confirm('是否刪除該數據?')" href="__URL__/deleteProductChildType?id={$item.id}">刪除</a></td>
+						</tr>
+						</volist>
+					</table>
+					<div class="pages">{$page}</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">業務管理 - 業務資料追蹤表</div>
+			<div class="mainInfo">
+				<table width="695" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td><div class="topic2">追蹤紀錄</div></td>
+						<td valign="bottom"><div class="mailNav">
+								<a href="__URL__/edit?id={$business.id}">修改紀錄</a>
+							</div></td>
+					</tr>
+				</table>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+					<tr>
+						<th width="110" scope="row">日期</th>
+						<td width="582">{$business.date}</td>
+					</tr>
+					<tr>
+						<th scope="row">時間</th>
+						<td>開始 {$business.shour} ： {$business.sminute} ；結束 {$business.ehour} ： {$business.eminute}</td>
+					</tr>
+					<tr>
+						<th scope="row">公司名稱</th>
+						<td>{$business.companyname}</td>
+					</tr>
+					<tr>
+						<th scope="row">統一編號</th>
+						<td>{$business.businesscode}</td>
+					</tr>
+					<tr>
+						<th scope="row">聯絡人</th>
+						<td><strong>姓名：</strong>{$business.linkername}；<strong>職位：</strong>{$business.linkerphone} <br /> <strong>電話：</strong>{$business.linkerphone}<br /> <strong>手機：</strong> {$business.linkermobile}<br /> <strong>Email：</strong>{$business.linkeremail}</td>
+					</tr>
+					<tr>
+						<th scope="row">互動方式</th>
+						<td>{$business.interactiveway}</td>
+					</tr>
+					<tr>
+						<th scope="row">具體事項</th>
+						<td>{$business.specificmatters}</td>
+					</tr>
+					<tr>
+						<th scope="row">狀態</th>
+						<td>{$business.state}</td>
+					</tr>
+					<tr>
+						<th scope="row">提醒</th>
+						<td><if condition="$business.state eq 1" >加入提醒<else/>未加入提醒</if></td>
+					</tr>
+					<tr>
+						<th scope="row">詳細說明</th>
+						<td><label>{$business.detail}</label></td>
+					</tr>
+				</table>
+				<div class="back">
+					<a href="javascript:window.history.go(-1)">》回上頁</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

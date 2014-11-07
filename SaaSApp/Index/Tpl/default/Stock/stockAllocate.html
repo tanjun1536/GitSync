@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<script type="text/JavaScript">
+	$(function() {
+		$("#indate").val(new Date().format("yyyy/MM/dd"));
+		$("#outdate").val(new Date().format("yyyy/MM/dd"));
+		$("#productcode").live("blur", function() {
+			getProduct();
+		});
+		$("#quantity").live(
+				"keyup",
+				function() {
+					$("#subtotal").html(
+							$("#quantity").val() * $("#productprice").val());
+				});
+	});
+	function getProduct() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getProduct",
+			data : "code=" + $("#productcode").val(),
+			success : function(data) {
+				var json = eval(data);
+				if (json) {
+
+					$("#productname").html(json.productname);
+					$("#productprice").val(json.productpcprice);
+				} else {
+					alert('商品編號輸入有錯誤！');
+					$("#productcode").trigger('focus');
+				}
+			}
+
+		});
+
+	}
+	function addProduct() {
+		if (validator.empty('productcode', '請輸入商品編號!')
+				&& validator.empty('quantity', '請輸入數量!')) {
+			var table = $("#purchasedetail");
+			var len = $("#purchasedetail tr").length;
+
+			var lastRow = $("#purchasedetail tr")[len - 2];
+			var row = len % 2 == 1 ? $("<tr class=\"trcolor\"></tr>")
+					: $("<tr></tr>");
+			var hValue = $('#productcode').val() + ","
+					+ $('#productname').html() + "," 
+					+ $('#productprice').val()+ "," 
+					+ $('#quantity').val() + "," 
+					+ $('#subtotal').html()+ "," 
+					+ $('#productremark').val()+ "," 
+					+ $('#productunit').val()+ "," 
+					+ $('#productmodel').val()+ ","
+					+ $('#productsize').val()+ "," 
+					+ $('#productcp').val()+ "," 
+					+ $('#productcd').val();
+			row
+					.append($("<td align=\"center\"></td>")
+							.append($('#productcode').val())
+							.append(
+									$("<input type='hidden' value='" + hValue + "' name ='detail[]' />")));
+			row.append($("<td></td>").append($('#productname').html()));
+			row.append($("<td align=\"center\"></td>").append(
+					$('#productprice').val()));
+			row.append($("<td align=\"center\"></td>").append(
+					$('#quantity').val()));
+			row.append($("<td align=\"center\"></td>").append(
+					$('#subtotal').html()));
+			row.append($("<td align=\"center\"></td>").append(
+					$('#productremark').val()));
+			row
+					.append($("<td align=\"center\"></td>")
+							.append(
+									$('<img onclick="$(this).parent().parent().remove();calTotal();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+			$(lastRow).after(row);
+			$('#productcode').val('');
+			$('#quantity').val('');
+			$('#subtotal').html('');
+			$('#productname').html('');
+			$('#productprice').val('');
+			$('#productremark').val('');
+			$('#productunit').val();
+			 $('#productmodel').val();
+			$('#productsize').val(); 
+			$('#productcp').val(); 
+			 $('#productcd').val();
+			calTotal();
+
+		}
+
+	}
+	function calTotal() {
+		var total = 0;
+		$("#purchasedetail tr").each(function(i) {
+			var td = $(this).find("td")[4];
+			if (td)
+				if ($(td).html() != '')
+					total += parseFloat($(td).html());
+		});
+		$("#total").html(total);
+		$("#totalmoney").val(total);
+	}
+	function getStockIn() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getStock",
+			data : "code=" + $("#inwarehousecode").val(),
+			success : function(data) {
+				if (data != null && data != '') {
+					$("#inwarehousename").val(data);
+					$("#tdinwarehousename").html(data);
+				} else {
+					alert('倉庫代碼輸入錯誤!');
+					$("#inwarehousecode").val('');
+				}
+			}
+
+		});
+
+	}
+	function getStockOut() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getStock",
+			data : "code=" + $("#outwarehousecode").val(),
+			success : function(data) {
+				if (data != null && data != '') {
+					$("#outwarehousename").val(data);
+					$("#tdoutwarehousename").html(data);
+				} else {
+					alert('倉庫代碼輸入錯誤!');
+					$("#outwarehousecode").val('');
+				}
+			}
+
+		});
+
+	}
+	function check() {
+
+		if (validator.empty('outwarehousecode', '請輸入倉庫代號')
+				&& validator.empty('inwarehousecode', '請輸入倉庫代號')) {
+			if ($("#totalmoney").val() == '0') {
+				alert('請填寫入庫明細!');
+				return false;
+			}
+			return true;
+		}
+		return false;
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 異動管理</div>
+			<div class="mainInfo">
+				<div class="topic2">新增調撥單</div>
+				<form id="form1" name="form1" onsubmit="return check()"
+					method="post" action="__URL__/addStockAllocate">
+					<input type="hidden" name="totalmoney" id="totalmoney" value="0" />
+					<input type="hidden" name="code" value="{@SESSION_USER.code}" /> <input
+						type="hidden" name="inuser" value="{@SESSION_USER.name}" /> <input
+						type="hidden" name="outuser" value="{@SESSION_USER.name}" /> <input
+						type="hidden" name="indate" id="indate" /> <input type="hidden"
+						name="outdate" id="outdate" /> <input type="hidden"
+						name="inwarehousename" id="inwarehousename" /> <input
+						type="hidden" name="type" value="調撥" /> <input type="hidden"
+						name="state" value="新進單" /> <input type="hidden"
+						name="outwarehousename" id="outwarehousename" />
+
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="109" scope="row">調出倉庫代號</th>
+							<td width="235"><input type="text" name="outwarehousecode"
+								id="outwarehousecode" /> <input type="button"
+								onclick="getStockOut()" name="Submit3" value="確定" /></td>
+							<th width="93" scope="row">調出倉庫</th>
+							<td width="253" id="tdoutwarehousename"></td>
+						</tr>
+						<tr>
+							<th scope="row">調入倉庫代號</th>
+							<td><input type="text" name="inwarehousecode"
+								id="inwarehousecode" /> <input type="button"
+								onclick="getStockIn()" name="Submit32" value="確定" /></td>
+							<th scope="row">調入倉庫</th>
+							<td id="tdinwarehousename"></td>
+						</tr>
+						<tr>
+							<th scope="row">調撥單號</th>
+							<td colspan="3"><input type="text" name="allocatecode" value="{$allocatecode}"></td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td colspan="3"><textarea name="remark" rows="6"
+									style="width: 500px"></textarea></td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0"
+						class="tab_thtop" id="purchasedetail">
+						<tr>
+							<th width="133" scope="col">商品編號</th>
+							<th width="176" scope="col">商品名稱</th>
+							<th width="59" scope="col">單價</th>
+							<th width="75" scope="col">數量</th>
+							<th width="78" scope="col">小計</th>
+							<th width="148" scope="col">備註</th>
+							<th width="24" scope="col">&nbsp;</th>
+						</tr>
+						<tr>
+							<td align="center">
+							<input type="hidden" id="productunit" />
+							<input type="hidden" id="productmodel" />
+							<input type="hidden" id="productsize" />
+							<input type="hidden" id="productcp" />
+							<input type="hidden" id="productcd" />
+							<input type="text" name="productcode"
+								id="productcode" style="width: 120px" /></td>
+							<td id="productname">&nbsp;</td>
+							<td align="center"><input type="text" id="productprice"
+								style="width: 50px" /></td>
+							<td align="center"><input type="text" id="quantity"
+								style="width: 50px" /></td>
+							<td align="center" id="subtotal">&nbsp;</td>
+							<td><input type="text" name="productremark" id="productremark"
+								style="width: 140px" /></td>
+							<td align="center"><img onclick="addProduct()"
+								src="__PUBLIC__/images/add_16.png" style="cursor: pointer"
+								alt="新增" width="16" height="16" /></td>
+						</tr>
+						<tr class="trcolor3">
+							<td colspan="4" align="right"><strong>總計入庫金額：</strong></td>
+							<td align="center" id="total">XXXXX</td>
+							<td>元</td>
+							<td align="center">&nbsp;</td>
+						</tr>
+					</table>
+					<div align="center" style="margin-top: 10px">
+						<input type="submit" name="Submit" value="確定新增" /> <input
+							type="reset" name="Submit2" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

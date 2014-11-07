@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<script type="text/javascript">
+	var pronvice1 = "{$customer.province1}";
+	var pronvice2 = "{$customer.province2}";
+	var city1 = "{$customer.city1}";
+	var city2 = "{$customer.city2}";
+	var isopen = "{$customer.isopen}";
+	$(function() {
+		$('#province1').change(function() {
+			getCity('#province1', '#city1');
+		});
+		$('#province2').change(function() {
+			getCity('#province2', '#city2');
+		});
+		if (pronvice1)
+			$("#province1").val(pronvice1).trigger('change');
+		if (pronvice2)
+			$("#province2").val(pronvice2).trigger('change');
+		$("input[type='radio'][value='" + isopen + "']").attr('checked', true);
+	});
+	function getCity(province, city) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getCity",
+			data : "pid=" + $(province).val(),
+			success : function(data) {
+				$(city).empty();
+				$("<option value='請選擇'>請選擇</option>").appendTo(city);
+				var json = eval(data);
+				$.each(json, function(k) {
+					$(
+							"<option value='" + json[k]['id'] + "'>"
+									+ decodeURI(json[k]['name']) + "</option>")
+							.appendTo(city);
+				});
+				if (city == '#city1') {
+					if (city1)
+						$("#city1").val(city1);
+				}
+
+				else {
+
+					if (city2)
+						$("#city2").val(city2);
+				}
+			}
+
+		});
+	}
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">客戶管理</div>
+			<div class="mainInfo">
+				<div class="topic2">客戶資料</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+					<tr>
+						<th width="110" scope="row">公司名稱</th>
+						<td width="582">{$customer.companyname}</td>
+					</tr>
+					<tr>
+						<th scope="row">統一編號</th>
+						<td>{$customer.uniquecode}</td>
+					</tr>
+					<tr>
+						<th scope="row">公司電話</th>
+						<td>電話一 ：{$customer.phone1}<br /> 電話二 ：{$customer.phone2}
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">傳真</th>
+						<td>{$customer.fax}</td>
+					</tr>
+					<tr>
+						<th scope="row">公司地址</th>
+						<td>地址一 ：{$province1}{$city1}{$customer.address1}<br /> 地址二 ：{$province2}{$city2}{$customer.address2}
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">聯絡人一</th>
+						<td>姓名 ： {$customer.linkername1} <br /> 職位 ：{$customer.linkerduty1}<br /> 電話 ：{$customer.linkerphone1} ；手機：{$customer.linkermobile1} <br /> Email ：{$customer.linkeremail1}
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><p>聯絡人二</p></th>
+						<td>姓名 ：  {$customer.linkername2}<br /> 職位 ：{$customer.linkerduty2}<br /> 電話 ：{$customer.linkerphone2}；手機：{$customer.linkermobile2} <br /> Email ：{$customer.linkeremail2}
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">開啟帳號</th>
+						<td><eq name="item.isopen" value="1">是<else/>否</eq></td>
+					</tr>
+<!-- 					<tr> -->
+<!-- 						<th scope="row">帳號</th> -->
+<!-- 						<td>&nbsp;</td> -->
+<!-- 					</tr> -->
+<!-- 					<tr> -->
+<!-- 						<th scope="row">密碼</th> -->
+<!-- 						<td>&nbsp;</td> -->
+<!-- 					</tr> -->
+				</table>
+				<div class="back">
+					<a href="javascript:window.history.go(-1)">》回上頁</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	var build="{$build}";
+	var floor="{$floor}";
+	var area="{$area}";
+	var type="{$type}";
+	var childtype="{$childtype}";
+
+	$(function() {
+		$("#type").change(function() {
+			getChildType();
+		});
+		$("#build").change(function() {
+			getFloor();
+		});
+		$("#floor").change(function() {
+			getArea();
+		});
+		$("#space").keyup(function(){
+			var m=$("#space").val()*$("#price").val();
+			$("#estimateprice").val(m);
+			$("#tdestimateprice").html(m);
+		});
+		$("#price").keyup(function(){
+			var m=$("#space").val()*$("#price").val();
+			$("#estimateprice").val(m);
+			$("#tdestimateprice").html(m);
+		});
+		if(type) $("#type").val(type).trigger('change');
+		if(build) $("#build").val(build).trigger('change');
+		
+	});
+	function getFloor() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getFloor",
+			data : "bid=" + $("#build").val(),
+			success : function(data) {
+				$("#floor").empty();
+				$("<option value=''>選擇樓層</option>").appendTo("#floor");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#floor");
+				});
+				if(floor) $("#floor").val(floor).trigger('change');
+			}
+		});
+
+	}
+	function getArea() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getArea",
+			data : "fid=" + $("#floor").val(),
+			success : function(data) {
+				$("#area").empty();
+				$("<option value=''>選擇區域</option>").appendTo("#area");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#area");
+				});
+				if(area) $("#area").val(area);
+			}
+		});
+
+	}
+	function getChildType() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getDeviceChildType",
+			data : "id=" + $("#type").val(),
+			success : function(data) {
+				$("#childtype").empty();
+				$("<option value=''>請選擇</option>").appendTo("#childtype");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#childtype");
+				});
+				if(childtype) $("#childtype").val(childtype);
+			}
+		});
+
+	}
+	function selectUsers(idInput, nameInput) {
+		var selUsers = document.getElementById(idInput).value;
+		var theURL = "__APP__/User/usercheckbox?id=" + idInput + "&name=" + nameInput;
+		var features = 'scrollbars=yes,scrollbars=yes,width=755,height=570';
+		var winName = '';
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "?selUsers=" + selUsers, winName, features);
+	}
+	function check() {
+		return validator.empty('name', '請輸入設備名稱') && validator.index('build', '請選擇棟別') && validator.index('floor', '請選擇樓層') && validator.index('area', '請選擇區域') && validator.index('type', '請選擇主類型') && validator.index('childtype', '請選擇子類型');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">叫修單管理</div>
+			<div class="mainInfo">
+				<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<div class="topic2">叫修單搜尋</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+
+						<tr>
+							<th width="100" scope="row">叫修單編號</th>
+							<td width="244"><input type="text" name="code" value="{$repaircode}" /></td>
+							<th width="121" scope="row">被派工人</th>
+							<td width="225"><input type="text" name="sdispatcher" value="{$sdispatcher}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">設備名稱</th>
+							<td><input type="text" name="name"  value="{$devicename}" /></td>
+							<th scope="row">申請人</th>
+							<td><input type="text" name="askman" value="{$askman}"  /></td>
+						</tr>
+						<tr>
+							<th scope="row">起始日期</th>
+							<td><input type="text" name="sdate" class="Wdate" value="{$sdate}" onfocus="WdatePicker()" /></td>
+							<th scope="row">截止日期</th>
+							<td><input type="text" name="edate" class="Wdate" value="{$edate}" onfocus="WdatePicker()" /></td>
+						</tr>
+						<tr>
+							<th scope="row">建物區域</th>
+							<td colspan="3"><select name="build" id="build">
+									<option value="">選擇棟別</option>
+									<volist id="item" name="builds">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="floor" id="floor">
+									<option value="">選擇樓層</option>
+							</select> <select name="area" id="area">
+									<option value="">選擇區域</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">設備類別</th>
+							<td colspan="3"><select name="type" id="type">
+									<option value="">請選擇主類別</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="childtype" id="childtype">
+									<option value="">請選擇子類別</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="button" onclick="$('#form1').attr('action','__URL__/repair').submit()" name="Submit3" value="搜尋" />
+							<input type="button" name="Submit3" onclick="$('#form1').attr('action','__URL__/exportRepair').submit()" value="導出" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="topic2">叫修列表</div>
+				<div class="mailNav">
+					<a href="__URL__/repair?q=ly">留言</a><a href="__URL__/repair?q=wg">完工</a><a href="__URL__/repair?q=qx">取消</a><a href="__URL__/repair?q=ww">委外 ({$ww})</a><a href="__URL__/repair?q=pg">派工 ({$pg})</a><a href="__URL__/repair?q=sqjx">申請叫修 ({$sqjx})</a><a href="__URL__/repair?q=zb" class="select">總表</a>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="130" scope="col">叫修單編號</th>
+						<th width="90" scope="col"><notempty name="ly">留言日期<else />叫修日期</notempty></th>
+						<th width="251" scope="col">設備編號／名稱</th>
+						<th width="71" scope="col">申請人</th>
+						<th width="76" scope="col">狀態</th>
+						<th width="155" scope="col">操作</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center"><a href="__URL__/repairView?case={@case}&id={$item.id}">{$item.repaircode}</a></td>
+					<td align="center"><notempty name="ly">{$item.senddate|date='Y/m/d',strtotime(###)}<else/>{$item.repairdate|date='Y/m/d',strtotime(###)}</notempty></td>
+					<td><span class="txt_green">{$item.devicecode}</span><br /> {$item.devicename}</td>
+					<td align="center">{$item.requestuser}</td>
+					<td align="center">{$item.state|getRepairState=$item['repairdate'],###,$warn['days']}</td>
+					<td align="center"><if condition="check_power('委外說明',$ext) eq 1"> <a href="__URL__/addDelegateRemark?case={@case}&id={$item.id}">委外說明</a></if> |<if condition="check_power('取消',$ext) eq 1"> <a href="__URL__/CancelRepair?case={@case}&id={$item.id}">取消</a> </if>|<if condition="check_power('刪除',$ext) eq 1"> <a onclick="return confirm('是否確認刪除選擇的數據?')" href="__URL__/DeleteRepair?case={@case}&id={$item.id}">刪除</a>| </if> <a href="__URL__/PrintRepair?case={@case}&id={$item.id}" target="_blank">列印</a></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

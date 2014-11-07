@@ -1,0 +1,233 @@
+
+
+1.商家基本数据格式（广告主体为：商家）
+	
+{
+	id：22222，
+	name：曼城八道，
+	type: 
+	image_head：/1.jpg,
+	images：
+	[
+		{
+			group_name：第一组，
+			group_items：
+			[		
+				{
+					image_url:/1.jpg,
+					image_des:十年树木
+				},
+				{
+					image_url:/2.jpg,
+					image_des:百年树人, 
+				}
+			]
+		},
+		{...}
+	],
+	video:(同images),
+	address：
+	{
+		city : 南充
+		district : 顺庆区
+		street ：北湖路
+		building：xx大楼2栋1单元2号
+		longitude :109.33333
+		latitude:223.33333 
+	}
+	telephone：0817-2222222  0817-3333333,
+	email：xx@xx.com,
+	qq : 22222,
+	other_contact_info:（如各种微薄等）
+	parent_name : 房产
+	parent_id : 223
+	keyword:
+	des_basic : “开发商-xx有限公司
+						建筑结构-xxx
+						...",												(注:换行或者分割符可另行商议，如用&分割，开发商-xx有限公司&建筑结构-xxx)
+	des_detail："",
+	related_products：(同一用户可见,不同用户不可见)
+	[
+		{
+		  product_name:三室一厅
+			product_id ：444
+		}，
+		{...}
+	],
+	related_news：
+	[
+		{
+			id：333
+			url：xx.html				(注:id和url二选一，首选id)		
+		}，
+		{...}
+	]	
+}
+
+
+
+2 . 商品基本数据格式（广告主体为：商品）
+{
+	id：444，
+	name：大闸蟹，
+	type:
+	image_head：/1.jpg,
+	images：
+	[
+		{
+			group_name：第一组，
+			group_items：
+			[		
+				{
+					image_url:/1.jpg,
+					image_des:十年树木
+				},
+				{
+					image_url:/2.jpg,
+					image_des:百年树人, 
+				}
+			]
+		},
+		{...}
+	],
+	video:(同images),
+	label：川菜 南充,
+	parent_name : 大融合
+	parent_id : 223
+	des_basic : “",
+	des_detail："",
+	related_products：
+	[
+		{
+		  product_name:三室一厅
+			product_id ：444
+		}，
+		{...}
+	],
+	related_news：
+	[
+		{
+			id：333
+			url：xx.html				(注:id和url二选一，首选id)		
+		}，
+		{...}
+	]	
+}
+
+3.客户端定制html活动页面数据协议
+分为：1.直接跳转url，以html：//开头
+			2.跳转内部界面，以icity：//开头
+				a.跳转新闻 icity：//news/（文章id）
+				b.跳转商铺 icity：//shop/（店铺id）
+				c.跳转产品 icity：//product/（产品id）
+				d.需要登录 icity：//login/（url）,带讨论
+
+
+
+4.用户基本信息数据格式
+{
+	id : 34445
+	login_id : test123
+	nick : 小小名
+	sex ：1 （0男，1女）
+	image_head：/1.jpg,
+	image_album：
+	[
+		{
+			group_name：第一组，
+			group_items：
+			[{
+				image_url:/1.jpg,
+				image_des:xxx
+			},
+			{...}]
+		},
+		{...}
+	]				
+	birth_day : 1,
+	birth_month : 1,
+	birth_year : 2000,
+	age：18
+	country：中国
+	province：四川
+	city：南充
+	profession：学生，
+	favorite : 体育，
+	company : 华为，
+	school : 南充高中，
+	introduction : 一个人，九条命，
+	signature：微薄控，
+	latest_position:
+	{
+		longitude :109.33333,
+		latitude:223.33333 
+	}
+}
+
+5,通讯录的用户数据
+[
+		{
+			id：234
+			nick : 小明
+			image_head：/1.jpg
+			sex ：1 （0男，1女）
+			signature：微薄控，
+			latest_position:
+				{
+					longitude :109.33333,
+					latitude:223.33333 
+				}
+		}，	
+		{..}
+]
+
+6.推送
+	推送只能推送全局焦点html页面
+	消息格式如3
+	
+7.附近商家列表
+{
+
+		{
+			id：234
+			name : 小青椒
+			image_head：/1.jpg
+			address：
+				{
+					city : 南充
+					district : 顺庆区
+					street ：北湖路
+					building：xx大楼2栋1单元2号
+					longitude :109.33333
+					latitude:223.33333 
+				}
+			telephone：0817-2222222  0817-3333333,
+		},	
+		{..}
+
+}
+
+8.附近用户列表
+如5
+
+9.统计
+点击率，上传
+[
+	{
+		id：
+		type：（频道/栏目/文章/商品/产品/焦点/用户）
+		count：
+		date：
+		user_id:
+	}
+	,
+	{..}
+]
+返回：
+{
+	retcode:0 成功 /1 上传数据格式错误/2 其他错误
+	msg：成功/上传数据格式错误/其他
+}
+
+
+

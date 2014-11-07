@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>物業資源決策系統</title>
+        
+        
+        
+        <load href="__PUBLIC__/js/jquery-1.7.min.js" />
+        <load href="__PUBLIC__/js/base.js" />
+        <script type="text/javascript">
+            $(function() {
+                $('#headerchecker').click(function() {
+
+                    if($(this).attr("checked") == 'checked') {
+                        $("[name='itemcheckbox[]']").attr("checked", 'true');
+                    } else {
+                        $("[name='itemcheckbox[]']").removeAttr("checked");
+
+                    }
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <include file="Public/top.html" />
+        <div class="webPage">
+            <include file="Public/side.html" />
+            <div class="mainPage">
+                <include file="Public/top_menu.html" />
+                <div class="topic">
+                    資源分享 - 常用表單
+                </div>
+                <div class="mainInfo">
+                    <form id="form1" name="form1" method="post" action="__URL__/index">
+                        <div class="mailNav">
+                           <if condition="check_power('類別管理',$ext) eq 1">
+                             <a href="__URL__/category">類別管理</a>
+							</if>
+                             <if condition="check_power('新增',$ext) eq 1">
+                             <a href="__URL__/add">新增表單</a>
+							</if>
+                            <select name="type">
+                                <option value="">類別搜尋</option>
+                                <volist id="item" name="types">
+                                    <eq name="type" value="$item.id">
+                                        <option selected="selected" value="{$item.id}">{$item.name}</option>
+                                        <else/>
+                                        <option value="{$item.id}">{$item.name}</option>
+                                    </eq>
+                                </volist>
+                            </select>
+                            <input type="submit" name="Submit" value="搜尋" />
+                        </div>
+                    </form>
+                    <form id="form2" name="form2" onsubmit="return delAwoke();" method="post" action="__URL__/delete">
+                        <table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+                            <tr>
+                                <th width="28" scope="col">
+                                <input type="checkbox" id="headerchecker" name="headerchecker" value="checkbox" />
+                                </th>
+                                <th width="139" scope="col">發佈時間</th>
+                                <th width="139" scope="col">類 別</th>
+                                <th width="442" scope="col">名 稱</th>
+                                <th width="139" scope="col">發佈人</th>
+                                <th width="84" scope="col">文件格式</th>
+                            </tr>
+                            <volist name="list" id="item">
+                                <if condition="$i%2 eq 1">
+                                    <tr>
+                                        <else />
+                                        <tr class="trcolor">
+                                </if>
+                                <td align="center">
+                                <input type="checkbox" name="itemcheckbox[]" value="{$item.id}" />
+                                </td> <td align="center">{$item.senddate|date='Y/m/d',strtotime(###)}</td>
+                                <td align="center">{$item.typename}</td>
+                                <td><a href="__URL__/down?name={$item.atts|urlencode}">{$item.name}</a></td>
+                                 <td align="center">{$item.sendername}</td>
+                                <td align="center">{$item.atts|getExtion}</td>
+                                </tr>
+                            </volist>
+                        </table>
+                        <div style="margin-top:10px">
+                        <if condition="check_power('刪除',$ext) eq 1">
+                             <input type="submit" name="Submit2" value="刪除" />
+							</if>
+                           
+                        </div>
+                        <div class="pages">
+                            {$page}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <include file="Public/foot.html" />
+    </body>
+</html>

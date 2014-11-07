@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	$(function() {
+		var dt = "{$ct.type}";
+		if (dt != "")
+			$("#type").val(dt);
+
+	});
+	function check() {
+		return validator.index('type', '請選擇主類別') && validator.empty('name', '請輸入子類別名稱');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">設備管理 - 類別設定</div>
+			<div class="mainInfo">
+				<form onsubmit="return check();" action="__URL__/addDeviceChildType?case={@case}" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="id" value="{$ct.id}" />
+					<div class="topic2">新增 / 修改子類別</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th scope="row">主類別</th>
+							<td><select name="type" id="type">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th width="119" scope="row">子類別名稱</th>
+							<td width="571"><input type="text" name="name" id="name" style="width: 300px" value="{$ct.name}" /></td>
+						</tr>
+						<tr>
+							<th width="119" scope="row">排序</th>
+							<td width="571"><input type="text" name="ordernumber" id="ordernumber" style="width: 300px" value="{$ct.ordernumber}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit2" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="topic2">子類別列表</div>
+				<form id="form1" name="form1" method="post" action="">
+					<input type="hidden" name="mtype" value="{$type}" />
+					<div class="mailNav">
+						<a href="__URL__/deviceType?case={@case}">主類別列表</a>主類別名稱 <input type="text" name="key" /> <input type="submit" name="Submit" value="搜尋" />
+					</div>
+				</form>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="238" scope="col">主類別</th>
+						<th width="275" scope="col">子類別</th>
+						<th width="180" scope="col">操作</th>
+					</tr>
+					<volist id="item" name="list"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.typename}</td>
+					<td align="center">{$item.name}</td>
+					<td align="center"><a href="__URL__/editDeviceChildType?case={@case}&id={$item.id}">修改</a> | <a onclick="return confirm('是否刪除選擇的數據?')" href="__URL__/deleteDeviceChildType?case={@case}&id={$item.id}">刪除</a></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

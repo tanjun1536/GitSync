@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body><include file="Public/top.html" />
+<div class="webPage"><?php include("side.html"); ?>
+  <div class="mainPage"><?php include("top_menu.html"); ?>
+    <div class="topic">工作日誌- 我的日誌</div>
+    <div class="mainInfo">
+      <form id="form1" name="form1" method="post" action="">
+        <div class="mailNav"><a href="work_create.php">新增工作日誌</a>
+          <select name="select">
+            <option value="預定工作">預定工作</option>
+            <option value="完成工作">完成工作</option>
+            <option value="取消工作">取消工作</option>
+          </select>
+          <input type="submit" name="Submit3" value="搜尋" />
+        </div>
+        <table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+          <tr>
+            <th width="28" scope="col">&nbsp;</th>
+            <th width="112" scope="col">日期</th>
+            <th width="97" scope="col">時間</th>
+            <th width="139" scope="col">類別</th>
+            <th width="246" scope="col">簡述</th>
+            <th width="71" scope="col">狀態</th>
+          </tr>
+          <tr>
+            <td align="center"><input type="checkbox" name="checkbox" value="checkbox" /></td>
+            <td align="center">2011/11/28 (一) </td>
+            <td align="center">8:30 - 17:30</td>
+            <td align="center">顯示類別名稱</td>
+            <td><a href="work_view.php">工作簡述，最多顯示38字元</a></td>
+            <td align="center">預定工作</td>
+          </tr>
+          <tr class="trcolor">
+            <td align="center"><input type="checkbox" name="checkbox2" value="checkbox" /></td>
+            <td align="center">2011/11/25 (五) </td>
+            <td align="center">8:30 - 14:00</td>
+            <td align="center">顯示類別名稱</td>
+            <td><a href="#">工作簡述，每頁最多顯示15筆</a></td>
+            <td align="center">完成工作 </td>
+          </tr>
+          <tr>
+            <td align="center">&nbsp;</td>
+            <td align="center">2011/11/24 (四) </td>
+            <td align="center">8:30 - 12:00</td>
+            <td align="center">顯示類別名稱</td>
+            <td><a href="#">超過38字元加&quot;...&quot;，未超過不需&quot;...&quot;</a></td>
+            <td align="center">取消工作</td>
+          </tr>
+        </table>
+        <div style="margin-top:10px">
+          <input type="submit" name="Submit" value="完成工作" />
+          <input type="submit" name="Submit2" value="取消工作" />
+        </div>
+      </form>
+      <div class="pages"><a href="#">上一頁</a><a href="#" class="select">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a><a href="#">下一頁</a></div>
+    </div>
+  </div>
+</div><include file="Public/foot.html" />
+</body>
+</html>

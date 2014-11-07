@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	var $mt = "{$mt}";
+	var $ct = "{$ct}";
+	$(function() {
+		$("#mt").change(function() {
+			getChildType();
+		});
+		if ($mt)
+			$("#mt").val($mt).trigger('change');
+
+	});
+	function getChildType() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getDeviceChildType",
+			data : "id=" + $("#mt").val(),
+			success : function(data) {
+				$("#ct").empty();
+				$("<option value=''>請選擇</option>").appendTo("#ct");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$(
+							"<option value='" + json[k]['id'] + "'>"
+									+ decodeURI(json[k]['name']) + "</option>")
+							.appendTo("#ct");
+				});
+				if ($ct)
+					$("#ct").val($ct);
+			}
+		});
+
+	}
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">保養管理 - 保養明細管理</div>
+			<div class="mainInfo">
+				<div class="mailNav">
+					<form id="form2" name="form2" method="post" action="">
+						類別<select name="mt" id="mt">
+							<option value="">請選擇</option>
+							<volist id="item" name="types">
+							<option value="{$item.id}">{$item.name}</option>
+							</volist>
+						</select> <select name="ct" id="ct">
+							<option value="">請選擇</option>
+						</select><input type="submit" name="Submit" value="搜尋" />
+					</form>
+					<if condition="check_power('新增',$ext) eq 1"> <a href="__URL__/goAddMaintenanceRecordDetail?case={@case}">新增保養明細</a> </if>
+				</div>
+				<form id="form1" name="form1" method="post" action="">
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="191" scope="col">主類別</th>
+							<th width="204" scope="col">子類別</th>
+							<th width="195" scope="col">巡檢</th>
+							<th width="103" scope="col">操作</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center">{$item.tname}</td>
+						<td align="center">{$item.ctname}</td>
+						<td align="center">{$item.oname}</td>
+						<td align="center"><if condition="check_power('修改',$ext) eq 1"> <a href="__URL__/editMaintenanceRecordDetail?case={@case}&id={$item.id}">修改</a> </if> | <if condition="check_power('刪除',$ext) eq 1"> <a onclick="return confirm('是否刪除選擇的數據?')" href="__URL__/deleteMaintenanceRecordDetail?case={@case}&id={$item.id}">刪除</a> </if></td>
+						</tr>
+						</volist>
+					</table>
+					<div class="pages">{$page}</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

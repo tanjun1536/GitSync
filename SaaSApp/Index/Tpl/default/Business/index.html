@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">業務管理</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="__URL__/index">
+					<div class="topic2">資料搜尋</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="100" scope="row">日期</th>
+							<td colspan="3"><input type="text" name="sdate" class="Wdate" onfocus="WdatePicker()" /> ~ <input type="text" name="edate" class="Wdate" onfocus="WdatePicker()"  /></td>
+						</tr>
+						<tr>
+							<th scope="row">公司名稱</th>
+							<td width="244"><input type="text" name="companyname" /></td>
+							<th width="121" scope="row">互動方式</th>
+							<td width="225"><select name="interactiveway">
+									<option value="電話聯繫">電話聯繫</option>
+									<option value="親自拜訪">親自拜訪</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡人</th>
+							<td><input type="text" name="linker" /></td>
+							<th scope="row">具體事項</th>
+							<td><select name="specificmatter">
+									<option value="" selected="selected">請選擇</option>
+									<option value="初次拜訪">初次拜訪</option>
+									<option value="會議">會議</option>
+									<option value="業務報價">業務報價</option>
+									<option value="工程報價">工程報價</option>
+									<option value="維修報價">維修報價</option>
+									<option value="簽約">簽約</option>
+									<option value="收款">收款</option>
+									<option value="維護">維護</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit" value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="topic2">客戶資料追蹤表</div>
+				<div class="mailNav">
+					<a href="__URL__/add">新增紀錄</a>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="84" scope="col">日期</th>
+						<th width="179" scope="col">公司名稱</th>
+						<th width="70" scope="col">聯絡人</th>
+						<th width="102" scope="col">聯絡電話</th>
+						<th width="92" scope="col">互動方式</th>
+						<th width="85" scope="col">具體事項</th>
+						<th width="81" scope="col">操作</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center">{$item.date|date='Y/m/d',strtotime(###)}</td>
+						<td><a href="__URL__/view?id={$item.id}">{$item.companyname}</a></td>
+						<td align="center">{$item.linkername}</td>
+						<td align="center">{$item.linkerphone}</td>
+						<td align="center">{$item.interactiveway}</td>
+						<td align="center">{$item.specificmatters}</td>
+						<td align="center"><a href="__URL__/edit?id={$item.id}">修改</a> | <a onclick="return confirm('是否刪除選擇是數據?')" href="__URL__/delete?id={$item.id}">刪除</a></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">
+				{$page}
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

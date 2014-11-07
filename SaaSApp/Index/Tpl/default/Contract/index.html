@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">合約管理</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="__URL__/index">
+					<div class="topic2">合約搜尋</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="139" scope="row">公司名稱</th>
+							<td width="553"><input type="text" name="comname" /></td>
+						</tr>
+						<tr>
+							<th scope="row">合約起訖日</th>
+							<td><input type="text" name="ssdate" class="Wdate" onfocus="WdatePicker()" /> ~ <input type="text" name="eedate" class="Wdate" onfocus="WdatePicker()" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="mailNav">
+					<if condition="check_power('新增合約',$ext) eq 1"> <a href="__URL__/add">新增合約</a> </if>
+
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="233" scope="col">公司名稱</th>
+						<th width="98" scope="col">簽約日期</th>
+						<th width="101" scope="col">合約起始日</th>
+						<th width="98" scope="col">合約結束日</th>
+						<th width="163" scope="col">操作</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td>{$item.companyname}</td>
+					<td align="center">{$item.signdate|date='Y/m/d',strtotime(###)}</td>
+					<td align="center">{$item.sdate|date='Y/m/d',strtotime(###)}</td>
+					<td align="center">{$item.edate|date='Y/m/d',strtotime(###)}</td>
+					<td align="center"><if condition="check_power('修改',$ext) eq 1"> <a href="__URL__/edit?id={$item.id}">修改</a> </if> | <if condition="check_power('刪除',$ext) eq 1"> <a onclick="return confirm('是否刪除該記錄?');" href="__URL__/delete?id={$item.id}">刪除</a> </if> | <if condition="check_power('下載附件',$ext) eq 1"><notempty name="$item.att"><a href="__URL__/down?name={$item.att}">下載附件</a></notempty>  </if></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

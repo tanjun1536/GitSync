@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	$(function() {
+		$("#build").change(function() {
+			getFloor();
+		});
+		$("#floor").change(function() {
+			getArea();
+		});
+		$("#space").keyup(function(){
+			var m=$("#space").val()*$("#price").val();
+			$("#estimateprice").val(m);
+			$("#tdestimateprice").html(m);
+		});
+		$("#price").keyup(function(){
+			var m=$("#space").val()*$("#price").val();
+			$("#estimateprice").val(m);
+			$("#tdestimateprice").html(m);
+		});
+
+	});
+	function getFloor() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getFloor",
+			data : "bid=" + $("#build").val(),
+			success : function(data) {
+				$("#floor").empty();
+				$("<option value=''>選擇樓層</option>").appendTo("#floor");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#floor");
+				});
+			}
+		});
+
+	}
+	function getArea() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getArea",
+			data : "fid=" + $("#floor").val(),
+			success : function(data) {
+				$("#area").empty();
+				$("<option value=''>選擇區域</option>").appendTo("#area");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#area");
+				});
+			}
+		});
+
+	}
+	function selectUsers(idInput, nameInput) {
+		var selUsers = document.getElementById(idInput).value;
+		var theURL = "__APP__/User/usercheckbox?id=" + idInput + "&name=" + nameInput;
+		var features = 'scrollbars=yes,scrollbars=yes,width=755,height=570';
+		var winName = '';
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "?selUsers=" + selUsers, winName, features);
+	}
+	function check() {
+		return validator.empty('name', '請輸入設備名稱') && validator.index('build', '請選擇棟別') && validator.index('floor', '請選擇樓層') && validator.index('area', '請選擇區域') && validator.index('type', '請選擇主類型') && validator.index('childtype', '請選擇子類型');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">業主管理 - 承租單位管理</div>
+			<div class="mainInfo">
+				<div class="topic2">新增／修改承租單位</div>
+				<form action="__URL__/rentunitAdd" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="case" value="{@case}" /> 
+					<input type="hidden" name="state" value="閒置" /> 
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="124" scope="row">編號</th>
+							<td width="568"><input type="text" name="code" /></td>
+						</tr>
+						<tr>
+							<th scope="row">名稱</th>
+							<td><input type="text" name="name" /></td>
+						</tr>
+						<tr>
+							<th scope="row">建物區域</th>
+							<td><select name="build" id="build">
+									<option value="">選擇棟別</option>
+									<volist id="item" name="builds">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="floor" id="floor">
+									<option value="">選擇樓層</option>
+							</select> <select name="area" id="area">
+									<option value="">選擇區域</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">坪數</th>
+							<td><input type="text"  name="space" id="space" /></td>
+						</tr>
+						<tr>
+							<th scope="row">每坪單價</th>
+							<td><input type="text" name="price" id="price" /></td>
+						</tr>
+						<tr>
+							<th scope="row">預定費用</th>
+							<input type="hidden" id="estimateprice" name="estimateprice"/>
+							<td id="tdestimateprice">系統計算</td>
+						</tr>
+						<tr>
+							<th scope="row">每坪實價</th>
+							<td>系統計算</td>
+						</tr>
+						<tr>
+							<th scope="row">目前費用</th>
+							<td>系統抓取</td>
+						</tr>
+						<tr>
+							<th scope="row">狀態</th>
+							<td>系統抓取</td>
+						</tr>
+						<tr>
+							<th scope="row">說明</th>
+							<td><textarea name="remark" rows="6" style="width: 500px"></textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit2" value="確定" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

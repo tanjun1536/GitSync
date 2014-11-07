@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/xheditor-1.2.1/xheditor-1.2.1.min.js" />
+<load href="__PUBLIC__/js/xheditor-1.2.1/xheditor_lang/zh-tw.js" />
+<load href="__PUBLIC__/js/xheditor-1.2.1/xheditor_skin/default/ui.css" />
+<script type="text/javascript">
+	function addFile() {
+		$('#fileContainer').append('<li></li>').append(
+				'<input type="file" name="atts[]" />');
+	}
+</script>
+<title>物業資源決策系統</title>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">新增訊息</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="__URL__/insert" enctype="multipart/form-data">
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="106" scope="row">發佈人</th>
+							<td width="586">{@SESSION_USER.name}</td>
+						</tr>
+						<tr>
+							<th valign="top" scope="row">主題</th>
+							<td><input type="text" name="title" style="width: 560px" /></td>
+						</tr>
+						<tr>
+							<th valign="top" scope="row">內容</th>
+							<td><textarea name="content" class="xheditor-mini" rows="20" style="width: 560px"></textarea></td>
+						</tr>
+						<tr>
+							<th valign="top" scope="row">附件</th>
+							<td><ul id="fileContainer">
+									<li><input type="file" name="atts[]" /><a href="javascript:void(0)" onclick="addFile()"> <img src="__PUBLIC__/images/add_16.png" alt="增加" width="16" height="16" border="0" /></a></li>
+								</ul></td>
+						</tr>
+						<tr>
+							<th valign="top" scope="row">相關連結</th>
+							<td><input type="text" name="link" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

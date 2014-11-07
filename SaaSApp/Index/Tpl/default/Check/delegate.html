@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">出勤紀錄 - 主管代打</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post"
+					action="__URL__/delegate">
+					<div style="margin-bottom: 10px">
+						<strong>組別： <select name="team">
+								<option value="">所有組別</option>
+								<volist id="item" name="teams"> 
+								<if condition="$item.id eq $team">
+								<option value="{$item.id}" selected="selected">{$item.name}</option>
+								<else />
+								<option value="{$item.id}">{$item.name}</option>
+								</if> </volist>
+						</select> 日期：
+						</strong> <input type="text" name="date" style="width: 100px" class="Wdate"
+							onfocus="WdatePicker()" value="{$date}" /> <input type="submit"
+							name="Submit" value="搜尋" />
+					</div>
+					</form>
+					<form id="form2" name="form1" method="post"
+					action="__URL__/addDelegate">
+					<input type="hidden" value="{$date}" name="date"/>
+					<table width="695" border="0" cellpadding="0" cellspacing="0"
+						class="tab_thtop">
+						<tr>
+							<th width="28" scope="col"><input type="checkbox"
+								name="checkbox" value="checkbox" /></th>
+							<th width="108" scope="col">日期</th>
+							<th width="145" scope="col">類別</th>
+							<th width="151" scope="col">員工</th>
+							<th width="91" scope="col">上班時間</th>
+							<th width="99" scope="col">下班時間</th>
+							<th width="71" scope="col">時數</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center"><input type="checkbox"
+							name="checkboxitems[]" value="{$item.uid},{$item.cid}" /></td>
+						<td align="center">{$item.datetime|date='Y/m/d',strtotime(###)}
+							({$item.datetime|getWeek})</td>
+						<td align="center">{$item.type}</td>
+						<td align="center">{$item.name}({$item.ucode})</td>
+						<td align="center">{$item.ontime}</td>
+						<td align="center">{$item.downtime}<notempty
+								name="item.overday"> +1 </notempty></td>
+						<td align="center">{$item.difftime}</td>
+						</tr>
+						</volist>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="110" scope="row">主管代打</th>
+							<td width="582"><select name="type">
+									<option value="一般(主管代打)">一般</option>
+									<option value="加班(主管代打)">加班</option>
+							</select><br />上班 <select name="onhour">
+									<option value="00">00</option>
+									<option value="01">01</option>
+									<option value="02">02</option>
+									<option value="03">03</option>
+									<option value="04">04</option>
+									<option value="05">05</option>
+									<option value="06">06</option>
+									<option value="07">07</option>
+									<option value="08">08</option>
+									<option value="09">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+							</select> 時 <input type="text" name="onminute" style="width: 20PX" /> 分
+								<br /> 下班 <select name="downhour">
+									<option value="00">00</option>
+									<option value="01">01</option>
+									<option value="02">02</option>
+									<option value="03">03</option>
+									<option value="04">04</option>
+									<option value="05">05</option>
+									<option value="06">06</option>
+									<option value="07">07</option>
+									<option value="08">08</option>
+									<option value="09">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+							</select> 時 <input type="text" name="downminute" style="width: 20PX" />
+								分 <input type="checkbox" name="overday" value="1" /> 跨日</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit2" value="確定送出" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<script type="text/JavaScript">
+<!--
+	function MM_openBrWindow(theURL, winName, features) { //v2.0
+		window.open(theURL, winName, features);
+	}
+	function check() {
+		return validator.index('repair', '請选择叫修單編號!');
+	}
+//-->
+</script>
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">叫修單管理 - 委外管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/inserDelegateRepair?case={@case}" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="delegateuser" id="delegateuser" value="{@SESSION_USER.name}"/>
+					<div class="topic2">新增委外紀錄</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th scope="row">叫修單編號</th>
+							<td colspan="3"><select name="repair" id="repair">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="repairs">
+									<option value="{$item.id}">{$item.repaircode}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">委外廠商</th>
+							<td colspan="3"><input type="text" name="manufactures" style="width: 500px" /></td>
+						</tr>
+						<tr>
+							<th width="119" scope="row">聯絡人</th>
+							<td width="226"><input type="text" name="linker" /></td>
+							<th width="124" scope="row">報價金額</th>
+							<td width="221"><input type="text" name="offermoney" /></td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡電話</th>
+							<td><input type="text" name="linkphone" /></td>
+							<th width="124" scope="row">成交金額</th>
+							<td><input type="text" name="clibchmoney" /></td>
+						</tr>
+						<tr>
+							<th scope="row">委外時間</th>
+							<td colspan="3"><label><input type="text" class="Wdate" onfocus="WdatePicker()" name="delegatedate" id="delegatedate"/>
+							</label></td>
+						</tr>
+						<tr>
+							<th scope="row">附件檔</th>
+							<td colspan="3"><label> <input type="file" name="atts" />
+							</label></td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td colspan="3"><textarea name="remark" rows="10" style="width: 500px"></textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	function check() {
+		return validator.empty('code', '請輸入排程編號') && validator.empty('year', '請輸入排程年');
+	}
+	function S(btn) {
+		var frm = document.getElementById('form2');
+		if (btn.value != '確認') {
+			frm.action = "__URL__/deleteScheduling?case={@case}";
+		} else {
+			frm.action = "__URL__/sureScheduling?case={@case}";
+		}
+		frm.submit();
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">設備管理 - 保養排程</div>
+			<div class="mainInfo">
+				<div class="topic2">新增保養排程</div>
+				<form id="form1" onsubmit="return check()" name="form1" method="post" action="__URL__/addScheduling?case={@case}">
+					<input type="hidden" name="case" value="{@case}" /> <input type="hidden" name="state" value="新增" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="102" scope="row">排程編號</th>
+							<td width="241"><input type="text" name="code" id="code" /></td>
+							<th width="91" scope="row">排程年月</th>
+							<td width="256">西元 <input type="text" name="year" id="year" style="width: 50px" /> / <select id="month" name="month">
+									<option value="01">01</option>
+									<option value="02">02</option>
+									<option value="03">03</option>
+									<option value="04">04</option>
+									<option value="05">05</option>
+									<option value="06">06</option>
+									<option value="07">07</option>
+									<option value="08">08</option>
+									<option value="09">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+							</select></td>
+						</tr>
+
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2" value="新增" /></td>
+						</tr>
+					</table>
+				</form>
+				<form id="form2" name="form2" method="post">
+					<div class="mailNav">
+						狀態搜尋 <select name="st">
+							<option value="新增">新增</option>
+							<option value="確認">確認</option>
+						</select> <input type="submit" name="Submit" value="搜尋" />
+					</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="34" scope="col">&nbsp;</th>
+							<th width="150" scope="col">排程編號</th>
+							<th width="137" scope="col">排程年月</th>
+							<th width="142" scope="col">狀態</th>
+							<th width="230" scope="col">操作</th>
+						</tr>
+						<volist id="item" name="list"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center"><input type="checkbox" name="itemcheckbox[]" value="{$item.id}" /></td>
+						<td align="center">{$item.code}</td>
+						<td align="center"><a href="__URL__/schedulingCheck?case={@case}&id={$item.id}" target="_blank">{$item.year}/{$item.month}</a></td>
+						<td align="center">{$item.state}</td>
+						<td align="center">
+									<if condition="check_power('核對',$ext) eq 1">
+<a href="__URL__/schedulingCheck?case={@case}&id={$item.id}" target="_blank"> 保養核對 </a>
+							</if>
+										
+						|<if condition="check_power('匯出',$ext) eq 1">
+<a href="__URL__/exportScheduling?case={@case}&id={$item.id}"> 匯出</a>
+							</if></td>
+						</tr>
+						</volist>
+					</table>
+					<div style="margin-top: 10px">
+						<input type="button" name="Submit4" onclick="S(this)" value="確認" /> <input type="button" name="Submit3" onclick="S(this)" value="刪除" />
+					</div>
+				</form>
+				<div class="pages">
+				{$page}
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/date.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+$(function(){
+	var d=new Date().format('yyyy/MM/dd');
+	$("#reqdate").val(d);
+	$("#tdreqdate").html(d);
+	$("#productcount").bind("keyup",function(){
+		$("#tdtotal").html(fn.getFloat($(this).val())*fn.getFloat($("#productprice").val()));
+	});
+	$("#productprice").bind("keyup",function(){
+		$("#tdtotal").html(fn.getFloat($(this).val())*fn.getFloat($("#productcount").val()));
+	});
+	
+});
+function addDetail()
+{
+	if (validator.empty('productname', '請輸入商品名稱!')  && validator.empty('productcount', '請輸入商品數量!') && validator.empty('productprice', '請輸入商品價格!')    ) {
+		var table = $('#detail');
+		var len = $("#detail tr").length;
+		var row = len % 2 == 1 ? $("<tr class=\"trcolor\"></tr>") : $("<tr></tr>");
+		var hValue = $('#productname').val() + "," + $('#productcount').val() + "," + $('#productprice').val()+ "," + $('#tdtotal').html();
+		row.append($("<td></td>").append($('#productname').val()).append($("<input type='hidden' value='" + hValue + "' name ='details[]' />")));
+		row.append($("<td align=\"center\"></td>").append($('#productcount').val()));
+		row.append($("<td align=\"center\"></td>").append($('#productprice').val()));
+		row.append($("<td align=\"center\"></td>").append($('#tdtotal').html()));
+		row.append($("<td align=\"center\"></td>").append($('<img onclick="$(this).parent().parent().remove();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+		table.append(row);
+		$('#productname').val('');
+		$('#productcount').val('');
+		$('#productprice').val('');
+		$('#tdtotal').html('');
+	}
+
+}
+function clc()
+{
+	var tds;
+	var t=0
+	$("#detail tr").each(function(){
+		tds=$(this).find("td");
+		t+=fn.getFloat($(tds[3]).html());
+	});
+	var tax=t*0.05;
+	var tp=t+t*0.05;
+	$("#total").val(t);
+	$("#tax").val(tax);
+	$("#totalprice").val(tp);
+	$("#stotal").html(t);
+	$("#stax").html(tax);
+	$("#stotalprice").html(tp);
+			
+	
+}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">工程管理 - 發票請款申請</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post"
+					action="__URL__/InvoiceSave">
+					<input name="code" type="hidden" value="{@SESSION_USER.code}" />
+					<div class="topic2">新增 / 修改發票請款記錄</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+
+						<tr>
+							<th scope="row">請款日期</th>
+							<input type="hidden" id="reqdate" name="reqdate"  />
+							<td width="562" id="tdreqdate">2013/04/29</td>
+						</tr>
+						<tr>
+							<th width="128" scope="row">對應報價單號</th>
+							<td><input type="text" name="spricecode" /></td>
+						</tr>
+						<tr>
+						<input type="hidden" id="requestid" name="requestid" value="{@SESSION_USER.id}"  />
+						<input type="hidden" id="requestname" name="requestuser" value="{@SESSION_USER.name}"  />
+							<th scope="row">申請人</th>
+							<td>{@SESSION_USER.name}</td>
+						</tr>
+						<tr>
+							<th scope="row">申請單位</th>
+							<input type="hidden" id="requestunitid" name="requestunitid" value="{$depart.id}"  />
+							<input type="hidden" id="requestunitname" name="requestunitname" value="{$depart.name}"  />
+							<td>{$depart.name}</td>
+						</tr>
+						<tr>
+							<th scope="row">發票類別</th>
+							<td><input name="invoicetype" type="radio"
+								value="二聯" /> 二聯 <input name="invoicetype"
+								type="radio" value="三聯" /> 三聯</td>
+						</tr>
+						<tr>
+							<th scope="row">預估委外方式</th>
+							<td><input name="estimatedelegatemethods" type="radio"
+								value="限制性招標" /> 限制性招標 <input name="estimatedelegatemethods"
+								type="radio" value="選擇性招標" /> 選擇性招標 <input
+								name="estimatedelegatemethods" type="radio" value="公開招標" /> 公開招標</td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide" id="detail">
+						<tr>
+							<th width="391" scope="col">品名/項目</th>
+							<th width="78" scope="col">數量</th>
+							<th width="71" scope="col">單價</th>
+							<th width="117" scope="col">金額</th>
+							<th width="32" scope="col">&nbsp;</th>
+						</tr>
+						<tr>
+							<td><input type="text" id="productname" style="width: 350px" /></td>
+							<td align="center"><input id="productcount" type="text"
+								size="5" /></td>
+							<td align="center"><input id="productprice" type="text"
+								size="5" /></td>
+							<td align="center" id="tdtotal">&nbsp;</td>
+							<td align="center"><img
+									src="__PUBLIC__/images/add_16.png" alt="增加" style="cursor:pointer;" onclick="addDetail()" width="16" height="16"
+									border="0" /> </td>
+						</tr>
+					</table>
+					<div>
+						<input type="button" name="Submit2" onclick="clc();" value="計算" />
+					</div>
+					<div>
+						<p>
+						<input type="hidden" id="total" name="total" />
+					<input type="hidden" id="tax" name="tax" />
+					<input type="hidden" id="totalprice" name="totalprice" />
+			
+							發票金額合計：<span id="stotal"></span><br /> 稅金(5%)：<span id="stax"></span><br /> 發票金額總計：<span id="stotalprice"></span><br />
+						</p>
+					</div>
+					<div align="center">
+						<input type="submit" name="Submit3" value="確定送出" /> <input
+							type="reset" name="Submit4" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

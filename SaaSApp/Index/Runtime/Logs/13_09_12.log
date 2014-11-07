@@ -1,0 +1,577 @@
+[ 2013-09-12T00:59:32+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-09-12T00:59:32+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-09-12T00:59:40+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008385s ]
+[ 2013-09-12T00:59:40+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.001709s ]
+[ 2013-09-12T00:59:40+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.005989s ]
+[ 2013-09-12T00:59:40+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.026295s ]
+[ 2013-09-12T00:59:40+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.006860s ]
+[ 2013-09-12T00:59:40+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.034262s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.013255s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.001722s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.008045s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.004854s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004592s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005037s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006188s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005828s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005413s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004340s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005151s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004396s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004530s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004403s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004280s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004377s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.009403s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007399s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005338s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006112s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.006059s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004937s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005798s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005226s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005404s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007537s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005944s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.005758s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006784s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006087s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005969s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006214s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005633s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004914s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004750s ]
+[ 2013-09-12T00:59:41+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 80 行.
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.005955s ]
+[ 2013-09-12T00:59:41+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-09-12T00:59:41+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-09-12T00:59:41+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 30  ORDER BY w.id desc  [ RunTime:0.029286s ]
+[ 2013-09-12T00:59:41+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 30  ORDER BY w.id desc  limit 0,20 [ RunTime:0.027323s ]
+[ 2013-09-12T00:59:42+08:00 ] NOTIC: [8] Undefined variable: sdate a2c51faf257f2ebe48aa3609eae55296.php 第 261 行.
+[ 2013-09-12T00:59:42+08:00 ] NOTIC: [8] Undefined variable: edate a2c51faf257f2ebe48aa3609eae55296.php 第 261 行.
+[ 2013-09-12T00:59:49+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 4 行.
+[ 2013-09-12T00:59:49+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.008115s ]
+[ 2013-09-12T00:59:49+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  LIMIT 1  [ RunTime:0.001273s ]
+[ 2013-09-12T00:59:49+08:00 ] SQL: SELECT * FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001556s ]
+[ 2013-09-12T00:59:53+08:00 ] SQL: SHOW COLUMNS FROM `case_content` [ RunTime:0.005298s ]
+[ 2013-09-12T00:59:53+08:00 ] SQL: select * from case_content where id =26 [ RunTime:0.000821s ]
+[ 2013-09-12T00:59:53+08:00 ] NOTIC: [8] Undefined index: caseName 6a80fc463fa49e147ec5390fac1af20e.php 第 107 行.
+[ 2013-09-12T01:00:03+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:03+08:00 ] NOTIC: [8] Undefined index: name BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:03+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:03+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:03+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:03+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:03+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:03+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.007285s ]
+[ 2013-09-12T01:00:03+08:00 ] NOTIC: [8] Undefined index: q BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:03+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26  order by repairdate desc [ RunTime:0.015558s ]
+[ 2013-09-12T01:00:03+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26  order by repairdate desc limit 0,20 [ RunTime:0.010677s ]
+[ 2013-09-12T01:00:03+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.005467s ]
+[ 2013-09-12T01:00:03+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 26 LIMIT 1  [ RunTime:0.002539s ]
+[ 2013-09-12T01:00:03+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '申請叫修' AND `case` = 26 [ RunTime:0.030131s ]
+[ 2013-09-12T01:00:04+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '派工' AND `case` = 26 [ RunTime:0.023571s ]
+[ 2013-09-12T01:00:04+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '委外' AND `case` = 26 [ RunTime:0.026914s ]
+[ 2013-09-12T01:00:04+08:00 ] NOTIC: [8] Undefined index: caseName e2ab549fb0459c40412e5130be1fd81e.php 第 111 行.
+[ 2013-09-12T01:00:04+08:00 ] NOTIC: [8] Undefined variable: repaircode e2ab549fb0459c40412e5130be1fd81e.php 第 123 行.
+[ 2013-09-12T01:00:04+08:00 ] NOTIC: [8] Undefined variable: sdispatcher e2ab549fb0459c40412e5130be1fd81e.php 第 125 行.
+[ 2013-09-12T01:00:04+08:00 ] NOTIC: [8] Undefined variable: devicename e2ab549fb0459c40412e5130be1fd81e.php 第 129 行.
+[ 2013-09-12T01:00:04+08:00 ] NOTIC: [8] Undefined variable: askman e2ab549fb0459c40412e5130be1fd81e.php 第 131 行.
+[ 2013-09-12T01:00:04+08:00 ] NOTIC: [8] Undefined variable: sdate e2ab549fb0459c40412e5130be1fd81e.php 第 135 行.
+[ 2013-09-12T01:00:04+08:00 ] NOTIC: [8] Undefined variable: edate e2ab549fb0459c40412e5130be1fd81e.php 第 137 行.
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined index: name BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:10+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.008129s ]
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined index: q BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:10+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26 AND repairdate>= '2013-09-10'  order by repairdate desc [ RunTime:0.012740s ]
+[ 2013-09-12T01:00:10+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26 AND repairdate>= '2013-09-10'  order by repairdate desc limit 0,20 [ RunTime:0.010870s ]
+[ 2013-09-12T01:00:10+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.005577s ]
+[ 2013-09-12T01:00:10+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 26 LIMIT 1  [ RunTime:0.004333s ]
+[ 2013-09-12T01:00:10+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '申請叫修' AND `case` = 26 [ RunTime:0.025976s ]
+[ 2013-09-12T01:00:10+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '派工' AND `case` = 26 [ RunTime:0.023777s ]
+[ 2013-09-12T01:00:10+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '委外' AND `case` = 26 [ RunTime:0.023408s ]
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined index: caseName e2ab549fb0459c40412e5130be1fd81e.php 第 111 行.
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined variable: repaircode e2ab549fb0459c40412e5130be1fd81e.php 第 123 行.
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined variable: sdispatcher e2ab549fb0459c40412e5130be1fd81e.php 第 125 行.
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined variable: devicename e2ab549fb0459c40412e5130be1fd81e.php 第 129 行.
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined variable: askman e2ab549fb0459c40412e5130be1fd81e.php 第 131 行.
+[ 2013-09-12T01:00:10+08:00 ] NOTIC: [8] Undefined variable: edate e2ab549fb0459c40412e5130be1fd81e.php 第 137 行.
+[ 2013-09-12T01:00:25+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:25+08:00 ] NOTIC: [8] Undefined index: name BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:25+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:25+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:25+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:25+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:00:25+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.006774s ]
+[ 2013-09-12T01:00:25+08:00 ] SQL: SELECT 
+		  r.`devicecode`,
+		  r.`devicename`,
+		  r.`repaircode`,
+		  r.`repairdate`,
+		  CONCAT(
+		    build.`name`,
+		    fl.`name`,
+		    ar.`name`
+		  ) AS region,
+		  mt.`name` AS mainType,
+		  ct.`name` AS childType,
+		  CONCAT(
+		    IFNULL(
+		      CONCAT(r.remark, ' ', r.requestuser),
+		      ''
+		    ),'
+',
+		    IFNULL(
+		      (SELECT 
+		        CONCAT(doremark, ' ', dispatchuser) 
+		      FROM
+		        case_device_repair_dispatch 
+		      WHERE `repair` = r.id 
+		      LIMIT 1),
+		      ''
+		    ),'
+',
+		    IFNULL(
+		      (SELECT 
+		        CONCAT(remark, ' ', delegateuser) 
+		      FROM
+		        case_device_repair_delegate 
+		      WHERE `repair` = r.id 
+		      LIMIT 1),
+		      ''
+		    ),'
+',
+		    IFNULL(
+		      (SELECT 
+		        CONCAT(completeremark, ' ', replayuser) 
+		      FROM
+		        case_device_repair_complete 
+		      WHERE `repair` = r.id 
+		      LIMIT 1),
+		      ''
+		    ),'
+',
+		    IFNULL(
+		      (SELECT 
+		        GROUP_CONCAT(CONCAT(msg, '  ', senduser)) 
+		      FROM
+		        `case_device_repair_message` 
+		      WHERE `repair` = r.id),
+		      ''
+		    )
+		  ) AS msg,
+		  (SELECT 
+		    `dotimeandusers` 
+		  FROM
+		    `case_device_repair_complete` 
+		  WHERE `repair` = r.`id` 
+		  LIMIT 1) AS `dotimeandusers` 
+		FROM
+		  `case_device_repair` r 
+		  INNER JOIN `case_device_buildingtype` build 
+		    ON r.`build` = build.`id` 
+		  INNER JOIN `case_device_building_floor` fl 
+		    ON fl.`id` = r.`floor` 
+		  INNER JOIN `case_device_building_floor_area` ar 
+		    ON ar.`id` = r.`area` 
+		  INNER JOIN `case_device_type` mt 
+		    ON r.`type` = mt.`id` 
+		  INNER JOIN `case_device_child_type` ct 
+		    ON r.`childtype` = ct.`id` 
+		  INNER JOIN `case_device_repair_dispatch` disp 
+		    ON r.`id` = disp.`repair`   WHERE r.`case` = 26 AND r.repairdate>= '2013-09-10' [ RunTime:0.085915s ]
+[ 2013-09-12T01:01:14+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-09-12T01:01:14+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-09-12T01:01:19+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008368s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.001177s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.006972s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.026335s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.007247s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.008765s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.006148s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.001262s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.002261s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.005583s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004453s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004316s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004511s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004520s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004533s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004282s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004676s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004931s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004525s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005205s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004657s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004425s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004637s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004599s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004757s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005122s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.004251s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005314s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004494s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004179s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005165s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004254s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004418s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.004437s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005263s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005007s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005214s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006519s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005068s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004534s ]
+[ 2013-09-12T01:01:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004342s ]
+[ 2013-09-12T01:01:20+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-09-12T01:01:20+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:20+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:20+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 30  ORDER BY w.id desc  [ RunTime:0.021389s ]
+[ 2013-09-12T01:01:20+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 30  ORDER BY w.id desc  limit 0,20 [ RunTime:0.020940s ]
+[ 2013-09-12T01:01:20+08:00 ] NOTIC: [8] Undefined variable: sdate a2c51faf257f2ebe48aa3609eae55296.php 第 261 行.
+[ 2013-09-12T01:01:20+08:00 ] NOTIC: [8] Undefined variable: edate a2c51faf257f2ebe48aa3609eae55296.php 第 261 行.
+[ 2013-09-12T01:01:24+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 4 行.
+[ 2013-09-12T01:01:24+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.007745s ]
+[ 2013-09-12T01:01:24+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  LIMIT 1  [ RunTime:0.001268s ]
+[ 2013-09-12T01:01:24+08:00 ] SQL: SELECT * FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001641s ]
+[ 2013-09-12T01:01:26+08:00 ] SQL: SHOW COLUMNS FROM `case_content` [ RunTime:0.005618s ]
+[ 2013-09-12T01:01:26+08:00 ] SQL: select * from case_content where id =26 [ RunTime:0.000840s ]
+[ 2013-09-12T01:01:26+08:00 ] NOTIC: [8] Undefined index: caseName 6a80fc463fa49e147ec5390fac1af20e.php 第 107 行.
+[ 2013-09-12T01:01:27+08:00 ] SQL: SHOW COLUMNS FROM `case_content` [ RunTime:0.006677s ]
+[ 2013-09-12T01:01:27+08:00 ] SQL: select * from case_content where id =26 [ RunTime:0.000858s ]
+[ 2013-09-12T01:01:27+08:00 ] NOTIC: [8] Undefined index: caseName 6a80fc463fa49e147ec5390fac1af20e.php 第 107 行.
+[ 2013-09-12T01:01:50+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:50+08:00 ] NOTIC: [8] Undefined index: name BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:50+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:50+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:50+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:50+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:50+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:50+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.007239s ]
+[ 2013-09-12T01:01:50+08:00 ] NOTIC: [8] Undefined index: q BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:50+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26  order by repairdate desc [ RunTime:0.012739s ]
+[ 2013-09-12T01:01:50+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26  order by repairdate desc limit 0,20 [ RunTime:0.010929s ]
+[ 2013-09-12T01:01:50+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.007502s ]
+[ 2013-09-12T01:01:50+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 26 LIMIT 1  [ RunTime:0.001127s ]
+[ 2013-09-12T01:01:50+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '申請叫修' AND `case` = 26 [ RunTime:0.027589s ]
+[ 2013-09-12T01:01:50+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '派工' AND `case` = 26 [ RunTime:0.023980s ]
+[ 2013-09-12T01:01:50+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '委外' AND `case` = 26 [ RunTime:0.025981s ]
+[ 2013-09-12T01:01:51+08:00 ] NOTIC: [8] Undefined index: caseName e2ab549fb0459c40412e5130be1fd81e.php 第 111 行.
+[ 2013-09-12T01:01:51+08:00 ] NOTIC: [8] Undefined variable: repaircode e2ab549fb0459c40412e5130be1fd81e.php 第 123 行.
+[ 2013-09-12T01:01:51+08:00 ] NOTIC: [8] Undefined variable: sdispatcher e2ab549fb0459c40412e5130be1fd81e.php 第 125 行.
+[ 2013-09-12T01:01:51+08:00 ] NOTIC: [8] Undefined variable: devicename e2ab549fb0459c40412e5130be1fd81e.php 第 129 行.
+[ 2013-09-12T01:01:51+08:00 ] NOTIC: [8] Undefined variable: askman e2ab549fb0459c40412e5130be1fd81e.php 第 131 行.
+[ 2013-09-12T01:01:51+08:00 ] NOTIC: [8] Undefined variable: sdate e2ab549fb0459c40412e5130be1fd81e.php 第 135 行.
+[ 2013-09-12T01:01:51+08:00 ] NOTIC: [8] Undefined variable: edate e2ab549fb0459c40412e5130be1fd81e.php 第 137 行.
+[ 2013-09-12T01:01:56+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:56+08:00 ] NOTIC: [8] Undefined index: name BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:56+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:56+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:56+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:56+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:56+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.007462s ]
+[ 2013-09-12T01:01:56+08:00 ] NOTIC: [8] Undefined index: q BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:01:56+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26 AND repairdate>= '2013-09-10'  order by repairdate desc [ RunTime:0.011610s ]
+[ 2013-09-12T01:01:56+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26 AND repairdate>= '2013-09-10'  order by repairdate desc limit 0,20 [ RunTime:0.011194s ]
+[ 2013-09-12T01:01:56+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.008506s ]
+[ 2013-09-12T01:01:56+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 26 LIMIT 1  [ RunTime:0.000844s ]
+[ 2013-09-12T01:01:56+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '申請叫修' AND `case` = 26 [ RunTime:0.024004s ]
+[ 2013-09-12T01:01:56+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '派工' AND `case` = 26 [ RunTime:0.024568s ]
+[ 2013-09-12T01:01:56+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '委外' AND `case` = 26 [ RunTime:0.024804s ]
+[ 2013-09-12T01:01:57+08:00 ] NOTIC: [8] Undefined index: caseName e2ab549fb0459c40412e5130be1fd81e.php 第 111 行.
+[ 2013-09-12T01:01:57+08:00 ] NOTIC: [8] Undefined variable: repaircode e2ab549fb0459c40412e5130be1fd81e.php 第 123 行.
+[ 2013-09-12T01:01:57+08:00 ] NOTIC: [8] Undefined variable: sdispatcher e2ab549fb0459c40412e5130be1fd81e.php 第 125 行.
+[ 2013-09-12T01:01:57+08:00 ] NOTIC: [8] Undefined variable: devicename e2ab549fb0459c40412e5130be1fd81e.php 第 129 行.
+[ 2013-09-12T01:01:57+08:00 ] NOTIC: [8] Undefined variable: askman e2ab549fb0459c40412e5130be1fd81e.php 第 131 行.
+[ 2013-09-12T01:01:57+08:00 ] NOTIC: [8] Undefined variable: edate e2ab549fb0459c40412e5130be1fd81e.php 第 137 行.
+[ 2013-09-12T01:02:02+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:02:02+08:00 ] NOTIC: [8] Undefined index: name BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:02:02+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:02:02+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:02:02+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:02:02+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:02:02+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.006965s ]
+[ 2013-09-12T01:02:32+08:00 ] SQL: SELECT 
+		  r.`devicecode`,
+		  r.`devicename`,
+		  r.`repaircode`,
+		  r.`repairdate`,
+		  CONCAT(
+		    build.`name`,
+		    fl.`name`,
+		    ar.`name`
+		  ) AS region,
+		  mt.`name` AS mainType,
+		  ct.`name` AS childType,
+		  CONCAT(
+		    IFNULL(
+		      CONCAT(r.remark, ' ', r.requestuser),
+		      ''
+		    ),'
+',
+		    IFNULL(
+		      (SELECT 
+		        CONCAT(doremark, ' ', dispatchuser) 
+		      FROM
+		        case_device_repair_dispatch 
+		      WHERE `repair` = r.id 
+		      LIMIT 1),
+		      ''
+		    ),'
+',
+		    IFNULL(
+		      (SELECT 
+		        CONCAT(remark, ' ', delegateuser) 
+		      FROM
+		        case_device_repair_delegate 
+		      WHERE `repair` = r.id 
+		      LIMIT 1),
+		      ''
+		    ),'
+',
+		    IFNULL(
+		      (SELECT 
+		        CONCAT(completeremark, ' ', replayuser) 
+		      FROM
+		        case_device_repair_complete 
+		      WHERE `repair` = r.id 
+		      LIMIT 1),
+		      ''
+		    ),'
+',
+		    IFNULL(
+		      (SELECT 
+		        GROUP_CONCAT(CONCAT(msg, '  ', senduser)) 
+		      FROM
+		        `case_device_repair_message` 
+		      WHERE `repair` = r.id),
+		      ''
+		    )
+		  ) AS msg,
+		  (SELECT 
+		    `dotimeandusers` 
+		  FROM
+		    `case_device_repair_complete` 
+		  WHERE `repair` = r.`id` 
+		  LIMIT 1) AS `dotimeandusers` 
+		FROM
+		  `case_device_repair` r 
+		  INNER JOIN `case_device_buildingtype` build 
+		    ON r.`build` = build.`id` 
+		  INNER JOIN `case_device_building_floor` fl 
+		    ON fl.`id` = r.`floor` 
+		  INNER JOIN `case_device_building_floor_area` ar 
+		    ON ar.`id` = r.`area` 
+		  INNER JOIN `case_device_type` mt 
+		    ON r.`type` = mt.`id` 
+		  INNER JOIN `case_device_child_type` ct 
+		    ON r.`childtype` = ct.`id` 
+		  INNER JOIN `case_device_repair_dispatch` disp 
+		    ON r.`id` = disp.`repair`   WHERE r.`case` = 26 AND r.repairdate>= '2013-09-10' [ RunTime:0.082746s ]
+[ 2013-09-12T01:03:54+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:03:54+08:00 ] NOTIC: [8] Undefined index: name BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:03:54+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:03:54+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:03:54+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:03:54+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 241 行.
+[ 2013-09-12T01:03:54+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.006919s ]
+[ 2013-09-12T01:10:24+08:00 ] SQL: SELECT 
+		  r.`devicecode`,
+		  r.`devicename`,
+		  r.`repaircode`,
+		  r.`repairdate`,
+		  CONCAT(
+		    build.`name`,
+		    fl.`name`,
+		    ar.`name`
+		  ) AS region,
+		  mt.`name` AS mainType,
+		  ct.`name` AS childType,
+		  CONCAT(
+		    IFNULL(
+		      CONCAT(r.remark, ' ', r.requestuser),
+		      ''
+		    ),'
+',
+		    IFNULL(
+		      (SELECT 
+		        CONCAT(doremark, ' ', dispatchuser) 
+		      FROM
+		        case_device_repair_dispatch 
+		      WHERE `repair` = r.id 
+		      LIMIT 1),
+		      ''
+		    ),'
+',
+		    IFNULL(
+		      (SELECT 
+		        CONCAT(remark, ' ', delegateuser) 
+		      FROM
+		        case_device_repair_delegate 
+		      WHERE `repair` = r.id 
+		      LIMIT 1),
+		      ''
+		    ),'
+',
+		    IFNULL(
+		      (SELECT 
+		        CONCAT(completeremark, ' ', replayuser) 
+		      FROM
+		        case_device_repair_complete 
+		      WHERE `repair` = r.id 
+		      LIMIT 1),
+		      ''
+		    ),'
+',
+		    IFNULL(
+		      (SELECT 
+		        GROUP_CONCAT(CONCAT(msg, '  ', senduser)) 
+		      FROM
+		        `case_device_repair_message` 
+		      WHERE `repair` = r.id),
+		      ''
+		    )
+		  ) AS msg,
+		  (SELECT 
+		    `dotimeandusers` 
+		  FROM
+		    `case_device_repair_complete` 
+		  WHERE `repair` = r.`id` 
+		  LIMIT 1) AS `dotimeandusers` 
+		FROM
+		  `case_device_repair` r 
+		  INNER JOIN `case_device_buildingtype` build 
+		    ON r.`build` = build.`id` 
+		  INNER JOIN `case_device_building_floor` fl 
+		    ON fl.`id` = r.`floor` 
+		  INNER JOIN `case_device_building_floor_area` ar 
+		    ON ar.`id` = r.`area` 
+		  INNER JOIN `case_device_type` mt 
+		    ON r.`type` = mt.`id` 
+		  INNER JOIN `case_device_child_type` ct 
+		    ON r.`childtype` = ct.`id` 
+		  INNER JOIN `case_device_repair_dispatch` disp 
+		    ON r.`id` = disp.`repair`   WHERE r.`case` = 26 AND r.repairdate>= '2013-09-10' [ RunTime:0.126637s ]

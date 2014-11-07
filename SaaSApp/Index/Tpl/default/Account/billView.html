@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">會計系統 - 傳票管理</div>
+			<div class="mainInfo">
+				<div class="topic2">
+					<span class="title">傳票明細</span>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+					<tr>
+						<th width="88" scope="row"><span class="search">傳票號碼</span></th>
+						<td width="255">{$bill.billcode}</td>
+						<th width="101" scope="row">傳票日期</th>
+						<td width="246">{$bill.billdate|date='Y-m-d',strtotime(###)}</td>
+					</tr>
+					<tr>
+						<th scope="row">建檔日期</th>
+						<td colspan="3">{$bill.createdate|date='Y-m-d',strtotime(###)}</td>
+					</tr>
+				</table>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide"></table>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="289" scope="col">科目名稱</th>
+						<th width="276" scope="col">對象</th>
+						<th width="93" scope="col">摘要</th>
+						<th width="78" scope="col">借方金額</th>
+						<th width="78" scope="col">貸方金額</th>
+					</tr>
+					<volist name="details" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+						<td align="center">{$item.subject}</td>
+						<td align="center">{$item.object}</td>
+						<td>{$item.summary}</td>
+						<td align="right">{$item.jfmoney}</td>
+						<td align="right">{$item.dfmoney}</td>
+					</tr>
+					</volist>
+					<tr class="trcolor3">
+						<td colspan="3"><div align="right">
+								<strong>合計</strong>
+							</div></td>
+						<td align="right">{$bill.jfmoney}</td>
+						<td align="right">{$bill.dfmoney}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

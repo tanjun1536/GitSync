@@ -1,0 +1,605 @@
+[ 2014-04-28T10:03:50+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-04-28T10:03:50+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-04-28T10:04:02+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.046003s ]
+[ 2014-04-28T10:04:02+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-04-28T10:04:02+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.078005s ]
+[ 2014-04-28T10:04:02+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.063004s ]
+[ 2014-04-28T10:04:02+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.047002s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.077004s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.072004s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.090005s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.003001s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-04-28T10:04:03+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2014-04-28T10:04:04+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.005001s ]
+[ 2014-04-28T10:04:04+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008000s ]
+[ 2014-04-28T10:04:04+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.027002s ]
+[ 2014-04-28T10:04:04+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.020001s ]
+[ 2014-04-28T10:04:13+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.051003s ]
+[ 2014-04-28T10:04:13+08:00 ] SQL: SELECT * FROM `favorite` WHERE  `level`= 1 and iscase=0 and id in (select favorite from user_favorite where userid=30) [ RunTime:0.021001s ]
+[ 2014-04-28T10:04:13+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() FavoriteAction.class.php 第 47 行.
+[ 2014-04-28T10:05:34+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.006000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.005001s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.006000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.014001s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.005001s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:34+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2014-04-28T10:05:35+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:35+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.005000s ]
+[ 2014-04-28T10:05:35+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:35+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:38+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.007000s ]
+[ 2014-04-28T10:05:38+08:00 ] SQL: SELECT * FROM `favorite` WHERE  `level`= 1 and iscase=0 and id in (select favorite from user_favorite where userid=30) [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:38+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() FavoriteAction.class.php 第 47 行.
+[ 2014-04-28T10:05:41+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.006000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE  `level`= 1 and iscase=0  [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.005001s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='6' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='7' ORDER BY id asc [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='8' ORDER BY id asc [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='15' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='17' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='21' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='26' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='29' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='33' ORDER BY id asc [ RunTime:0.002001s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='40' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='42' ORDER BY id asc [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='44' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='49' ORDER BY id asc [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='53' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='57' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='65' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='70' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='73' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='79' ORDER BY id asc [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 3 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 4 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 5 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 9 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 10 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 11 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 12 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 13 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 14 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 16 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 18 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 19 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 20 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 22 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 23 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 24 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 25 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 27 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 28 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 30 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 31 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 32 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 34 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 37 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 41 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 43 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 45 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 47 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 50 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 51 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 52 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 54 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 55 [ RunTime:0.002000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 56 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 58 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 59 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 61 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 63 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 64 [ RunTime:0.001001s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 66 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 68 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 71 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 74 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 76 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 78 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:41+08:00 ] SQL: SELECT favorite from user_favorite where userid=30 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:49+08:00 ] SQL: SHOW COLUMNS FROM `user_favorite` [ RunTime:0.006000s ]
+[ 2014-04-28T10:05:49+08:00 ] SQL: DELETE FROM user_favorite WHERE userid=30 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:49+08:00 ] SQL: INSERT INTO `user_favorite` (`userid`,`favorite`) VALUES ('30','1') [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:49+08:00 ] SQL: INSERT INTO `user_favorite` (`userid`,`favorite`) VALUES ('30','2') [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:49+08:00 ] SQL: INSERT INTO `user_favorite` (`userid`,`favorite`) VALUES ('30','3') [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:49+08:00 ] SQL: INSERT INTO `user_favorite` (`userid`,`favorite`) VALUES ('30','4') [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:49+08:00 ] SQL: INSERT INTO `user_favorite` (`userid`,`favorite`) VALUES ('30','5') [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:50+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.005001s ]
+[ 2014-04-28T10:05:50+08:00 ] SQL: SELECT * FROM `favorite` WHERE  `level`= 1 and iscase=0 and id in (select favorite from user_favorite where userid=30) [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:50+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.006000s ]
+[ 2014-04-28T10:05:50+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:50+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.001001s ]
+[ 2014-04-28T10:05:50+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 3 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:50+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 4 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:50+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 5 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007001s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008001s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.006000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.013001s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.006000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.002000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001001s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:05:59+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:05:59+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2014-04-28T10:06:00+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.000000s ]
+[ 2014-04-28T10:06:00+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.005000s ]
+[ 2014-04-28T10:06:00+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001000s ]
+[ 2014-04-28T10:06:00+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.001000s ]
+[ 2014-04-28T10:06:06+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.005000s ]
+[ 2014-04-28T10:06:06+08:00 ] SQL: SELECT * FROM `favorite` WHERE  `level`= 1 and iscase=0 and id in (select favorite from user_favorite where userid=30) [ RunTime:0.000000s ]
+[ 2014-04-28T10:06:06+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.006000s ]
+[ 2014-04-28T10:06:06+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.000000s ]
+[ 2014-04-28T10:06:06+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.000000s ]
+[ 2014-04-28T10:06:06+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 3 [ RunTime:0.001000s ]
+[ 2014-04-28T10:06:06+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 4 [ RunTime:0.001000s ]
+[ 2014-04-28T10:06:06+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 5 [ RunTime:0.000000s ]
+[ 2014-04-28T10:11:44+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-04-28T10:11:46+08:00 ] SQL: SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' [ RunTime:0.091006s ]
+[ 2014-04-28T10:11:46+08:00 ] SQL: SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' limit 0,20 [ RunTime:0.001000s ]
+[ 2014-04-28T10:11:46+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-04-28T10:11:47+08:00 ] SQL: SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' [ RunTime:0.000000s ]
+[ 2014-04-28T10:11:47+08:00 ] SQL: SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' limit 0,20 [ RunTime:0.000000s ]
+[ 2014-04-28T10:11:50+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.076005s ]
+[ 2014-04-28T10:11:50+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-04-28T10:11:50+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.029002s ]
+[ 2014-04-28T10:11:50+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-04-28' AND type='O' LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-04-28T10:11:50+08:00 ] SQL: INSERT INTO `stock_line_code` (`date`,`type`,`line`,`code`) VALUES ('2014-04-28','O',1,'13108617') [ RunTime:0.066004s ]
+[ 2014-04-28T10:11:50+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 362 行.
+[ 2014-04-28T10:11:50+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 366 行.
+[ 2014-04-28T10:11:50+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 394 行.
+[ 2014-04-28T10:11:50+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 407 行.
+[ 2014-04-28T10:22:25+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-04-28T10:22:25+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-04-28T10:22:27+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.006000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.006001s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.015001s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.005000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.002000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001001s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:27+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2014-04-28T10:22:28+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.001000s ]
+[ 2014-04-28T10:22:28+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.010000s ]
+[ 2014-04-28T10:22:28+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:28+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:32+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.007001s ]
+[ 2014-04-28T10:22:32+08:00 ] SQL: SELECT * FROM `favorite` WHERE  `level`= 1 and iscase=0 and id in (select favorite from user_favorite where userid=30) [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:32+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.006000s ]
+[ 2014-04-28T10:22:32+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:32+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:22:32+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 3 [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:32+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 4 [ RunTime:0.000000s ]
+[ 2014-04-28T10:22:32+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 5 [ RunTime:0.000000s ]
+[ 2014-04-28T10:34:29+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.005000s ]
+[ 2014-04-28T10:34:29+08:00 ] SQL: SELECT * FROM `favorite` WHERE  `level`= 1 and iscase=0 and id in (select favorite from user_favorite where userid=30) [ RunTime:0.000000s ]
+[ 2014-04-28T10:34:29+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.006000s ]
+[ 2014-04-28T10:34:29+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.000000s ]
+[ 2014-04-28T10:34:29+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:34:29+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 3 [ RunTime:0.001000s ]
+[ 2014-04-28T10:34:29+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 4 [ RunTime:0.000000s ]
+[ 2014-04-28T10:34:29+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 5 [ RunTime:0.000000s ]
+[ 2014-04-28T10:34:29+08:00 ] NOTIC: [2] file_get_contents(index/Tpl/default/__PUBLIC__/top.html.html) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory ThinkTemplate.class.php 第 770 行.
+[ 2014-04-28T10:34:38+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.006000s ]
+[ 2014-04-28T10:34:38+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001000s ]
+[ 2014-04-28T10:34:38+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.001000s ]
+[ 2014-04-28T10:34:53+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.005000s ]
+[ 2014-04-28T10:34:53+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001001s ]
+[ 2014-04-28T10:34:53+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.001000s ]
+[ 2014-04-28T10:34:55+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.005000s ]
+[ 2014-04-28T10:34:55+08:00 ] SQL: SELECT * FROM `favorite` WHERE  `level`= 1 and iscase=0 and id in (select favorite from user_favorite where userid=30) [ RunTime:0.000000s ]
+[ 2014-04-28T10:34:55+08:00 ] SQL: SHOW COLUMNS FROM `favorite` [ RunTime:0.005000s ]
+[ 2014-04-28T10:34:55+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.001000s ]
+[ 2014-04-28T10:34:55+08:00 ] SQL: SELECT * FROM `favorite` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.000000s ]
+[ 2014-04-28T10:34:55+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 3 [ RunTime:0.000000s ]
+[ 2014-04-28T10:34:55+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 4 [ RunTime:0.000000s ]
+[ 2014-04-28T10:34:55+08:00 ] SQL: SELECT * FROM favorite WHERE parent_id = 5 [ RunTime:0.001001s ]

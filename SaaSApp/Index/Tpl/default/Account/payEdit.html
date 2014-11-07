@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<script type="text/JavaScript">
+	//借方
+	var jfsmt = "{$in.jfsubjectmaintype}";
+	var jfsct = "{$in.jfsubjectchildtype}";
+	var jfs = "{$in.jfsubject}";
+	//贷方
+	var dfsmt = "{$in.dfsubjectmaintype}";
+	var dfsct = "{$in.dfsubjectchildtype}";
+	var dfs = "{$in.dfsubject}";
+	//兑现借方
+	var dxjfsmt = "{$in.dxjfsubjectmaintype}";
+	var dxjfsct = "{$in.dxjfsubjectchildtype}";
+	var dxjfs = "{$in.dxjfsubject}";
+	//兑现贷方
+	var dxdfsmt = "{$in.dxdfsubjectmaintype}";
+	var dxdfsct = "{$in.dxdfsubjectchildtype}";
+	var dxdfs = "{$in.dxdfsubject}";
+	//对象
+	var ot = "{$in.objecttype}";
+	var oi = "{$in.objectid}";
+	var on = "{$in.objectname}";
+	//账户
+	var a = "{$in.account}";
+	var bn="{$in.bankname}";
+	var u="{$in.username}";
+	//付款方式和状态
+	var pm = "{$in.paymode}";
+	var ps = "{$in.paystate}";
+
+	var ddd2 = "{$in.dddate2}";
+	var ddp2 = "{$in.ddperson2}";
+	var depart = "{$in.depart}";
+	$(function() {
+		$('#jfsubjectmaintype').change(function() {
+			getChildType('#jfsubjectmaintype', '#jfsubjectchildtype');
+		});
+		$('#dfsubjectmaintype').change(function() {
+			getChildType('#dfsubjectmaintype', '#dfsubjectchildtype');
+		});
+		$('#dxjfsubjectmaintype').change(function() {
+			getChildType('#dxjfsubjectmaintype', '#dxjfsubjectchildtype');
+		});
+		$('#dxdfsubjectmaintype').change(function() {
+			getChildType('#dxdfsubjectmaintype', '#dxdfsubjectchildtype');
+		});
+
+		$('#jfsubjectchildtype').change(function() {
+			getSubject('#jfsubjectchildtype', '#jfsubject');
+		});
+		$('#dfsubjectchildtype').change(function() {
+			getSubject('#dfsubjectchildtype', '#dfsubject');
+		});
+		$('#dxjfsubjectchildtype').change(function() {
+			getSubject('#dxjfsubjectchildtype', '#dxjfsubject');
+		});
+		$('#dxdfsubjectchildtype').change(function() {
+			getSubject('#dxdfsubjectchildtype', '#dxdfsubject');
+		});
+		$('input:radio').click(function() {
+			this.blur();
+			this.focus();
+		});
+		$('input:radio').change(function() {
+			queryObject(this);
+		});
+		if (!ddd2 || ddd2=='0000-00-00 00:00:00') {
+			$("#dddate2").val(new Date().format("yyyy/MM/dd hh:mm"));
+			$("#tddddate2").html($("#dddate2").val());
+		}
+		if (!ddp2) {
+			$("#ddperson2").val("{@SESSION_USER.name}");
+			$("#tdddperson2").html("{@SESSION_USER.name}");
+		}
+
+		$("#account").change(function() {
+			var backname = $(this).find("option:selected").attr("backname");
+			var accountname = $(this).find("option:selected").attr("accountname");
+			$("#bankname").val(backname);
+			$("#username").val(accountname);
+			$("#tdbankname").html(backname);
+			$("#tdusername").html(accountname);
+		});
+
+		//修改赋值
+		//对象
+		if (ot) {
+			var url;
+			if (ot == '廠商') {
+				url = '__URL__/getManufacturer';
+			} else if (ot == '客戶') {
+				url = '__URL__/getClient';
+			} else if (ot == '專案') {
+				url = '__URL__/getCase';
+			} else {
+				$('#objectselect').empty().append('<option value="請選擇">請選擇</option>');
+				$("#objecttext").val(on);
+			}
+			if (url)
+				getObject(url, '#objectselect');
+		}
+		$("input[type=radio][value=" + ot + "]").attr("checked", true);
+		if (jfsmt)
+			$("#jfsubjectmaintype").val(jfsmt).trigger('change');
+		if (dfsmt)
+			$("#dfsubjectmaintype").val(dfsmt).trigger('change');
+		if (dxjfsmt)
+			$("#dxjfsubjectmaintype").val(dxjfsmt).trigger('change');
+		if (dxdfsmt)
+			$("#dxdfsubjectmaintype").val(dxdfsmt).trigger('change');
+
+		if (a)
+			$("#account").val(a);
+		if(bn)$("#bankname").val(bn);
+		if(u)$("#username").val(u);
+		if (pm)
+			$("#paymode").val(pm);
+		if (ps)
+			$("#paystate").val(ps);
+		if(depart)$("#depart").val(depart);
+
+	});
+	function getChildType(maintype, chidtype) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getChildType",
+			data : "type=" + $(maintype).val(),
+			success : function(data) {
+				$(chidtype).empty();
+				$("<option value=''>選擇子類別</option>").appendTo(chidtype);
+				var json = eval(data);
+				if (!json)
+					return;
+				$.each(json, function(k) {
+					$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name']) + "</option>").appendTo(chidtype);
+				});
+				if (maintype == '#jfsubjectmaintype')
+					if (jfsct)
+						$(chidtype).val(jfsct).trigger('change');
+				if (maintype == '#dfsubjectmaintype')
+					if (dfsct)
+						$(chidtype).val(dfsct).trigger('change');
+				if (maintype == '#dxjfsubjectmaintype')
+					if (dxjfsct)
+						$(chidtype).val(dxjfsct).trigger('change');
+				if (maintype == '#dxdfsubjectmaintype')
+					if (dxdfsct)
+						$(chidtype).val(dxdfsct).trigger('change');
+			}
+		});
+	}
+	function getSubject(childtype, subject) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getSubject",
+			data : "ct=" + $(childtype).val(),
+			success : function(data) {
+				$(subject).empty();
+				$("<option value=''>選擇科目</option>").appendTo(subject);
+				var json = eval(data);
+				if (!json)
+					return;
+				$.each(json, function(k) {
+					$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['subjectname']) + "</option>").appendTo(subject);
+				});
+				if (childtype == '#jfsubjectchildtype')
+					if (jfs)
+						$(subject).val(jfs);
+				if (childtype == '#dfsubjectchildtype')
+					if (jfs)
+						$(subject).val(dfs);
+				if (childtype == '#dxjfsubjectchildtype')
+					if (dxjfs)
+						$(subject).val(dxjfs);
+				if (childtype == '#dxdfsubjectchildtype')
+					if (dxdfs)
+						$(subject).val(dxdfs);
+			}
+		});
+
+	}
+	function getObject(url, object) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : url,
+			success : function(data) {
+				$(object).empty();
+				$("<option value=''>選擇</option>").appendTo(object);
+				var json = eval(data);
+				if (!json)
+					return;
+				$.each(json, function(k) {
+					$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name']) + "</option>").appendTo(object);
+				});
+				if (oi)
+					$(object).val(oi);
+			}
+		});
+	}
+	function queryObject(selObj) {
+		var url;
+		if (selObj.value == '廠商') {
+			url = '__URL__/getManufacturer';
+		} else if (selObj.value == '客戶') {
+			url = '__URL__/getClient';
+		} else if (selObj.value == '專案') {
+			url = '__URL__/getCase';
+		} else {
+			$('#objectselect').empty().append('<option value="請選擇">請選擇</option>');
+		}
+		getObject(url, '#objectselect');
+	}
+	function check() {
+		if ($("#objectselect")[0].selectedIndex != 0) {
+			$("#objectid").val($("#objectselect").val());
+			var v = $("#objectselect").find("option:selected").text();
+			$("#objectname").val(v);
+		} else {
+			$("#objectid").val($("#objectselect").val());
+			$("#objectname").val($("#objecttext").val());
+		}
+		return validator.index('jfsubject', '選擇科目');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">會計系統- 支付管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/addIncome" method="post" enctype="multipart/form-data" name="form1" onsubmit="return check()" id="form1">
+					<input type="hidden" name="code" value="{@SESSION_USER.code}" /> <input type="hidden" name="id" value="{$in.id}" />
+					<div class="topic2">新增紀錄</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th scope="row">日期</th>
+							<td><input type="text" name="indate" value="{$in.indate|date='Y/m/d',strtotime(###)}" class="Wdate" onfocus="WdatePicker()" /></td>
+						</tr>
+						<tr>
+							<th width="131" scope="row">所屬部門</th>
+							<td width="561"><input type="hidden" name="departname" id="departname" value="{$in.departname}" />
+							<select id="depart" name="depart" onchange="$('#departname').val($(this).find('option:selected').text())" style="width: 120px">
+									<option value="選擇部門">選擇部門</option>
+									<volist id="item" name="departs">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th width="131" scope="row">對象類別</th>
+							<td width="561"><input name="objecttype" type="radio" value="廠商" checked="checked" /> 廠商 <input name="objecttype" type="radio" value="客戶" /> 客戶 <input name="objecttype" type="radio" value="專案" /> 專案 <input name="objecttype" type="radio" value="其他" /> 其他</td>
+						</tr>
+						<tr>
+							<th scope="row">對象</th>
+							<td><input type="hidden" id="objectid" name="objectid" /> <input type="hidden" id="objectname" name="objectname" /> <select name="objectselect" id="objectselect">
+									<option value="請選擇">請選擇</option>
+							</select> <input type="text" id="objecttext" /></td>
+						</tr>
+						<tr>
+							<th scope="row">借方科目</th>
+							<td><select name="jfsubjectmaintype" id="jfsubjectmaintype">
+									<option>選擇主類別</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="jfsubjectchildtype" id="jfsubjectchildtype">
+									<option value="選擇子類別">選擇子類別</option>
+							</select> <select name="jfsubject" id="jfsubject">
+									<option value="選擇科目">選擇科目</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">貸方科目</th>
+							<td><select name="dfsubjectmaintype" id="dfsubjectmaintype">
+									<option>選擇主類別</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="dfsubjectchildtype" id="dfsubjectchildtype">
+									<option value="選擇子類別">選擇子類別</option>
+							</select> <select name="dfsubject" id="dfsubject">
+									<option value="選擇科目">選擇科目</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">預計兌現日期</th>
+							<td><neq name="in.estimateclearancedate" value="0000-00-00 00:00:00"> <input type="text" name="estimateclearancedate" value="{$in.estimateclearancedate|date='Y/m/d',strtotime(###)}" class="Wdate" onfocus="WdatePicker()" /> <else /> <input type="text" name="estimateclearancedate" class="Wdate" onfocus="WdatePicker()" /> </neq></td>
+						</tr>
+						<tr>
+							<th scope="row">實際兌現日期</th>
+							<td><neq name="in.actualclearancedate" value="0000-00-00 00:00:00"> <input type="text" name="actualclearancedate" value="{$in.actualclearancedate|date='Y/m/d',strtotime(###)}" class="Wdate" onfocus="WdatePicker()" /> <else /> <input type="text" name="actualclearancedate" class="Wdate" onfocus="WdatePicker()" /> </neq></td>
+						</tr>
+						<tr>
+							<th scope="row">退票日期</th>
+							<td><neq name="in.backbilldate" value="0000-00-00 00:00:00"> <input type="text" name="backbilldate" value="{$in.backbilldate|date='Y/m/d',strtotime(###)}" class="Wdate" onfocus="WdatePicker()" /> <else /> <input type="text" name="backbilldate" class="Wdate" onfocus="WdatePicker()" /> </neq></td>
+						</tr>
+						<tr>
+							<th scope="row">兌現借方科目</th>
+							<td><select name="dxjfsubjectmaintype" id="dxjfsubjectmaintype">
+									<option>選擇主類別</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="dxjfsubjectchildtype" id="dxjfsubjectchildtype">
+									<option value="選擇子類別">選擇子類別</option>
+							</select> <select name="dxjfsubject" id="dxjfsubject">
+									<option value="選擇科目">選擇科目</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">兌現貸方科目</th>
+							<td><select name="dxdfsubjectmaintype" id="dxdfsubjectmaintype">
+									<option>選擇主類別</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="dxdfsubjectchildtype" id="dxdfsubjectchildtype">
+									<option value="選擇子類別">選擇子類別</option>
+							</select> <select name="dxdfsubject" id="dxdfsubject">
+									<option value="選擇科目">選擇科目</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th colspan="2" scope="row"><div align="center">
+									<strong>票據資料</strong>
+								</div></th>
+						</tr>
+						<tr>
+							<th scope="row">支票號碼</th>
+							<td><input type="text" name="billcode" value="{$in.billcode}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">支票抬頭</th>
+							<td><input type="text" name="billtitle" value="{$in.billtitle}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">支票金額</th>
+							<td><input type="text" name="billmoney" value="{$in.billmoney}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">支票到期日</th>
+							<td><neq name="in.billexpiredate" value="0000-00-00 00:00:00"> <input type="text" name="billexpiredate" value="{$in.billexpiredate|date='Y/m/d',strtotime(###)}" class="Wdate" onfocus="WdatePicker()" /> <else /> <input type="text" name="billexpiredate" class="Wdate" onfocus="WdatePicker()" /> </neq></td>
+						</tr>
+						<tr>
+							<th scope="row">支付銀行帳號</th>
+							<td><input type="text" name="paybankaccount" value="{$in.paybankaccount}" /></td>
+						</tr>
+						<tr>
+							<th colspan="2" scope="row"><div align="center">
+									<strong>款項入帳 帳戶資料</strong>
+								</div></th>
+						</tr>
+						<tr>
+							<th scope="row">帳戶</th>
+							<td><select name="account" id="account">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="accs">
+									<option backname="{$item.bankname}" accountname="{$item.accountname}" value="{$item.id}">{$item.account}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<input type="hidden" id="bankname" name="bankname" />
+							<th scope="row">銀行名稱</th>
+							<td id="tdbankname">{$in.bankname}</td>
+						</tr>
+						<tr>
+							<input type="hidden" id="username" name="username" />
+							<th scope="row">戶名</th>
+							<td id="tdusername">{$in.username}</td>
+						</tr>
+						<tr>
+							<th scope="row">金額</th>
+							<td><input type="text" name="incomemoney" value="{$in.incomemoney}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">付款方式</th>
+							<td><select name="paymode" id="paymode">
+									<option>請選擇</option>
+									<option value="現金">現金</option>
+									<option value="匯款">匯款</option>
+									<option value="票據">票據</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">狀態</th>
+							<td><select name="paystate" id="paystate">
+									<option>請選擇</option>
+									<option value="兌現">兌現</option>
+									<option value="未兌現">未兌現</option>
+									<option value="退票">退票</option>
+							</select></td>
+						</tr>
+						<tr>
+							<input type="hidden" id="dddate1" name="dddate1" />
+							<th scope="row">登打時間</th>
+							<td id="tddddate1"><neq name="in.dddate1" value="0000-00-00 00:00:00"> {$in.ddate1|date='Y/m/d',strtotime(###)}</neq></td>
+						</tr>
+						<tr>
+							<input type="hidden" id="ddperson1" name="ddperson1" value="{@SESSION_USER.name}" />
+							<th scope="row">登打人</th>
+							<td id="tdddperson1">{$in.ddperson1}</td>
+						</tr>
+						<tr>
+							<th scope="row">實收金額</th>
+							<td><input type="text" name="actualreceivemoney" value="{$in.actualreceivemoney}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">差額科目</th>
+							<td><input type="text" name="cesubject" value="{$in.cesubject}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">差額</th>
+							<td><input type="text" name="ce" value="{$in.ce}" /></td>
+						</tr>
+						<tr>
+							<input type="hidden" id="dddate2" name="dddate2" />
+							<th scope="row">登打時間</th>
+							<td id="tddddate2"><neq name="in.dddate2" value="0000-00-00 00:00:00"> {$in.ddate2|date='Y/m/d',strtotime(###)}</neq></td>
+						</tr>
+						<tr>
+							<input type="hidden" id="ddperson2" name="ddperson2" />
+							<th scope="row">登打人</th>
+							<td id="tdddperson2">{$in.ddperson2}</td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td><textarea name=remark rows="6" style="width: 400px">{$in.remark}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit22" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

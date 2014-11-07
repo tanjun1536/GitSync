@@ -1,0 +1,16 @@
+[ 2013-09-27T05:59:58+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 4 行.
+[ 2013-09-27T05:59:58+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 5 行.
+[ 2013-09-27T05:59:58+08:00 ] SQL: select COUNT(*) from `check` WHERE  `code`='13108617'  and uid=30 [ RunTime:0.001736s ]
+[ 2013-09-27T05:59:58+08:00 ] SQL: select *,TIMEDIFF(downtime,ontime) difftime from `check` WHERE  `code`='13108617'  and uid=30 order by id desc  limit 0,20 [ RunTime:0.001324s ]
+[ 2013-09-27T06:01:33+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 4 行.
+[ 2013-09-27T06:01:33+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 5 行.
+[ 2013-09-27T06:01:33+08:00 ] SQL: select COUNT(*) from `check` WHERE  `code`='13108617'  and uid=30 [ RunTime:0.000812s ]
+[ 2013-09-27T06:01:33+08:00 ] NOTIC: [8] Undefined variable: list BaseAction.class.php 第 263 行.
+[ 2013-09-27T06:01:37+08:00 ] SQL: SHOW COLUMNS FROM `check` [ RunTime:0.006337s ]
+[ 2013-09-27T06:01:37+08:00 ] SQL: SELECT * FROM `check` WHERE type='一般' and DATEDIFF(date,'2013-09-27')=0 and  uid=30 LIMIT 1  [ RunTime:0.001022s ]
+[ 2013-09-27T06:01:37+08:00 ] SQL: SELECT * FROM company  WHERE CONCAT(onhour,onminute)>'0601' AND code='13108617' [ RunTime:0.000999s ]
+[ 2013-09-27T06:01:37+08:00 ] SQL: INSERT INTO `check` (`type`,`code`,`date`,`uid`,`status`,`ontime`) VALUES ('一般','13108617','2013-09-27 06:01:37','30','正常','2013-09-27 06:01:37') [ RunTime:0.049905s ]
+[ 2013-09-27T06:01:37+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 4 行.
+[ 2013-09-27T06:01:37+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 5 行.
+[ 2013-09-27T06:01:37+08:00 ] SQL: select COUNT(*) from `check` WHERE  `code`='13108617'  and uid=30 [ RunTime:0.001335s ]
+[ 2013-09-27T06:01:37+08:00 ] SQL: select *,TIMEDIFF(downtime,ontime) difftime from `check` WHERE  `code`='13108617'  and uid=30 order by id desc  limit 0,20 [ RunTime:0.000926s ]

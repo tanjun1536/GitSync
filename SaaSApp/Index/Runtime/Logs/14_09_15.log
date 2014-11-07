@@ -1,0 +1,362 @@
+[ 2014-09-15T20:37:30+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-09-15T20:37:30+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-09-15T20:42:14+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-09-15T20:42:14+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-09-15T20:42:35+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.277016s ]
+[ 2014-09-15T20:42:35+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.037002s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.154008s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.233014s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.100006s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.129007s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.043003s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.094006s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.027001s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T20:42:36+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-09-15T20:42:37+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2014-09-15T20:42:38+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.004001s ]
+[ 2014-09-15T20:42:38+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007000s ]
+[ 2014-09-15T20:42:38+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc [ RunTime:0.039002s ]
+[ 2014-09-15T20:42:38+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc limit 0,20 [ RunTime:0.039002s ]
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [2] session_start(): Cannot send session cookie - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 1438 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [2] session_start(): Cannot send session cache limiter - headers already sent (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 1438 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Use of undefined constant URL_REWRITE - assumed 'URL_REWRITE' Dispatcher.class.php 第 40 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Use of undefined constant URL_COMPAT - assumed 'URL_COMPAT' Dispatcher.class.php 第 46 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Use of undefined constant _PHP_FILE_ - assumed '_PHP_FILE_' Dispatcher.class.php 第 50 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Undefined index: REQUEST_URI Dispatcher.class.php 第 122 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 1608 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 1611 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 2335 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 2336 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 2337 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 2477 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 2479 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Undefined index: REQUEST_URI ~runtime.php 第 2604 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Undefined index: REQUEST_METHOD ~runtime.php 第 2606 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Undefined index: SERVER_PROTOCOL ~runtime.php 第 2607 行.
+[ 2014-09-15T20:44:01+08:00 ] NOTIC: [8] Undefined index: HTTP_USER_AGENT ~runtime.php 第 2609 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [2] session_start(): Cannot send session cookie - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 1438 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [2] session_start(): Cannot send session cache limiter - headers already sent (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 1438 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Use of undefined constant URL_REWRITE - assumed 'URL_REWRITE' Dispatcher.class.php 第 40 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Use of undefined constant URL_COMPAT - assumed 'URL_COMPAT' Dispatcher.class.php 第 46 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Use of undefined constant _PHP_FILE_ - assumed '_PHP_FILE_' Dispatcher.class.php 第 50 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Undefined index: REQUEST_URI Dispatcher.class.php 第 122 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 1608 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 1611 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 2335 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 2336 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 2337 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 2477 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 2479 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Undefined index: REQUEST_URI ~runtime.php 第 2604 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Undefined index: REQUEST_METHOD ~runtime.php 第 2606 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Undefined index: SERVER_PROTOCOL ~runtime.php 第 2607 行.
+[ 2014-09-15T20:44:22+08:00 ] NOTIC: [8] Undefined index: HTTP_USER_AGENT ~runtime.php 第 2609 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [2] session_start(): Cannot send session cookie - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 1438 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [2] session_start(): Cannot send session cache limiter - headers already sent (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 1438 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [8] Use of undefined constant URL_REWRITE - assumed 'URL_REWRITE' Dispatcher.class.php 第 40 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [8] Use of undefined constant URL_COMPAT - assumed 'URL_COMPAT' Dispatcher.class.php 第 46 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [8] Use of undefined constant _PHP_FILE_ - assumed '_PHP_FILE_' Dispatcher.class.php 第 50 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [8] Undefined index: REQUEST_URI Dispatcher.class.php 第 122 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 1608 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 1611 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 2335 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 2336 行.
+[ 2014-09-15T20:46:32+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 2337 行.
+[ 2014-09-15T20:46:33+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 2477 行.
+[ 2014-09-15T20:46:33+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 2479 行.
+[ 2014-09-15T20:46:33+08:00 ] NOTIC: [8] Undefined index: REQUEST_URI ~runtime.php 第 2604 行.
+[ 2014-09-15T20:46:33+08:00 ] NOTIC: [8] Undefined index: REQUEST_METHOD ~runtime.php 第 2606 行.
+[ 2014-09-15T20:46:33+08:00 ] NOTIC: [8] Undefined index: SERVER_PROTOCOL ~runtime.php 第 2607 行.
+[ 2014-09-15T20:46:33+08:00 ] NOTIC: [8] Undefined index: HTTP_USER_AGENT ~runtime.php 第 2609 行.
+[ 2014-09-15T20:50:48+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-09-15T20:50:48+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-09-15T20:50:48+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-09-15T20:50:49+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.outcode,sc.incode,sc.allocatecode,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  ORDER BY dodate desc [ RunTime:0.107006s ]
+[ 2014-09-15T20:50:49+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.outcode,sc.incode,sc.allocatecode,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  ORDER BY dodate desc limit 0,20 [ RunTime:0.001000s ]
+[ 2014-09-15T20:50:49+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-09-15T20:50:49+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-09-15T20:50:49+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-09-15T21:06:08+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-09-15T21:06:08+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-09-15T21:06:10+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.065004s ]
+[ 2014-09-15T21:06:10+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.122007s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.129007s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.106006s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.096006s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.066004s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.088005s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.003000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005001s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.003000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-09-15T21:06:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-09-15T21:06:11+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2014-09-15T21:06:12+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.004000s ]
+[ 2014-09-15T21:06:12+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.005001s ]
+[ 2014-09-15T21:06:12+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc [ RunTime:0.035002s ]
+[ 2014-09-15T21:06:12+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc limit 0,20 [ RunTime:0.034002s ]
+[ 2014-09-15T21:06:17+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-09-15T21:06:17+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-09-15T21:06:17+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-09-15T21:06:18+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.outcode,sc.incode,sc.allocatecode,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  ORDER BY dodate desc [ RunTime:0.081005s ]
+[ 2014-09-15T21:06:18+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.outcode,sc.incode,sc.allocatecode,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  ORDER BY dodate desc limit 0,20 [ RunTime:0.001000s ]
+[ 2014-09-15T21:06:18+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-09-15T21:06:18+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-09-15T21:06:18+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-09-15T21:06:24+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.079005s ]
+[ 2014-09-15T21:06:24+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-09-15T21:06:24+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.048003s ]
+[ 2014-09-15T21:06:24+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-09-15' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-09-15T21:06:24+08:00 ] SQL: INSERT INTO `stock_line_code` (`date`,`type`,`line`,`code`) VALUES ('2014-09-15','O',1,'13108617') [ RunTime:0.002000s ]
+[ 2014-09-15T21:06:24+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 312 行.
+[ 2014-09-15T21:06:24+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 372 行.
+[ 2014-09-15T21:06:24+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 376 行.
+[ 2014-09-15T21:06:24+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 408 行.
+[ 2014-09-15T21:06:24+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 421 行.
+[ 2014-09-15T21:09:31+08:00 ] SQL: SHOW COLUMNS FROM `stock_in_type` [ RunTime:0.067003s ]
+[ 2014-09-15T21:09:31+08:00 ] SQL: SELECT * FROM `stock_in_type` WHERE code ='13108617' [ RunTime:0.001001s ]
+[ 2014-09-15T21:09:31+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.006000s ]
+[ 2014-09-15T21:09:31+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-09-15' AND type='I' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-09-15T21:09:31+08:00 ] SQL: INSERT INTO `stock_line_code` (`date`,`type`,`line`,`code`) VALUES ('2014-09-15','I',1,'13108617') [ RunTime:0.002000s ]
+[ 2014-09-15T21:09:31+08:00 ] NOTIC: [8] Undefined variable: orderuser c5189f07c3de3364530b65ecbc2e9102.php 第 365 行.
+[ 2014-09-15T21:09:59+08:00 ] SQL: SHOW COLUMNS FROM `stock_in_type` [ RunTime:0.004000s ]
+[ 2014-09-15T21:09:59+08:00 ] SQL: SELECT * FROM `stock_in_type` WHERE code ='13108617' [ RunTime:0.000000s ]
+[ 2014-09-15T21:09:59+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.005001s ]
+[ 2014-09-15T21:09:59+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-09-15' AND type='I' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-09-15T21:09:59+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='I',`line`=2,`date`='2014-09-15',`code`='13108617' WHERE ( `id` = '70' ) [ RunTime:0.003000s ]
+[ 2014-09-15T21:09:59+08:00 ] NOTIC: [8] Undefined variable: orderuser c5189f07c3de3364530b65ecbc2e9102.php 第 365 行.
+[ 2014-09-15T21:16:00+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.005001s ]
+[ 2014-09-15T21:16:00+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-09-15' AND type='A' LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-09-15T21:16:00+08:00 ] SQL: INSERT INTO `stock_line_code` (`date`,`type`,`line`,`code`) VALUES ('2014-09-15','A',1,'13108617') [ RunTime:0.002000s ]

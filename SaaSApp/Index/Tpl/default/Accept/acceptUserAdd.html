@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	function addFile() {
+		$('#fileContainer').append('<li></li>').append('<input type="file" name="att[]" />');
+	}
+	$(function() {
+		$('#depart').change(function() {
+			getTeam('#depart', '#team');
+		});
+		$('#team').change(function() {
+			getPeople('#team', '#user');
+		});
+	});
+	function getTeam(depart, teams) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getTeam",
+			data : "pid=" + $(depart).val(),
+			success : function(data) {
+				$(teams).empty();
+				$("<option value=''>選擇組別</option>").appendTo(teams);
+				var json = eval(data);
+				if(!json)return;
+				$.each(json, function(k) {
+					$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name'])  + "</option>").appendTo(teams);
+				});
+			}
+		});
+	}
+	function getPeople(team, users) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getPeopleByTeam",
+			data : "id=" + $(team).val(),
+			success : function(data) {
+				$(users).empty();
+				$("<option value=''>員工姓名</option>").appendTo(users);
+				var json = eval(data);
+				$.each(json, function(k) {
+					if (json[k]['id'] != $('#user').val())
+						$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name']) + "(" + decodeURI(json[k]['ucode']) + ")</option>").appendTo(users);
+				});
+			}
+		});
+	}
+	function check() {
+		var len = $("#Users tr").length;
+		if(len>2)
+			{return true}
+		else
+			{
+			alert("請添加人員!");
+			return false;
+			}
+		
+	}
+	function addUser() {
+		if (validator.index('user', '請員工姓名!')) {
+			var table = $('#Users');
+			var len = $("#Users tr").length;
+			var row = len % 2 == 0 ? $("<tr class=\"trcolor\"></tr>"): $("<tr></tr>");
+			var hValue = $('#user').val() ;
+			row.append($("<td></td>")
+			   .append($('#depart option:selected').text())
+			   .append($("<input type='hidden' value='" + hValue + "' name ='users[]' />")));
+			row.append($("<td></td>").append($('#team').find("option:selected").text()));
+			row.append($("<td></td>").append($('#user').find("option:selected").text()));
+			row.append($("<td align=\"center\"></td>")
+			   .append($('<img onclick="$(this).parent().parent().remove();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+			table.append(row);
+		}
+
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">點交驗收管理 - 點交驗收人員管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/acceptUserSave" method="post" onsubmit="return check();" enctype="multipart/form-data"
+					name="form1" id="form1">
+					<div class="topic2">新增人員</div>
+					<input type="hidden" name="accept" value="{.accept}" />
+					<table width="695" border="0" cellpadding="0" cellspacing="0"
+						id="Users" class="tab_thtop">
+						<tr>
+							<th width="242" scope="col">部門</th>
+							<th width="194" scope="col">組別</th>
+							<th width="214" scope="col">姓名</th>
+							<th width="43" scope="col">操作</th>
+						</tr>
+						<tr>
+							<td><select id="depart" name="depart">
+									<option value="選擇部門">選擇部門</option>
+									<volist id="item" name="departs">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select></td>
+							<td><select name="team" id="team">
+									<option value="">選擇組別</option>
+							</select></td>
+							<td><select id="user" name="user">
+									<option value="員工姓名">員工姓名</option>
+							</select></td>
+							<td align="center"><a href="javascript:void(0)" onclick="addUser();"><img
+									src="__PUBLIC__/images/add_16.png"   alt="新增" width="16"
+									height="16" border="0" /></a></td>
+						</tr>
+					</table>
+					<div align="center" style="margin-top: 10px">
+						<input type="submit" name="Submit2" value="確定送出" /> <input
+							type="reset" name="Submit3" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

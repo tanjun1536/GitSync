@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/jquery.json-2.3.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	$(function() {
+		$("dt input[type=checkbox]").change(function() {
+			$(this).parent().next().find("input[type=checkbox]").attr('checked', $(this).attr('checked') == 'checked');
+		});
+	});
+	</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">我的最愛</div>
+			<div class="mainInfo">
+				<form action="__URL__/SaveFavorite" method="post" enctype="multipart/form-data"
+					name="form1" id="form1">
+					<div class="topic2">設定我的最愛</div>
+					<table width="100%" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th scope="col">基本功能</th>
+						</tr>
+						<tr>
+							<td valign="top">
+								<dl style="margin-top: 10px">
+									<volist id="menu" name="topMenus">
+									<dt>
+										<in name="menu.id" value="$hasMenus">
+											<input type="checkbox" checked="checked" name="m[]" value="{$menu.id}" />
+										<else/>
+											<input type="checkbox" name="m[]" value="{$menu.id}" />
+										</in>
+										{$menu.name}
+									</dt>
+									<dd>
+										<volist name="menu.children" id="child"> 
+										<in name="child.id" value="$hasMenus">
+											<input type="checkbox" checked="checked" name="m[]" value="{$child.id}" />
+										<else/>
+											<input type="checkbox" name="m[]" value="{$child.id}" />
+										</in>
+										{$child.name}
+										<notempty name="child.children">
+											(<volist id="cchild" name="child.children">
+											<in name="cchild.id" value="$hasMenus">
+											<input type="checkbox" checked="checked" name="m[]" value="{$cchild.id}" />
+										<else/>
+											<input type="checkbox" name="m[]" value="{$cchild.id}" />
+										</in>
+											
+											 {$cchild.name} 
+											</volist> )<br />
+											</notempty>
+										 </volist>
+									</dd>
+									</volist>
+								</dl>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" valign="top"><input type="submit"
+								name="Submit" value="確定" /> <input type="reset" name="Submit2"
+								value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

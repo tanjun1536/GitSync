@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/jquery.PrintArea.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<script type="text/javascript">
+	var tid = "{.tid}";
+	var ctid = "{.ctid}";
+	var devicecode = "{.devicecode}";
+	var build="{$device.build}";
+	var floor="{$device.floor}";
+	var area="{$device.area}";
+	$(function() {
+		$("#print").bind("click", function(event) {
+			$("#S").hide();
+			$("#C").hide();
+			$("#print").hide()
+			$(".mainInfo").printArea();
+			$("#S").show();
+			$("#C").show();
+			$("#print").show()
+		});
+		$("#type").change(function() {
+			getChildType();
+		});
+		$("#childtype").change(function() {
+			getDevice();
+		});
+		$("#build").change(function() {
+			getFloor("#build", "#floor");
+		});
+		$("#floor").change(function() {
+			getArea("#build", "#floor");
+		});
+		$("#devicecode").change(function() {
+			var name = $("#devicecode").find("option:selected").attr("name");
+			if (name != '') {
+				$('#devicename').val(name);
+				$('#devicenameLb').html(name);
+			}
+		});
+		if (tid)
+			$("#type").val(tid).trigger('change');
+		if(build)
+			$("#build").val(build).trigger('change');
+	});
+	function getFloor(b, f) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getFloor",
+			data : "bid=" + $(b).val(),
+			success : function(data) {
+				$("#floor").empty();
+				$("<option value='選擇樓層'>選擇樓層</option>").appendTo(f);
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$(
+							"<option value='" + json[k]['id'] + "'>"
+									+ decodeURI(json[k]['name']) + "</option>")
+							.appendTo(f);
+				});
+				$("#floor").val(floor).trigger('change');
+			}
+		});
+
+	}
+	function getArea() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getArea",
+			data : "fid=" + $("#floor").val(),
+			success : function(data) {
+				$("#area").empty();
+				$("<option value='請選擇'>請選擇</option>").appendTo("#area");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$(
+							"<option value='" + json[k]['id'] + "'>"
+									+ decodeURI(json[k]['name']) + "</option>")
+							.appendTo("#area");
+				});
+				$("#area").val(area).trigger('change');
+			}
+		});
+
+	}
+	function getChildType() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getDeviceChildType",
+			data : "id=" + $("#type").val(),
+			success : function(data) {
+				$("#childtype").empty();
+				$("<option value='0'>請選擇</option>").appendTo("#childtype");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$(
+							"<option value='" + json[k]['id'] + "'>"
+									+ decodeURI(json[k]['name']) + "</option>")
+							.appendTo("#childtype");
+				});
+				if (ctid)
+					$("#childtype").val(ctid).trigger('change');
+			}
+		});
+
+	}
+	var c = "{@case}";
+	function getDevice() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getDevice",
+			data : {
+				"case" : c,
+				"type" : $("#type").val(),
+				"childtype" : $("#childtype").val(),
+				"build" : $("#build").val(),
+				"floor" : $("#floor").val(),
+				"area" : $("#area").val(),
+			},
+			success : function(data) {
+				$("#devicecode").empty();
+				$("<option value='0'>請選擇</option>").appendTo("#devicecode");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$(
+							"<option name='" + decodeURI(json[k]['name'])
+									+ "' value='" + json[k]['devicecode']
+									+ "'>" + decodeURI(json[k]['name'])+"("+decodeURI(json[k]['devicecode'])+")"
+									+ "</option>").appendTo("#devicecode");
+				});
+				if (devicecode)
+					$("#devicecode").val(devicecode);
+			}
+		});
+
+	}
+	function check() {
+		return validator.empty('repaircode', '請輸入叫修單編號!')
+				&& validator.index('devicecode', '您尚未選擇叫修設備!');
+	}
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">叫修單管理 - 申請叫修</div>
+			<div class="mainInfo">
+				<form action="__URL__/insertRepair?case={@case}"
+					onsubmit="return check()" method="post"
+					enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="state" value="申請叫修" /> <input
+						type="hidden" name="case" value="{@case} " />
+					<div class="topic2">叫修單</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th scope="row">叫修單編號</th>
+							<td><input type="text" name="repaircode" readonly="readonly"
+								id="repaircode" value="{$linecode}" /></td>
+							<th scope="row">叫修時間</th>
+							<td><input type="hidden" name="repairdate" id="repairdate" />
+								<script type="text/javascript">
+									var d = new Date()
+											.format("yyyy/MM/dd hh:mm");
+									document.write(d);
+									$("#repairdate").val(d);
+								</script></td>
+						</tr>
+						<tr>
+							<th width="100" scope="row">樓層區域</th>
+							<td width="361"><select name="build" id="build">
+									<option value="">選擇棟別</option>
+									<volist id="item" name="builds">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="floor" id="floor">
+									<option value="">選擇樓層</option>
+							</select> <select name="area" id="area">
+									<option value="">選擇區域</option>
+							</select></td>
+							<th width="73" scope="row">申請人</th>
+							<td width="156"><input type="hidden" name="requestuser"
+								id="requestuser" value="{@SESSION_USER.name}" /><input type="hidden" name="requestuserid"
+								id="requestuserid" value="{@SESSION_USER.id}" />{@SESSION_USER.name}</td>
+						</tr>
+						<tr>
+							<th scope="row">設備編號</th>
+							<td colspan="1"><select name="type" id="type">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="childtype" id="childtype">
+									<option value="請選擇" selected="selected">請選擇</option>
+							</select> <select name="devicecode" id="devicecode">
+									<option value="請選擇" selected="selected">請選擇</option>
+							</select></td>
+							<th width="73" scope="row">叫修人</th>
+							<td width="156"><input type="text" name="askuser"
+								id="askuser" /></td>
+						</tr>
+						<tr>
+							<th scope="row">設備名稱</th>
+							<input type="hidden" name="devicename" id="devicename" value="{$device.name}"/>
+							<td colspan="3"><label id="devicenameLb">{$device.name}</label></td>
+						</tr>
+						<tr>
+							<th scope="row">附件檔案</th>
+							<td colspan="3"><input type="file" name="att" /></td>
+						</tr>
+						<tr>
+							<th scope="row">說明</th>
+							<td colspan="3"><textarea name="remark" rows="12"
+									style="width: 500px"></textarea></td>
+						</tr>
+					</table>
+<!-- 					<table width="695" border="0" cellpadding="0" cellspacing="1" -->
+<!-- 						class="tabThSide"> -->
+<!-- 						<tr> -->
+<!-- 							<th width="252" scope="col">業方</th> -->
+<!-- 							<th width="143" scope="col">現場主管</th> -->
+<!-- 							<th width="149" scope="col">驗收</th> -->
+<!-- 							<th width="146" scope="col">施工人員</th> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td>&nbsp;</td> -->
+<!-- 							<td>&nbsp;</td> -->
+<!-- 							<td>&nbsp;</td> -->
+<!-- 							<td>&nbsp;</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td>&nbsp;</td> -->
+<!-- 							<td>&nbsp;</td> -->
+<!-- 							<td>&nbsp;</td> -->
+<!-- 							<td>&nbsp;</td> -->
+<!-- 						</tr> -->
+<!-- 					</table> -->
+					<div align="center">
+						<input type="submit" id="S" value="確定" /> <input type="reset"
+							id="C" value="取消" /> 
+					</div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

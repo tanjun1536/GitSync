@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 異動管理</div>
+			<div class="mainInfo">
+				<div class="topic2">調撥單</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+					<tr>
+						<th width="117" scope="row">調出倉庫代號</th>
+						<td width="216">{$sc.outwarehousecode}</td>
+						<th width="91" scope="row">調出倉庫</th>
+						<td width="266">{$sc.outwarehousename}</td>
+					</tr>
+					<tr>
+						<th scope="row">調入倉庫代號</th>
+						<td>{$sc.inwarehousecode}</td>
+						<th scope="row">調入倉庫</th>
+						<td>{$sc.inwarehousename}</td>
+					</tr>
+					<tr>
+						<th scope="row">調撥日期</th>
+						<td>{$sc.indate|date='Y/m/d',strtotime(###)}</td>
+						<th scope="row">審核日期</th>
+						<td><notempty name="sc.checkdate">{$sc.checkdate|date='Y/m/d',strtotime(###)}</notempty></td>
+					</tr>
+					<tr>
+						<th scope="row">調撥人</th>
+						<td>{$sc.inuser}</td>
+						<th scope="row">審核人</th>
+						<td>{$sc.checkuser}</td>
+					</tr>
+					<tr>
+						<th scope="row">備註</th>
+						<td colspan="3">{$sc.remark}</td>
+					</tr>
+				</table>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="181" scope="col">商品編號</th>
+						<th width="335" scope="col">商品名稱</th>
+						<th width="66" scope="col">單價</th>
+						<th width="43" scope="col">數量</th>
+						<th width="68" scope="col">小計</th>
+						<th width="153" scope="col">備註</th>
+					</tr>
+					<volist name="scd" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.productcode}</td>
+					<td>{$item.productname}</td>
+					<td align="center">{$item.price}</td>
+					<td align="center">{$item.quantity}</td>
+					<td align="center">{$item.subtotal}</td>
+					<td>{$item.remark}</td>
+					</tr>
+					</volist>
+					<tr class="trcolor3">
+						<td colspan="4" align="right"><strong>總計入庫金額：</strong></td>
+						<td align="center">{$sc.totalmoney}</td>
+						<td>元</td>
+					</tr>
+				</table>
+				<div align="right"></div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

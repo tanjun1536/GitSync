@@ -1,0 +1,554 @@
+[ 2014-07-28T21:06:08+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-07-28T21:06:08+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-07-28T21:06:12+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.304017s ]
+[ 2014-07-28T21:06:12+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:06:12+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.469027s ]
+[ 2014-07-28T21:06:14+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:1.726099s ]
+[ 2014-07-28T21:06:14+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.097006s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.370021s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.060004s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.002000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.101006s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.002001s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.002000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.002000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.002000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.002000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-07-28T21:06:15+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2014-07-28T21:06:16+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.005000s ]
+[ 2014-07-28T21:06:16+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008000s ]
+[ 2014-07-28T21:06:16+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc [ RunTime:0.036002s ]
+[ 2014-07-28T21:06:16+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc limit 0,20 [ RunTime:0.032002s ]
+[ 2014-07-28T21:06:20+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-07-28T21:06:20+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-07-28T21:06:20+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-07-28T21:06:21+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.056003s ]
+[ 2014-07-28T21:06:21+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.002000s ]
+[ 2014-07-28T21:06:22+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-07-28T21:06:22+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-07-28T21:06:22+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-07-28T21:06:25+08:00 ] SQL: SHOW COLUMNS FROM `stock_in_type` [ RunTime:0.081005s ]
+[ 2014-07-28T21:06:25+08:00 ] SQL: SELECT * FROM `stock_in_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-07-28T21:06:32+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.061004s ]
+[ 2014-07-28T21:06:32+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `stock_out_type` WHERE  `code`='13108617'  LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:06:32+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE  `code`='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001000s ]
+[ 2014-07-28T21:06:32+08:00 ] NOTIC: [8] Undefined variable: outtype c535fcd3365154ed85ed109526d0ba35.php 第 151 行.
+[ 2014-07-28T21:06:32+08:00 ] NOTIC: [8] Undefined variable: outtype c535fcd3365154ed85ed109526d0ba35.php 第 155 行.
+[ 2014-07-28T21:06:33+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.008000s ]
+[ 2014-07-28T21:06:33+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-07-28T21:06:33+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.063003s ]
+[ 2014-07-28T21:06:33+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-07-28' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:06:33+08:00 ] SQL: INSERT INTO `stock_line_code` (`date`,`type`,`line`,`code`) VALUES ('2014-07-28','O',1,'13108617') [ RunTime:0.157009s ]
+[ 2014-07-28T21:06:34+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 311 行.
+[ 2014-07-28T21:06:34+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 371 行.
+[ 2014-07-28T21:06:34+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 375 行.
+[ 2014-07-28T21:06:34+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 407 行.
+[ 2014-07-28T21:06:34+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 420 行.
+[ 2014-07-28T21:07:15+08:00 ] SQL: SHOW COLUMNS FROM `stock_in_type` [ RunTime:0.008000s ]
+[ 2014-07-28T21:07:15+08:00 ] SQL: SELECT * FROM `stock_in_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-07-28T21:07:29+08:00 ] SQL: SHOW COLUMNS FROM `stock_in_type` [ RunTime:0.008001s ]
+[ 2014-07-28T21:07:29+08:00 ] SQL: SELECT * FROM `stock_in_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-07-28T21:08:02+08:00 ] SQL: SHOW COLUMNS FROM `stock_in_type` [ RunTime:0.011001s ]
+[ 2014-07-28T21:08:02+08:00 ] SQL: SELECT * FROM `stock_in_type` WHERE code ='13108617' [ RunTime:0.002000s ]
+[ 2014-07-28T21:08:28+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.008001s ]
+[ 2014-07-28T21:08:28+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.000000s ]
+[ 2014-07-28T21:08:28+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.005000s ]
+[ 2014-07-28T21:08:28+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-07-28' AND type='O' LIMIT 1  [ RunTime:0.001001s ]
+[ 2014-07-28T21:08:28+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=2,`date`='2014-07-28',`code`='13108617' WHERE ( `id` = '42' ) [ RunTime:0.306017s ]
+[ 2014-07-28T21:08:29+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 311 行.
+[ 2014-07-28T21:08:29+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 371 行.
+[ 2014-07-28T21:08:29+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 375 行.
+[ 2014-07-28T21:08:29+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 407 行.
+[ 2014-07-28T21:08:29+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 420 行.
+[ 2014-07-28T21:15:59+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-07-28T21:15:59+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-07-28T21:16:02+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.012001s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.004000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.004000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.022001s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.004001s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:16:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:03+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.006000s ]
+[ 2014-07-28T21:16:03+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:03+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc limit 0,20 [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:53+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-07-28T21:16:53+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-07-28T21:16:53+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-07-28T21:16:54+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:54+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:55+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-07-28T21:16:55+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-07-28T21:16:55+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-07-28T21:16:57+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.008001s ]
+[ 2014-07-28T21:16:57+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-07-28T21:16:57+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.008001s ]
+[ 2014-07-28T21:16:57+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-07-28' AND type='O' LIMIT 1  [ RunTime:0.002000s ]
+[ 2014-07-28T21:16:57+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=3,`date`='2014-07-28',`code`='13108617' WHERE ( `id` = '42' ) [ RunTime:0.101006s ]
+[ 2014-07-28T21:16:57+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 311 行.
+[ 2014-07-28T21:16:57+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 371 行.
+[ 2014-07-28T21:16:57+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 375 行.
+[ 2014-07-28T21:16:57+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 407 行.
+[ 2014-07-28T21:16:57+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 420 行.
+[ 2014-07-28T21:18:02+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.009000s ]
+[ 2014-07-28T21:18:02+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-07-28T21:18:02+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.007000s ]
+[ 2014-07-28T21:18:02+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-07-28' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:18:02+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=4,`date`='2014-07-28',`code`='13108617' WHERE ( `id` = '42' ) [ RunTime:0.115006s ]
+[ 2014-07-28T21:18:02+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 311 行.
+[ 2014-07-28T21:18:02+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 371 行.
+[ 2014-07-28T21:18:02+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 375 行.
+[ 2014-07-28T21:18:02+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 407 行.
+[ 2014-07-28T21:18:02+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 420 行.
+[ 2014-07-28T21:18:23+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-07-28T21:18:23+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-07-28T21:18:23+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-07-28T21:18:24+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.001000s ]
+[ 2014-07-28T21:18:24+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-07-28T21:18:24+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-07-28T21:18:24+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-07-28T21:18:24+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-07-28T21:18:28+08:00 ] SQL: SHOW COLUMNS FROM `stock_in_type` [ RunTime:0.007001s ]
+[ 2014-07-28T21:18:28+08:00 ] SQL: SELECT * FROM `stock_in_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:07+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-07-28T21:46:07+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-07-28T21:46:15+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009001s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.004001s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.005000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.024002s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.004000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-07-28T21:46:15+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2014-07-28T21:46:16+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.001001s ]
+[ 2014-07-28T21:46:16+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008000s ]
+[ 2014-07-28T21:46:16+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:16+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc limit 0,20 [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:23+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-07-28T21:46:23+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-07-28T21:46:23+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-07-28T21:46:24+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:24+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:24+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-07-28T21:46:24+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-07-28T21:46:24+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-07-28T21:46:27+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.007000s ]
+[ 2014-07-28T21:46:27+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:27+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.009000s ]
+[ 2014-07-28T21:46:27+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-07-28' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:27+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=5,`date`='2014-07-28',`code`='13108617' WHERE ( `id` = '42' ) [ RunTime:0.075004s ]
+[ 2014-07-28T21:46:27+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 311 行.
+[ 2014-07-28T21:46:27+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 371 行.
+[ 2014-07-28T21:46:27+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 375 行.
+[ 2014-07-28T21:46:27+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 404 行.
+[ 2014-07-28T21:46:27+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 417 行.
+[ 2014-07-28T21:46:43+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.006000s ]
+[ 2014-07-28T21:46:43+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001001s ]
+[ 2014-07-28T21:46:43+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.006000s ]
+[ 2014-07-28T21:46:43+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-07-28' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:46:43+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=6,`date`='2014-07-28',`code`='13108617' WHERE ( `id` = '42' ) [ RunTime:0.076004s ]
+[ 2014-07-28T21:46:44+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 311 行.
+[ 2014-07-28T21:46:44+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 371 行.
+[ 2014-07-28T21:46:44+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 375 行.
+[ 2014-07-28T21:46:44+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 407 行.
+[ 2014-07-28T21:46:44+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 420 行.
+[ 2014-07-28T21:47:12+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.007001s ]
+[ 2014-07-28T21:47:12+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.002000s ]
+[ 2014-07-28T21:47:12+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.007001s ]
+[ 2014-07-28T21:47:12+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-07-28' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:47:12+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=7,`date`='2014-07-28',`code`='13108617' WHERE ( `id` = '42' ) [ RunTime:0.107006s ]
+[ 2014-07-28T21:47:12+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 311 行.
+[ 2014-07-28T21:47:12+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 371 行.
+[ 2014-07-28T21:47:12+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 375 行.
+[ 2014-07-28T21:47:12+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 407 行.
+[ 2014-07-28T21:47:12+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 420 行.
+[ 2014-07-28T21:47:37+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.007000s ]
+[ 2014-07-28T21:47:37+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-07-28T21:47:37+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.007000s ]
+[ 2014-07-28T21:47:37+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-07-28' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:47:37+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=8,`date`='2014-07-28',`code`='13108617' WHERE ( `id` = '42' ) [ RunTime:0.122007s ]
+[ 2014-07-28T21:47:37+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 311 行.
+[ 2014-07-28T21:47:37+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 371 行.
+[ 2014-07-28T21:47:37+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 375 行.
+[ 2014-07-28T21:47:37+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 407 行.
+[ 2014-07-28T21:47:37+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 420 行.
+[ 2014-07-28T21:47:54+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.007000s ]
+[ 2014-07-28T21:47:54+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-07-28T21:47:54+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.006001s ]
+[ 2014-07-28T21:47:54+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-07-28' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-07-28T21:47:54+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=9,`date`='2014-07-28',`code`='13108617' WHERE ( `id` = '42' ) [ RunTime:0.095006s ]
+[ 2014-07-28T21:47:54+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 311 行.
+[ 2014-07-28T21:47:54+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 371 行.
+[ 2014-07-28T21:47:54+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 375 行.
+[ 2014-07-28T21:47:54+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 407 行.
+[ 2014-07-28T21:47:54+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 420 行.

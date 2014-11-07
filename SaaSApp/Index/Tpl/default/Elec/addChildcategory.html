@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	function check() {
+		if (validator.index('elec', '請選擇類別!') && validator.empty('name', '請輸入名稱!')) {
+			if ($("input[type=checkbox]:checked").length > 0) {
+				return true;
+			} else {
+				alert('請選擇級別');
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">文件管理 - 簽呈類別管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/addChildElec" onsubmit="return check()" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<div class="topic2">新增 / 修改簽呈名稱</div>
+					<neq name="elecc"> <input type="hidden" name="id" value="{$elecc.id}" /> </neq>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+
+						<tr>
+							<th scope="row">類別</th>
+							<td><ul>
+									<li><select name="elec" id="elec">
+											<option value="請選擇">請選擇</option>
+											<volist id="item" name="types"> <eq name="item.id" value="$elecc.elec"> <!-- 											  <if condition="$item.id eq $elecc.elec"> -->
+											<option selected="selected" value="{$item.id}">{$item.name}</option>
+											<else />
+											<option value="{$item.id}">{$item.name}</option>
+											</eq> </volist>
+									</select></li>
+								</ul></td>
+						</tr>
+						<tr>
+							<th scope="row">名稱</th>
+							<td><label> <input type="text" id="name" value="{$elecc.name}" name="name" style="width: 400px" />
+							</label></td>
+						</tr>
+						<tr>
+							<th scope="row">級別</th>
+							<td><volist id="item" name="levels">
+							 <in name="item.id" value="$elecc.levels">
+							  <input type="checkbox" checked="checked" name="level[]" value="{$item.id}" />{$item.lcode} <else /> 
+							  <input type="checkbox" name="level[]" value="{$item.id}" />{$item.lcode} </in> </volist></td>
+						</tr>
+						<tr>
+							<th width="70" scope="row">時間</th>
+							<td width="622"><input type="text" value="{$elecc.hours}" name="hours" style="width: 30px" /> 小時</td>
+						</tr>
+						<tr>
+							<th scope="row">金額</th>
+							<td><input type="text" name="smoney" value="{$elecc.smoney}" style="width: 100px" /> ~ <input type="text" value="{$elecc.emoney}" name="emoney" style="width: 100px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">說明</th>
+							<td><textarea name="remark" rows="8" style="width: 600px">{$elecc.remark} </textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

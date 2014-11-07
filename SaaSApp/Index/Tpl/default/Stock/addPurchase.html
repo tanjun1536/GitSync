@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<load href="__PUBLIC__/js/jquery.format.1.03.js" />
+<script type="text/JavaScript">
+	$(function() {
+		$("#manufacturertype").change(function() {
+			getManufacturers();
+		});
+		$("#productcode").live("blur", function() {
+			getProduct();
+		});
+		$("#quantity").live("keyup", function() {
+			$("#subtotal").html($("#quantity").val() * $("#productprice").html());
+		});
+		$(".int").format({
+			precision : 0,
+			allow_negative : false,
+			autofix : true
+		});
+		$("#purchasedate").val(new Date().format("yyyy/MM/dd hh:mm"));
+	});
+
+	function getManufacturers() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getManufacturers",
+			data : "type=" + $("#manufacturertype").val(),
+			success : function(data) {
+				$("#manufacturer").empty();
+				$("<option value=''>選擇公司</option>").appendTo("#manufacturer");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['mname']) + "</option>").appendTo("#manufacturer");
+				});
+			}
+
+		});
+
+	}
+	function getProduct() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getProduct",
+			data : "code=" + $("#productcode").val(),
+			success : function(data) {
+				var json = eval(data);
+				if (json) {
+
+					$("#productname").html(json.productname);
+					$("#productprice").html(json.productprice);
+				} else {
+					alert('商品編號輸入有錯誤！');
+					$("#productcode").trigger('focus');
+				}
+			}
+
+		});
+
+	}
+	function addProduct() {
+		if (validator.empty('productcode', '請輸入商品編號!') && validator.empty('quantity', '請輸入數量!')) {
+			var table = $("#purchasedetail");
+			var len=$("#purchasedetail tr").length;
+			
+			var lastRow = $("#purchasedetail tr")[len - 2];
+			var row = len%2==1?$("<tr class=\"trcolor\"></tr>"):$("<tr></tr>");
+			var hValue = $('#productcode').val() + "," + $('#productname').html() + "," + $('#productprice').html()+ "," + $('#quantity').val()+ "," + $('#subtotal').html();
+			row.append($("<td align=\"center\"></td>").append($('#productcode').val()).append($("<input type='hidden' value='" + hValue + "' name ='detail[]' />")));
+			row.append($("<td></td>").append($('#productname').html()));
+			row.append($("<td align=\"center\"></td>").append($('#productprice').html()));
+			row.append($("<td align=\"center\"></td>").append($('#quantity').val()));
+			row.append($("<td align=\"center\"></td>").append($('#subtotal').html()));
+			row.append($("<td align=\"center\"></td>").append($('<img onclick="$(this).parent().parent().remove();calTotal();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+			$(lastRow).after(row);
+			$('#productcode').val('');
+			$('#quantity').val('');
+			$('#subtotal').html('');
+			$('#productname').html('');
+			$('#productprice').html('');
+			calTotal();
+			
+		}
+
+	}
+	function calTotal()
+	{
+		var total=0;
+		$("#purchasedetail tr").each(function(i){
+			var td=$(this).find("td")[4];
+			if(td)
+				if($(td).html()!='')
+					total+=parseFloat($(td).html());
+		});
+ 		$("#total").html(total);
+ 		$("#totalmoney").val(total);
+	}
+	function check() {
+		if($("#totalmoney").val()=='0')
+			{
+				alert('請填寫採購明細!');
+				return false;
+			}
+		return validator.empty('purchasecode', '請輸入採購編號') && validator.index('manufacturertype', '請選擇類別') && validator.index('manufacturer', '請選擇公司');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 採購管理</div>
+			<div class="mainInfo">
+				<form id="form2" onsubmit="return check()" name="form2" method="post" action="__URL__/addPurchase">
+					<div class="topic2">新增採購單</div>
+					<input type="hidden" name="purchasedate" id="purchasedate" />
+					<input type="hidden" name="purchasestate" value="新進單" />
+					<input type="hidden" name="totalmoney" id="totalmoney" value="0"/>
+					<input type="hidden" name="code" style="width: 400px" value="{@SESSION_USER.code}" />
+					<input type="hidden" name="purchaseuser" style="width: 400px" value="{@SESSION_USER.name}" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="88" scope="row">採購編號</th>
+							<td><input type="text" name="purchasecode" id="purchasecode" value="{$linecode}" readonly="readonly"/></td>
+						</tr>
+						<tr>
+							<th scope="row">採購對象</th>
+							<td><select name="manufacturertype" id="manufacturertype">
+									<option value="">選擇類別</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="manufacturer" id="manufacturer">
+									<option value="">選擇公司</option>
+							</select></td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop" id="purchasedetail">
+						<tr>
+							<th width="162" scope="col">商品編號</th>
+							<th width="274" scope="col">商品名稱</th>
+							<th width="84" scope="col">單價</th>
+							<th width="71" scope="col">數量</th>
+							<th width="78" scope="col">小計</th>
+							<th width="24" scope="col">&nbsp;</th>
+						</tr>
+						<tr>
+							<td align="center"><input type="text" id="productcode" name="productcode" style="width: 150px" /></td>
+							<td id="productname">&nbsp;</td>
+							<td align="center" id="productprice">&nbsp;</td>
+							<td align="center"><input type="text" name="quantity" class="int" id="quantity" style="width: 50px" /></td>
+							<td align="center" id="subtotal">&nbsp;</td>
+							<td align="center"><img onclick="addProduct()" src="__PUBLIC__/images/add_16.png" style="cursor:pointer" alt="新增" width="16" height="16" /></td>
+						</tr>
+<!-- 						<tr class="trcolor3"> -->
+<!-- 							<td colspan="4" align="center">&nbsp;</td> -->
+<!-- 							<td align="center"><span style="margin-top: 10px"><strong> <input type="button" name="Submit3" value="金額總計" /> -->
+<!-- 								</strong></span></td> -->
+<!-- 							<td align="center">&nbsp;</td> -->
+<!-- 						</tr> -->
+						<tr class="trcolor3">
+							<td colspan="4" align="right"><strong>總計金額：</strong></td>
+							<td align="center" id="total">0</td>
+							<td align="center">元</td>
+						</tr>
+					</table>
+					<div align="center" style="margin-top: 10px">
+						<input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

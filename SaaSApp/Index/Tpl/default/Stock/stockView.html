@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	function MM_openBrWindow(theURL, winName, features) { //v2.0
+		var selUsers = document.getElementById("partersid").value;
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "?selUsers=" + selUsers, winName, features);
+
+	}
+	function selectUsers(idInput, nameInput) {
+		var selUsers = document.getElementById(idInput).value;
+		var theURL = "__APP__/User/usercheckbox?id=" + idInput + "&name="
+				+ nameInput;
+		var features = 'scrollbars=yes,scrollbars=yes,width=755,height=570';
+		var winName = '';
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "&selUsers=" + selUsers, winName, features);
+	}
+	function check() {
+		return validator.empty('day', '請選擇日期');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 庫存管理</div>
+			<div class="mainInfo">
+				<div class="topic2">{$name}</div>
+				<form id="form2" name="form2" method="post" action="">
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="88" scope="row">商品編號</th>
+							<td width="256"><input type="text" name="scode" /></td>
+							<th width="93" scope="row">商品名稱</th>
+							<td width="253"><input type="text" name="sname" /></td>
+						</tr>
+
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2"
+								value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="mailNav">
+				  <a href="__URL__/StockTest?id={$id}">檢驗管理</a>
+					<a href="__URL__/stockInventoryList?id={$id}">盤點紀錄</a><a
+						href="__URL__/stockChangeRecord?id={$id}">異動紀錄</a>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0"
+					class="tab_thtop">
+					<tr>
+						<th width="137" scope="col">商品編號</th>
+						<th width="403" scope="col">商品名稱</th>
+						<th width="77" scope="col">單價</th>
+						<th width="76" scope="col">庫存量</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if> 
+					<td align="center">{$item.productcode}</td>
+					<td>{$item.p_all_name}</td>
+					<td align="center">{$item.productprice}</td>
+					<td align="center">{$item.storage}</td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

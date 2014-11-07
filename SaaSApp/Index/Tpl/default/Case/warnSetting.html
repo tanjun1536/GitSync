@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/jquery.format.1.03.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+
+	$(function() {
+		$(".int").format({
+			precision : 0,
+			allow_negative : false,
+			autofix : true
+		});
+	});
+	function check() {
+		return validator.empty('days', '請輸入警示天數!');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">專案管理- 警示設定</div>
+			<div class="mainInfo">
+				<form action="__URL__/saveSetting?case={@case}" onsubmit="return check()" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="case" value="{@case}" />
+					<input type="hidden" name="id" value="{$warn.id}" />
+					<tr>
+						<th scope="row">設定天數</th>
+						<td><input type="text" name="days" id="days" value="{$warn.days}" class="int"/></td>
+					</tr>
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td><input type="submit" name="Submit" value="確定" /></td>
+					</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

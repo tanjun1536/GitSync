@@ -1,0 +1,7 @@
+[ 2013-10-01T12:23:44+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php ç¬¬ 4 è¡Œ.
+[ 2013-10-01T12:23:44+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php ç¬¬ 5 è¡Œ.
+[ 2013-10-01T12:24:01+08:00 ] ERR: (ThinkException) ÓÉÓÚÄ¿±ê¼ÆËã»ú»ý¼«¾Ü¾ø£¬ÎÞ·¨Á¬½Ó¡£
+
+[ 2013-10-01T12:24:31+08:00 ] ERR: (ThinkException) Unknown database 'saas'
+[ 2013-10-01T14:47:13+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php ç¬¬ 4 è¡Œ.
+[ 2013-10-01T14:47:13+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php ç¬¬ 5 è¡Œ.

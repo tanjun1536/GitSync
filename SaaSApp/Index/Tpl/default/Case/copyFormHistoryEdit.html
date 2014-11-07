@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/jquery.json-2.3.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+$(function(){
+	$(".alldegree").bind('keyup',function(){
+		cal(this);
+	});
+});
+function check()
+{
+	var datas=[];
+	$("#TableData tr").each(function(i){
+		if(i>0)
+		{
+			var tds=$(this).find("td");
+			var data=new Object();
+			data.code=$(tds[0]).html();
+			data.area=$(tds[1]).html();
+			data.username=$(tds[2]).html();
+			data.gaugecode=$(tds[3]).html();
+			data.type=$(tds[4]).html();
+			data.predegree=$(tds[5]).html();
+			data.alldegree=$(tds[6]).find('input').val();
+			data.thisdegree=$(tds[7]).html();
+			datas.push(data);
+		}
+	});
+	$("#data").val($.toJSON(datas));
+	alert($.toJSON(datas));
+	return true;
+}
+function cal(obj)
+{
+	var all=fn.getFloat($(obj).val());
+	var prev=fn.getFloat($(obj).parent().prev().html());
+	$(obj).parent().next().html(all-prev);
+}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">業主管理 - 抄表管理</div>
+			<div class="mainInfo">
+				<div class="topic2">新增／修改抄表紀錄</div>
+				<form action="__URL__/copyFormHistoryAdd" onsubmit="return check();" method="post" enctype="multipart/form-data"
+					name="form1" id="form1">
+					<input type="hidden" name="id" value="{$copy.id}" />
+					<input type="hidden" name="data" id="data" />
+					<input type="hidden" name="case" value="{@case}" />
+					<input type="hidden" name="copyuser" value="{@SESSION_USER.name}" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide" id="TableData">
+						<tr>
+							<th width="93" scope="col">編號</th>
+							<th width="106" scope="col">建物區域</th>
+							<th width="82" scope="col">用戶名</th>
+							<th width="81" scope="col">錶號</th>
+							<th width="76" scope="col">類別</th>
+							<th width="87" scope="col">上期度數</th>
+							<th width="78" scope="col">累計度數</th>
+							<th width="83" scope="col">本次度數</th>
+							<th width="83" scope="col">操作</th>
+						</tr>
+						<volist id="item" name="copydetail"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+							<td align="center">{$item.code}</td>
+							<td align="center">{$item.area}</td>
+							<td align="center">{$item.username}</td>
+							<td align="center">{$item.gaugecode}</td>
+							<td align="center">{$item.type}</td>
+							<td align="center">{$item.predegree}</td>
+							<td align="center"><input type="text" id="alldegree" class="alldegree"
+								style="width: 50px" value="{$item.alldegree}" /></td>
+							<td align="center">{$item.thisdegree}</td>
+							<td align="center"><img onclick="$(this).parent().parent().remove();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" /></td>
+						</tr>
+						</volist>
+					</table>
+					<div align="center">
+						<input type="submit" name="Submit" value="確定送出" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

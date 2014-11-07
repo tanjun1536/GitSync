@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">會計系統- 常用帳號設定</div>
+			<div class="mainInfo">
+				<form action="__URL__/addAccount" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="code" value="{@SESSION_USER.code}" /> 
+					<input type="hidden" name="id" value="{$acc.id}" />
+					<div class="topic2">新增 / 修改帳號</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="90" scope="row">所屬公司</th>
+							<td width="602"><input type="text" name="belongcompany" style="width: 300px" value="{$acc.belongcompany}"/></td>
+						</tr>
+						<tr>
+							<th scope="row">銀行資料</th>
+							<td>銀行代號 <input type="text" name="bankcode" style="width: 50px" value="{$acc.bankcode}" /> 銀行名稱 <input type="text" name="bankname" style="width: 200px" value="{$acc.bankname}" /> 分行 <input type="text" name="branchname" value="{$acc.branchname}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">帳號</th>
+							<td><label> <input type="text" name="account" value="{$acc.account}"/>
+							</label></td>
+						</tr>
+						<tr>
+							<th scope="row">戶名</th>
+							<td><input type="text" name="accountname" value="{$acc.accountname}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="topic2">帳號列表</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="106" scope="col">所屬公司</th>
+						<th width="68" scope="col">銀行代號</th>
+						<th width="131" scope="col">銀行名稱</th>
+						<th width="86" scope="col">分行</th>
+						<th width="108" scope="col">帳號</th>
+						<th width="111" scope="col">戶名</th>
+						<th width="83" scope="col">操作</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td>{$item.belongcompany}</td>
+					<td align="center">{$item.bankcode}</td>
+					<td>{$item.bankname}</td>
+					<td align="center">{$item.branchname}</td>
+					<td align="center">{$item.account}</td>
+					<td align="center">{$item.accountname}</td>
+					<td align="center"><a href="__URL__/editAccount?id={$item.id}">修改</a> | <a onclick="return confirm('是否刪除選擇的數據?');" href="__URL__/deleteAccount?id={$item.id}">刪除</a></td>
+					</tr>
+					</volist>
+				</table>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

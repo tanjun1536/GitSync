@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">設備管理 - 設備管理</div>
+			<div class="mainInfo">
+				<div class="mailNav">
+					<a href="__URL__/editDevice?case={@case}&id={$dev.id}">修改</a>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+					<tr>
+						<th scope="row">設備名稱</th>
+						<td colspan="3">{$dev.name}</td>
+					</tr>
+					<tr>
+						<th width="92" scope="row">樓層區域</th>
+						<td width="346">{$dev.aname}</td>
+						<th width="102" scope="row">固定資產編號</th>
+						<td width="150">{$dev.fixedassetscode}</td>
+					</tr>
+					<tr>
+						<th scope="row">類別</th>
+						<td colspan="3">{$dev.tname} / {$dev.ctname}</td>
+					</tr>
+					<tr>
+						<th scope="row">設備編號</th>
+						<td>{$dev.devicecode}</td>
+						<th width="102" scope="row"></th>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row">保養人</th>
+						<td colspan="3"><label>{$dev.maitenancepersonsname}</label></td>
+					</tr>
+				</table>
+				<div class="back">
+					<a href="javascript:window.history.go(-1)">》回上頁</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<script type="text/javascript">
+	$(function() {
+		$("#kdrdepart").change(function() {
+			getTeam("#kdrdepart", "#kdrteam");
+		});
+		$("#cbrdepart").change(function() {
+			getTeam("#cbrdepart", "#cbrteam");
+		});
+		$("#kdrteam").change(function() {
+			getPeople("#kdrteam", "#kdr");
+		});
+		$("#cbrteam").change(function() {
+			getPeople("#cbrteam", "#cbr");
+		});
+		$("#biddate").val(new Date().format("yyyy/MM/dd hh:mm"));
+		$("#invoicemoney").bind('change', function() {
+			cal()
+		});
+		$("#actualhumancost").bind('change', function() {
+			cal()
+		});
+		$("#actualmaterialscost").bind('change', function() {
+			cal()
+		});
+		$("#depart").val('{$bid.depart}');
+		$("#state").val('{$bid.state}');
+		$("input[name=invoicetype][value={$bid.invoicetype}]").attr("checked", true);
+		$("#kdrdepart").val('{$bid.kdrdepart}').trigger('change');
+		$("#cbrdepart").val('{$bid.cbrdepart}').trigger('change');
+	});
+	function getTeam(depart, teams) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getTeam",
+			data : "pid=" + $(depart).val(),
+			success : function(data) {
+				$(teams).empty();
+				$("<option value=''>選擇組別</option>").appendTo(teams);
+				var json = eval(data);
+				if (!json)
+					return;
+				$.each(json, function(k) {
+					$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name']) + "</option>").appendTo(teams);
+				});
+				if (teams == '#kdrteam')
+					$(teams).val('{$bid.kdrteam}').trigger('change');
+				else
+					$(teams).val('{$bid.cbrteam}').trigger('change');
+			}
+		});
+	}
+	function getPeople(team, user) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getPeopleByTeam",
+			data : "id=" + $(team).val(),
+			success : function(data) {
+				$(user).empty();
+				$("<option value=''>請選擇同事</option>").appendTo(user);
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name']) + "(" + json[k]['ucode'] + ")</option>").appendTo(user);
+				});
+				if (user == '#kdr')
+					$(user).val('{$bid.kdr}');
+				else
+					$(user).val('{$bid.cbr}');
+
+			}
+		});
+	}
+	function check() {
+		return validator.index('depart', '請選擇部門') && validator.index('state', '請選擇狀態');
+	}
+	function cal() {
+		var v = parseFloat($("#invoicemoney").val()) - parseFloat($("#actualhumancost").val()) - parseFloat($("#actualmaterialscost").val());
+		$("#actualprofits").val(v);
+		$("#actualprofitsTd").html(v);
+
+	}
+	function copy()
+	{
+		$("#biddate").val(new Date().format("yyyy/MM/dd hh:mm"));
+		$("#id").val('');
+		$("#form2").attr("action","__URL__/addProjectBid?case={@case}");
+		$("#form2").submit();
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">叫修單管理- 工程報價</div>
+			<div class="mainInfo">
+				<div class="topic2">新增／修改報價單</div>
+				<form id="form2" onsubmit="return check();" name="form2" method="post" action="__URL__/addProjectBid?case={@case}">
+					<input type="hidden" name="case" value="{@case}" /> 
+					<input type="hidden" name="biddate" id="biddate" /> 
+					<input type="hidden" name="id" id="id" value="{$bid.id}" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="104" scope="row">報價單編號</th>
+							<td width="240"><input type="text" name="bidcode" value="{$bid.bidcode}" /></td>
+							<th width="102" scope="row">報價日期</th>
+							<td width="244">{$bid.biddate|date='Y/m/d',strtotime(###)}</td>
+						</tr>
+						<tr>
+							<th scope="row">客戶名稱</th>
+							<td colspan="3"><input type="text" name="clientname" value={$bid.clientname} style="width: 250px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">KEY單人</th>
+							<td colspan="3"><select name="kdrdepart" id="kdrdepart">
+									<option value="請選擇部門">請選擇部門</option>
+									<volist id="item" name="departs">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="kdrteam" id="kdrteam">
+									<option value="">選擇組別</option>
+							</select><select name="kdr" id="kdr">
+									<option value="請選擇同事">請選擇同事</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">承辦人</th>
+							<td colspan="3"><select name="cbrdepart" id="cbrdepart">
+									<option value="請選擇部門">請選擇部門</option>
+									<volist id="item" name="departs">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="cbrteam" id="cbrteam">
+									<option value="">選擇組別</option>
+							</select><select name="cbr" id="cbr">
+									<option value="請選擇同事">請選擇同事</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">統一編號</th>
+							<td><input type="text" name="uniquecode" value={$bid.uniquecode} style="width: 250px" /></td>
+							<th scope="row">成本單位</th>
+							<td><select name="depart" id="depart">
+									<option value="請選擇部門">請選擇部門</option>
+									<volist id="item" name="departs">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">工程名稱</th>
+							<td><input type="text" name="projectname" value="{$bid.projectname}" /></td>
+							<th scope="row">報價金額</th>
+							<td><input type="text" name="bidmoney" value="{$bid.bidmoney}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">工作地點</th>
+							<td><input type="text" name="workplace" value="{$bid.workplace}" /></td>
+							<th scope="row">簽約金額</th>
+							<td><input type="text" name="signmoney" value="{$bid.signmoney}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">發票種類</th>
+							<td><input name="invoicetype" type="radio" value="無" /> 無 <input name="invoicetype" type="radio" value="二聯" /> 二聯 <input name="invoicetype" type="radio" value="三聯" /> 三聯</td>
+							<th scope="row">稅金</th>
+							<td><input type="text" name="taxmoney" value="{$bid.taxmoney}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">發票號碼</th>
+							<td><input type="text" name="invoicecode" value="{$bid.invoicecode}" /></td>
+							<th scope="row">發票金額</th>
+							<td><input type="text" name="invoicemoney" id="invoicemoney" value="{$bid.invoicemoney}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">預估總料成本</th>
+							<td><input type="text" name="estimatesmaterialscost" value="{$bid.estimatesmaterialscost}" /></td>
+							<th scope="row">實際總料成本</th>
+							<td><input type="text" name="actualmaterialscost" id="actualmaterialscost" value="{$bid.actualmaterialscost}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">預估人力成本</th>
+							<td><input type="text" name="estimateshumancost" value="{$bid.estimateshumancost}" /></td>
+							<th scope="row">實際人力成本</th>
+							<td><input type="text" name="actualhumancost" id="actualhumancost" value="{$bid.actualhumancost}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">實際毛利</th>
+							<input type="hidden" name="actualprofits" id="actualprofits" value="{$bid.actualprofits}" />
+							<td colspan="1" id="actualprofitsTd">{$bid.actualprofits}</td>
+							<th scope="row">状态</th>
+							<td><select name="state" id="state">
+									<option value="請選擇" selected="selected">請選擇</option>
+									<option value="報價">報價</option>
+									<option value="議價">議價</option>
+									<option value="簽約確定">簽約確定</option>
+									<option value="完工">完工</option>
+							</select></td>
+
+						</tr>
+
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit" value="確定" />
+							 <input type="button" name="Submit" onclick="copy()" value="另存檔案" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

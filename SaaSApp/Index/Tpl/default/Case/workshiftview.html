@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+</head>
+<body>
+	ody>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">專案管理- 調班管理</div>
+			<div class="mainInfo">
+				<table width="695" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="347"><div class="topic2">調班單</div></td>
+						<td width="342" valign="bottom"><div class="mailNav">
+								<a href="__URL__/workShiftUpdate?id={$move.id}">修改調班單</a>
+							</div></td>
+					</tr>
+				</table>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+					<tr>
+						<th width="95" scope="row">調班單號</th>
+						<td width="249">{$move.movecode}</td>
+						<th width="102" scope="row">KEY單人</th>
+						<td width="244">{$move.keyusername}</td>
+					</tr>
+					<tr>
+						<th scope="row">調班月份</th>
+						<td>{$move.movemonth}</td>
+						<th scope="row">KEY單時間</th>
+						<td>{$move.movetime|formatDate}</td>
+					</tr>
+				</table>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="175" scope="col">員工姓名</th>
+						<th width="171" scope="col">日期</th>
+						<th width="164" scope="col">班別</th>
+						<th width="183" scope="col">調班後班別</th>
+					</tr>
+					<volist id="item" name="details"> <if condition="$i%2 eq 0">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.username}</td>
+					<td align="center">{$item.movetime}</td>
+					<td align="center">{$item.oldworktype}</td>
+					<td align="center">{$item.newworktype}</td>
+					</tr>
+					</volist>
+				</table>
+				<div class="back">
+					<a href="javascript:window.history.go(-1)">》回上頁</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

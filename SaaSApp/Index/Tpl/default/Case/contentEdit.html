@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">專案管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/saveContent" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input name="id" value="{$c.id}" type="hidden" />
+					<div class="topic2">修改專案</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="119" scope="row">上傳圖片</th>
+							<td width="571"><input type="file" name="file" /></td>
+						</tr>
+						<tr>
+							<th scope="row">合約內容描述</th>
+							<td><textarea name="cont" rows="10" style="width: 500px">{$c.cont}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

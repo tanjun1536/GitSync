@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<script type="text/javascript">
+	function check() {
+		return validator.empty('date', '請選擇獎懲時間');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">人事管理 - 獎懲紀錄</div>
+			<div class="mainInfo">
+				<div class="topic2">修改紀錄</div>
+				<form action="__URL__/update" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="id" value="{$en.id}" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="123" scope="row">員工</th>
+							<td width="569">{$en.uname}({$en.ucode})</td>
+						</tr>
+						<tr>
+							<th scope="row">獎懲時間</th>
+							<td><input type="text" name="date" value="{$en.date|date='Y-m-d',strtotime(###)}" class="Wdate" onfocus="WdatePicker();" /></td>
+						</tr>
+						<tr>
+							<th scope="row">獎懲內容</th>
+							<td><textarea name="content" rows="4" style="width: 500px">{$en.content}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">獎懲事由</th>
+							<td><textarea name="reason" rows="4" style="width: 500px">{$en.reason}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">上傳附件</th>
+							<td><input type="file" name="file" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

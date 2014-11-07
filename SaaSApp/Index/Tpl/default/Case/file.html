@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<script type="text/JavaScript">
+	$(function() {
+		var user = "{$file.createuser}";
+		var time = "{$file.createtime}";
+		if (!user)
+			user = "{@SESSION_USER.id}";
+		if (!time)
+			time = new Date().format("yyyy/MM/dd hh:mm");
+		$("#createuser").val(user);
+		$("#createtime").val(time);
+	});
+	function check() {
+		return validator.index('type', '請選擇類別');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">專案管理- 相關文件</div>
+			<div class="mainInfo">
+				<div class="topic2">新增相關文件</div>
+				<div style="margin-bottom: 10px">
+					<form action="__URL__/addFile?case={@case}" method="post" enctype="multipart/form-data" name="form2" id="form2">
+						<input type="hidden" name="case" value="{@case}" /> <input type="hidden" name="id" value="{$file.id}" /> <input type="hidden" name="createuser" id="createuser" /> <input type="hidden" name="createtime" id="createtime" />
+						<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+							<tr>
+								<th scope="row">類別</th>
+								<td><select name="type" id="type">
+										<option value="請選擇">請選擇</option>
+										<volist id="item" name="types">
+										<option value="{$item.id}">{$item.name}</option>
+										</volist>
+								</select></td>
+							</tr>
+							<tr>
+								<th scope="row">標題</th>
+								<td><input type="text" name="title" style="width: 400px" /></td>
+							</tr>
+							<tr>
+								<th width="90" scope="row">新增</th>
+								<td width="602"><input type="file" name="file" /></td>
+							</tr>
+
+							<tr>
+								<th scope="row">&nbsp;</th>
+								<td><input type="submit" name="Submit2" value="新增" /></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<form id="form3" name="form3" method="post" action="">
+					<div class="mailNav">
+						<a href="__URL__/fileType?case={@case}">文件類別</a> <select name="ftype">
+							<option value="">選擇類別</option>
+							<volist id="item" name="types">
+										<option value="{$item.id}">{$item.name}</option>
+										</volist>
+						</select> <input type="text" name="name" /> <input type="submit" name="Submit3" value="搜尋" />
+					</div>
+				</form>
+				<form id="form1" name="form1" method="post" action="__URL__/deleteFile?case={@case}" onsubmit="return confirm('是否確認刪除選擇的數據?')">
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="28" scope="col"><input type="checkbox" name="checkbox5" value="checkbox" /></th>
+							<th width="93" scope="col">建檔日期</th>
+							<th width="117" scope="col">建檔人</th>
+							<th width="285" scope="col">標題</th>
+							<th width="116" scope="col">類別</th>
+							<th width="54" scope="col">格式</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center"><input type="checkbox" name="itemcheckbox[]" value="{$item.id}" /></td>
+						<td align="center">{$item.createtime|date='Y/m/d',strtotime(###)}</td>
+						<td align="center">{$item.uname}({$item.ucode})</td>
+						<td><a href="__URL__/down?name={$item.atts|urlencode}">{$item.title}</a></td>
+						<td>{$item.name}</td>
+						<td align="center">{$item.atts|getExtion}</td>
+						</tr>
+						</volist>
+					</table>
+					<div style="margin-top: 10px">
+					<if condition="check_power('刪除',$ext) eq 1">
+			<input type="submit" name="Submit" value="刪除" />	
+							</if>
+						
+					</div>
+					<div class="pages">
+					{$page}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

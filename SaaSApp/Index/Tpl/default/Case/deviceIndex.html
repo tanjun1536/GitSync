@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	var name = "{$dname}";
+	var code = "{$dcode}";
+	var build = "{$dbuild}";
+	var floor = "{$dfloor}";
+	var area = "{$darea}";
+	var type = "{$dtype}";
+	$(function() {
+		$("#type").change(function() {
+			getChildType();
+		});
+		$("#dbuild").change(function() {
+			getFloor();
+		});
+		$("#dfloor").change(function() {
+			getArea();
+		});
+		if (name)
+			$("#dname").val(name);
+		if (code)
+			$("#dcode").val(code);
+		if (type)
+			$("#dtype").val(type);
+		if (build)
+			$("#dbuild").val(build).trigger('change');
+
+	});
+	$(function() {
+		$('#headerchecker').click(function() {
+
+			if ($(this).attr("checked") == 'checked') {
+				$("[name='itemcheckbox[]']").attr("checked", 'true');
+			} else {
+				$("[name='itemcheckbox[]']").removeAttr("checked");
+
+			}
+		});
+
+	});
+	function getChildType() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getDeviceChildType",
+			data : "id=" + $("#type").val(),
+			success : function(data) {
+				$("#childtype").empty();
+				$("<option value=''>請選擇</option>").appendTo("#childtype");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$(
+							"<option value='" + json[k]['id'] + "'>"
+									+ decodeURI(json[k]['name']) + "</option>")
+							.appendTo("#childtype");
+				});
+			}
+		});
+
+	}
+	function getFloor() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getFloor",
+			data : "bid=" + $("#dbuild").val(),
+			success : function(data) {
+				$("#dfloor").empty();
+				$("<option value=''>請選擇</option>").appendTo("#dfloor");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$(
+							"<option value='" + json[k]['id'] + "'>"
+									+ decodeURI(json[k]['name']) + "</option>")
+							.appendTo("#dfloor");
+				});
+				if (floor)
+					$("#dfloor").val(floor).trigger('change');
+			}
+		});
+
+	}
+	function getArea() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getArea",
+			data : "fid=" + $("#dfloor").val(),
+			success : function(data) {
+				$("#darea").empty();
+				$("<option value=''>請選擇</option>").appendTo("#darea");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$(
+							"<option value='" + json[k]['id'] + "'>"
+									+ decodeURI(json[k]['name']) + "</option>")
+							.appendTo("#darea");
+				});
+				if (area)
+					$("#darea").val(area);
+			}
+		});
+
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">設備管理 - 設備管理</div>
+			<div class="mainInfo">
+				<div class="topic2">設備搜尋</div>
+				<form id="form1" name="form1" method="post"
+					action="__URL__/deviceIndex?case={@case}">
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="88" scope="row">設備編號</th>
+							<td width="328"><input type="text" name="dcode" id="dcode" /></td>
+							<th width="88" scope="row">主類別</th>
+							<td width="186"><select name="dtype" id="dtype">
+									<option value="" selected="selected">請選擇</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">設備名稱</th>
+							<td><input type="text" name="dname" id="dname"
+								style="width: 300px" /></td>
+							<th width="88" scope="row">樓層區域</th>
+							<td><select name="dbuild" id='dbuild'>
+									<option value="">請選擇</option>
+									<volist id="item" name="builds">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select><select name="dfloor" id="dfloor">
+									<option value="">請選擇</option>
+							</select><select name="darea" id="darea">
+									<option value="">請選擇</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2"
+								value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="topic2">設備列表</div>
+				<form name="form3" method="post" action="__URL__/ImportDevices" enctype="multipart/form-data">
+					<div class="mailNav">
+						<if condition="check_power('匯出',$ext) eq 1"> <a
+							href="__URL__/exportDevice">匯出所有設備</a> </if>
+						<if condition="check_power('新增',$ext) eq 1"> <a
+							href="__URL__/addDevice?case={@case}">新增設備</a> </if>
+						<if condition="check_power('匯入',$ext) eq 1"> 匯入設備 <input
+							type="file" name="file" /> <input type="submit" name="Submit"
+							value="匯入" /></if>
+						<if condition="check_power('刪除所有設備',$ext) eq 1"> <a onclick="return confirm('是否確認刪除數據?')"
+							href="__URL__/DeleteDeviceByCase?case={@case}">刪除所有設備</a> </if>
+				</form>
+				</if>
+
+			</div>
+			</form>
+			<form onsubmit="return confirm('是否刪除選擇的數據?')" id="form2" name="form2"
+				method="post" action="__URL__/deleteDevices?case={@case}">
+				<table width="695" border="0" cellpadding="0" cellspacing="0"
+					class="tab_thtop">
+					<tr>
+						<th width="28" scope="col"><input type="checkbox"
+							name="headerchecker" id="headerchecker" value="checkbox" /></th>
+						<th width="105" scope="col">樓層區域</th>
+						<th width="135" scope="col">設備編號</th>
+						<th width="205" scope="col">設備名稱</th>
+						<th width="136" scope="col">主類別</th>
+						<th width="84" scope="col">子類別</th>
+					</tr>
+					<volist id="item" name="list"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+					<tr class="trcolor">
+					</if>
+					<td align="center"><input type="checkbox"
+						name="itemcheckbox[]" value="{$item.id}" /></td>
+					<td align="center">{$item.fname}—{$item.aname}</td>
+					<td align="center"><a
+						href="__URL__/viewDevice?case={@case}&id={$item.id}">{$item.devicecode}</a></td>
+					<td>{$item.name}</td>
+					<td align="center">{$item.tname}</td>
+					<td align="center">{$item.ctname}</td>
+					</tr>
+					</volist>
+				</table>
+				<div style="margin-top: 10px">
+					<if condition="check_power('刪除',$ext) eq 1"> <input
+						type="submit" name="Submit3" value="刪除" /> </if>
+
+				</div>
+			</form>
+			<div class="pages">{$page}</div>
+		</div>
+	</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

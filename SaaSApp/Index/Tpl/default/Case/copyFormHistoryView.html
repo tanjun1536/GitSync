@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/jquery.json-2.3.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">抄表管理 - 抄表紀錄列表</div>
+			<div class="mainInfo">
+				<div class="topic2">抄表紀錄</div>
+				<form action="__URL__/copyFormHistoryEdit?id={$id}" method="post"
+					enctype="multipart/form-data" name="form1" id="form1">
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="93" scope="col">編號</th>
+							<th width="106" scope="col">建物區域</th>
+							<th width="82" scope="col">用戶名</th>
+							<th width="81" scope="col">錶號</th>
+							<th width="76" scope="col">類別</th>
+							<th width="87" scope="col">上期度數</th>
+							<th width="78" scope="col">累計度數</th>
+							<th width="83" scope="col">本次度數</th>
+						</tr>
+						<volist id="item" name="copydetail"> <if
+							condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center" >{$item.code}</td>
+						<td align="center">{$item.area}</td>
+						<td align="center">{$item.username}</td>
+						<td align="center">{$item.gaugecode}</td>
+						<td align="center">{$item.type}</td>
+						<td align="center">{$item.predegree}</td>
+						<td align="center">{$item.alldegree}</td>
+						<td align="center">{$item.thisdegree}</td>
+						</tr>
+						</volist>
+					</table>
+					<div align="center">
+						<input type="submit" name="Submit" value="修改" />
+					</div>
+				</form>
+			</div>
+		</div>
+		<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">業主管理 - 承租戶管理</div>
+			<div class="mainInfo">
+				<div class="topic2">承租戶管理</div>
+				<form id="form1" name="form1" method="post" action="__URL__/proprietorList">
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="114" scope="row">客戶名稱</th>
+							<td width="229"><input type="text" name="sname" /></td>
+							<th width="117" scope="row">租用區域編號</th>
+							<td width="230"><input type="text" name="sareacode" /></td>
+						</tr>
+						<tr>
+							<th scope="row">租用區域名稱</th>
+							<td><input type="text" name="sareaname" /></td>
+							<th width="117" scope="row">合約狀態</th>
+							<td><select name="sstate">
+									<option selected="selected">不拘</option>
+									<option>逾期</option>
+									<option>合約中</option>
+									<option>停止合約</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">每月費用區間</th>
+							<td><input type="text" name="scharge" style="width: 50px" /> - <input type="text" name="echarge" style="width: 50px" /></td>
+							<th scope="row">每坪單價區間</th>
+							<td><input type="text" name="sprice" style="width: 50px" /> - <input type="text" name="eprice" style="width: 50px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2" value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="mailNav">
+					<a href="__URL__/proprietorAddPage">新增客戶</a>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="145" scope="col">客戶名稱</th>
+						<th width="158" scope="col">承租區域編號</th>
+						<th width="65" scope="col">聯絡人</th>
+						<th width="96" scope="col">電話</th>
+						<th width="81" scope="col">合約狀態</th>
+						<th width="76" scope="col">最近<br /> 繳款紀錄
+						</th>
+						<th width="72" scope="col">操作<br /> 管理
+						</th>
+					</tr>
+					<volist id="item" name="list"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td><a href="__URL__/proprietorView?id={$item.id}">{$item.name}</a></td>
+					<td><div class="txt_green">{$item.code}</div>
+						<div>{$item.rname}</div></td>
+					<td align="center">{$item.linker}</td>
+					<td align="center">{$item.phone}</td>
+					<td align="center">{$item.state}</td>
+					<td align="center">&nbsp;</td>
+					<td align="center"><a href="__URL__/proprietorEdit?id={$item.id}">修改</a><br /> <a onclick="return confirm('是否刪除選擇的數據?')" href="__URL__/proprietorDelete?id={$item.id}">刪除</a><br /> <a href="#">繳費記錄</a></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

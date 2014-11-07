@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<script type="text/javascript">
+	$(function() {
+		$('#idepart').change(function() {
+			getPeople('#idepart', '#iusers');
+		});
+
+	});
+
+	function getPeople(depart, users) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getPeopleByDepart",
+			data : "id=" + $(depart).val(),
+			success : function(data) {
+				$(users).empty();
+				$("<option value=''>選擇員工</option>").appendTo(users);
+				var json = eval(data);
+				$.each(json, function(k) {
+					if (json[k]['id'] != {$user.id})
+						$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name']) + "(" + decodeURI(json[k]['ucode']) + ")</option>").appendTo(users);
+				});
+			}
+		});
+	}
+	function addDutyDelegate() {
+		if (validator.index('idepart', '請選擇部門') && validator.index('iusers', '請選擇員工') && validator.empty('dutyname', '請輸入職務')) {
+			var table = $('#duty');
+			var row = $("<tr></tr>");
+			var hValue = $('#idepart').find('option:selected').text() + "," + $('#iusers').find('option:selected').text() + "," + $('#dutyname').val();
+			row.append($("<td></td>").append($('#idepart').find('option:selected').text()).append($("<input type='hidden' value='"+hValue+"' name ='duties[]' />")));
+			row.append($("<td></td>").append($('#iusers').find('option:selected').text()));
+			row.append($("<td></td>").append($('#dutyname').val()));
+			row.append($("<td></td>").append($('<img onclick="$(this).parent().parent().remove();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+			table.append(row);
+			$('#dutyname').val('');
+		}
+
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">人事管理 - 職務代理</div>
+			<div class="mainInfo">
+				<div class="topic2">修改代理人</div>
+				<form id="form1" name="form1" method="post" action="__URL__/update">
+					<input type="hidden" value="{$user.id}" name="uid" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="100" scope="row">員工</th>
+							<td width="592">{$user.name}({$user.ucode})</td>
+						</tr>
+						<tr>
+							<th scope="row">代理人</th>
+							<td><a href="#"></a>
+								<ul>
+									<li>
+										<table width="580" border="0" cellspacing="0" cellpadding="0" id="duty">
+											<tr>
+												<th width="207" scope="col">部門</th>
+												<th width="156" scope="col">代理人</th>
+												<th width="189" scope="col">職稱</th>
+												<th width="28" scope="col">&nbsp;</th>
+											</tr>
+											<tr>
+												<td><select name="idepart" id="idepart">
+														<option value="選擇部門">選擇部門</option>
+														<volist id="item" name="departs">
+														<option value="{$item.id}">{$item.name}</option>
+														</volist>
+												</select></td>
+												<td><select name="iusers" id="iusers">
+														<option value="選擇員工" selected="selected">選擇員工</option>
+														<volist id="item" name="users">
+														<option value="{$item.id}">{$item.name}({$item.ucode})</option>
+														</volist>
+												</select></td>
+												<td><input name="dutyname" id="dutyname" type="text" /></td>
+												<td><img src="__PUBLIC__/images/add_16.png" onclick="addDutyDelegate()" style="cursor: pointer;" alt="新增" width="16" height="16" border="0" /></td>
+											</tr>
+											<volist name="user.dutydelegate" id="dd">
+											<tr>
+												<td>{$dd.departmentname} <input type="hidden" value="{$dd.departmentname},{$dd.delegatorname},{$dd.duty}" name="duties[]"></input></td>
+												<td>{$dd.delegatorname}</td>
+												<td>{$dd.duty}</td>
+												<td><img onclick="$(this).parent().parent().remove();" style="cursor: pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" /></td>
+											</tr>
+											</volist>
+										</table>
+									</li>
+								</ul></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

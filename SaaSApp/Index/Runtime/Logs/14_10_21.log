@@ -1,0 +1,798 @@
+[ 2014-10-21T10:32:10+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-10-21T10:32:10+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-10-21T10:32:16+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.337019s ]
+[ 2014-10-21T10:32:16+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.279016s ]
+[ 2014-10-21T10:32:16+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.179010s ]
+[ 2014-10-21T10:32:16+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.312018s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.152009s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.177010s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.048002s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.002000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.116007s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.026002s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007001s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.002000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-10-21T10:32:17+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-10-21T10:32:17+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2014-10-21T10:32:18+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.003000s ]
+[ 2014-10-21T10:32:18+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.004000s ]
+[ 2014-10-21T10:32:18+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc [ RunTime:0.036002s ]
+[ 2014-10-21T10:32:18+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc limit 0,20 [ RunTime:0.036002s ]
+[ 2014-10-21T10:32:39+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:32:39+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:32:39+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:32:40+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.outcode,sc.incode,sc.allocatecode,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  ORDER BY dodate desc [ RunTime:0.293017s ]
+[ 2014-10-21T10:32:40+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.outcode,sc.incode,sc.allocatecode,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  ORDER BY dodate desc limit 0,20 [ RunTime:0.003001s ]
+[ 2014-10-21T10:32:41+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-10-21T10:32:41+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-10-21T10:32:41+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-10-21T10:34:05+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:34:05+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:34:05+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:34:06+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.outcode,sc.incode,sc.allocatecode,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL order by id desc ORDER BY dodate desc [ RunTime:0.000000s ]
+[ 2014-10-21T10:34:06+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.outcode,sc.incode,sc.allocatecode,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL order by id desc ORDER BY dodate desc limit 0,20 [ RunTime:0.000000s ]
+[ 2014-10-21T10:34:06+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-10-21T10:34:06+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-10-21T10:34:06+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-10-21T10:34:10+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:34:10+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:34:10+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:34:11+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.outcode,sc.incode,sc.allocatecode,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL order by id desc ORDER BY dodate desc [ RunTime:0.001000s ]
+[ 2014-10-21T10:34:11+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.outcode,sc.incode,sc.allocatecode,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL order by id desc ORDER BY dodate desc limit 0,20 [ RunTime:0.000000s ]
+[ 2014-10-21T10:34:11+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-10-21T10:34:11+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-10-21T10:34:11+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-10-21T10:34:44+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:34:44+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:34:44+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:34:45+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.outcode,sc.incode,sc.allocatecode,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  ORDER BY id desc [ RunTime:0.003001s ]
+[ 2014-10-21T10:34:45+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.outcode,sc.incode,sc.allocatecode,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  ORDER BY id desc limit 0,20 [ RunTime:0.002000s ]
+[ 2014-10-21T10:34:45+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-10-21T10:34:45+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-10-21T10:34:45+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-10-21T10:38:16+08:00 ] SQL: SHOW COLUMNS FROM `stock_warehouse` [ RunTime:0.061003s ]
+[ 2014-10-21T10:38:16+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `stock_warehouse` WHERE  `code`='13108617'  LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-10-21T10:38:16+08:00 ] SQL: SELECT * FROM `stock_warehouse` WHERE  `code`='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001000s ]
+[ 2014-10-21T10:38:16+08:00 ] NOTIC: [8] Undefined variable: stock 3ad9ee090b80dfed05a57fd2f021ad9b.php 第 172 行.
+[ 2014-10-21T10:38:16+08:00 ] NOTIC: [8] Undefined variable: stock 3ad9ee090b80dfed05a57fd2f021ad9b.php 第 179 行.
+[ 2014-10-21T10:38:16+08:00 ] NOTIC: [8] Undefined variable: stock 3ad9ee090b80dfed05a57fd2f021ad9b.php 第 182 行.
+[ 2014-10-21T10:38:16+08:00 ] NOTIC: [8] Undefined variable: stock 3ad9ee090b80dfed05a57fd2f021ad9b.php 第 187 行.
+[ 2014-10-21T10:38:16+08:00 ] NOTIC: [8] Undefined variable: stock 3ad9ee090b80dfed05a57fd2f021ad9b.php 第 190 行.
+[ 2014-10-21T10:38:16+08:00 ] NOTIC: [8] Undefined variable: stock 3ad9ee090b80dfed05a57fd2f021ad9b.php 第 198 行.
+[ 2014-10-21T10:38:16+08:00 ] NOTIC: [8] Undefined variable: stock 3ad9ee090b80dfed05a57fd2f021ad9b.php 第 201 行.
+[ 2014-10-21T10:38:16+08:00 ] NOTIC: [8] Undefined variable: stock 3ad9ee090b80dfed05a57fd2f021ad9b.php 第 208 行.
+[ 2014-10-21T10:38:19+08:00 ] NOTIC: [8] Undefined index: scode BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:38:19+08:00 ] NOTIC: [8] Undefined index: sname BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:38:19+08:00 ] NOTIC: [8] Undefined variable: where StockAction.class.php 第 529 行.
+[ 2014-10-21T10:38:20+08:00 ] SQL: SELECT 
+			  sp.p_name `productname`,
+			  sp.p_all_name `p_all_name`,
+			  sp.p_pc_price `productprice`,
+			  p.* 
+			FROM
+			  (SELECT 
+			    sps.`productcode`,
+			    sps.`storage`,
+			    sps.`stockcode` 
+			  FROM
+			    saas.stock_product_storage sps 
+			    INNER JOIN saas.stock_warehouse sw 
+			      ON sw.`stockcode` = sps.`stockcode` 
+			  WHERE sw.`id` = 13 
+			    AND sps.id = 
+			    (SELECT 
+			      MAX(id) 
+			    FROM
+			      saas.stock_product_storage 
+			    WHERE `productcode` = sps.`productcode` 
+			      AND stockcode = sw.`stockcode`)) p 
+			  INNER JOIN hohsin.`tb_pro` sp 
+			    ON p.productcode = sp.p_id     [ RunTime:0.159010s ]
+[ 2014-10-21T10:38:20+08:00 ] SQL: SELECT 
+			  sp.p_name `productname`,
+			  sp.p_all_name `p_all_name`,
+			  sp.p_pc_price `productprice`,
+			  p.* 
+			FROM
+			  (SELECT 
+			    sps.`productcode`,
+			    sps.`storage`,
+			    sps.`stockcode` 
+			  FROM
+			    saas.stock_product_storage sps 
+			    INNER JOIN saas.stock_warehouse sw 
+			      ON sw.`stockcode` = sps.`stockcode` 
+			  WHERE sw.`id` = 13 
+			    AND sps.id = 
+			    (SELECT 
+			      MAX(id) 
+			    FROM
+			      saas.stock_product_storage 
+			    WHERE `productcode` = sps.`productcode` 
+			      AND stockcode = sw.`stockcode`)) p 
+			  INNER JOIN hohsin.`tb_pro` sp 
+			    ON p.productcode = sp.p_id     limit 0,20 [ RunTime:0.005000s ]
+[ 2014-10-21T10:38:20+08:00 ] SQL: SHOW COLUMNS FROM `stock_warehouse` [ RunTime:0.012001s ]
+[ 2014-10-21T10:38:20+08:00 ] SQL: SELECT * FROM `stock_warehouse` WHERE ( `id` = '13' ) LIMIT 1  [ RunTime:0.002000s ]
+[ 2014-10-21T10:38:24+08:00 ] NOTIC: [8] Undefined index: scode BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:38:24+08:00 ] NOTIC: [8] Undefined index: sname BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:38:25+08:00 ] SQL: SHOW COLUMNS FROM `stock_warehouse` [ RunTime:0.009000s ]
+[ 2014-10-21T10:38:25+08:00 ] SQL: SELECT * FROM `stock_warehouse` WHERE ( `id` = '13' ) LIMIT 1  [ RunTime:0.001001s ]
+[ 2014-10-21T10:38:25+08:00 ] SQL: SELECT 
+		  IFNULL(sc.indate, sc.outdate) dodate,
+		  scd.`productname`,
+		  scd.`productcode`,
+		  sc.`type`,
+		  scd.`quantity`,
+		  sps.`storage`,
+		  scd.`remark`,
+		  IFNULL(sc.inuser, sc.outuser) douser 
+		FROM
+		  `stock_product_storage` sps 
+		  INNER JOIN `stock_change_detail` scd 
+		    ON sps.`detailid` = scd.`id` 
+		  INNER JOIN `stock_change` sc 
+		    ON sc.`id` = scd.`changeid` 
+		  INNER JOIN `stock_warehouse` sw 
+		    ON sw.`stockcode` = sps.`stockcode` 
+		WHERE sw.`id` =13  [ RunTime:0.066003s ]
+[ 2014-10-21T10:38:25+08:00 ] SQL: SELECT 
+		  IFNULL(sc.indate, sc.outdate) dodate,
+		  scd.`productname`,
+		  scd.`productcode`,
+		  sc.`type`,
+		  scd.`quantity`,
+		  sps.`storage`,
+		  scd.`remark`,
+		  IFNULL(sc.inuser, sc.outuser) douser 
+		FROM
+		  `stock_product_storage` sps 
+		  INNER JOIN `stock_change_detail` scd 
+		    ON sps.`detailid` = scd.`id` 
+		  INNER JOIN `stock_change` sc 
+		    ON sc.`id` = scd.`changeid` 
+		  INNER JOIN `stock_warehouse` sw 
+		    ON sw.`stockcode` = sps.`stockcode` 
+		WHERE sw.`id` =13  limit 0,20 [ RunTime:0.002001s ]
+[ 2014-10-21T10:42:56+08:00 ] NOTIC: [8] Undefined index: scode BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:42:56+08:00 ] NOTIC: [8] Undefined index: sname BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:42:57+08:00 ] SQL: SHOW COLUMNS FROM `stock_warehouse` [ RunTime:0.005001s ]
+[ 2014-10-21T10:42:57+08:00 ] SQL: SELECT * FROM `stock_warehouse` WHERE ( `id` = '13' ) LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-10-21T10:42:57+08:00 ] SQL: SELECT 
+		  IFNULL(sc.indate, sc.outdate) dodate,
+		  scd.`productname`,
+		  scd.`productcode`,
+		  sc.`type`,
+		  scd.`quantity`,
+		  sps.`storage`,
+		  scd.`remark`,
+		  IFNULL(sc.inuser, sc.outuser) douser 
+		FROM
+		  `stock_product_storage` sps 
+		  INNER JOIN `stock_change_detail` scd 
+		    ON sps.`detailid` = scd.`id` 
+		  INNER JOIN `stock_change` sc 
+		    ON sc.`id` = scd.`changeid` 
+		  INNER JOIN `stock_warehouse` sw 
+		    ON sw.`stockcode` = sps.`stockcode` 
+		WHERE sw.`id` =13  [ RunTime:0.001000s ]
+[ 2014-10-21T10:42:57+08:00 ] SQL: SELECT 
+		  IFNULL(sc.indate, sc.outdate) dodate,
+		  scd.`productname`,
+		  scd.`productcode`,
+		  sc.`type`,
+		  scd.`quantity`,
+		  sps.`storage`,
+		  scd.`remark`,
+		  IFNULL(sc.inuser, sc.outuser) douser 
+		FROM
+		  `stock_product_storage` sps 
+		  INNER JOIN `stock_change_detail` scd 
+		    ON sps.`detailid` = scd.`id` 
+		  INNER JOIN `stock_change` sc 
+		    ON sc.`id` = scd.`changeid` 
+		  INNER JOIN `stock_warehouse` sw 
+		    ON sw.`stockcode` = sps.`stockcode` 
+		WHERE sw.`id` =13  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-10-21T10:43:01+08:00 ] NOTIC: [8] Undefined index: scode BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:43:01+08:00 ] NOTIC: [8] Undefined index: sname BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:43:02+08:00 ] SQL: SHOW COLUMNS FROM `stock_warehouse` [ RunTime:0.005001s ]
+[ 2014-10-21T10:43:02+08:00 ] SQL: SELECT * FROM `stock_warehouse` WHERE ( `id` = '13' ) LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-10-21T10:43:02+08:00 ] SQL: SELECT 
+		  IFNULL(sc.indate, sc.outdate) dodate,
+		  scd.`productname`,
+		  scd.`productcode`,
+		  sc.`type`,
+		  scd.`quantity`,
+		  sps.`storage`,
+		  scd.`remark`,
+		  IFNULL(sc.inuser, sc.outuser) douser 
+		FROM
+		  `stock_product_storage` sps 
+		  INNER JOIN `stock_change_detail` scd 
+		    ON sps.`detailid` = scd.`id` 
+		  INNER JOIN `stock_change` sc 
+		    ON sc.`id` = scd.`changeid` 
+		  INNER JOIN `stock_warehouse` sw 
+		    ON sw.`stockcode` = sps.`stockcode` 
+		WHERE sw.`id` =13  [ RunTime:0.001000s ]
+[ 2014-10-21T10:43:02+08:00 ] SQL: SELECT 
+		  IFNULL(sc.indate, sc.outdate) dodate,
+		  scd.`productname`,
+		  scd.`productcode`,
+		  sc.`type`,
+		  scd.`quantity`,
+		  sps.`storage`,
+		  scd.`remark`,
+		  IFNULL(sc.inuser, sc.outuser) douser 
+		FROM
+		  `stock_product_storage` sps 
+		  INNER JOIN `stock_change_detail` scd 
+		    ON sps.`detailid` = scd.`id` 
+		  INNER JOIN `stock_change` sc 
+		    ON sc.`id` = scd.`changeid` 
+		  INNER JOIN `stock_warehouse` sw 
+		    ON sw.`stockcode` = sps.`stockcode` 
+		WHERE sw.`id` =13  limit 20,20 [ RunTime:0.000000s ]
+[ 2014-10-21T10:47:36+08:00 ] NOTIC: [8] Undefined index: scode BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:47:36+08:00 ] NOTIC: [8] Undefined index: sname BaseAction.class.php 第 240 行.
+[ 2014-10-21T10:47:37+08:00 ] SQL: SHOW COLUMNS FROM `stock_warehouse` [ RunTime:0.011001s ]
+[ 2014-10-21T10:47:37+08:00 ] SQL: SELECT * FROM `stock_warehouse` WHERE ( `id` = '13' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-10-21T10:47:37+08:00 ] SQL: SELECT 
+		  IFNULL(sc.indate, sc.outdate) dodate,
+		  scd.`productname`,
+		  scd.`productcode`,
+		  sc.`type`,
+		  scd.`quantity`,
+		  sps.`storage`,
+		  scd.`remark`,
+		  IFNULL(sc.inuser, sc.outuser) douser 
+		FROM
+		  `stock_product_storage` sps 
+		  INNER JOIN `stock_change_detail` scd 
+		    ON sps.`detailid` = scd.`id` 
+		  INNER JOIN `stock_change` sc 
+		    ON sc.`id` = scd.`changeid` 
+		  INNER JOIN `stock_warehouse` sw 
+		    ON sw.`stockcode` = sps.`stockcode` 
+		WHERE sw.`id` =13  [ RunTime:0.003001s ]
+[ 2014-10-21T10:47:37+08:00 ] SQL: SELECT 
+		  IFNULL(sc.indate, sc.outdate) dodate,
+		  scd.`productname`,
+		  scd.`productcode`,
+		  sc.`type`,
+		  scd.`quantity`,
+		  sps.`storage`,
+		  scd.`remark`,
+		  IFNULL(sc.inuser, sc.outuser) douser 
+		FROM
+		  `stock_product_storage` sps 
+		  INNER JOIN `stock_change_detail` scd 
+		    ON sps.`detailid` = scd.`id` 
+		  INNER JOIN `stock_change` sc 
+		    ON sc.`id` = scd.`changeid` 
+		  INNER JOIN `stock_warehouse` sw 
+		    ON sw.`stockcode` = sps.`stockcode` 
+		WHERE sw.`id` =13  limit 20,20 [ RunTime:0.006000s ]
+[ 2014-10-21T10:48:55+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 4 行.
+[ 2014-10-21T10:48:56+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.013000s ]
+[ 2014-10-21T10:48:57+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  LIMIT 1  [ RunTime:0.045003s ]
+[ 2014-10-21T10:48:57+08:00 ] SQL: SELECT * FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  ORDER BY id desc LIMIT 0,20  [ RunTime:0.004000s ]
+[ 2014-10-21T10:49:00+08:00 ] SQL: SHOW COLUMNS FROM `case_content` [ RunTime:0.005001s ]
+[ 2014-10-21T10:49:00+08:00 ] SQL: select * from case_content where id =9 [ RunTime:0.001000s ]
+[ 2014-10-21T10:49:00+08:00 ] NOTIC: [8] Undefined index: caseName 6a80fc463fa49e147ec5390fac1af20e.php 第 107 行.
+[ 2014-10-21T10:49:03+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005000s ]
+[ 2014-10-21T10:49:03+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000000s ]
+[ 2014-10-21T10:49:03+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.005001s ]
+[ 2014-10-21T10:49:03+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-10-21T10:49:03+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.005000s ]
+[ 2014-10-21T10:49:03+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.001000s ]
+[ 2014-10-21T10:49:03+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 0,20 [ RunTime:0.001000s ]
+[ 2014-10-21T10:49:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T10:49:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T10:49:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T10:49:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T10:49:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T10:49:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T10:49:03+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T10:49:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T10:49:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T10:49:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T10:49:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2014-10-21T10:49:30+08:00 ] ERR: (ThinkException) 非法操作case3_cost.php
+[ 2014-10-21T10:49:38+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.011001s ]
+[ 2014-10-21T10:49:38+08:00 ] SQL: SELECT * FROM `case_member` WHERE ( `id` = '68' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-10-21T10:49:38+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.009000s ]
+[ 2014-10-21T10:49:38+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000000s ]
+[ 2014-10-21T10:49:38+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.006000s ]
+[ 2014-10-21T10:49:38+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-10-21T10:49:38+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.001000s ]
+[ 2014-10-21T10:49:38+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 0,20 [ RunTime:0.000000s ]
+[ 2014-10-21T10:49:39+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T10:49:40+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.000000s ]
+[ 2014-10-21T10:49:40+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.000000s ]
+[ 2014-10-21T10:49:41+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.000000s ]
+[ 2014-10-21T10:49:41+08:00 ] SQL: SELECT * FROM `user` WHERE team=48 [ RunTime:0.000000s ]
+[ 2014-10-21T10:49:42+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.015600s ]
+[ 2014-10-21T10:49:42+08:00 ] SQL: SELECT * FROM `user` WHERE ( `id` = '51' ) LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-10-21T10:50:02+08:00 ] SQL: SHOW COLUMNS FROM `case_content` [ RunTime:0.010001s ]
+[ 2014-10-21T10:50:02+08:00 ] SQL: select * from case_content where id =9 [ RunTime:0.000000s ]
+[ 2014-10-21T10:50:02+08:00 ] NOTIC: [8] Undefined index: caseName 6a80fc463fa49e147ec5390fac1af20e.php 第 107 行.
+[ 2014-10-21T10:50:06+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.010000s ]
+[ 2014-10-21T10:50:06+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001000s ]
+[ 2014-10-21T10:50:06+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.005000s ]
+[ 2014-10-21T10:50:06+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-10-21T10:50:06+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.005000s ]
+[ 2014-10-21T10:50:06+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.000000s ]
+[ 2014-10-21T10:50:06+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 0,20 [ RunTime:0.000000s ]
+[ 2014-10-21T10:50:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T10:50:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T10:50:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T10:50:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T10:50:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T10:50:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T10:50:06+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T10:50:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T10:50:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T10:50:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T10:50:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2014-10-21T10:52:04+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.013001s ]
+[ 2014-10-21T10:52:04+08:00 ] SQL: SELECT * FROM case_device_repair where state='申請叫修' AND `case`=9 order by id desc [ RunTime:0.081005s ]
+[ 2014-10-21T10:52:04+08:00 ] SQL: SELECT u.* FROM case_member cm INNER JOIN `user` u ON cm.`memberid`=u.`id` WHERE cm.`case`=9 [ RunTime:0.002000s ]
+[ 2014-10-21T10:52:05+08:00 ] NOTIC: [8] Undefined index: caseName edc2280cf07f0123c69916489348920c.php 第 214 行.
+[ 2014-10-21T10:52:05+08:00 ] NOTIC: [8] Undefined variable: departs edc2280cf07f0123c69916489348920c.php 第 315 行.
+[ 2014-10-21T10:52:25+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.004000s ]
+[ 2014-10-21T10:52:25+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000000s ]
+[ 2014-10-21T10:52:25+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.006001s ]
+[ 2014-10-21T10:52:25+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-10-21T10:52:25+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.005000s ]
+[ 2014-10-21T10:52:25+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.000000s ]
+[ 2014-10-21T10:52:25+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 0,20 [ RunTime:0.000000s ]
+[ 2014-10-21T10:52:25+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T10:52:25+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T10:52:25+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T10:52:25+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T10:52:25+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T10:52:25+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T10:52:25+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T10:52:25+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T10:52:25+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T10:52:25+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T10:52:25+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2014-10-21T10:53:36+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.004000s ]
+[ 2014-10-21T10:53:36+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001000s ]
+[ 2014-10-21T10:53:36+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.005000s ]
+[ 2014-10-21T10:53:36+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.000000s ]
+[ 2014-10-21T10:53:36+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.005001s ]
+[ 2014-10-21T10:53:36+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.000000s ]
+[ 2014-10-21T10:53:36+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 0,20 [ RunTime:0.001000s ]
+[ 2014-10-21T10:53:36+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T10:53:36+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T10:53:36+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T10:53:36+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T10:53:36+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T10:53:36+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T10:53:36+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T10:53:36+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T10:53:36+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T10:53:36+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T10:53:36+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2014-10-21T10:55:52+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005000s ]
+[ 2014-10-21T10:55:52+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000000s ]
+[ 2014-10-21T10:55:52+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.005000s ]
+[ 2014-10-21T10:55:52+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-10-21T10:55:52+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.005001s ]
+[ 2014-10-21T10:55:52+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.000000s ]
+[ 2014-10-21T10:55:52+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 0,20 [ RunTime:0.001000s ]
+[ 2014-10-21T10:55:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T10:55:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T10:55:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T10:55:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T10:55:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T10:55:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T10:55:52+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T10:55:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T10:55:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T10:55:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T10:55:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2014-10-21T10:55:57+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.011000s ]
+[ 2014-10-21T10:55:57+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000000s ]
+[ 2014-10-21T10:55:57+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.011001s ]
+[ 2014-10-21T10:55:57+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-10-21T10:55:57+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.008001s ]
+[ 2014-10-21T10:55:57+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.000000s ]
+[ 2014-10-21T10:55:57+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 20,20 [ RunTime:0.001000s ]
+[ 2014-10-21T10:55:57+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T10:55:57+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T10:55:57+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T10:55:57+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T10:55:57+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T10:55:57+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T10:55:57+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T10:55:57+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T10:55:57+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T10:55:57+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T10:55:57+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2014-10-21T10:56:03+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.011001s ]
+[ 2014-10-21T10:56:03+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000000s ]
+[ 2014-10-21T10:56:03+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.007001s ]
+[ 2014-10-21T10:56:03+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.000000s ]
+[ 2014-10-21T10:56:03+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.007000s ]
+[ 2014-10-21T10:56:03+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.001000s ]
+[ 2014-10-21T10:56:03+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 40,20 [ RunTime:0.001000s ]
+[ 2014-10-21T10:56:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T10:56:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T10:56:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T10:56:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T10:56:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T10:56:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T10:56:03+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T10:56:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T10:56:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T10:56:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T10:56:03+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2014-10-21T10:57:06+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.011000s ]
+[ 2014-10-21T10:57:06+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001000s ]
+[ 2014-10-21T10:57:06+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.009000s ]
+[ 2014-10-21T10:57:06+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.000000s ]
+[ 2014-10-21T10:57:06+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.005000s ]
+[ 2014-10-21T10:57:06+08:00 ] SQL: SELECT distinct member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.002000s ]
+[ 2014-10-21T10:57:06+08:00 ] SQL: SELECT distinct member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 40,20 [ RunTime:0.001000s ]
+[ 2014-10-21T10:57:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T10:57:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T10:57:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T10:57:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T10:57:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T10:57:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T10:57:06+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T10:57:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T10:57:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T10:57:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T10:57:06+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2014-10-21T10:57:10+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.010000s ]
+[ 2014-10-21T10:57:10+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001000s ]
+[ 2014-10-21T10:57:10+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.012001s ]
+[ 2014-10-21T10:57:10+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-10-21T10:57:10+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.006000s ]
+[ 2014-10-21T10:57:10+08:00 ] SQL: SELECT distinct member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.001000s ]
+[ 2014-10-21T10:57:10+08:00 ] SQL: SELECT distinct member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 0,20 [ RunTime:0.001000s ]
+[ 2014-10-21T10:57:10+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T10:57:10+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T10:57:10+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T10:57:10+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T10:57:10+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T10:57:10+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T10:57:10+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T10:57:10+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T10:57:10+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T10:57:10+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T10:57:10+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2014-10-21T11:22:41+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.015001s ]
+[ 2014-10-21T11:22:41+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000000s ]
+[ 2014-10-21T11:22:41+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.006001s ]
+[ 2014-10-21T11:22:41+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.000000s ]
+[ 2014-10-21T11:22:41+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.006000s ]
+[ 2014-10-21T11:22:41+08:00 ] SQL: SELECT distinct member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.002000s ]
+[ 2014-10-21T11:22:41+08:00 ] SQL: SELECT distinct member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 0,20 [ RunTime:0.001000s ]
+[ 2014-10-21T11:22:41+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T11:22:41+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T11:22:41+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T11:22:41+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T11:22:41+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T11:22:41+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T11:22:41+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T11:22:41+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T11:22:41+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T11:22:41+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T11:22:41+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2014-10-21T11:22:46+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.009001s ]
+[ 2014-10-21T11:22:46+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000000s ]
+[ 2014-10-21T11:22:46+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.009001s ]
+[ 2014-10-21T11:22:46+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-10-21T11:22:46+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.010001s ]
+[ 2014-10-21T11:22:46+08:00 ] SQL: SELECT distinct member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.000000s ]
+[ 2014-10-21T11:22:46+08:00 ] SQL: SELECT distinct member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 20,20 [ RunTime:0.002000s ]
+[ 2014-10-21T11:22:46+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T11:22:46+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T11:22:46+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T11:22:46+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T11:22:46+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T11:22:46+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T11:22:46+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T11:22:46+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T11:22:46+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T11:22:46+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T11:22:46+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2014-10-21T11:22:52+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.008000s ]
+[ 2014-10-21T11:22:52+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000000s ]
+[ 2014-10-21T11:22:52+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.008001s ]
+[ 2014-10-21T11:22:52+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-10-21T11:22:52+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.009001s ]
+[ 2014-10-21T11:22:52+08:00 ] SQL: SELECT distinct member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.000000s ]
+[ 2014-10-21T11:22:52+08:00 ] SQL: SELECT distinct member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 0,20 [ RunTime:0.000000s ]
+[ 2014-10-21T11:22:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T11:22:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T11:22:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T11:22:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T11:22:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T11:22:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T11:22:52+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T11:22:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T11:22:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T11:22:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T11:22:52+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2014-10-21T11:24:21+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005001s ]
+[ 2014-10-21T11:24:21+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000000s ]
+[ 2014-10-21T11:24:21+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.006000s ]
+[ 2014-10-21T11:24:21+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 9 [ RunTime:0.000000s ]
+[ 2014-10-21T11:24:21+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.005001s ]
+[ 2014-10-21T11:24:21+08:00 ] SQL: SELECT distinct member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 [ RunTime:0.000000s ]
+[ 2014-10-21T11:24:21+08:00 ] SQL: SELECT distinct member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=9 limit 0,20 [ RunTime:0.000000s ]
+[ 2014-10-21T11:24:21+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2014-10-21T11:24:21+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2014-10-21T11:24:21+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2014-10-21T11:24:21+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2014-10-21T11:24:21+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2014-10-21T11:24:21+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2014-10-21T11:24:21+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2014-10-21T11:24:21+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2014-10-21T11:24:21+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2014-10-21T11:24:21+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2014-10-21T11:24:21+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.

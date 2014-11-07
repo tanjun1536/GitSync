@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<script type="text/JavaScript">
+	function MM_openBrWindow(theURL, winName, features) { //v2.0
+		var selUsers = document.getElementById("partersid").value;
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "?selUsers=" + selUsers, winName, features);
+
+	}
+	function selectUsers(idInput, nameInput) {
+		var selUsers = document.getElementById(idInput).value;
+		var theURL = "__APP__/User/usercheckbox?id=" + idInput + "&name=" + nameInput;
+		var features = 'scrollbars=yes,scrollbars=yes,width=755,height=570';
+		var winName = '';
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "&selUsers=" + selUsers, winName, features);
+	}
+	$(function() {
+		$('#casefzrdept').change(function() {
+			getPeople('#casefzrdept', '#casefzr');
+		});
+		$('#businessfzrdept').change(function() {
+			getPeople('#businessfzrdept', '#businessfzr');
+		});
+		$('#casedddept').change(function() {
+			getPeople('#casedddept', '#casedd');
+		});
+		//设置选择的值
+		init();
+
+	});
+	function init()
+	{
+		$('#casefzrdept').val({$c.casefzrdept});
+		$('#businessfzrdept').val({$c.businessfzrdept});
+		$('#casedddept').val({$c.casedddept});
+		getPeopleSync('#casefzrdept', '#casefzr');
+		getPeopleSync('#businessfzrdept', '#businessfzr');
+		getPeopleSync('#casedddept', '#casedd');
+		$('#casefzr').val({$c.casefzr});
+		$('#businessfzr').val({$c.businessfzr});
+		$('#casedd').val({$c.casedd});
+	}
+	function getPeopleSync(depart, users) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getPeopleByDepart",
+			data : "id=" + $(depart).val(),
+			async:false,
+			success : function(data) {
+				$(users).empty();
+				$("<option value=''>選擇員工</option>").appendTo(users);
+				var json = eval(data);
+				$.each(json, function(k) {
+					$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name']) + "(" + decodeURI(json[k]['ucode']) + ")</option>").appendTo(users);
+				});
+			}
+		});
+	}
+	function getPeople(depart, users) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getPeopleByDepart",
+			data : "id=" + $(depart).val(),
+			success : function(data) {
+				$(users).empty();
+				$("<option value=''>選擇員工</option>").appendTo(users);
+				var json = eval(data);
+				$.each(json, function(k) {
+					$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name']) + "(" + decodeURI(json[k]['ucode']) + ")</option>").appendTo(users);
+				});
+			}
+		});
+	}
+	function check() {
+		return validator.empty('day', '請選擇日期') && validator.empty('minutes', '請輸入分鐘') && validator.index('hosterdepart', '請選擇會議主持部門') && validator.index('hoster', '請選擇會議主持') && validator.index('recorderdepart', '請選擇會議記錄人部門') && validator.index('recorder', '請選擇會議記錄人') && validator.index('starterdepart', '請選擇會議發起人部門') && validator.index('starter', '請選擇會議發起人')
+				&& validator.empty('partersname', '請輸入與會人員') && validator.empty('topic', '請輸入會議主題');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">專案管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/insert?case={$c.id}" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					{__NOTOKEN__}
+					<input type="hidden" name="id" value="{$c.id}" /> 
+					<div class="topic2">修改專案</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th scope="row">專案名稱</th>
+							<td colspan="3"><input type="text" name="name" value="{$c.name}" style="width: 500px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">客戶名稱</th>
+							<td colspan="3"><input type="text" name="clientname" value="{$c.clientname}" style="width: 300px" /></td>
+						</tr>
+						<tr>
+							<th width="119" scope="row">合約編號</th>
+							<td width="213"><input type="text" name="contractcode" value="{$c.contractcode}"/></td>
+							<th width="137" scope="row">專案編號</th>
+							<td width="221"><input type="text" name="casecode" value="{$c.casecode}"/></td>
+						</tr>
+						<tr>
+							<th scope="row">合約起始日</th>
+							<td><input type="text" name="contractstartdate" class="Wdate" onfocus="WdatePicker();" value="{$case.contractstartdate|date='Y/m/d',strtotime(###)}" /></td>
+							<th width="137" scope="row">專案起始日</th>
+							<td><input type="text" name="casestartdate" value="{$c.casestartdate|date='Y/m/d',strtotime(###)}"  class="Wdate" onfocus="WdatePicker();" /></td>
+						</tr>
+						<tr>
+							<th scope="row">合約結束日</th>
+							<td><input type="text" name="contractenddate" value="{$c.contractenddate|date='Y/m/d',strtotime(###)}" class="Wdate" onfocus="WdatePicker();" /></td>
+							<th width="137" scope="row">專案預定結束日</th>
+							<td><input type="text" name="caseevaluateenddate" value="{$c.caseevaluateenddate|date='Y/m/d',strtotime(###)}" class="Wdate" onfocus="WdatePicker();" /></td>
+						</tr>
+						<tr>
+							<th scope="row">合約金額</th>
+							<td><input type="text" name="contractmoney" value="{$c.contractmoney}" /></td>
+							<th scope="row">專案實際結束日</th>
+							<td><input type="text" name="casereallyenddate" value="{$c.casereallyenddate|date='Y/m/d',strtotime(###)}" class="Wdate" onfocus="WdatePicker();" /></td>
+						</tr>
+						<tr>
+							<th scope="row">專案負責人</th>
+							<td colspan="3"><select name="casefzrdept" id="casefzrdept">
+									<option value="選擇部門">選擇部門</option>
+									<volist id="item" name="departs">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="casefzr" id="casefzr">
+									<option value="選擇員工">選擇員工</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">業務負責人</th>
+							<td colspan="3"><select name="businessfzrdept" id="businessfzrdept">
+									<option value="選擇部門">選擇部門</option>
+									<volist id="item" name="departs">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="businessfzr" id="businessfzr">
+									<option value="選擇員工">選擇員工</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">專案督導</th>
+							<td colspan="3"><select name="casedddept" id="casedddept">
+									<option value="選擇部門">選擇部門</option>
+									<volist id="item" name="departs">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="casedd" id="casedd">
+									<option value="選擇員工">選擇員工</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">專案所屬人員</th>
+							<td colspan="3"><label> <input type="hidden" id="casebelongusersid" value="{$c.casebelongusersid}" name="casebelongusersid" /><input type="text" id="casebelongusersname" value="{$c.casebelongusersname}" name="casebelongusersname" style="width: 500px" /> <img src="__PUBLIC__/images/add_16.png" alt="" width="16" height="16" onclick="selectUsers('casebelongusersid','casebelongusersname')" /></label></td>
+						</tr>
+						<tr>
+							<th scope="row">專案查看人員</th>
+							<td colspan="3"><input type="hidden" name="caselookusersid" value="{$c.caselookusersid}" id="caselookusersid" /><input type="text" id="caselookusersname" name="caselookusersname" style="width: 500px" value="{$c.caselookusersname}" /> <img src="__PUBLIC__/images/add_16.png" alt="" width="16" height="16" onclick="selectUsers('caselookusersid','caselookusersname')" /></td>
+						</tr>
+						<tr>
+							<th scope="row">專案內容描述</th>
+							<td colspan="3"><textarea name="casecontentdesc"  rows="10" style="width: 500px">{$c.casecontentdesc}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

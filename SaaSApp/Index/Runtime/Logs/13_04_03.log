@@ -1,0 +1,1400 @@
+[ 2013-04-03T23:20:19+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-04-03T23:20:19+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-04-03T23:20:38+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008582s ]
+[ 2013-04-03T23:20:38+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.039482s ]
+[ 2013-04-03T23:20:38+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.011813s ]
+[ 2013-04-03T23:20:38+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msg` WHERE code='13108617' and INSTR(CONCAT(",",receiversid,","),",10,")>0 and isread =0 LIMIT 1  [ RunTime:0.119851s ]
+[ 2013-04-03T23:20:38+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.013611s ]
+[ 2013-04-03T23:20:38+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.034531s ]
+[ 2013-04-03T23:20:38+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.008087s ]
+[ 2013-04-03T23:20:38+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001474s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001244s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.015262s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.002453s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002840s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002204s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002218s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002569s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002447s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002513s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002911s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002472s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002648s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002880s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.003327s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.003272s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002277s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002249s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002346s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002891s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002085s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002125s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002210s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002490s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002255s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002093s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002285s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002220s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002538s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002103s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002210s ]
+[ 2013-04-03T23:20:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002106s ]
+[ 2013-04-03T23:20:40+08:00 ] NOTIC: [8] Undefined variable: list a2c51faf257f2ebe48aa3609eae55296.php 第 259 行.
+[ 2013-04-03T23:20:40+08:00 ] NOTIC: [8] Undefined variable: page a2c51faf257f2ebe48aa3609eae55296.php 第 283 行.
+[ 2013-04-03T23:22:15+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.064030s ]
+[ 2013-04-03T23:22:15+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001213s ]
+[ 2013-04-03T23:22:15+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007778s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msg` WHERE code='13108617' and INSTR(CONCAT(",",receiversid,","),",10,")>0 and isread =0 LIMIT 1  [ RunTime:0.005017s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.007430s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.001988s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.008282s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001149s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001124s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.008001s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.002597s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002520s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002060s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002428s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002145s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002420s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002122s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002074s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002216s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002151s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002584s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002110s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002673s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002185s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002262s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002337s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002436s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002393s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002311s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002494s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002237s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002241s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002195s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.003063s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002641s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002189s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002293s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002208s ]
+[ 2013-04-03T23:22:16+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002432s ]
+[ 2013-04-03T23:22:16+08:00 ] NOTIC: [8] Undefined variable: list a2c51faf257f2ebe48aa3609eae55296.php 第 259 行.
+[ 2013-04-03T23:22:16+08:00 ] NOTIC: [8] Undefined variable: page a2c51faf257f2ebe48aa3609eae55296.php 第 283 行.
+[ 2013-04-03T23:24:18+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008586s ]
+[ 2013-04-03T23:24:18+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001218s ]
+[ 2013-04-03T23:24:18+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007630s ]
+[ 2013-04-03T23:24:18+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msg` WHERE code='13108617' and INSTR(CONCAT(",",receiversid,","),",10,")>0 and isread =0 LIMIT 1  [ RunTime:0.000867s ]
+[ 2013-04-03T23:24:18+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.007300s ]
+[ 2013-04-03T23:24:18+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.001940s ]
+[ 2013-04-03T23:24:18+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.008038s ]
+[ 2013-04-03T23:24:18+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001220s ]
+[ 2013-04-03T23:24:18+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001137s ]
+[ 2013-04-03T23:24:18+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.002625s ]
+[ 2013-04-03T23:24:18+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.002466s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002297s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002350s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002155s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002407s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002454s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002193s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002036s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002423s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002520s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002210s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002194s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002026s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002554s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002249s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002272s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002102s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002673s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.003133s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002164s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002694s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002467s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002335s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002542s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002382s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002145s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002218s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002513s ]
+[ 2013-04-03T23:24:19+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002211s ]
+[ 2013-04-03T23:24:19+08:00 ] NOTIC: [8] Undefined variable: list a2c51faf257f2ebe48aa3609eae55296.php 第 259 行.
+[ 2013-04-03T23:24:19+08:00 ] NOTIC: [8] Undefined variable: page a2c51faf257f2ebe48aa3609eae55296.php 第 283 行.
+[ 2013-04-03T23:24:25+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2013-04-03T23:24:25+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 21 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.003064s ]
+[ 2013-04-03T23:24:25+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.007473s ]
+[ 2013-04-03T23:24:25+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE  code='13108617'  and senderid=10 LIMIT 1  [ RunTime:0.001343s ]
+[ 2013-04-03T23:24:25+08:00 ] SQL: SELECT * FROM `msgwork` WHERE  code='13108617'  and senderid=10 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001491s ]
+[ 2013-04-03T23:24:25+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.007402s ]
+[ 2013-04-03T23:24:25+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001168s ]
+[ 2013-04-03T23:24:29+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.008041s ]
+[ 2013-04-03T23:24:29+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE  code='13108617'  and senderid=10 LIMIT 1  [ RunTime:0.001173s ]
+[ 2013-04-03T23:24:29+08:00 ] SQL: SELECT * FROM `msgwork` WHERE  code='13108617'  and senderid=10 ORDER BY id desc LIMIT 0,20  [ RunTime:0.002300s ]
+[ 2013-04-03T23:24:29+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.007470s ]
+[ 2013-04-03T23:24:29+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001142s ]
+[ 2013-04-03T23:24:33+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007831s ]
+[ 2013-04-03T23:24:33+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001306s ]
+[ 2013-04-03T23:26:12+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008228s ]
+[ 2013-04-03T23:26:12+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.002104s ]
+[ 2013-04-03T23:26:16+08:00 ] NOTIC: [2] Missing argument 1 for MsgAction::getUnRead(), called in D:\SystemDevelop\PHPWorkSpace\SaaSApp\Index\Lib\Action\MsgAction.class.php on line 27 and defined MsgAction.class.php 第 119 行.
+[ 2013-04-03T23:26:16+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007505s ]
+[ 2013-04-03T23:26:16+08:00 ] NOTIC: [8] Undefined variable: id MsgAction.class.php 第 122 行.
+[ 2013-04-03T23:26:16+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msg` WHERE  code='13108617'  and INSTR(CONCAT(",",receiversid,","),",,")>0 and isread =0 LIMIT 1  [ RunTime:0.001043s ]
+[ 2013-04-03T23:26:20+08:00 ] NOTIC: [8] Undefined index: selUsers UserAction.class.php 第 347 行.
+[ 2013-04-03T23:26:20+08:00 ] NOTIC: [8] Undefined index: depart UserAction.class.php 第 350 行.
+[ 2013-04-03T23:26:20+08:00 ] NOTIC: [8] Undefined index: team UserAction.class.php 第 351 行.
+[ 2013-04-03T23:26:20+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008898s ]
+[ 2013-04-03T23:26:20+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` LIMIT 1  [ RunTime:0.021184s ]
+[ 2013-04-03T23:26:20+08:00 ] SQL: SELECT * FROM `user` ORDER BY id desc [ RunTime:0.006461s ]
+[ 2013-04-03T23:26:20+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006934s ]
+[ 2013-04-03T23:26:20+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000842s ]
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: depart 145340539db2f08d45d4773c1ffef375.php 第 11 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: team 145340539db2f08d45d4773c1ffef375.php 第 12 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:21+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:22+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 109 行.
+[ 2013-04-03T23:26:35+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.011706s ]
+[ 2013-04-03T23:26:35+08:00 ] SQL: INSERT INTO `msg` (`receiversid`,`receiversname`,`title`,`cont`,`senddate`,`code`,`senderid`,`sendername`) VALUES ('10','管理员(0001)','测试信息','测试信息','2013-04-03 23:26:35','13108617','10','管理员') [ RunTime:0.001023s ]
+[ 2013-04-03T23:26:35+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007420s ]
+[ 2013-04-03T23:26:35+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msg` WHERE  code='13108617'  and INSTR(CONCAT(",",receiversid,","),",10,")>0 and isread =0 LIMIT 1  [ RunTime:0.000879s ]
+[ 2013-04-03T23:26:36+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.013270s ]
+[ 2013-04-03T23:26:36+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001499s ]
+[ 2013-04-03T23:26:36+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.001234s ]
+[ 2013-04-03T23:32:25+08:00 ] SQL: SELECT * FROM user WHERE depart=(SELECT depart FROM user WHERE id=10) [ RunTime:0.002457s ]
+[ 2013-04-03T23:32:25+08:00 ] SQL: select * from depart  [ RunTime:0.001066s ]
+[ 2013-04-03T23:32:25+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 119 行.
+[ 2013-04-03T23:32:25+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 120 行.
+[ 2013-04-03T23:32:25+08:00 ] NOTIC: [8] Undefined index: depart CheckAction.class.php 第 121 行.
+[ 2013-04-03T23:32:25+08:00 ] SQL: SELECT c.*,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  [ RunTime:0.011715s ]
+[ 2013-04-03T23:32:26+08:00 ] SQL: SELECT c.*,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  limit 0,20 [ RunTime:0.001187s ]
+[ 2013-04-03T23:34:15+08:00 ] SQL: SELECT * FROM user WHERE depart=(SELECT depart FROM user WHERE id=10) [ RunTime:0.002511s ]
+[ 2013-04-03T23:34:15+08:00 ] SQL: select * from depart  [ RunTime:0.000826s ]
+[ 2013-04-03T23:34:15+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 119 行.
+[ 2013-04-03T23:34:15+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 120 行.
+[ 2013-04-03T23:34:15+08:00 ] NOTIC: [8] Undefined index: depart CheckAction.class.php 第 121 行.
+[ 2013-04-03T23:34:15+08:00 ] SQL: SELECT c.*,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  [ RunTime:0.011788s ]
+[ 2013-04-03T23:34:15+08:00 ] SQL: SELECT c.*,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  limit 0,20 [ RunTime:0.001181s ]
+[ 2013-04-03T23:36:23+08:00 ] SQL: SELECT * FROM user WHERE depart=(SELECT depart FROM user WHERE id=10) [ RunTime:0.002523s ]
+[ 2013-04-03T23:36:23+08:00 ] SQL: select * from depart  [ RunTime:0.000832s ]
+[ 2013-04-03T23:36:23+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 119 行.
+[ 2013-04-03T23:36:23+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 120 行.
+[ 2013-04-03T23:36:23+08:00 ] NOTIC: [8] Undefined index: depart CheckAction.class.php 第 121 行.
+[ 2013-04-03T23:36:23+08:00 ] SQL: SELECT c.*,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  [ RunTime:0.011462s ]
+[ 2013-04-03T23:36:23+08:00 ] SQL: SELECT c.*,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  limit 0,20 [ RunTime:0.001170s ]
+[ 2013-04-03T23:36:58+08:00 ] SQL: SELECT * FROM user WHERE depart=(SELECT depart FROM user WHERE id=10) [ RunTime:0.002290s ]
+[ 2013-04-03T23:36:58+08:00 ] SQL: select * from depart  [ RunTime:0.000828s ]
+[ 2013-04-03T23:36:58+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 119 行.
+[ 2013-04-03T23:36:58+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 120 行.
+[ 2013-04-03T23:36:58+08:00 ] NOTIC: [8] Undefined index: depart CheckAction.class.php 第 121 行.
+[ 2013-04-03T23:36:58+08:00 ] SQL: SELECT c.*,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  [ RunTime:0.011487s ]
+[ 2013-04-03T23:36:58+08:00 ] SQL: SELECT c.*,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  limit 0,20 [ RunTime:0.001138s ]
+[ 2013-04-03T23:37:04+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.008463s ]
+[ 2013-04-03T23:37:04+08:00 ] SQL: SELECT * FROM `team` WHERE depart=21 [ RunTime:0.000885s ]
+[ 2013-04-03T23:37:07+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.006743s ]
+[ 2013-04-03T23:37:07+08:00 ] SQL: SELECT * FROM `team` WHERE depart=12 [ RunTime:0.000876s ]
+[ 2013-04-03T23:42:40+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008032s ]
+[ 2013-04-03T23:42:40+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001091s ]
+[ 2013-04-03T23:42:40+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.000974s ]
+[ 2013-04-03T23:42:45+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.009529s ]
+[ 2013-04-03T23:42:45+08:00 ] SQL: SHOW COLUMNS FROM `msgreader` [ RunTime:0.007413s ]
+[ 2013-04-03T23:42:45+08:00 ] SQL: INSERT INTO `msgreader` (`msgid`,`readerid`) VALUES ('1','10') [ RunTime:0.035425s ]
+[ 2013-04-03T23:42:45+08:00 ] SQL: SELECT * FROM `msg` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.001119s ]
+[ 2013-04-03T23:42:45+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.010806s ]
+[ 2013-04-03T23:42:45+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msg` WHERE  code='13108617'  and INSTR(CONCAT(",",receiversid,","),",10,")>0 and isread =0 LIMIT 1  [ RunTime:0.001002s ]
+[ 2013-04-03T23:42:48+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007680s ]
+[ 2013-04-03T23:42:48+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001022s ]
+[ 2013-04-03T23:42:48+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.001217s ]
+[ 2013-04-03T23:51:42+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008564s ]
+[ 2013-04-03T23:51:42+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001067s ]
+[ 2013-04-03T23:51:42+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.000972s ]
+[ 2013-04-03T23:51:44+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007635s ]
+[ 2013-04-03T23:51:44+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001301s ]
+[ 2013-04-03T23:51:44+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.000991s ]
+[ 2013-04-03T23:51:46+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008441s ]
+[ 2013-04-03T23:51:46+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001059s ]
+[ 2013-04-03T23:51:46+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.000835s ]
+[ 2013-04-03T23:52:17+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007437s ]
+[ 2013-04-03T23:52:17+08:00 ] SQL: SELECT * FROM `msg` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.001209s ]
+[ 2013-04-03T23:52:17+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007680s ]
+[ 2013-04-03T23:52:17+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT 
+			  m.id,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617) z WHERE z.isread IS NULL [ RunTime:0.000960s ]
+[ 2013-04-03T23:52:17+08:00 ] NOTIC: [8] Undefined index: C MsgAction.class.php 第 130 行.
+[ 2013-04-03T23:52:38+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008958s ]
+[ 2013-04-03T23:52:38+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001100s ]
+[ 2013-04-03T23:52:38+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.000962s ]
+[ 2013-04-03T23:52:40+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007597s ]
+[ 2013-04-03T23:52:40+08:00 ] SQL: SELECT * FROM `msg` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.001151s ]
+[ 2013-04-03T23:52:40+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008465s ]
+[ 2013-04-03T23:52:40+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT 
+			  m.id,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617) z WHERE z.isread IS NULL [ RunTime:0.000969s ]
+[ 2013-04-03T23:52:40+08:00 ] NOTIC: [8] Undefined index: C MsgAction.class.php 第 130 行.
+[ 2013-04-03T23:53:09+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-04-03T23:53:09+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-04-03T23:53:10+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009846s ]
+[ 2013-04-03T23:53:10+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001117s ]
+[ 2013-04-03T23:53:10+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.009803s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msg` WHERE code='13108617' and INSTR(CONCAT(",",receiversid,","),",10,")>0 and isread =0 LIMIT 1  [ RunTime:0.000861s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.008243s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.002010s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.010373s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001521s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.003945s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.002652s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.003914s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002888s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002612s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002199s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002196s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002823s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002430s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002325s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002560s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002427s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002400s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002144s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002203s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002208s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002597s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002209s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002191s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002116s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002343s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002306s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002378s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002305s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002454s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002981s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002622s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002491s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002567s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002628s ]
+[ 2013-04-03T23:53:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002277s ]
+[ 2013-04-03T23:53:11+08:00 ] NOTIC: [8] Undefined variable: list a2c51faf257f2ebe48aa3609eae55296.php 第 259 行.
+[ 2013-04-03T23:53:11+08:00 ] NOTIC: [8] Undefined variable: page a2c51faf257f2ebe48aa3609eae55296.php 第 283 行.
+[ 2013-04-03T23:53:14+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007791s ]
+[ 2013-04-03T23:53:14+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001435s ]
+[ 2013-04-03T23:53:14+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.000941s ]
+[ 2013-04-03T23:55:51+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007831s ]
+[ 2013-04-03T23:55:51+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001056s ]
+[ 2013-04-03T23:55:51+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.001548s ]
+[ 2013-04-03T23:55:53+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007484s ]
+[ 2013-04-03T23:55:53+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.001448s ]
+[ 2013-04-03T23:55:53+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 10, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.001199s ]
+[ 2013-04-03T23:56:05+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009477s ]
+[ 2013-04-03T23:56:05+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001308s ]
+[ 2013-04-03T23:56:08+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.009803s ]
+[ 2013-04-03T23:56:09+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=Array ['id']
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', , ',')
+		) > 0 AND m.code = Array ['code']) z WHERE z.isread IS NULL [ RunTime:0.001711s ]
+[ 2013-04-03T23:56:48+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.008039s ]
+[ 2013-04-03T23:56:48+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.002217s ]
+[ 2013-04-03T23:56:48+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.007828s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.004131s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001717s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.002472s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.002200s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002120s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002390s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.003227s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.004000s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002499s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002573s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.003073s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002672s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002203s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002281s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002626s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002643s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002470s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002227s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002452s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002325s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002152s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002505s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002326s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002372s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002879s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002310s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002645s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002538s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002215s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002190s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002292s ]
+[ 2013-04-03T23:56:52+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002265s ]
+[ 2013-04-03T23:56:52+08:00 ] NOTIC: [8] Undefined variable: list a2c51faf257f2ebe48aa3609eae55296.php 第 259 行.
+[ 2013-04-03T23:56:52+08:00 ] NOTIC: [8] Undefined variable: page a2c51faf257f2ebe48aa3609eae55296.php 第 283 行.
+[ 2013-04-03T23:56:58+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-04-03T23:56:58+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 [ RunTime:0.004389s ]
+[ 2013-04-03T23:56:58+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 limit 0,20 [ RunTime:0.004444s ]
+[ 2013-04-03T23:57:03+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008752s ]
+[ 2013-04-03T23:57:03+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001690s ]
+[ 2013-04-03T23:57:05+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.010004s ]
+[ 2013-04-03T23:57:05+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread IS NULL [ RunTime:0.003121s ]
+[ 2013-04-03T23:57:12+08:00 ] NOTIC: [8] Undefined index: C IndexAction.class.php 第 49 行.
+[ 2013-04-03T23:57:15+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.014853s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.002001s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.007826s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001941s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001322s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.002835s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.002518s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002173s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002155s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002844s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002191s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002147s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002451s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002156s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002478s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002204s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002059s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002299s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002149s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002522s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002232s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002181s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002383s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002311s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002176s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002297s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002154s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002281s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002410s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002364s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002190s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002565s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002921s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002208s ]
+[ 2013-04-03T23:57:15+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002202s ]
+[ 2013-04-03T23:57:15+08:00 ] NOTIC: [8] Undefined variable: list a2c51faf257f2ebe48aa3609eae55296.php 第 259 行.
+[ 2013-04-03T23:57:15+08:00 ] NOTIC: [8] Undefined variable: page a2c51faf257f2ebe48aa3609eae55296.php 第 283 行.
+[ 2013-04-03T23:57:31+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008849s ]
+[ 2013-04-03T23:57:31+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001110s ]
+[ 2013-04-03T23:57:33+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.009210s ]
+[ 2013-04-03T23:57:34+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread IS NULL [ RunTime:0.002971s ]
+[ 2013-04-03T23:57:43+08:00 ] NOTIC: [8] Undefined index: MSG_COMM debug-eval 第 1 行.
+[ 2013-04-03T23:57:49+08:00 ] NOTIC: [8] Undefined index: ROOT_DOCUMENT debug-eval 第 1 行.
+[ 2013-04-03T23:57:49+08:00 ] NOTIC: [8] Undefined variable: qData debug-eval 第 1 行.
+[ 2013-04-03T23:57:49+08:00 ] NOTIC: [8] Undefined variable: result debug-eval 第 1 行.
+[ 2013-04-03T23:57:49+08:00 ] NOTIC: [8] Undefined variable: req debug-eval 第 1 行.
+[ 2013-04-03T23:57:49+08:00 ] NOTIC: [8] Undefined variable: e debug-eval 第 1 行.
+[ 2013-04-03T23:57:49+08:00 ] NOTIC: [8] Undefined variable: qData debug-eval 第 1 行.
+[ 2013-04-03T23:57:49+08:00 ] NOTIC: [8] Undefined variable: items debug-eval 第 1 行.
+[ 2013-04-03T23:58:12+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.009103s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.002181s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.007235s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001372s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.002048s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.002752s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.002307s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002262s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002164s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002030s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.003061s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002377s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002083s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002573s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002401s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002324s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002241s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002120s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002149s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002561s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002505s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002166s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002040s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002304s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.003581s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002228s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002127s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002267s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.003647s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002234s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002043s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002299s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002238s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002443s ]
+[ 2013-04-03T23:58:12+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002059s ]
+[ 2013-04-03T23:58:12+08:00 ] NOTIC: [8] Undefined variable: list a2c51faf257f2ebe48aa3609eae55296.php 第 259 行.
+[ 2013-04-03T23:58:12+08:00 ] NOTIC: [8] Undefined variable: page a2c51faf257f2ebe48aa3609eae55296.php 第 283 行.
+[ 2013-04-03T23:58:45+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009699s ]
+[ 2013-04-03T23:58:45+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001219s ]
+[ 2013-04-03T23:58:48+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008598s ]
+[ 2013-04-03T23:58:49+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread IS NULL [ RunTime:0.001692s ]
+[ 2013-04-03T23:58:49+08:00 ] NOTIC: [8] Undefined index: C IndexAction.class.php 第 49 行.
+[ 2013-04-03T23:59:11+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.009205s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.002331s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.008456s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.005714s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001317s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.002770s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.003758s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.003258s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.003859s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002873s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002178s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002156s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002862s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002212s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002955s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002192s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002178s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002650s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.003181s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002255s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.003093s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002273s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002305s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002351s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002512s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002947s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002309s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002595s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002495s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002456s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002205s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002335s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002543s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002231s ]
+[ 2013-04-03T23:59:11+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002162s ]
+[ 2013-04-03T23:59:11+08:00 ] NOTIC: [8] Undefined variable: list a2c51faf257f2ebe48aa3609eae55296.php 第 259 行.
+[ 2013-04-03T23:59:11+08:00 ] NOTIC: [8] Undefined variable: page a2c51faf257f2ebe48aa3609eae55296.php 第 283 行.
+[ 2013-04-03T23:59:15+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-04-03T23:59:15+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 [ RunTime:0.004008s ]
+[ 2013-04-03T23:59:15+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 limit 0,20 [ RunTime:0.004493s ]
+[ 2013-04-03T23:59:19+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008470s ]
+[ 2013-04-03T23:59:19+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001104s ]
+[ 2013-04-03T23:59:21+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007886s ]
+[ 2013-04-03T23:59:22+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread IS NULL [ RunTime:0.002618s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.012968s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.002617s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.008284s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001557s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001433s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.002399s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.002218s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002242s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002167s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002606s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002218s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002197s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002825s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002242s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002878s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002210s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002085s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002281s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002060s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002671s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002273s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002521s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002199s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002224s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002327s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002099s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002679s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002532s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002191s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002219s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002705s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002487s ]
+[ 2013-04-03T23:59:34+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002433s ]
+[ 2013-04-03T23:59:35+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002217s ]
+[ 2013-04-03T23:59:35+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002597s ]
+[ 2013-04-03T23:59:35+08:00 ] NOTIC: [8] Undefined variable: list a2c51faf257f2ebe48aa3609eae55296.php 第 259 行.
+[ 2013-04-03T23:59:35+08:00 ] NOTIC: [8] Undefined variable: page a2c51faf257f2ebe48aa3609eae55296.php 第 283 行.
+[ 2013-04-03T23:59:39+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008820s ]
+[ 2013-04-03T23:59:39+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001792s ]
+[ 2013-04-03T23:59:41+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007239s ]
+[ 2013-04-03T23:59:41+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread IS NULL [ RunTime:0.002100s ]
+[ 2013-04-03T23:59:49+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.009344s ]
+[ 2013-04-03T23:59:49+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.001975s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.008235s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001160s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001392s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.002311s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.002341s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002229s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002182s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002200s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002234s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002172s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002200s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002137s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002046s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002542s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002409s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002171s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002400s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002676s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002292s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002184s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002634s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002542s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002695s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002462s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002307s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002431s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002309s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002313s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002075s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002417s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002722s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002339s ]
+[ 2013-04-03T23:59:50+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002140s ]
+[ 2013-04-03T23:59:51+08:00 ] NOTIC: [8] Undefined variable: list a2c51faf257f2ebe48aa3609eae55296.php 第 259 行.
+[ 2013-04-03T23:59:51+08:00 ] NOTIC: [8] Undefined variable: page a2c51faf257f2ebe48aa3609eae55296.php 第 283 行.

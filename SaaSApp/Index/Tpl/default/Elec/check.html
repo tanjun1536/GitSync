@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">文件管理 - 電子簽呈</div>
+			<div class="mainInfo">
+				<form action="__URL__/aggree" method="post"
+					enctype="multipart/form-data" name="form1" id="form1">
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th scope="row">申請日期</th>
+							<td>{$elec.requesterdate|date='Y/m/d H:i',strtotime(###)}</td>
+						</tr>
+						<tr>
+							<th scope="row">申請人</th>
+							<td>{$elec.requestername}({$elec.requestercode})</td>
+						</tr>
+						<tr>
+							<th scope="row">類別/名稱</th>
+							<td><label><span class="txt_green">[
+										{$elec.typename} ] </span>{$elec.typechildname}</label></td>
+						</tr>
+						<tr>
+							<th width="94" scope="row">起迄時間</th>
+							<td width="598">{$elec.sdate|date='y/m/d',strtotime(###)}
+								{$elec.shour}:{$elec.sminute} ~
+								{$elec.edate|date='y/m/d',strtotime(###)}
+								{$elec.ehour}:{$elec.eminute}</td>
+						</tr>
+						<tr>
+							<th scope="row">金額</th>
+							<td>{$elec.je}</td>
+						</tr>
+						<tr>
+							<th scope="row">內容描述</th>
+							<td>{$elec.descript}</td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td>{$elec.remark}</td>
+						</tr>
+						<tr>
+							<th scope="row">簽核人</th>
+							<td><ul>
+									<volist id="item" name="flows">
+									<li>{$item.checkername|csubstr=###,0,strpos(###,")")+1} <span
+										class="txt_orang">{$item.checkername|csubstr=###,strripos(###,"(")+1,strripos(###,")")-strripos(###,"(")-1}
+									</span> <notempty name="item.checkerresult"> <if
+											condition="$item.checkerresult eq '同意'"> <span
+											class="txt_green"><else /><span class="txt_red"></if>({$item.checkerresult})</span></li>
+									</notempty></volist>
+
+								</ul></td>
+						</tr>
+						<tr>
+							<th scope="row">附件</th>
+							<td><neq name="elec.atts"> <volist
+									name=":explode(',',$elec['atts'])" id="att"> <a
+									href="__URL__/down?name={$att|urlencode}" target="_blank">{$att}</a>；
+								</volist> </neq></td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td><input type="text" name="description" id="description"/></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td>
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tr>
+										<td><input type="submit" name="Submit" value="同意或呈核" />
+										</td>
+										<td><input type="button"
+											onclick="$('#form1').attr('action','__URL__/disaggree').submit();"
+											name="Submit2" value="退件" /></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<input type="hidden" name="id" value="{$elec.id}" />
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

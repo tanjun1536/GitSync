@@ -1,0 +1,18 @@
+<ul id="navmenu-h">
+<volist id="item" name="TopMenu">
+			<empty name="item.children">
+			<li><a href="{$item.link}">{$item.name}</a></li>
+			<else/>
+			<li><a href="#">{$item.name}</a>
+				<ul>
+					<volist id="citem" name="item.children">
+					<li><a href="{$citem.link}">{$citem.name}</a></li>
+					</volist>
+					
+				</ul></li>
+			</empty>
+			
+		</volist>
+		<li><a href="__APP__/Favorite">我的最愛</a>  </li>
+</ul>
+

@@ -1,0 +1,18 @@
+---------------------------
+Microsoft Visual C++ Debug Library
+---------------------------
+Debug Assertion Failed!
+
+Program: D:\Market  Service\CTPService.exe
+File: dbgheap.c
+Line: 1044
+
+Expression: _CrtIsValidHeapPointer(pUserData)
+
+For information on how your program can cause an assertion
+failure, see the Visual C++ documentation on asserts.
+
+(Press Retry to debug the application)
+---------------------------
+÷’÷π(A)   ÷ÿ ‘(R)   ∫ˆ¬‘(I)   
+---------------------------

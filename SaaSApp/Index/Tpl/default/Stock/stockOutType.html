@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	function check() {
+		return validator.empty('day', '請選擇日期');
+	}
+	var ty = "{$outtype.type}";
+	$(function() {
+		$("#type").val(ty);
+	});
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 異動管理</div>
+			<div class="mainInfo">
+				<div class="topic2">新增/ 修改出庫性質</div>
+				<form id="form1" name="form1" method="post"
+					action="__URL__/addStockOutType">
+					<input type="hidden" name="id" value="{$outtype.id}" /> <input
+						type="hidden" name="code" style="width: 400px"
+						value="{@SESSION_USER.code}" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="110" scope="row">性質名稱</th>
+							<td width="582"><input type="text" name="name"
+								value="{$outtype.name}" /> <input type="submit" name="Submit"
+								value="確定" /></td>
+						</tr>
+						<tr>
+							<th scope="row">類型</th>
+							<td><select name="type" id="type">
+									<option value="客戶">客戶</option>
+									<option value="廠商">廠商</option>
+									<option value="倉庫">倉庫</option>
+							</select></td>
+						</tr>
+					</table>
+				</form>
+				<table width="695" border="0" cellpadding="0" cellspacing="0"
+					class="tab_thtop">
+					<tr>
+						<th width="87" scope="col">類別</th>
+						<th width="527" scope="col">出庫性質</th>
+						<th width="166" scope="col">操作</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.type}</td>
+					<td align="center">{$item.name}</td>
+					<td align="center"><a
+						href="__URL__/updateStockOutType?id={$item.id}">修改</a> | <a
+						onclick="return confirm('是否刪除該數據?')"
+						href="__URL__/deleteStockOutType?id={$item.id}">刪除</a></td>
+					</tr>
+					</volist>
+				</table>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+<script type="text/JavaScript">
+
+window.onload=function(){
+	document.getElementById('stocktype').value='{$type}';
+	
+};
+<!--
+	function MM_openBrWindow(theURL, winName, features) { //v2.0
+		window.open(theURL, winName, features);
+	}
+//-->
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 異動管理</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="">
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="110" scope="row">類別搜尋</th>
+							<td width="582"><select name="stocktype" id="stocktype">
+									<option value="">請選擇</option>
+									<option value="入庫">入庫單</option>
+									<option value="出庫">出庫單</option>
+									<option value="調撥">調撥單</option>
+							</select>從
+							<input name="sdate"  class="Wdate" onfocus="WdatePicker()" value="{$sdate}"/>至
+							<input name="edate"  class="Wdate" onfocus="WdatePicker()" value="{$edate}"/>
+							
+							 <input type="submit" name="Submit" value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="mailNav">
+				<if condition="check_power('新增調撥單',$ext) eq 1">
+					<a href="__URL__/stockAllocate">新增調撥單</a></if>
+					<if condition="check_power('新增出庫單',$ext) eq 1">
+					<a href="__URL__/stockOut">新增出庫單</a></if>
+					<if condition="check_power('出庫性質',$ext) eq 1">
+					<a href="__URL__/stockOutType">出庫性質</a></if>
+					<if condition="check_power('新增入庫單',$ext) eq 1">
+					<a href="__URL__/stockIn">新增入庫單</a></if>
+					<if condition="check_power('入庫性質',$ext) eq 1">
+					<a href="__URL__/stockInType">入庫性質</a></if>
+					
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="145" scope="col">單號</th>
+						<th width="398" scope="col">倉庫代號/倉庫名稱</th>
+						<th width="88" scope="col">日期</th>
+						<th width="58" scope="col">類別</th>
+						<th width="58" scope="col">狀態</th>
+						<th width="46" scope="col">操作</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center"><if condition="$item.type eq '出庫'"> <a href="__URL__/stockOutView?id={$item.id}">{$item.outcode}</a> <elseif condition="$item.type eq '入庫' " /> <a href="__URL__/stockInView?id={$item.id}">{$item.incode}</a> <else /> <a href="__URL__/stockAllocateView?id={$item.id}">{$item.allocatecode}</a></if></td>
+					<td>{$item.warehousecode}/{$item.warehousename}</td>
+					<td align="center">{$item.dodate|date='Y/m/d',strtotime(###)}</td>
+					<td align="center">{$item.type}</td>
+					<td align="center">{$item.state}</td>
+					<td align="center"><if condition="$item.state eq '新進單'">
+					 <if condition="$item.type eq '出庫'"> 
+					 <a href="__URL__/stockOutCheckPage?id={$item.id}">審核</a> 
+					 <elseif condition="$item.type eq '入庫'" /> 
+					 <a href="__URL__/stockInCheckPage?id={$item.id}">審核</a> <else /> 
+					 <a href="__URL__/stockAllocateCheckPage?id={$item.id}">審核</a></if>
+					 <else/>
+					 	<a href="#" onclick="MM_openBrWindow('__URL__/StockPrint?id={$item.id}','','toolbar=yes,scrollbars=yes,width='+screen.width+',height='+screen.height)">列印</a> 
+					 </if></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

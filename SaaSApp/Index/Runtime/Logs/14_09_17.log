@@ -1,0 +1,19 @@
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [2] session_start(): Cannot send session cookie - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 1438 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [2] session_start(): Cannot send session cache limiter - headers already sent (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 1438 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Use of undefined constant URL_REWRITE - assumed 'URL_REWRITE' Dispatcher.class.php 第 40 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Use of undefined constant URL_COMPAT - assumed 'URL_COMPAT' Dispatcher.class.php 第 46 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Use of undefined constant _PHP_FILE_ - assumed '_PHP_FILE_' Dispatcher.class.php 第 50 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Undefined index: REQUEST_URI Dispatcher.class.php 第 122 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 1608 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 1611 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 2335 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 2336 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\SyncDisk\Source\PHPWorkSpace\SaaSApp\Index\Conf\config.php:1) ~runtime.php 第 2337 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 2477 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' ~runtime.php 第 2479 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Undefined index: REQUEST_URI ~runtime.php 第 2604 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Undefined index: REQUEST_METHOD ~runtime.php 第 2606 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Undefined index: SERVER_PROTOCOL ~runtime.php 第 2607 行.
+[ 2014-09-17T17:12:59+08:00 ] NOTIC: [8] Undefined index: HTTP_USER_AGENT ~runtime.php 第 2609 行.

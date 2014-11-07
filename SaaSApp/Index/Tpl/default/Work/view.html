@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+<include file="Public/top.html" />
+<div class="webPage"><include file="Public/side.html" />
+<div class="mainPage"><include file="Public/top_menu.html" />
+<div class="topic">工作日誌</div>
+<div class="mainInfo">
+<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+	<tr>
+		<th scope="row">員工</th>
+		<td>{$work.uname}</td>
+	</tr>
+	<tr>
+		<th width="92" scope="row">日期</th>
+		<td width="600">{$work.date|date='Y/m/d',strtotime(###)}</td>
+	</tr>
+	<tr>
+		<th scope="row">時間</th>
+		<td>{$work.shour}：{$work.sminute} 開始 ； {$work.ehour}：{$work.eminute} 結束</td>
+	</tr>
+	<tr>
+		<th scope="row">簡述</th>
+		<td>{$work.description}</td>
+	</tr>
+	<tr>
+		<th scope="row">備註</th>
+		<td>{$work.remark}</td>
+	</tr>
+	<tr>
+		<th scope="row">提醒</th>
+		<td><eq name="work.awoke" value="0">不提醒<else/>提醒</eq></td>
+	</tr>
+</table>
+<div class="back"><a href="javascript:window.history.go(-1)">》回上頁</a></div>
+</div>
+</div>
+</div>
+<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 庫存管理</div>
+			<div class="mainInfo">
+				<div class="topic2">
+					<a href="__URL__/stockView?id={$id}">{$name}</a> - 異動紀錄
+				</div>
+				<form id="form2" name="form2" method="post" action="">
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="88" scope="row">商品編號</th>
+							<td width="256"><input type="text" name="scode" /></td>
+							<th width="93" scope="row">商品名稱</th>
+							<td width="253"><input type="text" name="sname" /></td>
+						</tr>
+
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2"
+								value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<table width="695" border="0" cellpadding="0" cellspacing="0"
+					class="tab_thtop">
+					<tr>
+						<th width="88" scope="col">日期</th>
+						<th width="223" scope="col">商品編號</th>
+						<th width="223" scope="col">商品名稱</th>
+						<th width="67" scope="col">事由</th>
+						<th width="78" scope="col">異動數量</th>
+						<th width="78" scope="col">剩餘庫存</th>
+						<th width="73" scope="col">異動人</th>
+						<th width="86" scope="col">備註</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.dodate|date='Y/m/d',strtotime(###)}</td>
+					<td>{$item.productcode}</td>
+					<td>{$item.productname}</td>
+					<td align="center">{$item.type}</td>
+					<td align="center">{$item.quantity}</td>
+					<td align="center">{$item.storage}</td>
+					<td align="center">{$item.douser}</td>
+					<td>&nbsp;</td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

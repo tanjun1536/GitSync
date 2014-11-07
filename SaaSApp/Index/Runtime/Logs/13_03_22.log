@@ -1,0 +1,5 @@
+[ 2013-03-22T23:28:11+08:00 ] NOTIC: [8] Undefined index: key HumanAction.class.php 第 4 行.
+[ 2013-03-22T23:28:11+08:00 ] SQL: SHOW COLUMNS FROM `encouragementpunish` [ RunTime:0.008057s ]
+[ 2013-03-22T23:28:11+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008661s ]
+[ 2013-03-22T23:28:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM encouragementpunish Encouragementpunish  JOIN user u ON Encouragementpunish.uid=u.id WHERE Encouragementpunish.code='13108617' LIMIT 1  [ RunTime:0.000961s ]
+[ 2013-03-22T23:28:11+08:00 ] SQL: SELECT Encouragementpunish.id AS id,Encouragementpunish.code AS code,Encouragementpunish.date AS date,Encouragementpunish.reason AS reason,Encouragementpunish.content AS content,Encouragementpunish.attachement AS attachement,Encouragementpunish.uid AS uid,Encouragementpunish.uname AS uname,u.ucode AS ucode FROM encouragementpunish Encouragementpunish  JOIN user u ON Encouragementpunish.uid=u.id WHERE Encouragementpunish.code='13108617' ORDER BY Encouragementpunish.id desc LIMIT 0,20  [ RunTime:0.002641s ]

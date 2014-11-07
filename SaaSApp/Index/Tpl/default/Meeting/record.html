@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	function MM_openBrWindow(theURL, winName, features) { //v2.0
+		var selUsers = document.getElementById("factpartersid").value;
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "&selUsers=" + selUsers, winName, features);
+
+	}
+	function addFile() {
+		$('#fileContainer').append('<li></li>').append(
+				'<input type="file" name="att[]" />');
+	}
+
+	function check() {
+		//getFactParter();
+		return true;
+	}
+
+	function getFactParter() {
+		var names = "";
+		var us = document.getElementsByTagName("label");
+		var len = us.length;
+		for ( var i = 0; i < len; i++) {
+			var label = us[i];
+			if (label.name == 'factpartersname[]') {
+				names += label.innerText;
+				if (i < len - 1) {
+					names += ",";
+				}
+			}
+
+		}
+		document.getElementById("factpartersname").value = names;
+	}
+
+	function addDecideChoice() {
+		if (validator.empty('desc', '請輸入內容描述!') && validator.length('請選擇人員!')) {
+			var table = $('#decedechoice');
+			var row = $("<tr></tr>");
+			var hValue = $('#desc').val() + "$" + fn.getCheckedValue(",");
+			row
+					.append($("<td></td>")
+							.append($('#desc').val())
+							.append(
+									$("<input type='hidden' value='" + hValue + "' name ='decedechoice[]' />")));
+			row.append($("<td></td>").append(fn.getCheckedValue(",")));
+			row
+					.append($("<td valign='top'></td>")
+							.append(
+									$('<img onclick="$(this).parent().parent().remove();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+			table.append(row);
+			$('#desc').val('');
+		}
+
+	}
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">文件管理 - 會議管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/addRecord?id={$meet[0].id}"
+					onsubmit="return check();" method="post"
+					enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" value="0" name="changefactors"
+						id="changefactors" />
+					<div class="topic2">
+						<a href="personnel1_add.php">會議紀錄</a>
+					</div>
+					<input type="hidden" value="{$meet[0].id}" name="id"> </input>
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="129" scope="row">會議主題</th>
+							<td colspan="3">{$meet[0].topic}</td>
+						</tr>
+						<tr>
+							<th scope="row">開會時間</th>
+							<td width="228">{$meet[0].day}{$meet[0].hours}:{$meet[0].minutes}</td>
+							<th width="114" scope="row">地點</th>
+							<td width="219">{$meet[0].address}</td>
+						</tr>
+						<tr>
+							<th scope="row">會議主持</th>
+							<td>{$meet[0].hname}({$meet[0].hucode})</td>
+							<th scope="row">會議記錄人</th>
+							<td>{$meet[0].rname}({$meet[0].rucode})</td>
+						</tr>
+						<tr>
+							<th scope="row">會議發起人</th>
+							<td colspan="3"><label>{$meet[0].sname}({$meet[0].sucode})</label></td>
+						</tr>
+						<tr>
+							<th scope="row">與會人員</th>
+							<td colspan="3">
+								<ul>
+									<volist name=":explode(',',$meet[0]['partersname'])" id="user">
+									<li>{$user }</li>
+									</volist>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">實際出席人員</th>
+							<td colspan="3"><input type="hidden" id="factpartersid"
+								name="factpartersid"
+								value="{$meet[0]|change_value=###,'factpartersid','partersid'}" />
+								<input type="text" readonly="readonly"
+								value="{$meet[0]|change_value=###,'factpartersname','partersname'}"
+								id="factpartersname" name="factpartersname" style="width: 500px" />
+								<img src="__PUBLIC__/images/add_16.png" style="cursor: pointer;"
+								alt="加入與會人員" width="16" height="16"
+								onclick="MM_openBrWindow('__APP__/User/usercheckbox?id=factpartersid&name=factpartersname','','scrollbars=yes,scrollbars=yes,width=755,height=570')" />
+								<input type="submit" onclick="$('#changefactors').val(1)"
+								value="確認" /></td>
+						</tr>
+						<tr>
+							<th scope="row">相關附件</th>
+							<td colspan="3"><neq name="meet[0].atts"> <input
+									type="hidden" value="{$meet[0].atts}" name="atts"> </input> [ <a
+									href="__URL__/zipdown?names={$meet[0].atts}">儲存全部附件</a> ] <volist
+									name=":explode(',',$meet[0]['atts'])" id="att"> <a
+									href="__URL__/down?name={$att|urlencode}" target="_blank">{$att}</a>；
+								</volist> </neq></td>
+						</tr>
+						<tr>
+							<th scope="row">新增相關附件</th>
+							<td colspan="3">
+								<ul id="fileContainer">
+									<li><input type="file" name="att[]" /> <img
+										src="__PUBLIC__/images/add_16.png" style="cursor: pointer;"
+										alt="增加附件" width="16" height="16" onclick="addFile()" /></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">主題說明</th>
+							<td colspan="3"><textarea name="remark" disabled="disabled"
+									rows="8" style="width: 500px">{$meet[0]['remark']}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">會議內容描述</th>
+							<td colspan="3"><textarea name="cont" rows="8"
+									style="width: 500px">{$meet[0]['cont']}</textarea></td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th scope="col">決議事項</th>
+						</tr>
+						<tr>
+							<td>
+								<table width="680" border="0" cellspacing="0" cellpadding="0"
+									id="decedechoice">
+									<tr>
+										<th width="412" scope="col">內容描述</th>
+										<th width="236" scope="col">交辦</th>
+										<th width="32" scope="col">&nbsp;</th>
+									</tr>
+									<tr>
+										<td><textarea name="desc" id="desc" rows="6"
+												style="width: 400px"></textarea></td>
+										<td>
+											<ul style="overflow: auto; height: 110px">
+												<empty name="meet[0].factpartersname"> <volist
+													name=":explode(',',$meet[0]['partersname'])" id="user">
+												<li><input type="checkbox" name="checkbox"
+													value="{$user}" /> {$user}</li>
+												</volist> <else /> <volist
+													name=":explode(',',$meet[0]['factpartersname'])" id="user">
+												<li><input type="checkbox" name="checkbox"
+													value="{$user}" /> {$user}</li>
+												</volist> </empty>
+
+											</ul>
+										</td>
+										<td valign="top"><img src="__PUBLIC__/images/add_16.png"
+											alt="新增" onclick="addDecideChoice()" style="cursor: pointer;"
+											width="16" height="16" border="0" /></td>
+									</tr>
+									<volist id="item" name="choices">
+									<tr>
+										<td>{$item.cont}</td>
+										<td>{$item.users}</td>
+										<td><img onclick="$(this).parent().parent().remove();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" /></td>
+									</tr>
+									</volist>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<div align="center">
+						<input type="submit" name="Submit" value="確定" />
+						<!--                             <input type="button" name="Submit" onclick="getFactParter()" value="確定" /> -->
+						<input type="reset" name="Submit2" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

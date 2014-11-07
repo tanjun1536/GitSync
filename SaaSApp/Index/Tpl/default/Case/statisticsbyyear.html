@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>年度叫修數量統計表</title>
+<load href="__PUBLIC__/{@style}/css/basic.css" />
+</head>
+
+<body>
+	<div class="txt_w" style="margin: 10px 20px 20px">
+		<strong>{$year} 年</strong> 年度叫修數量統計表
+	</div>
+	<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+		<div style="margin: 10px 20px 20px">
+			西元 <input type="text" name="year" style="width: 100px" /> 年 <input type="submit" name="Submit2" value="搜尋" />
+		</div>
+	</form>
+	<div style="margin: 0px 10px">
+		<table width="800" border="0" cellpadding="0" cellspacing="1" class="tab_month">
+			<tr>
+				<th colspan="1" scope="col"><div style="width: 300px">項目 / 月份</div></th>
+				<th width="40" scope="col">1月</th>
+				<th width="40" scope="col">2月</th>
+				<th width="40" scope="col">3月</th>
+				<th width="40" scope="col">4月</th>
+				<th width="40" scope="col">5月</th>
+				<th width="40" scope="col">6月</th>
+				<th width="40" scope="col">7月</th>
+				<th width="40" scope="col">8月</th>
+				<th width="40" scope="col">9月</th>
+				<th width="40" scope="col">10月</th>
+				<th width="40" scope="col">11月</th>
+				<th width="40" scope="col">12月</th>
+				<th width="40" class="thcolor3" scope="col">總計</th>
+				<th width="70" scope="col">設備比例</th>
+			</tr>
+			<volist id="item" name="list">
+			<tr>
+				<if condition="$item.n eq '累計' ">
+				<th colspan="1" class="thcolor1" scope="row">累計</th>
+				<td class="tdcolor1">{$item.m1}</td>
+				<td class="tdcolor1">{$item.m2}</td>
+				<td class="tdcolor1">{$item.m3}</td>
+				<td class="tdcolor1">{$item.m4}</td>
+				<td class="tdcolor1">{$item.m5}</td>
+				<td class="tdcolor1">{$item.m6}</td>
+				<td class="tdcolor1">{$item.m7}</td>
+				<td class="tdcolor1">{$item.m8}</td>
+				<td class="tdcolor1">{$item.m9}</td>
+				<td class="tdcolor1">{$item.m10}</td>
+				<td class="tdcolor1">{$item.m11}</td>
+				<td class="tdcolor1">{$item.m12}</td>
+				<td class="tdcolor2">{$item.rt}</td>
+				<td>&nbsp;</td>
+				<elseif condition="$item.n eq '叫修比例%'" />
+				<th colspan="1" class="thcolor2" scope="row">{$item.n}</th>
+				<td>{$item.m1}</td>
+				<td>{$item.m2}</td>
+				<td>{$item.m3}</td>
+				<td>{$item.m4}</td>
+				<td>{$item.m5}</td>
+				<td>{$item.m6}</td>
+				<td>{$item.m7}</td>
+				<td>{$item.m8}</td>
+				<td>{$item.m9}</td>
+				<td>{$item.m10}</td>
+				<td>{$item.m11}</td>
+				<td>{$item.m12}</td>
+				<td class="tdcolor2">{$item.rt}</td>
+				<td>{$item.rb}</td>
+				<else />
+				<th>{$item.n}</th>
+				<td>{$item.m1}</td>
+				<td>{$item.m2}</td>
+				<td>{$item.m3}</td>
+				<td>{$item.m4}</td>
+				<td>{$item.m5}</td>
+				<td>{$item.m6}</td>
+				<td>{$item.m7}</td>
+				<td>{$item.m8}</td>
+				<td>{$item.m9}</td>
+				<td>{$item.m10}</td>
+				<td>{$item.m11}</td>
+				<td>{$item.m12}</td>
+				<td class="tdcolor2"><a target="_blank" href="__URL__/statisticsdetail?case={@case}&year={$year}&maintype={$item.mt}">{$item.rt}</a></td>
+				<td>{$item.rb}</td>
+				</if>
+			</tr>
+			</volist>
+		</table>
+	</div>
+</body>
+</html>

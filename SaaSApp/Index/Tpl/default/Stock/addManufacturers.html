@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	var type = "{$m.type}";
+	var category = "{$m.category}";
+	var mprov = "{$m.mprov}";
+	var iprov = "{$m.invoiceprov}";
+	var mcity = "{$m.mcity}";
+	var icity = "{$m.invoicecity}";
+	$(function() {
+		$('#mprov').change(function() {
+			getCity('#mprov', '#mcity');
+		});
+		$('#invoiceprov').change(function() {
+			getCity('#invoiceprov', '#invoicecity');
+		});
+		if (type)
+			$("#type").val(type);
+		if (category)
+			$("#category").val(category);
+		if (mprov)
+			$("#mprov").val(mprov).trigger('change');
+		if (iprov)
+			$("#invoiceprov").val(iprov).trigger('change');
+	});
+	function getCity(p, c) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getCity",
+			data : "pid=" + $(p).val(),
+			success : function(data) {
+				$(c).empty();
+				$("<option value=''>請選擇</option>").appendTo(c);
+				var json = eval(data);
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo(c);
+				});
+				if (c == '#mcity' && mcity)
+					$("#mcity").val(mcity);
+				if (c == '#invoicecity' && icity)
+					$("#invoicecity").val(icity);
+
+			}
+		});
+	}
+	function check() {
+		return true;
+		//return validator.index('day', '請選擇日期');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">廠商管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/addManufacturers" onsubmit="return check()" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="id" style="width: 400px" value="{$m.id}" /> <input type="hidden" name="code" style="width: 400px" value="{@SESSION_USER.code}" />
+					<div class="topic2">新增 / 修改 廠商</div>
+					<table width="695" border="0" align="center" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="132" scope="row">廠商類別</th>
+							<td width="560"><select name="type" id="type">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th width="132" scope="row">廠商分類</th>
+							<td width="560"><select name="category" id="category">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="categories">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">廠商名稱</th>
+							<td><input type="text" name="mname" value="{$m.mname}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">統一編號</th>
+							<td><input type="text" name="ucode" value="{$m.ucode}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">廠商編號</th>
+							<td><input type="text" name="mcode" value="{$m.mcode}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">地址</th>
+							<td><select name="mprov" id="mprov">
+									<option value="">請選擇</option>
+									<volist id="item" name="provinces">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="mcity" id="mcity">
+									<option value="請選擇">請選擇</option>
+							</select> <input type="text" name="maddress" value="{$m.maddress}" style="width: 300px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡電話</th>
+							<td><input type="text" name="mlinkphone" value="{$m.mlinkphone}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">傳真</th>
+							<td><input type="text" name="mfax" value="{$m.mfax}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡人</th>
+							<td>
+							1.姓名： <input type="text" name="mlinker1" value="{$m.mlinker1}" style="width: 100px" /> 電話： <input type="text" name="mlinkerphone1" value="{$m.mlinkerphone1}" /><br/>分機： <input type="text" name="mlinkerfj1" value="{$m.mlinkerfj1}" /> Email： <input type="text" name="mlinkeremail1" value="{$m.mlinkeremail1}" /> <br /> 
+							2.姓名： <input type="text" name="mlinker2" value="{$m.mlinker2}" style="width: 100px" /> 電話： <input type="text" name="mlinkerphone2" value="{$m.mlinkerphone2}" /> <br/>分機： <input type="text" name="mlinkerfj2" value="{$m.mlinkerfj2}" />Email： <input type="text" name="mlinkeremail2" value="{$m.mlinkeremail2}"/> <br />
+							3.姓名： <input type="text" name="mlinker3" value="{$m.mlinker3}" style="width: 100px" /> 電話： <input type="text" name="mlinkerphone3" value="{$m.mlinkerphone3}" /><br/> 分機： <input type="text" name="mlinkerfj3" value="{$m.mlinkerfj3}" />Email： <input type="text" name="mlinkeremail3" value="{$m.mlinkeremail3}" /> <br /> 
+						    4.姓名： <input type="text" name="mlinker4" value="{$m.mlinker4}" style="width: 100px" /> 電話： <input type="text" name="mlinkerphone4" value="{$m.mlinkerphone4}" /> <br/>分機： <input type="text" name="mlinkerfj4" value="{$m.mlinkerfj4}" />Email： <input type="text" name="mlinkeremail4" value="{$m.mlinkeremail4}" /> <br /> 
+							5.姓名： <input type="text" name="mlinker5" value="{$m.mlinker5}" style="width: 100px" /> 電話： <input type="text" name="mlinkerphone5" value="{$m.mlinkerphone5}" /> <br/>分機： <input type="text" name="mlinkerfj5" value="{$m.mlinkerfj5}" />Email： <input type="text" name="mlinkeremail5" value="{$m.mlinkeremail5}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">發票名稱</th>
+							<td><input type="text" name="invoicename" value="{$m.invoicename}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">發票地址</th>
+							<td><select name="invoiceprov" id="invoiceprov">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="provinces">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="invoicecity" id="invoicecity">
+									<option value="請選擇">請選擇</option>
+							</select> <input type="text" name="invoiceaddress" style="width: 300px" value="{$m.invoiceaddress}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">付款銀行</th>
+							<td><input type="text" name="paybank" value="{$m.paybank}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">所屬分行</th>
+							<td><input type="text" name="belongbank" value="{$m.belongbank}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">銀行帳號</th>
+							<td><input type="text" name="bankcode" value="{$m.bankcode}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td><input type="text" name="remark" value="{$m.remark}" style="width: 300px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

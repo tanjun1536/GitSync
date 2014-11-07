@@ -1,0 +1,4816 @@
+[ 2013-11-20T11:14:26+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-11-20T11:14:26+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-11-20T11:14:29+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.081567s ]
+[ 2013-11-20T11:14:29+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.002681s ]
+[ 2013-11-20T11:14:29+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.150206s ]
+[ 2013-11-20T11:14:29+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.115516s ]
+[ 2013-11-20T11:14:29+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.076192s ]
+[ 2013-11-20T11:14:29+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.037791s ]
+[ 2013-11-20T11:14:29+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.207073s ]
+[ 2013-11-20T11:14:29+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.002423s ]
+[ 2013-11-20T11:14:29+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.001626s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.198552s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004780s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005247s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005461s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004558s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004455s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004230s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004819s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004477s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005853s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004619s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004570s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005528s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005189s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004904s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004959s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004368s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.004678s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004761s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004234s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004470s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004452s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004535s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004035s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.004443s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005791s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004695s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004224s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004765s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004808s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004318s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004639s ]
+[ 2013-11-20T11:14:30+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 80 行.
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.004286s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.009143s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.039193s ]
+[ 2013-11-20T11:14:30+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.038204s ]
+[ 2013-11-20T11:14:35+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 4 行.
+[ 2013-11-20T11:14:35+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.119025s ]
+[ 2013-11-20T11:14:35+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  LIMIT 1  [ RunTime:0.098889s ]
+[ 2013-11-20T11:14:35+08:00 ] SQL: SELECT * FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001646s ]
+[ 2013-11-20T11:14:39+08:00 ] SQL: SHOW COLUMNS FROM `case_content` [ RunTime:0.085307s ]
+[ 2013-11-20T11:14:39+08:00 ] SQL: select * from case_content where id =26 [ RunTime:0.000828s ]
+[ 2013-11-20T11:14:39+08:00 ] NOTIC: [8] Undefined index: caseName 6a80fc463fa49e147ec5390fac1af20e.php 第 107 行.
+[ 2013-11-20T11:17:25+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-11-20T11:17:25+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-11-20T11:17:26+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008268s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.001755s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007769s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.025455s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.011035s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.007933s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.007814s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.001267s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.001679s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.004467s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004659s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004056s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004629s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005649s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004655s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004626s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004605s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006181s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006950s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004484s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004859s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004933s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007044s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004474s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004633s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004856s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.004291s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004729s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005118s ]
+[ 2013-11-20T11:17:26+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004605s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005541s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006659s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006371s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.004727s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004409s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005843s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004639s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004820s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004376s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005093s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006036s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008249s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.040858s ]
+[ 2013-11-20T11:17:27+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.042544s ]
+[ 2013-11-20T11:17:32+08:00 ] NOTIC: [8] Undefined index: skey UserAction.class.php 第 4 行.
+[ 2013-11-20T11:17:32+08:00 ] NOTIC: [8] Undefined index: sdepart UserAction.class.php 第 5 行.
+[ 2013-11-20T11:17:32+08:00 ] NOTIC: [8] Undefined index: steam UserAction.class.php 第 6 行.
+[ 2013-11-20T11:17:32+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009178s ]
+[ 2013-11-20T11:17:32+08:00 ] NOTIC: [8] Undefined index: where UserAction.class.php 第 35 行.
+[ 2013-11-20T11:17:32+08:00 ] SQL: SELECT COUNT(*) FROM `user` u left JOIN depart d
+				ON u.`depart`=d.`id`
+				left JOIN team t
+				ON u.`team`=t.`id`
+						 WHERE u. [ RunTime:0.000913s ]
+[ 2013-11-20T11:17:32+08:00 ] NOTIC: [8] Undefined variable: list BaseAction.class.php 第 263 行.
+[ 2013-11-20T11:17:33+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.059902s ]
+[ 2013-11-20T11:17:33+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000862s ]
+[ 2013-11-20T11:17:33+08:00 ] NOTIC: [8] Undefined variable: depart 8b8281b0005c09106df5944e4149e1bb.php 第 13 行.
+[ 2013-11-20T11:17:33+08:00 ] NOTIC: [8] Undefined variable: team 8b8281b0005c09106df5944e4149e1bb.php 第 14 行.
+[ 2013-11-20T11:17:33+08:00 ] NOTIC: [8] Undefined variable: username 8b8281b0005c09106df5944e4149e1bb.php 第 181 行.
+[ 2013-11-20T11:17:37+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008409s ]
+[ 2013-11-20T11:17:37+08:00 ] SQL: SELECT COUNT(*) FROM `user` u left JOIN depart d
+				ON u.`depart`=d.`id`
+				left JOIN team t
+				ON u.`team`=t.`id`
+						 WHERE u. `code`='13108617'  [ RunTime:0.063120s ]
+[ 2013-11-20T11:17:37+08:00 ] SQL: SELECT u.*,d.`name` dname ,t.`name` tname FROM `user` u left JOIN depart d
+				ON u.`depart`=d.`id`
+				left JOIN team t
+				ON u.`team`=t.`id`
+						 WHERE u. `code`='13108617'  limit 0,20 [ RunTime:0.003199s ]
+[ 2013-11-20T11:17:37+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007080s ]
+[ 2013-11-20T11:17:37+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000839s ]
+[ 2013-11-20T11:17:38+08:00 ] NOTIC: [8] Undefined variable: depart 8b8281b0005c09106df5944e4149e1bb.php 第 13 行.
+[ 2013-11-20T11:17:38+08:00 ] NOTIC: [8] Undefined variable: team 8b8281b0005c09106df5944e4149e1bb.php 第 14 行.
+[ 2013-11-20T11:17:38+08:00 ] NOTIC: [8] Undefined variable: username 8b8281b0005c09106df5944e4149e1bb.php 第 181 行.
+[ 2013-11-20T11:17:53+08:00 ] NOTIC: [8] Undefined index: skey UserAction.class.php 第 4 行.
+[ 2013-11-20T11:17:53+08:00 ] NOTIC: [8] Undefined index: sdepart UserAction.class.php 第 5 行.
+[ 2013-11-20T11:17:53+08:00 ] NOTIC: [8] Undefined index: steam UserAction.class.php 第 6 行.
+[ 2013-11-20T11:17:53+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008290s ]
+[ 2013-11-20T11:17:53+08:00 ] SQL: SELECT COUNT(*) FROM `user` u left JOIN depart d
+				ON u.`depart`=d.`id`
+				left JOIN team t
+				ON u.`team`=t.`id`
+						 WHERE u. `code`='13108617'  [ RunTime:0.002908s ]
+[ 2013-11-20T11:17:53+08:00 ] SQL: SELECT u.*,d.`name` dname ,t.`name` tname FROM `user` u left JOIN depart d
+				ON u.`depart`=d.`id`
+				left JOIN team t
+				ON u.`team`=t.`id`
+						 WHERE u. `code`='13108617'  limit 180,20 [ RunTime:0.004912s ]
+[ 2013-11-20T11:17:53+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.008700s ]
+[ 2013-11-20T11:17:53+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000886s ]
+[ 2013-11-20T11:17:54+08:00 ] NOTIC: [8] Undefined variable: depart 8b8281b0005c09106df5944e4149e1bb.php 第 13 行.
+[ 2013-11-20T11:17:54+08:00 ] NOTIC: [8] Undefined variable: team 8b8281b0005c09106df5944e4149e1bb.php 第 14 行.
+[ 2013-11-20T11:17:54+08:00 ] NOTIC: [8] Undefined variable: username 8b8281b0005c09106df5944e4149e1bb.php 第 181 行.
+[ 2013-11-20T11:23:56+08:00 ] NOTIC: [8] Undefined index: skey UserAction.class.php 第 4 行.
+[ 2013-11-20T11:23:56+08:00 ] NOTIC: [8] Undefined index: sdepart UserAction.class.php 第 5 行.
+[ 2013-11-20T11:23:56+08:00 ] NOTIC: [8] Undefined index: steam UserAction.class.php 第 6 行.
+[ 2013-11-20T11:23:56+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008794s ]
+[ 2013-11-20T11:23:56+08:00 ] SQL: SELECT COUNT(*) FROM `user` u left JOIN depart d
+				ON u.`depart`=d.`id`
+				left JOIN team t
+				ON u.`team`=t.`id`
+						 WHERE u. `code`='13108617'  [ RunTime:0.002520s ]
+[ 2013-11-20T11:23:56+08:00 ] SQL: SELECT u.*,d.`name` dname ,t.`name` tname FROM `user` u left JOIN depart d
+				ON u.`depart`=d.`id`
+				left JOIN team t
+				ON u.`team`=t.`id`
+						 WHERE u. `code`='13108617'  limit 180,20 [ RunTime:0.003428s ]
+[ 2013-11-20T11:23:56+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007285s ]
+[ 2013-11-20T11:23:56+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001313s ]
+[ 2013-11-20T11:23:57+08:00 ] NOTIC: [8] Undefined variable: depart 8b8281b0005c09106df5944e4149e1bb.php 第 13 行.
+[ 2013-11-20T11:23:57+08:00 ] NOTIC: [8] Undefined variable: team 8b8281b0005c09106df5944e4149e1bb.php 第 14 行.
+[ 2013-11-20T11:23:57+08:00 ] NOTIC: [8] Undefined variable: username 8b8281b0005c09106df5944e4149e1bb.php 第 181 行.
+[ 2013-11-20T12:42:28+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-11-20T12:42:28+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-11-20T12:42:30+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008621s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.001556s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007959s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.026930s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.008358s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.008289s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.008296s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.001638s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.001460s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.004658s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004550s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005227s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004399s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005251s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004705s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005000s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005278s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004486s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005637s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004384s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005788s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007098s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004662s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004696s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005580s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005829s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.004573s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004510s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005255s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004895s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005630s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005024s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004392s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.005637s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004388s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006285s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004528s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004699s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004647s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004961s ]
+[ 2013-11-20T12:42:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007167s ]
+[ 2013-11-20T12:42:30+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 80 行.
+[ 2013-11-20T12:42:31+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.004925s ]
+[ 2013-11-20T12:42:31+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008612s ]
+[ 2013-11-20T12:42:31+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 [ RunTime:0.040453s ]
+[ 2013-11-20T12:42:31+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 limit 0,20 [ RunTime:0.049019s ]
+[ 2013-11-20T12:42:37+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 4 行.
+[ 2013-11-20T12:42:37+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.008333s ]
+[ 2013-11-20T12:42:37+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  LIMIT 1  [ RunTime:0.001842s ]
+[ 2013-11-20T12:42:37+08:00 ] SQL: SELECT * FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  ORDER BY id desc LIMIT 0,20  [ RunTime:0.002589s ]
+[ 2013-11-20T12:42:40+08:00 ] SQL: SHOW COLUMNS FROM `case_content` [ RunTime:0.007052s ]
+[ 2013-11-20T12:42:40+08:00 ] SQL: select * from case_content where id =26 [ RunTime:0.000932s ]
+[ 2013-11-20T12:42:40+08:00 ] NOTIC: [8] Undefined index: caseName 6a80fc463fa49e147ec5390fac1af20e.php 第 107 行.
+[ 2013-11-20T12:42:46+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.008091s ]
+[ 2013-11-20T12:42:46+08:00 ] NOTIC: [8] Undefined index: state CaseAction.class.php 第 2406 行.
+[ 2013-11-20T12:42:46+08:00 ] NOTIC: [8] Undefined index: syear CaseAction.class.php 第 2407 行.
+[ 2013-11-20T12:42:46+08:00 ] NOTIC: [8] Undefined index: eyear CaseAction.class.php 第 2408 行.
+[ 2013-11-20T12:42:46+08:00 ] NOTIC: [8] Undefined index: smonth CaseAction.class.php 第 2409 行.
+[ 2013-11-20T12:42:46+08:00 ] NOTIC: [8] Undefined index: emonth CaseAction.class.php 第 2410 行.
+[ 2013-11-20T12:42:46+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_attendance` WHERE `case` = 26 LIMIT 1  [ RunTime:0.000860s ]
+[ 2013-11-20T12:42:46+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE `case` = 26 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001001s ]
+[ 2013-11-20T12:42:46+08:00 ] NOTIC: [8] Undefined index: caseName da2d29e5426aaeb919487777d3fd9795.php 第 121 行.
+[ 2013-11-20T12:43:24+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.006874s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance` (`case`,`year`,`month`,`state`) VALUES ('26','2013','11','提交審核') [ RunTime:0.001148s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','1','1'); [ RunTime:0.000948s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','2','2'); [ RunTime:0.000708s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','3','3'); [ RunTime:0.000776s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','4','4'); [ RunTime:0.000699s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','5','5'); [ RunTime:0.000734s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','6','6'); [ RunTime:0.001936s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','7','7'); [ RunTime:0.001802s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','8','8'); [ RunTime:0.000798s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','9','9'); [ RunTime:0.000927s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','10','10'); [ RunTime:0.000720s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','11','11'); [ RunTime:0.004667s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','12','12'); [ RunTime:0.000808s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','13','13'); [ RunTime:0.000705s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','14','14'); [ RunTime:0.001308s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','15','15'); [ RunTime:0.000734s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','16','16'); [ RunTime:0.000773s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','17','17'); [ RunTime:0.000724s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','18','18'); [ RunTime:0.000933s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','19','19'); [ RunTime:0.000764s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','20','20'); [ RunTime:0.001284s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','21','21'); [ RunTime:0.000699s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','22','22'); [ RunTime:0.000933s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','23','23'); [ RunTime:0.001063s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','24','24'); [ RunTime:0.000705s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','25','25'); [ RunTime:0.000872s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','26','26'); [ RunTime:0.000841s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','27','27'); [ RunTime:0.002148s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','28','28'); [ RunTime:0.000802s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','29','29'); [ RunTime:0.000726s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','系統ID','日期','30','30'); [ RunTime:0.001664s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','1','五'); [ RunTime:0.000728s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','2','六'); [ RunTime:0.000753s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','3','日'); [ RunTime:0.001138s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','4','一'); [ RunTime:0.000782s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','5','二'); [ RunTime:0.001153s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','6','三'); [ RunTime:0.000798s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','7','四'); [ RunTime:0.001030s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','8','五'); [ RunTime:0.002232s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','9','六'); [ RunTime:0.001157s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','10','日'); [ RunTime:0.001004s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','11','一'); [ RunTime:0.001152s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','12','二'); [ RunTime:0.000994s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','13','三'); [ RunTime:0.000793s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','14','四'); [ RunTime:0.001024s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','15','五'); [ RunTime:0.000980s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','16','六'); [ RunTime:0.001346s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','17','日'); [ RunTime:0.000837s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','18','一'); [ RunTime:0.000987s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','19','二'); [ RunTime:0.001779s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','20','三'); [ RunTime:0.000753s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','21','四'); [ RunTime:0.000745s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','22','五'); [ RunTime:0.001011s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','23','六'); [ RunTime:0.000931s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','24','日'); [ RunTime:0.000796s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','25','一'); [ RunTime:0.000865s ]
+[ 2013-11-20T12:43:24+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','26','二'); [ RunTime:0.001002s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','27','三'); [ RunTime:0.000956s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','28','四'); [ RunTime:0.000791s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','29','五'); [ RunTime:0.000835s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','','','30','六'); [ RunTime:0.000949s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','1','A'); [ RunTime:0.000707s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','2','休'); [ RunTime:0.000818s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','3','休'); [ RunTime:0.000912s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','4','B'); [ RunTime:0.000975s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','5','A'); [ RunTime:0.000706s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','6','休'); [ RunTime:0.001078s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','7','休'); [ RunTime:0.000707s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','8','A'); [ RunTime:0.000840s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','9','B'); [ RunTime:0.002157s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','10','B'); [ RunTime:0.001333s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','11','B'); [ RunTime:0.000754s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','12','A'); [ RunTime:0.001994s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','13','休'); [ RunTime:0.009430s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','14','休'); [ RunTime:0.001636s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','15','A'); [ RunTime:0.000874s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','16','B'); [ RunTime:0.000829s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','17','B'); [ RunTime:0.001451s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','18','A'); [ RunTime:0.001211s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','19','A'); [ RunTime:0.000980s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','20','休'); [ RunTime:0.000829s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','21','休'); [ RunTime:0.000951s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','22','A'); [ RunTime:0.001149s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','23','B'); [ RunTime:0.000844s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','24','B'); [ RunTime:0.002810s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','25','A'); [ RunTime:0.000955s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','26','A'); [ RunTime:0.000918s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','27','休'); [ RunTime:0.001353s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','28','休'); [ RunTime:0.000739s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','29','B'); [ RunTime:0.000724s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','115','賴鵬宇','30','B'); [ RunTime:0.001407s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','1','A'); [ RunTime:0.000937s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','2','B'); [ RunTime:0.000753s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','3','休'); [ RunTime:0.000797s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','4','休'); [ RunTime:0.000740s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','5','A'); [ RunTime:0.002115s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','6','B'); [ RunTime:0.001446s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','7','A'); [ RunTime:0.000715s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','8','A'); [ RunTime:0.000726s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','9','休'); [ RunTime:0.000868s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','10','休'); [ RunTime:0.003305s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','11','A'); [ RunTime:0.000731s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','12','B'); [ RunTime:0.000737s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','13','A'); [ RunTime:0.001125s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','14','B'); [ RunTime:0.000725s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','15','A'); [ RunTime:0.000854s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','16','休'); [ RunTime:0.000701s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','17','休'); [ RunTime:0.000785s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','18','休'); [ RunTime:0.000674s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','19','A'); [ RunTime:0.001059s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','20','B'); [ RunTime:0.000733s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','21','A'); [ RunTime:0.000726s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','22','A'); [ RunTime:0.000826s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','23','休'); [ RunTime:0.000972s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','24','休'); [ RunTime:0.000933s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','25','B'); [ RunTime:0.000749s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','26','A'); [ RunTime:0.000938s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','27','B'); [ RunTime:0.001148s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','28','A'); [ RunTime:0.000751s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','29','B'); [ RunTime:0.000864s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','68','粘聰榮','30','A'); [ RunTime:0.000976s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','1','B'); [ RunTime:0.003301s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','2','休'); [ RunTime:0.000792s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','3','休'); [ RunTime:0.000732s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','4','B'); [ RunTime:0.000796s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','5','休'); [ RunTime:0.000855s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','6','A'); [ RunTime:0.000831s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','7','A'); [ RunTime:0.000862s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','8','B'); [ RunTime:0.000739s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','9','休'); [ RunTime:0.000708s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','10','A'); [ RunTime:0.000764s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','11','B'); [ RunTime:0.001571s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','12','休'); [ RunTime:0.000790s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','13','A'); [ RunTime:0.000814s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','14','A'); [ RunTime:0.001067s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','15','B'); [ RunTime:0.001008s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','16','A'); [ RunTime:0.000769s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','17','休'); [ RunTime:0.000717s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','18','休'); [ RunTime:0.000663s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','19','B'); [ RunTime:0.001003s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','20','A'); [ RunTime:0.002257s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','21','A'); [ RunTime:0.000718s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','22','B'); [ RunTime:0.000839s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','23','休'); [ RunTime:0.000960s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','24','休'); [ RunTime:0.000745s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','25','休'); [ RunTime:0.000745s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','26','休'); [ RunTime:0.000795s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','27','休'); [ RunTime:0.000990s ]
+[ 2013-11-20T12:43:25+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','28','休'); [ RunTime:0.000767s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','29','休'); [ RunTime:0.000964s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','299','吳銘峰','30','休'); [ RunTime:0.000717s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','1','A'); [ RunTime:0.000828s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','2','休'); [ RunTime:0.000719s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','3','休'); [ RunTime:0.000766s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','4','A'); [ RunTime:0.000855s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','5','B'); [ RunTime:0.000703s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','6','A'); [ RunTime:0.000708s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','7','B'); [ RunTime:0.000902s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','8','A'); [ RunTime:0.000835s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','9','A'); [ RunTime:0.000779s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','10','休'); [ RunTime:0.000773s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','11','休'); [ RunTime:0.001513s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','12','A'); [ RunTime:0.001448s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','13','B'); [ RunTime:0.001006s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','14','A'); [ RunTime:0.000732s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','15','A'); [ RunTime:0.000715s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','16','休'); [ RunTime:0.000718s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','17','休'); [ RunTime:0.000751s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','18','B'); [ RunTime:0.000934s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','19','A'); [ RunTime:0.000712s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','20','A'); [ RunTime:0.000722s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','21','B'); [ RunTime:0.000731s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','22','A'); [ RunTime:0.001672s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','23','A'); [ RunTime:0.000724s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','24','休'); [ RunTime:0.000744s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','25','休'); [ RunTime:0.000753s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','26','B'); [ RunTime:0.000893s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','27','A'); [ RunTime:0.000853s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','28','B'); [ RunTime:0.000835s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','29','A'); [ RunTime:0.000756s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','64','謝貴榮','30','休'); [ RunTime:0.005310s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','1','C'); [ RunTime:0.000921s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','2','休'); [ RunTime:0.000814s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','3','C'); [ RunTime:0.000749s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','4','C'); [ RunTime:0.000896s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','5','休'); [ RunTime:0.001331s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','6','C'); [ RunTime:0.001083s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','7','C'); [ RunTime:0.002680s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','8','休'); [ RunTime:0.000996s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','9','C'); [ RunTime:0.001271s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','10','C'); [ RunTime:0.001093s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','11','休'); [ RunTime:0.000962s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','12','C'); [ RunTime:0.001500s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','13','C'); [ RunTime:0.001039s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','14','休'); [ RunTime:0.000706s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','15','C'); [ RunTime:0.000763s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','16','C'); [ RunTime:0.000708s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','17','休'); [ RunTime:0.004043s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','18','C'); [ RunTime:0.005076s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','19','C'); [ RunTime:0.003686s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','20','休'); [ RunTime:0.000856s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','21','C'); [ RunTime:0.000726s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','22','C'); [ RunTime:0.001015s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','23','休'); [ RunTime:0.002050s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','24','C'); [ RunTime:0.000729s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','25','C'); [ RunTime:0.000749s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','26','休'); [ RunTime:0.000726s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','27','C'); [ RunTime:0.000727s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','28','C'); [ RunTime:0.001584s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','29','休'); [ RunTime:0.000713s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','65','周昭明','30','休'); [ RunTime:0.002115s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','1','休'); [ RunTime:0.000776s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','2','C'); [ RunTime:0.000896s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','3','C'); [ RunTime:0.001127s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','4','休'); [ RunTime:0.000734s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','5','C'); [ RunTime:0.000759s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','6','C'); [ RunTime:0.001112s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','7','休'); [ RunTime:0.000955s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','8','休'); [ RunTime:0.001823s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','9','休'); [ RunTime:0.001010s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','10','休'); [ RunTime:0.001092s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','11','C'); [ RunTime:0.000878s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','12','C'); [ RunTime:0.001362s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','13','休'); [ RunTime:0.000718s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','14','C'); [ RunTime:0.000845s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','15','C'); [ RunTime:0.000889s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','16','休'); [ RunTime:0.002014s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','17','C'); [ RunTime:0.000879s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','18','C'); [ RunTime:0.000720s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','19','休'); [ RunTime:0.000733s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','20','C'); [ RunTime:0.000907s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','21','C'); [ RunTime:0.000746s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','22','休'); [ RunTime:0.000728s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','23','C'); [ RunTime:0.001611s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','24','C'); [ RunTime:0.001023s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','25','休'); [ RunTime:0.002126s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','26','C'); [ RunTime:0.004135s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','27','C'); [ RunTime:0.000727s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','28','休'); [ RunTime:0.000710s ]
+[ 2013-11-20T12:43:26+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','29','休'); [ RunTime:0.000748s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','73','吳星慶','30','C'); [ RunTime:0.000803s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','1','C'); [ RunTime:0.000803s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','2','C'); [ RunTime:0.000817s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','3','休'); [ RunTime:0.000705s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','4','C'); [ RunTime:0.002815s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','5','C'); [ RunTime:0.000735s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','6','休'); [ RunTime:0.000727s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','7','休'); [ RunTime:0.001005s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','8','C'); [ RunTime:0.000809s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','9','休'); [ RunTime:0.000717s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','10','C'); [ RunTime:0.000706s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','11','C'); [ RunTime:0.000779s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','12','休'); [ RunTime:0.002132s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','13','C'); [ RunTime:0.001234s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','14','C'); [ RunTime:0.000974s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','15','休'); [ RunTime:0.001815s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','16','C'); [ RunTime:0.000815s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','17','C'); [ RunTime:0.000733s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','18','休'); [ RunTime:0.001209s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','19','C'); [ RunTime:0.717017s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','20','C'); [ RunTime:0.000818s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','21','休'); [ RunTime:0.000990s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','22','C'); [ RunTime:0.000720s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','23','C'); [ RunTime:0.000786s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','24','休'); [ RunTime:0.000762s ]
+[ 2013-11-20T12:43:27+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','25','C'); [ RunTime:0.000730s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','26','C'); [ RunTime:0.000748s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','27','休'); [ RunTime:0.000788s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','28','C'); [ RunTime:0.000813s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','29','C'); [ RunTime:0.001487s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','378','李政逸','30','休'); [ RunTime:0.000742s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','1','A'); [ RunTime:0.000719s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','2','A'); [ RunTime:0.000898s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','3','B'); [ RunTime:0.001470s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','4','休'); [ RunTime:0.000909s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','5','A'); [ RunTime:0.000972s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','6','A'); [ RunTime:0.000961s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','7','A'); [ RunTime:0.000756s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','8','B'); [ RunTime:0.001710s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','9','B'); [ RunTime:0.001185s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','10','A'); [ RunTime:0.000912s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','11','休'); [ RunTime:0.002445s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','12','A'); [ RunTime:0.001598s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','13','A'); [ RunTime:0.000915s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','14','休'); [ RunTime:0.000903s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','15','B'); [ RunTime:0.001317s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','16','A'); [ RunTime:0.000754s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','17','A'); [ RunTime:0.001093s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','18','休'); [ RunTime:0.000865s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','19','A'); [ RunTime:0.000947s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','20','休'); [ RunTime:0.000937s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','21','A'); [ RunTime:0.000864s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','22','A'); [ RunTime:0.000739s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','23','B'); [ RunTime:0.000902s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','24','A'); [ RunTime:0.000789s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','25','休'); [ RunTime:0.000742s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','26','休'); [ RunTime:0.000790s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','27','B'); [ RunTime:0.000687s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','28','休'); [ RunTime:0.002134s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','29','休'); [ RunTime:0.002271s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','309','夏定遠','30','B'); [ RunTime:0.000855s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','1','A'); [ RunTime:0.000727s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','2','休'); [ RunTime:0.000942s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','3','A'); [ RunTime:0.000783s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','4','A'); [ RunTime:0.000808s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','5','B'); [ RunTime:0.000900s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','6','休'); [ RunTime:0.000922s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','7','B'); [ RunTime:0.000776s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','8','A'); [ RunTime:0.001149s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','9','A'); [ RunTime:0.001472s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','10','休'); [ RunTime:0.001246s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','11','A'); [ RunTime:0.001556s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','12','B'); [ RunTime:0.002393s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','13','A'); [ RunTime:0.000882s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','14','B'); [ RunTime:0.000800s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','15','A'); [ RunTime:0.001591s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','16','休'); [ RunTime:0.001066s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','17','休'); [ RunTime:0.001072s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','18','A'); [ RunTime:0.000869s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','19','B'); [ RunTime:0.001170s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','20','A'); [ RunTime:0.000940s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','21','A'); [ RunTime:0.000999s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','22','休'); [ RunTime:0.000888s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','23','休'); [ RunTime:0.000964s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','24','休'); [ RunTime:0.000829s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','25','A'); [ RunTime:0.000841s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','26','B'); [ RunTime:0.000941s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','27','休'); [ RunTime:0.000930s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','28','A'); [ RunTime:0.000993s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','29','A'); [ RunTime:0.001533s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','297','李國傳','30','休'); [ RunTime:0.014738s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','139','楊忠仁','1','休'); [ RunTime:0.001380s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','139','楊忠仁','2','B'); [ RunTime:0.001012s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','139','楊忠仁','3','休'); [ RunTime:0.000864s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','139','楊忠仁','4','休'); [ RunTime:0.001321s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','139','楊忠仁','5','休'); [ RunTime:0.000907s ]
+[ 2013-11-20T12:43:28+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','139','楊忠仁','6','B'); [ RunTime:0.000879s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','139','楊忠仁','7','A'); [ RunTime:0.000839s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','139','楊忠仁','8','A'); [ RunTime:0.001197s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','139','楊忠仁','9','休'); [ RunTime:0.000841s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','139','楊忠仁','10','休'); [ RunTime:0.000977s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','139','楊忠仁','11','休'); [ RunTime:0.000868s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','1','B'); [ RunTime:0.000775s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','2','A'); [ RunTime:0.000747s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','3','A'); [ RunTime:0.000717s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','4','A'); [ RunTime:0.001009s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','5','休'); [ RunTime:0.000856s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','6','休'); [ RunTime:0.000710s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','7','B'); [ RunTime:0.000788s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','8','A'); [ RunTime:0.000712s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','9','A'); [ RunTime:0.000753s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','10','B'); [ RunTime:0.001358s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','11','B'); [ RunTime:0.000809s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','12','休'); [ RunTime:0.001131s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','13','休'); [ RunTime:0.001026s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','14','A'); [ RunTime:0.000976s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','15','A'); [ RunTime:0.001156s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','16','B'); [ RunTime:0.000790s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','17','A'); [ RunTime:0.001054s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','18','B'); [ RunTime:0.000846s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','19','休'); [ RunTime:0.001543s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','20','休'); [ RunTime:0.000726s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','21','A'); [ RunTime:0.006696s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','22','B'); [ RunTime:0.002254s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','23','A'); [ RunTime:0.000826s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','24','休'); [ RunTime:0.000790s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','25','A'); [ RunTime:0.000713s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','26','休'); [ RunTime:0.001167s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','27','休'); [ RunTime:0.001016s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','28','A'); [ RunTime:0.000997s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','29','B'); [ RunTime:0.000706s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','71','陳高標','30','休'); [ RunTime:0.000873s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','1','A'); [ RunTime:0.001193s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','2','休'); [ RunTime:0.000731s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','3','B'); [ RunTime:0.000906s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','4','A'); [ RunTime:0.001292s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','5','A'); [ RunTime:0.000944s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','6','B'); [ RunTime:0.000729s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','7','休'); [ RunTime:0.000930s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','8','A'); [ RunTime:0.000778s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','9','B'); [ RunTime:0.001712s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','10','休'); [ RunTime:0.000784s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','11','休'); [ RunTime:0.001608s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','12','A'); [ RunTime:0.001481s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','13','B'); [ RunTime:0.000739s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','14','A'); [ RunTime:0.001695s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','15','休'); [ RunTime:0.002374s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','16','休'); [ RunTime:0.000987s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','17','B'); [ RunTime:0.001412s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','18','A'); [ RunTime:0.001781s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','19','休'); [ RunTime:0.000735s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','20','B'); [ RunTime:0.001005s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','21','A'); [ RunTime:0.001010s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','22','B'); [ RunTime:0.001290s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','23','休'); [ RunTime:0.000716s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','24','休'); [ RunTime:0.000868s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','25','B'); [ RunTime:0.000812s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','26','A'); [ RunTime:0.001011s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','27','A'); [ RunTime:0.000801s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','28','A'); [ RunTime:0.001135s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','29','休'); [ RunTime:0.001178s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','310','孫坤源','30','B'); [ RunTime:0.000717s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','1','B'); [ RunTime:0.000745s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','2','休'); [ RunTime:0.000743s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','3','B'); [ RunTime:0.007094s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','4','A'); [ RunTime:0.000894s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','5','B'); [ RunTime:0.001247s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','6','A'); [ RunTime:0.000726s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','7','病'); [ RunTime:0.001084s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','8','A'); [ RunTime:0.001905s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','9','休'); [ RunTime:0.001486s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','10','休'); [ RunTime:0.000912s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','11','A'); [ RunTime:0.004762s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','12','B'); [ RunTime:0.001573s ]
+[ 2013-11-20T12:43:29+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','13','A'); [ RunTime:0.001664s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','14','A'); [ RunTime:0.003473s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','15','休'); [ RunTime:0.000757s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','16','休'); [ RunTime:0.000739s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','17','A'); [ RunTime:0.003918s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','18','B'); [ RunTime:0.001963s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','19','A'); [ RunTime:0.000736s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','20','A'); [ RunTime:0.000735s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','21','B'); [ RunTime:0.000711s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','22','休'); [ RunTime:0.000706s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','23','休'); [ RunTime:0.000911s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','24','B'); [ RunTime:0.000829s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','25','A'); [ RunTime:0.000890s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','26','A'); [ RunTime:0.000753s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','27','A'); [ RunTime:0.001319s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','28','B'); [ RunTime:0.001438s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','29','休'); [ RunTime:0.000773s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','307','陳建宇','30','休'); [ RunTime:0.000782s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','1','A'); [ RunTime:0.000829s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','2','A'); [ RunTime:0.001329s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','3','休'); [ RunTime:0.000749s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','4','休'); [ RunTime:0.001191s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','5','A'); [ RunTime:0.000887s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','6','休'); [ RunTime:0.000740s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','7','C'); [ RunTime:0.001196s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','8','C'); [ RunTime:0.000803s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','9','C'); [ RunTime:0.000852s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','10','休'); [ RunTime:0.000804s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','11','A'); [ RunTime:0.000685s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','12','A'); [ RunTime:0.001324s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','13','休'); [ RunTime:0.000755s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','14','B'); [ RunTime:0.000735s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','15','休'); [ RunTime:0.000945s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','16','B'); [ RunTime:0.000837s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','17','休'); [ RunTime:0.000759s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','18','A'); [ RunTime:0.002832s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','19','B'); [ RunTime:0.000716s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','20','休'); [ RunTime:0.000775s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','21','B'); [ RunTime:0.002607s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','22','A'); [ RunTime:0.000945s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','23','B'); [ RunTime:0.001341s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','24','休'); [ RunTime:0.001549s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','25','A'); [ RunTime:0.000860s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','26','B'); [ RunTime:0.000919s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','27','A'); [ RunTime:0.000835s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','28','休'); [ RunTime:0.000711s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','29','C'); [ RunTime:0.001983s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','380','郭俊邑','30','C'); [ RunTime:0.000847s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','1','A'); [ RunTime:0.000716s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','2','B'); [ RunTime:0.000794s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','3','A'); [ RunTime:0.000728s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','4','B'); [ RunTime:0.000734s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','5','A'); [ RunTime:0.000739s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','6','A'); [ RunTime:0.000684s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','7','A'); [ RunTime:0.000741s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','8','B'); [ RunTime:0.003267s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','9','A'); [ RunTime:0.000724s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','10','B'); [ RunTime:0.001253s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','11','休'); [ RunTime:0.000729s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','12','休'); [ RunTime:0.000695s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','13','休'); [ RunTime:0.000833s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','14','休'); [ RunTime:0.000916s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','381','林宗憲','15','休'); [ RunTime:0.000910s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','1','A'); [ RunTime:0.001374s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','2','A'); [ RunTime:0.000720s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','3','A'); [ RunTime:0.002203s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','4','休'); [ RunTime:0.001713s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','5','A'); [ RunTime:0.002000s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','6','A'); [ RunTime:0.000815s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','7','A'); [ RunTime:0.000987s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','8','休'); [ RunTime:0.002268s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','9','A'); [ RunTime:0.001060s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','10','A'); [ RunTime:0.000750s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','11','休'); [ RunTime:0.003039s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','12','休'); [ RunTime:0.000777s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','13','B'); [ RunTime:0.001252s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','14','A'); [ RunTime:0.000999s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','15','B'); [ RunTime:0.000958s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','16','休'); [ RunTime:0.000999s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','17','B'); [ RunTime:0.003255s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','18','A'); [ RunTime:0.001708s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','19','休'); [ RunTime:0.000753s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','20','B'); [ RunTime:0.000723s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','21','A'); [ RunTime:0.000923s ]
+[ 2013-11-20T12:43:30+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','22','休'); [ RunTime:0.000842s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','23','休'); [ RunTime:0.001052s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','24','B'); [ RunTime:0.000806s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','25','B'); [ RunTime:0.000756s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','26','休'); [ RunTime:0.001871s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','27','B'); [ RunTime:0.001052s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','28','B'); [ RunTime:0.000713s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','29','A'); [ RunTime:0.001357s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','368','凌慶傑','30','A'); [ RunTime:0.000745s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','1','A'); [ RunTime:0.000721s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','2','A'); [ RunTime:0.000759s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','3','A'); [ RunTime:0.000834s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','4','A'); [ RunTime:0.001685s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','5','A'); [ RunTime:0.001740s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','6','A'); [ RunTime:0.003499s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','7','A'); [ RunTime:0.000983s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','8','A'); [ RunTime:0.000882s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','9','休'); [ RunTime:0.000737s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','10','休'); [ RunTime:0.000723s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','11','A'); [ RunTime:0.000722s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','12','休'); [ RunTime:0.002034s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','13','A'); [ RunTime:0.000751s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','14','A'); [ RunTime:0.000775s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','15','A'); [ RunTime:0.001263s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','16','休'); [ RunTime:0.000719s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','17','休'); [ RunTime:0.000810s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','18','A'); [ RunTime:0.001582s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','19','A'); [ RunTime:0.000739s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','20','A'); [ RunTime:0.000766s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','21','A'); [ RunTime:0.000713s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','22','A'); [ RunTime:0.000738s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','23','休'); [ RunTime:0.001645s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','24','休'); [ RunTime:0.000829s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','25','A'); [ RunTime:0.001013s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','26','A'); [ RunTime:0.001203s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','27','A'); [ RunTime:0.000786s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','28','A'); [ RunTime:0.000738s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','29','A'); [ RunTime:0.001170s ]
+[ 2013-11-20T12:43:31+08:00 ] SQL: INSERT INTO `case_attendance_detail`
+						(`id`,
+						`attendance`,
+						`userid`,
+						`username`,
+						`day`,
+						`workcode`
+						)VALUES (NULL,'1','308','鄭雅如','30','休'); [ RunTime:0.000726s ]
+[ 2013-11-20T12:43:32+08:00 ] NOTIC: [8] Undefined index: syear CaseAction.class.php 第 2407 行.
+[ 2013-11-20T12:43:32+08:00 ] NOTIC: [8] Undefined index: eyear CaseAction.class.php 第 2408 行.
+[ 2013-11-20T12:43:32+08:00 ] NOTIC: [8] Undefined index: smonth CaseAction.class.php 第 2409 行.
+[ 2013-11-20T12:43:32+08:00 ] NOTIC: [8] Undefined index: emonth CaseAction.class.php 第 2410 行.
+[ 2013-11-20T12:43:32+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_attendance` WHERE `case` = 26 and state='提交審核' LIMIT 1  [ RunTime:0.000904s ]
+[ 2013-11-20T12:43:32+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE `case` = 26 and state='提交審核' ORDER BY id desc LIMIT 0,20  [ RunTime:0.001151s ]
+[ 2013-11-20T12:43:32+08:00 ] NOTIC: [8] Undefined index: caseName da2d29e5426aaeb919487777d3fd9795.php 第 121 行.
+[ 2013-11-20T12:45:25+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.008259s ]
+[ 2013-11-20T12:45:25+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.001104s ]
+[ 2013-11-20T12:45:25+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance_detail` [ RunTime:0.008409s ]
+[ 2013-11-20T12:45:25+08:00 ] SQL: SELECT 
+			  attendance,
+			  userid,
+			  username,
+			  MAX(IF(`day` = 1, workcode, '')) AS day1,
+			  MAX(IF(`day` = 2, workcode, '')) AS day2,
+			  MAX(IF(`day` = 3, workcode, '')) AS day3,
+			  MAX(IF(`day` = 4, workcode, '')) AS day4,
+			  MAX(IF(`day` = 5, workcode, '')) AS day5,
+			  MAX(IF(`day` = 6, workcode, '')) AS day6,
+			  MAX(IF(`day` = 7, workcode, '')) AS day7,
+			  MAX(IF(`day` = 8, workcode, '')) AS day8,
+			  MAX(IF(`day` = 9, workcode, '')) AS day9,
+			  MAX(IF(`day` = 10, workcode, '')) AS day10,
+			  MAX(IF(`day` = 11, workcode, '')) AS day11,
+			  MAX(IF(`day` = 12, workcode, '')) AS day12,
+			  MAX(IF(`day` = 13, workcode, '')) AS day13,
+			  MAX(IF(`day` = 14, workcode, '')) AS day14,
+			  MAX(IF(`day` = 15, workcode, '')) AS day15,
+			  MAX(IF(`day` = 16, workcode, '')) AS day16,
+			  MAX(IF(`day` = 17, workcode, '')) AS day17,
+			  MAX(IF(`day` = 18, workcode, '')) AS day18,
+			  MAX(IF(`day` = 19, workcode, '')) AS day19,
+			  MAX(IF(`day` = 20, workcode, '')) AS day20,
+			  MAX(IF(`day` = 21, workcode, '')) AS day21,
+			  MAX(IF(`day` = 22, workcode, '')) AS day22,
+			  MAX(IF(`day` = 23, workcode, '')) AS day23,
+			  MAX(IF(`day` = 24, workcode, '')) AS day24,
+			  MAX(IF(`day` = 25, workcode, '')) AS day25,
+			  MAX(IF(`day` = 26, workcode, '')) AS day26,
+			  MAX(IF(`day` = 27, workcode, '')) AS day27,
+			  MAX(IF(`day` = 28, workcode, '')) AS day28,
+			  MAX(IF(`day` = 29, workcode, '')) AS day29,
+			  MAX(IF(`day` = 30, workcode, '')) AS day30,
+			  MAX(IF(`day` = 31, workcode, '')) AS day31
+			FROM
+			  case_attendance_detail  WHERE attendance= 1
+			GROUP BY userid,
+			  username,
+			  attendance  [ RunTime:0.006393s ]
+[ 2013-11-20T12:46:44+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.007623s ]
+[ 2013-11-20T12:46:44+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.000851s ]
+[ 2013-11-20T12:46:44+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance_detail` [ RunTime:0.006761s ]
+[ 2013-11-20T12:46:44+08:00 ] SQL: SELECT 
+			  attendance,
+			  userid,
+			  username,
+			  MAX(IF(`day` = 1, workcode, '')) AS day1,
+			  MAX(IF(`day` = 2, workcode, '')) AS day2,
+			  MAX(IF(`day` = 3, workcode, '')) AS day3,
+			  MAX(IF(`day` = 4, workcode, '')) AS day4,
+			  MAX(IF(`day` = 5, workcode, '')) AS day5,
+			  MAX(IF(`day` = 6, workcode, '')) AS day6,
+			  MAX(IF(`day` = 7, workcode, '')) AS day7,
+			  MAX(IF(`day` = 8, workcode, '')) AS day8,
+			  MAX(IF(`day` = 9, workcode, '')) AS day9,
+			  MAX(IF(`day` = 10, workcode, '')) AS day10,
+			  MAX(IF(`day` = 11, workcode, '')) AS day11,
+			  MAX(IF(`day` = 12, workcode, '')) AS day12,
+			  MAX(IF(`day` = 13, workcode, '')) AS day13,
+			  MAX(IF(`day` = 14, workcode, '')) AS day14,
+			  MAX(IF(`day` = 15, workcode, '')) AS day15,
+			  MAX(IF(`day` = 16, workcode, '')) AS day16,
+			  MAX(IF(`day` = 17, workcode, '')) AS day17,
+			  MAX(IF(`day` = 18, workcode, '')) AS day18,
+			  MAX(IF(`day` = 19, workcode, '')) AS day19,
+			  MAX(IF(`day` = 20, workcode, '')) AS day20,
+			  MAX(IF(`day` = 21, workcode, '')) AS day21,
+			  MAX(IF(`day` = 22, workcode, '')) AS day22,
+			  MAX(IF(`day` = 23, workcode, '')) AS day23,
+			  MAX(IF(`day` = 24, workcode, '')) AS day24,
+			  MAX(IF(`day` = 25, workcode, '')) AS day25,
+			  MAX(IF(`day` = 26, workcode, '')) AS day26,
+			  MAX(IF(`day` = 27, workcode, '')) AS day27,
+			  MAX(IF(`day` = 28, workcode, '')) AS day28,
+			  MAX(IF(`day` = 29, workcode, '')) AS day29,
+			  MAX(IF(`day` = 30, workcode, '')) AS day30,
+			  MAX(IF(`day` = 31, workcode, '')) AS day31
+			FROM
+			  case_attendance_detail  WHERE attendance= 1
+			GROUP BY userid,
+			  username,
+			  attendance  [ RunTime:0.005189s ]
+[ 2013-11-20T12:48:16+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance` [ RunTime:0.007368s ]
+[ 2013-11-20T12:48:16+08:00 ] SQL: SELECT * FROM `case_attendance` WHERE ( `id` = '1' ) LIMIT 1  [ RunTime:0.001181s ]
+[ 2013-11-20T12:48:16+08:00 ] SQL: SHOW COLUMNS FROM `case_attendance_detail` [ RunTime:0.007873s ]
+[ 2013-11-20T12:48:16+08:00 ] SQL: SELECT 
+			  attendance,
+			  userid,
+			  username,
+			  MAX(IF(`day` = 1, workcode, '')) AS day1,
+			  MAX(IF(`day` = 2, workcode, '')) AS day2,
+			  MAX(IF(`day` = 3, workcode, '')) AS day3,
+			  MAX(IF(`day` = 4, workcode, '')) AS day4,
+			  MAX(IF(`day` = 5, workcode, '')) AS day5,
+			  MAX(IF(`day` = 6, workcode, '')) AS day6,
+			  MAX(IF(`day` = 7, workcode, '')) AS day7,
+			  MAX(IF(`day` = 8, workcode, '')) AS day8,
+			  MAX(IF(`day` = 9, workcode, '')) AS day9,
+			  MAX(IF(`day` = 10, workcode, '')) AS day10,
+			  MAX(IF(`day` = 11, workcode, '')) AS day11,
+			  MAX(IF(`day` = 12, workcode, '')) AS day12,
+			  MAX(IF(`day` = 13, workcode, '')) AS day13,
+			  MAX(IF(`day` = 14, workcode, '')) AS day14,
+			  MAX(IF(`day` = 15, workcode, '')) AS day15,
+			  MAX(IF(`day` = 16, workcode, '')) AS day16,
+			  MAX(IF(`day` = 17, workcode, '')) AS day17,
+			  MAX(IF(`day` = 18, workcode, '')) AS day18,
+			  MAX(IF(`day` = 19, workcode, '')) AS day19,
+			  MAX(IF(`day` = 20, workcode, '')) AS day20,
+			  MAX(IF(`day` = 21, workcode, '')) AS day21,
+			  MAX(IF(`day` = 22, workcode, '')) AS day22,
+			  MAX(IF(`day` = 23, workcode, '')) AS day23,
+			  MAX(IF(`day` = 24, workcode, '')) AS day24,
+			  MAX(IF(`day` = 25, workcode, '')) AS day25,
+			  MAX(IF(`day` = 26, workcode, '')) AS day26,
+			  MAX(IF(`day` = 27, workcode, '')) AS day27,
+			  MAX(IF(`day` = 28, workcode, '')) AS day28,
+			  MAX(IF(`day` = 29, workcode, '')) AS day29,
+			  MAX(IF(`day` = 30, workcode, '')) AS day30,
+			  MAX(IF(`day` = 31, workcode, '')) AS day31
+			FROM
+			  case_attendance_detail  WHERE attendance= 1
+			GROUP BY userid,
+			  username,
+			  attendance  [ RunTime:0.006205s ]

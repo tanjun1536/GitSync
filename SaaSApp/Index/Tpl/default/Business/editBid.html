@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+
+<script type="text/JavaScript">
+	$(function() {
+		$("#biddate").val(new Date().format("yyyy/MM/dd hh:mm"));
+		$("#tdDate").html($("#biddate").val());
+	});
+	function addDetail() {
+		if (validator.empty('name', '請輸入名稱!') && validator.empty('unit', '請輸入單位!') && validator.empty('price', '請輸入價格!')) {
+			var table = $("#biddetail");
+			var len = $("#biddetail tr").length;
+			var row = len % 2 == 1 ? $("<tr class=\"trcolor\"></tr>") : $("<tr></tr>");
+			var hValue = $('#name').val() + "," + $('#unit').val() + "," + $('#price').val();
+			row.append($("<td></td>").append($('#name').val()).append($("<input type='hidden' value='" + hValue + "' name ='detail[]' />")));
+			row.append($("<td></td>").append($('#unit').val()));
+			row.append($("<td></td>").append($('#price').val()));
+			row.append($("<td align=\"center\"></td>").append($('<img onclick="$(this).parent().parent().remove();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+			table.append(row);
+			$('#name').val('');
+			$('#unit').val('');
+			$('#price').val('');
+
+		}
+
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">業務管理 - 業務報價管理</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="__URL__/addBid">
+					<input type="hidden" id="biddate" name="biddate" />
+					<input type="hidden" name="id" value="{$bid.id}"/>
+					<input type="hidden" name="code" value="{@SESSION_USER.code}"/>
+					<input type="hidden"  name="state" value="報價" />
+					<div class="topic2">新增／修改報價單</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="116" scope="row">報價單編號</th>
+							<td width="228"><input type="text" name="bidcode" value="{$bid.bidcode}" /></td>
+							<th width="100" scope="row">報價日期</th>
+							<td width="246" id="tdDate">系統抓當日</td>
+						</tr>
+						<tr>
+							<th scope="row">客戶名稱</th>
+							<td><input type="text" name="clientname" value="{$bid.clientname}" /></td>
+							<th scope="row">統一編號</th>
+							<td><input type="text" name="uniquecode" value="{$bid.uniquecode}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡人</th>
+							<td><input type="text" name="linker" value="{$bid.linker}" /></td>
+							<th scope="row">聯絡電話</th>
+							<td><input type="text" name="linkerphone" value="{$bid.linkerphone}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">報價金額</th>
+							<td><input type="text" name="bidprice" value="{$bid.bidprice}" /></td>
+							<th scope="row">發票種類</th>
+							<td><empty name="$bid.billtype"> <input name="billtype" type="radio" checked="checked" value="無" /> 無 <input name="billtype" type="radio" value="二聯" /> 二聯 <input name="billtype" type="radio" value="三聯" /> 三聯<else /> <if condition="$bid.billtype eq '无'"> <empty name="$bid.billtype"> <input name="billtype" type="radio" checked="checked" value="無" /> 無 <input name="billtype" type="radio" value="二聯" /> 二聯 <input name="billtype" type="radio" value="三聯" /> 三聯 <elseif condition="$bid.billtype eq '二聯'" /> <empty name="$bid.billtype"> <input name="billtype" type="radio" value="無" /> 無 <input name="billtype" type="radio" value="二聯" checked="checked" /> 二聯 <input
+									name="billtype" type="radio" value="三聯" /> 三聯 <else /> <empty name="$bid.billtype"> <input name="billtype" type="radio" value="無" /> 無 <input name="billtype" type="radio" value="二聯" /> 二聯 <input name="billtype" checked="checked" type="radio" value="三聯" /> 三聯 </if> </empty></td>
+						</tr>
+						<tr>
+							<th scope="row">簽約金額</th>
+							<td><input type="text" name="signprice" value="{$bid.signprice}" /></td>
+							<th scope="row">發票號碼</th>
+							<td><input type="text" name="billcode" value="{$bid.billcode}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">成交金額</th>
+							<td colspan="3"><input type="text" name="concludedprice" value="{$bid.concludedprice}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">報價項目</th>
+							<td colspan="3"><table width="550" border="0" cellspacing="0" cellpadding="0" id="biddetail">
+									<tr>
+										<th width="176" scope="col">名稱</th>
+										<th width="176" scope="col">單位</th>
+										<th width="183" scope="col">價格</th>
+										<th width="32" scope="col">&nbsp;</th>
+									</tr>
+									<tr>
+										<td><input type="text" name="name" id="name" /></td>
+										<td><input type="text" name="unit" id="unit" /></td>
+										<td><input type="text" name="price" id="price" /></td>
+										<td><img onclick="addDetail()" src="__PUBLIC__/images/add_16.png" alt="新增" style="cursor: pointer;" width="16" height="16" border="0" /></td>
+									</tr>
+									<volist name="detail" id="item">
+									<tr>
+										<td>{$item.name}</td>
+										<td>{$item.unit}</td>
+										<td>{$item.price}</td>
+										<td><img src="__PUBLIC__/images/close_16.png" onclick="$(this).parent().parent().remove();" style="cursor: pointer;" alt="刪除" width="16" height="16" border="0" /></td>
+									</tr>
+									</volist>
+								</table></td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td colspan="3"><textarea name="remark" rows="5" style="width: 500px">{$remark}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit" value="確定" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,51 @@
+@charset "utf-8";
+.calendar {
+	margin: 10px 0px;
+	width: 149px;
+	background-color: #000000;
+	padding: 1px;
+}
+.clmonth {
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+}
+.clmonth caption {
+	font-size: 12px;
+	font-weight: bold;
+	color: #433221;
+}
+.clmonth a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.clmonth a:hover {
+	text-decoration: underline;
+}
+.clmonth th {
+	color: #333333;
+	font-size: 12px;
+}
+.clmonth td {
+	padding: 2px;
+}
+.clmonth td.previous, .clmonth td.next {
+color:#EFEFEF;
+}
+.clmonth .active,  td.today{
+	font-weight: bold;
+	color: #FF6600;
+	visibility: visible;
+}
+.clmonth td a {
+	text-decoration: underline;
+}
+.clmonth td a:hover {
+	text-decoration: none;
+}
+
+.month {
+	font-size: 12px;
+	color: #FFFFFF;
+}

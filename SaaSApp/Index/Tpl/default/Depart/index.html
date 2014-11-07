@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	$(function(){
+		var leader="{$depart.leader}";
+		if(leader)$("leader").val(leader);
+	});
+	function check() {
+		return validator.empty('name', '请输入部门名称!');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">部門管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/insert" onsubmit="return check();" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<div class="topic2">新增 / 修改部門</div>
+					<neq name="id"> <input type="hidden" value="{$id}" name="id"></input></neq>
+					<table width="695" border="0" align="center" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="110" scope="row"><span class="txt_y">＊</span>部門名稱</th>
+							<td width="587"><input type="text" id="name" name="name" value="{$depart.name}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">部門主管</th>
+							<td><select name="leader" id="leader">
+									<volist id="item" name="users">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> </td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="復原" /></td>
+						</tr>
+					</table>
+				</form>
+				<form id="form2" name="form2" method="post" action="__URL__/index">
+					<div style="margin-bottom: 10px">
+						部門搜尋： <input type="text" name="key" /> <input type="submit" name="Submit3" value="搜尋" />
+					</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="294" scope="col">部門名稱</th>
+							<th width="145" scope="col">主管</th>
+							<th width="94" scope="col">人數</th>
+							<th width="160" scope="col">操作</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td>{$item.name}</td>
+						<td align="center">{$item.leader}</td>
+						<td align="center"><a href="__APP__/User/friend?depart={$item.id}">{$item.users}</a></td>
+						<td><a href="__URL__/edit?id={$item.id}">修改</a> | <a onclick="return confirm('確認要刪除數據嗎?');" href="__URL__/delete?id={$item.id}">刪除</a> | <a href="#">部門資產</a></td>
+						</tr>
+						</volist>
+					</table>
+					<div class="pages">{$page}</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

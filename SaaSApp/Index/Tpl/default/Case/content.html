@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">專案管理 - 專案內容</div>
+			<div class="mainInfo">
+				<div class="mailNav">
+					<a href="__URL__/editContent?id={@case}">修改專案</a>
+				</div>
+				<div align="center">
+					<p>
+						<img src="__PUBLIC__/Uploads/atts/case/{$c.atts}" alt="" width="538" height="338" />
+					</p>
+				</div>
+				<div align="center">{$c.cont}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

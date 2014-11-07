@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<script type="text/javascript">
+	$(function() {
+		$('#over').click(function() {
+			$('#status').val($(this).val());
+			$('#form2').submit();
+		});
+		$('#cancel').click(function() {
+			$('#status').val($(this).val());
+			$('#form2').submit();
+		});
+		$('#update').click(function() {
+			$('#status').val($(this).val());
+			$('#form2').submit();
+		});
+		$('#key').val("{$key}");
+	});
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">工作日誌- 我的日誌</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="__URL__/index">
+					<div class="mailNav">
+						<a href="__URL__/add">新增工作日誌</a> <select name="key" id="key">
+							<option value="">所有工作</option>
+							<option value="預定工作">預定工作</option>
+							<option value="完成工作">完成工作</option>
+							<option value="取消工作">取消工作</option>
+						</select> <strong>日期：</strong> <input type="text"  value="{$sdate}" name="sdate" class="Wdate" onFocus="WdatePicker()" style="width: 100px" /> ~ <input type="text" name="edate"  value="{$edate}" class="Wdate" onFocus="WdatePicker()" style="width: 100px" /><input type="submit" name="Submit3" value="搜尋" />
+					</div>
+				</form>
+				<form id="form2" name="form2" method="post" action="__URL__/changeState">
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="28" scope="col">&nbsp;</th>
+							<th width="112" scope="col">日期</th>
+							<th width="97" scope="col">時間</th>
+							<th width="139" scope="col">類別</th>
+							<th width="246" scope="col">簡述</th>
+							<th width="71" scope="col">狀態</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center"><if condition="$item.status eq '預定工作'"> <input type="checkbox" name="itemcheckbox[]" value="{$item.id}" /></if></td>
+						<td align="center">{$item.date|date='Y-m-d',strtotime(###)} ({$item.date|getWeek})</td>
+						<td align="center">{$item.shour}:{$item.sminute} - {$item.ehour}:{$item.eminute}<if condition="$item.overday eq 1">+1</if>
+						</td>
+						<td align="center">{$item.type}</td>
+						<td><a href="__URL__/view?id={$item.id}">{$item.description|getCut}</a></td>
+						<td align="center">{$item.status}</td>
+						</tr>
+						</volist>
+					</table>
+					<input type="hidden" name="status" id="status" />
+					<div style="margin-top: 10px">
+						<input type="button" name="over" id="over" value="完成工作" /> <input type="button" name="cancel" id="cancel" value="取消工作" /> <input type="button" name="update" id="update" value="修改工作" />
+					</div>
+				</form>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

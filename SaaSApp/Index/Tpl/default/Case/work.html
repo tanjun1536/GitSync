@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	var sh="{$work.shour}";
+	var sm="{$work.sminute}";
+	var eh="{$work.ehour}";
+	var em="{$work.eminute}";
+	$(function(){
+		if(sh) $("#shour").val(sh);
+		if(sm) $("#sminute").val(sm);
+		if(eh) $("#ehour").val(eh);
+		if(em) $("#eminute").val(em);
+	});
+	function check() {
+		return validator.index('shour', '請選擇起迄小時') && validator.index('sminute', '請選擇起迄分鐘') && validator.index('ehour', '請選擇結束小時') && validator.index('eminute', '請選擇結束分鐘');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">專案管理- 班別設定</div>
+			<div class="mainInfo">
+				<form action="__URL__/addWork?case={@case}" onsubmit="return check();" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="case" value="{@case}" />
+					<input type="hidden" name="id" value="{$work.id}" />
+					<div class="topic2">新增 / 修改班別</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="87" scope="row">班別代號</th>
+							<td colspan="3"><input type="text" name="workcode" value="{$work.workcode}" style="width: 50px" /> 最多輸入 &quot;2個中文字&quot; 或 &quot;4個英文字母&quot;</td>
+						</tr>
+						<tr>
+							<th scope="row">起迄時間</th>
+							<td width="348">開始 <select name="shour" id="shour">
+									<option value="">時</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+							</select> ： <select name="sminute" id="sminute">
+									<option value="">分</option>
+									<option value="00">00</option>
+									<option value="30">30</option>
+							</select> ；結束 <select name="ehour" id="ehour">
+									<option value="">時</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+							</select> ： <select name="eminute" id="eminute">
+									<option value="">分</option>
+									<option value="00">00</option>
+									<option value="30">30</option>
+							</select></td>
+							<th width="89" scope="row">薪水基數</th>
+							<td width="166"><input type="text" name="salary" value="{$work.salary}" style="width: 50px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">說明</th>
+							<td colspan="3"><input type="text" name="remark" value="{$work.remark}" style="width: 500px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="topic2">班別列表</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="74" scope="col">班別代號</th>
+						<th width="99" scope="col">起迄時間</th>
+						<th width="79" scope="col">薪水基數</th>
+						<th width="360" scope="col">說明</th>
+						<th width="81" scope="col">操作</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.workcode}</td>
+					<td align="center">{$item.shour}:{$item.sminute}~{$item.ehour}:{$item.eminute}</td>
+					<td align="center">{$item.salary}</td>
+					<td>{$item.remark}</td>
+					<td align="center"><a href="__URL__/editWork?case={@case}&id={$item.id}">修改</a> | <a onclick="return confirm('確認刪除選擇的數據?')" href="__URL__/deleteWork?case={@case}&id={$item.id}">刪除</a></td>
+					</tr>
+					</volist>
+				</table>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

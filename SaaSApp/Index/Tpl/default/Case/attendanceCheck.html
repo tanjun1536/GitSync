@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<load href="__PUBLIC__/{@style}/css/basic.css" />
+<title>差勤表</title>
+
+</head>
+
+<body>
+	<form action="__URL__attendanceImportAgain?case={@case}&id={$attendance.id}" method="post" enctype="multipart/form-data" name="form1" id="form1">
+		<div class="txt_w" style="margin: 10px 20px 20px">
+			{$year} 年 {$month} 月 狀態：未排 
+<!-- 			<strong>EXCEL匯入</strong>： <input type="file" name="file" /> <input type="submit" name="Submit" value="匯入" /> -->
+		</div>
+	</form>
+	<div style="margin: 0px 10px">
+		<table width="1774" border="0" cellpadding="0" cellspacing="1" class="tab_m">
+			<tr>
+				<th width="71" rowspan="2" scope="col"><div style="width: 63px">日期</div></th>
+				<th scope="col">1</th>
+				<th scope="col">2</th>
+				<th scope="col">3</th>
+				<th scope="col">4</th>
+				<th scope="col">5</th>
+				<th scope="col">6</th>
+				<th scope="col">7</th>
+				<th scope="col">8</th>
+				<th scope="col">9</th>
+				<th scope="col">10</th>
+				<th scope="col">11</th>
+				<th scope="col">12</th>
+				<th scope="col">13</th>
+				<th scope="col">14</th>
+				<th scope="col">15</th>
+				<th scope="col">16</th>
+				<th scope="col">17</th>
+				<th scope="col">18</th>
+				<th scope="col">19</th>
+				<th scope="col">20</th>
+				<th scope="col">21</th>
+				<th scope="col">22</th>
+				<th scope="col">23</th>
+				<th scope="col">24</th>
+				<th scope="col">25</th>
+				<th scope="col">26</th>
+				<th scope="col">27</th>
+				<th scope="col">28</th>
+				<th scope="col">29</th>
+				<th scope="col">30</th>
+				<th scope="col">31</th>
+			</tr>
+			<tr>
+				<volist id="item" name="dates">
+				<td bgcolor="#DFFFF7">{$item|getWeek}</td>
+				</volist>
+			</tr>
+			<volist name="details" id="item"> <if condition="$i%2 eq 1">
+			<tr>
+				<th scope="row">{$item.username}</th>
+				<td bgcolor="#FFFFFF">{$item.day1}</td>
+				<td bgcolor="#FFFFFF">{$item.day2}</td>
+				<td bgcolor="#FFFFEC">{$item.day3}</td>
+				<td bgcolor="#FFFFEC">{$item.day4}</td>
+				<td bgcolor="#FFFFFF">{$item.day5}</td>
+				<td bgcolor="#FFFFFF">{$item.day6}</td>
+				<td bgcolor="#FFFFFF">{$item.day7}</td>
+				<td bgcolor="#FFFFFF">{$item.day8}</td>
+				<td bgcolor="#FFFFFF">{$item.day9}</td>
+				<td bgcolor="#FFFFEC">{$item.day10}</td>
+				<td bgcolor="#FFFFEC">{$item.day11}</td>
+				<td bgcolor="#FFFFFF">{$item.day12}</td>
+				<td bgcolor="#FFFFFF">{$item.day13}</td>
+				<td bgcolor="#FFFFFF">{$item.day14}</td>
+				<td bgcolor="#FFFFFF">{$item.day15}</td>
+				<td bgcolor="#FFFFFF">{$item.day16}</td>
+				<td bgcolor="#FFFFEC">{$item.day17}</td>
+				<td bgcolor="#FFFFEC">{$item.day18}</td>
+				<td bgcolor="#FFFFFF">{$item.day19}</td>
+				<td bgcolor="#FFFFFF">{$item.day20}</td>
+				<td bgcolor="#FFFFFF">{$item.day21}</td>
+				<td bgcolor="#FFFFFF">{$item.day22}</td>
+				<td bgcolor="#FFFFFF">{$item.day23}</td>
+				<td bgcolor="#FFFFEC">{$item.day24}</td>
+				<td bgcolor="#FFFFEC">{$item.day25}</td>
+				<td bgcolor="#FFFFFF">{$item.day26}</td>
+				<td bgcolor="#FFFFFF">{$item.day27}</td>
+				<td bgcolor="#FFFFFF">{$item.day28}</td>
+				<td bgcolor="#FFFFFF">{$item.day29}</td>
+				<td bgcolor="#FFFFFF">{$item.day30}</td>
+				<td bgcolor="#FFFFEC">{$item.day31}</td>
+			</tr>
+			<else />
+			<tr>
+				<th scope="row">{$item.username}</th>
+				<td bgcolor="#F2F2F2">{$item.day1}</td>
+				<td bgcolor="#F2F2F2">{$item.day2}</td>
+				<td bgcolor="#F1F2E3">{$item.day3}</td>
+				<td bgcolor="#F1F2E3">{$item.day4}</td>
+				<td bgcolor="#F2F2F2">{$item.day5}</td>
+				<td bgcolor="#F2F2F2">{$item.day6}</td>
+				<td bgcolor="#F2F2F2">{$item.day7}</td>
+				<td bgcolor="#F2F2F2">{$item.day8}</td>
+				<td bgcolor="#F2F2F2">{$item.day9}</td>
+				<td bgcolor="#F1F2E3">{$item.day10}</td>
+				<td bgcolor="#F1F2E3">{$item.day11}</td>
+				<td bgcolor="#F2F2F2">{$item.day12}</td>
+				<td bgcolor="#F2F2F2">{$item.day13}</td>
+				<td bgcolor="#F2F2F2">{$item.day14}</td>
+				<td bgcolor="#F2F2F2">{$item.day15}</td>
+				<td bgcolor="#F2F2F2">{$item.day16}</td>
+				<td bgcolor="#F1F2E3">{$item.day17}</td>
+				<td bgcolor="#F1F2E3">{$item.day18}</td>
+				<td bgcolor="#F2F2F2">{$item.day19}</td>
+				<td bgcolor="#F2F2F2">{$item.day20}</td>
+				<td bgcolor="#F2F2F2">{$item.day21}</td>
+				<td bgcolor="#F2F2F2">{$item.day22}</td>
+				<td bgcolor="#F2F2F2">{$item.day23}</td>
+				<td bgcolor="#F1F2E3">{$item.day24}</td>
+				<td bgcolor="#F1F2E3">{$item.day25}</td>
+				<td bgcolor="#F2F2F2">{$item.day26}</td>
+				<td bgcolor="#F2F2F2">{$item.day27}</td>
+				<td bgcolor="#F2F2F2">{$item.day28}</td>
+				<td bgcolor="#F2F2F2">{$item.day29}</td>
+				<td bgcolor="#F2F2F2">{$item.day30}</td>
+				<td bgcolor="#F1F2E3">{$item.day31}</td>
+			</tr>
+			</if> </volist>
+
+		</table>
+	</div>
+</body>
+</html>

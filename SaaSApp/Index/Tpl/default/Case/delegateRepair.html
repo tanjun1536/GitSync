@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	$(function() {
+		$('#headerchecker').click(function() {
+
+			if ($(this).attr("checked") == 'checked') {
+				$("[name='itemcheckbox[]']").attr("checked", 'true');
+			} else {
+				$("[name='itemcheckbox[]']").removeAttr("checked");
+
+			}
+		});
+
+	});
+	function sb(obj) {
+		alert(obj.value);
+		var action = '__URL__/';
+		if (obj.value == '刪除') {
+			action += 'delDelegateRepair';
+		} else if (obj.value == '議價') {
+			action += 'bidDelegateRepair';
+		} else {
+			action += 'clibchDelegateRepair';
+		}
+		$("#form2").attr("action",action).submit();
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">叫修單管理 - 委外管理</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="">
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="99" scope="row">叫修單編號</th>
+							<td width="290"><input type="text" name="repaircode" /></td>
+							<th width="71" scope="row">狀態</th>
+							<td width="230"><select name="state">
+									<option value="" selected="selected">請選擇</option>
+									<option value="報價">報價</option>
+									<option value="議價">議價</option>
+									<option value="成交">成交</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">廠商名稱</th>
+							<td colspan="3"><input type="text" name="manufactures" style="width: 300px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2" value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<form id="form2" name="form2" method="post" action="">
+					<div class="mailNav">
+						<a href="addDelegateRepair?case={@case}">新增委外紀錄</a>
+					</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="28" scope="col"><input type="checkbox" id="headerchecker" value="" /></th>
+							<th width="131" scope="col">叫修單編號</th>
+							<th width="290" scope="col">委外廠商</th>
+							<th width="79" scope="col">聯絡人</th>
+							<th width="105" scope="col">聯絡電話</th>
+							<th width="60" scope="col">狀態</th>
+						</tr>
+						<volist id="item" name="list"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center"><input type="checkbox" name="itemcheckbox[]" value="{$item.id}" /></td>
+						<td align="center">{$item.repaircode}</td>
+						<td><a href="repair_view2.php">{$item.manufactures}</a></td>
+						<td align="center">{$item.linker}</td>
+						<td align="center">{$item.linkphone}</td>
+						<td align="center">{$item.state}</td>
+						</tr>
+						</volist>
+					</table>
+					<div style="margin-top: 10px">
+						<input type="button" name="Submit3" value="刪除" onclick="sb(this)" /> <input type="button" name="Submit" value="議價" onclick="sb(this)" /> <input type="button" name="Submit4" value="成交" onclick="sb(this)" />
+					</div>
+				</form>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

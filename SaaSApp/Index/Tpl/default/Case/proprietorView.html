@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">業主管理 - 承租戶管理</div>
+			<div class="mainInfo">
+				<div class="topic2">承租戶管理</div>
+				<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="188" scope="row">客戶名稱</th>
+							<td width="504">{$prop.name}</td>
+						</tr>
+						<tr>
+							<th scope="row">統一編號或身份證字號</th>
+							<td>{$prop.card}</td>
+						</tr>
+						<tr>
+							<th scope="row">租用區域</th>
+							<td>{$prop.rname}</td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡人</th>
+							<td>{$prop.linker}</td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡電話</th>
+							<td>{$prop.phone}</td>
+						</tr>
+						<tr>
+							<th scope="row">行動電話</th>
+							<td>{$prop.mobile}</td>
+						</tr>
+						<tr>
+							<th scope="row">EMAIL</th>
+							<td>{$prop.email}</td>
+						</tr>
+						<tr>
+							<th scope="row">合約開始時間</th>
+							<td>{$prop.startdate|date='Y/m/d',strtotime(###)}</td>
+						</tr>
+						<tr>
+							<th scope="row">合約到期時間</th>
+							<td>{$prop.enddate|date='Y/m/d',strtotime(###)}</td>
+						</tr>
+						<tr>
+							<th scope="row">每月費用</th>
+							<td>{$prop.charge}</td>
+						</tr>
+						<tr>
+							<th scope="row">每坪單價</th>
+							<td>{$prop.priceperm3}</td>
+						</tr>
+						<tr>
+							<th scope="row">合約附件</th>
+							<td><a href="__URL__/down?name={$prop.atts|urlencode}" > {$prop.atts}</a></td>
+						</tr>
+						<tr>
+							<th scope="row">合約</th>
+							<td>{$prop.state}</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><a href="__URL__/proprietorEdit?id={$prop.id}" > 修改</a></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

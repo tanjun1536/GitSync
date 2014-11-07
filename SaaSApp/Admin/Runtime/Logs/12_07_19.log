@@ -1,0 +1,236 @@
+[ 2012-07-19T22:16:19+08:00 ] NOTIC: [8] Undefined index: SESSION_USER f8b7c952455fd1a8c7031cc81044f5ee.php 第 19 行.
+[ 2012-07-19T22:16:19+08:00 ] NOTIC: [8] Undefined index: SESSION_USER f8b7c952455fd1a8c7031cc81044f5ee.php 第 29 行.
+[ 2012-07-19T22:16:19+08:00 ] NOTIC: [8] Undefined index: MSG_COMM f8b7c952455fd1a8c7031cc81044f5ee.php 第 96 行.
+[ 2012-07-19T22:16:19+08:00 ] NOTIC: [8] Undefined index: MSG_WORK f8b7c952455fd1a8c7031cc81044f5ee.php 第 97 行.
+[ 2012-07-19T22:16:19+08:00 ] NOTIC: [8] Undefined index: AWOKE_WORK f8b7c952455fd1a8c7031cc81044f5ee.php 第 100 行.
+[ 2012-07-19T22:16:19+08:00 ] NOTIC: [8] Undefined index: SESSION_USER f8b7c952455fd1a8c7031cc81044f5ee.php 第 104 行.
+[ 2012-07-19T22:16:19+08:00 ] NOTIC: [8] Undefined variable: list f8b7c952455fd1a8c7031cc81044f5ee.php 第 175 行.
+[ 2012-07-19T22:16:19+08:00 ] NOTIC: [8] Undefined variable: page f8b7c952455fd1a8c7031cc81044f5ee.php 第 187 行.
+[ 2012-07-19T22:22:31+08:00 ] NOTIC: [2] file_get_contents(Admin/Tpl/__PUBLIC__/admin/top.html.html): failed to open stream: No such file or directory ThinkTemplate.class.php 第 770 行.
+[ 2012-07-19T22:22:31+08:00 ] NOTIC: [2] file_get_contents(Admin/Tpl/__PUBLIC__/admin/menu.html.html): failed to open stream: No such file or directory ThinkTemplate.class.php 第 770 行.
+[ 2012-07-19T22:22:31+08:00 ] NOTIC: [2] file_get_contents(Admin/Tpl/__PUBLIC__/admin/foot.html.html): failed to open stream: No such file or directory ThinkTemplate.class.php 第 770 行.
+[ 2012-07-19T22:22:48+08:00 ] NOTIC: [2] file_get_contents(Admin/Tpl/__PUBLIC__/admin/top.html.html): failed to open stream: No such file or directory ThinkTemplate.class.php 第 770 行.
+[ 2012-07-19T22:22:48+08:00 ] NOTIC: [2] file_get_contents(Admin/Tpl/__PUBLIC__/admin/menu.html.html): failed to open stream: No such file or directory ThinkTemplate.class.php 第 770 行.
+[ 2012-07-19T22:22:48+08:00 ] NOTIC: [2] file_get_contents(Admin/Tpl/__PUBLIC__/admin/foot.html.html): failed to open stream: No such file or directory ThinkTemplate.class.php 第 770 行.
+[ 2012-07-19T22:23:53+08:00 ] ERR: (ThinkException) 非法操作company_list.php
+[ 2012-07-19T22:25:16+08:00 ] NOTIC: [8] Undefined index: SESSION_USER BaseAction.class.php 第 18 行.
+[ 2012-07-19T22:25:22+08:00 ] NOTIC: [8] Undefined index: SESSION_USER BaseAction.class.php 第 18 行.
+[ 2012-07-19T22:25:26+08:00 ] NOTIC: [8] Undefined index: SESSION_USER BaseAction.class.php 第 18 行.
+[ 2012-07-19T22:28:35+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 14 行.
+[ 2012-07-19T22:28:35+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 15 行.
+[ 2012-07-19T22:28:35+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\SystemDevelop\PHPWorkSpace\SaaSApp\Admin\Runtime\~runtime.php:2452) ~runtime.php 第 2335 行.
+[ 2012-07-19T22:28:35+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\SystemDevelop\PHPWorkSpace\SaaSApp\Admin\Runtime\~runtime.php:2452) ~runtime.php 第 2336 行.
+[ 2012-07-19T22:28:35+08:00 ] NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\SystemDevelop\PHPWorkSpace\SaaSApp\Admin\Runtime\~runtime.php:2452) ~runtime.php 第 2337 行.
+[ 2012-07-19T22:28:39+08:00 ] NOTIC: [8] Undefined index: SESSION_USER BaseAction.class.php 第 18 行.
+[ 2012-07-19T22:29:40+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006091s ]
+[ 2012-07-19T22:29:41+08:00 ] SQL: SELECT * FROM `company` WHERE ( `account` = 'admin' ) LIMIT 1  [ RunTime:0.001586s ]
+[ 2012-07-19T22:30:43+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006432s ]
+[ 2012-07-19T22:30:45+08:00 ] SQL: SELECT * FROM `company` WHERE ( `account` = 'admin' ) LIMIT 1  [ RunTime:0.001482s ]
+[ 2012-07-19T22:31:33+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006500s ]
+[ 2012-07-19T22:31:36+08:00 ] SQL: SELECT * FROM `company` WHERE ( `account` = 'admin' ) LIMIT 1  [ RunTime:0.002526s ]
+[ 2012-07-19T22:35:04+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006440s ]
+[ 2012-07-19T22:35:07+08:00 ] SQL: SELECT * FROM `company` WHERE ( `account` = 'admin' ) LIMIT 1  [ RunTime:0.002445s ]
+[ 2012-07-19T22:51:56+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005989s ]
+[ 2012-07-19T22:51:56+08:00 ] SQL: SELECT * FROM `company` WHERE account = 'admin' LIMIT 1  [ RunTime:0.000828s ]
+[ 2012-07-19T22:52:03+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005933s ]
+[ 2012-07-19T22:52:03+08:00 ] SQL: SELECT * FROM `company` WHERE ( `account` = 'hohsin' ) LIMIT 1  [ RunTime:0.000864s ]
+[ 2012-07-19T22:52:26+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T22:52:26+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.007171s ]
+[ 2012-07-19T22:52:26+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000679s ]
+[ 2012-07-19T22:52:26+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.001199s ]
+[ 2012-07-19T22:53:11+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T22:53:11+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.007769s ]
+[ 2012-07-19T22:53:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000632s ]
+[ 2012-07-19T22:53:11+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.000931s ]
+[ 2012-07-19T22:53:13+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T22:53:13+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005866s ]
+[ 2012-07-19T22:53:13+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000623s ]
+[ 2012-07-19T22:53:13+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.000801s ]
+[ 2012-07-19T22:54:24+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T22:54:24+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.011768s ]
+[ 2012-07-19T22:54:24+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000779s ]
+[ 2012-07-19T22:54:24+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.000926s ]
+[ 2012-07-19T22:54:35+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006018s ]
+[ 2012-07-19T22:54:35+08:00 ] SQL: SELECT * FROM `company` WHERE ( `account` = 'hosin' ) LIMIT 1  [ RunTime:0.000816s ]
+[ 2012-07-19T22:54:49+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006440s ]
+[ 2012-07-19T22:54:50+08:00 ] SQL: SELECT * FROM `company` WHERE ( `account` = 'hohsin' ) LIMIT 1  [ RunTime:0.000855s ]
+[ 2012-07-19T23:19:47+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006075s ]
+[ 2012-07-19T23:19:47+08:00 ] SQL: SELECT * FROM `company` WHERE ( `account` = 'hohsin' ) LIMIT 1  [ RunTime:0.001216s ]
+[ 2012-07-19T23:19:47+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T23:19:47+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006845s ]
+[ 2012-07-19T23:19:47+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000953s ]
+[ 2012-07-19T23:19:47+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.000794s ]
+[ 2012-07-19T23:19:58+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T23:19:58+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.008339s ]
+[ 2012-07-19T23:19:58+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000843s ]
+[ 2012-07-19T23:19:58+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.001021s ]
+[ 2012-07-19T23:26:25+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T23:26:25+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006161s ]
+[ 2012-07-19T23:26:25+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000815s ]
+[ 2012-07-19T23:26:25+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.000810s ]
+[ 2012-07-19T23:28:09+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T23:28:09+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.008555s ]
+[ 2012-07-19T23:28:09+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000890s ]
+[ 2012-07-19T23:28:09+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.000821s ]
+[ 2012-07-19T23:28:11+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T23:28:11+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006693s ]
+[ 2012-07-19T23:28:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000617s ]
+[ 2012-07-19T23:28:11+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.000817s ]
+[ 2012-07-19T23:28:19+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T23:28:19+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006102s ]
+[ 2012-07-19T23:28:19+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000622s ]
+[ 2012-07-19T23:28:19+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.000817s ]
+[ 2012-07-19T23:29:46+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T23:29:46+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.007341s ]
+[ 2012-07-19T23:29:46+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000630s ]
+[ 2012-07-19T23:29:46+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.000966s ]
+[ 2012-07-19T23:31:05+08:00 ] ERR: (ThinkException) Model:selectByCode您所请求的方法不存在！
+[ 2012-07-19T23:31:54+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.006092s ]
+[ 2012-07-19T23:31:54+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.001080s ]
+[ 2012-07-19T23:31:54+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005872s ]
+[ 2012-07-19T23:31:54+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000848s ]
+[ 2012-07-19T23:31:54+08:00 ] NOTIC: [8] Undefined index: MSG_COMM c2babf929db1053b179b8077e7bc89ed.php 第 123 行.
+[ 2012-07-19T23:31:54+08:00 ] NOTIC: [8] Undefined index: MSG_WORK c2babf929db1053b179b8077e7bc89ed.php 第 124 行.
+[ 2012-07-19T23:31:54+08:00 ] NOTIC: [8] Undefined index: AWOKE_WORK c2babf929db1053b179b8077e7bc89ed.php 第 127 行.
+[ 2012-07-19T23:37:44+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.005846s ]
+[ 2012-07-19T23:37:44+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.001010s ]
+[ 2012-07-19T23:37:44+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.008194s ]
+[ 2012-07-19T23:37:44+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001278s ]
+[ 2012-07-19T23:40:03+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.007940s ]
+[ 2012-07-19T23:40:03+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.001238s ]
+[ 2012-07-19T23:40:03+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006176s ]
+[ 2012-07-19T23:40:03+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000695s ]
+[ 2012-07-19T23:40:14+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.005472s ]
+[ 2012-07-19T23:40:14+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.001019s ]
+[ 2012-07-19T23:40:14+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006288s ]
+[ 2012-07-19T23:40:14+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000999s ]
+[ 2012-07-19T23:40:30+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.005780s ]
+[ 2012-07-19T23:40:30+08:00 ] SQL: SELECT * FROM `area` WHERE pid=1 [ RunTime:0.000940s ]
+[ 2012-07-19T23:40:54+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.007471s ]
+[ 2012-07-19T23:40:54+08:00 ] SQL: INSERT INTO `company` (`name`,`code`,`leader`,`phone`,`fax`,`province`,`city`,`address`,`linker`,`linkphone`,`email`,`onhour`,`onminute`,`downhour`,`downminute`,`period`,`account`,`password`,`mobile`,`usercount`) VALUES ('11','33','22','44','55','1','23','xxx','66','77','99','20','11','17','22','2012-07-19','admin','admin','88','11') [ RunTime:0.068362s ]
+[ 2012-07-19T23:40:54+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T23:40:54+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000940s ]
+[ 2012-07-19T23:40:54+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.000838s ]
+[ 2012-07-19T23:43:15+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.007343s ]
+[ 2012-07-19T23:43:15+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T23:43:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.001010s ]
+[ 2012-07-19T23:43:15+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.000855s ]
+[ 2012-07-19T23:43:18+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.008810s ]
+[ 2012-07-19T23:43:18+08:00 ] SQL: SELECT * FROM `company` WHERE ( `id` = '12' ) LIMIT 1  [ RunTime:0.000867s ]
+[ 2012-07-19T23:43:18+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.006712s ]
+[ 2012-07-19T23:43:18+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.000843s ]
+[ 2012-07-19T23:43:18+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005632s ]
+[ 2012-07-19T23:43:18+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000701s ]
+[ 2012-07-19T23:43:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 69 行.
+[ 2012-07-19T23:43:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 73 行.
+[ 2012-07-19T23:43:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 77 行.
+[ 2012-07-19T23:43:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 81 行.
+[ 2012-07-19T23:43:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 85 行.
+[ 2012-07-19T23:43:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 89 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 100 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 104 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 108 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 108 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 112 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 171 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 175 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 179 行.
+[ 2012-07-19T23:43:19+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 183 行.
+[ 2012-07-19T23:43:58+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006133s ]
+[ 2012-07-19T23:44:05+08:00 ] SQL: SELECT * FROM `company` WHERE ( `id` = '12' ) LIMIT 1  [ RunTime:0.001900s ]
+[ 2012-07-19T23:44:07+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.022896s ]
+[ 2012-07-19T23:44:08+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.001939s ]
+[ 2012-07-19T23:44:11+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.009774s ]
+[ 2012-07-19T23:44:11+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.002473s ]
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 69 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 73 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 77 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 81 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 85 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 89 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 95 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 100 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 104 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 108 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 108 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 112 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 171 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 175 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 179 行.
+[ 2012-07-19T23:44:18+08:00 ] NOTIC: [8] Undefined variable: com 4a47e60a07923e1491b883dcbee1fe99.php 第 183 行.
+[ 2012-07-19T23:45:25+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006273s ]
+[ 2012-07-19T23:45:25+08:00 ] SQL: SELECT * FROM `company` WHERE ( `id` = '12' ) LIMIT 1  [ RunTime:0.000850s ]
+[ 2012-07-19T23:45:25+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.006518s ]
+[ 2012-07-19T23:45:25+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.000748s ]
+[ 2012-07-19T23:45:25+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005779s ]
+[ 2012-07-19T23:45:25+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000657s ]
+[ 2012-07-19T23:45:37+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006935s ]
+[ 2012-07-19T23:45:37+08:00 ] SQL: UPDATE `company` SET `name`='11',`code`='33',`leader`='22',`phone`='44',`fax`='55',`province`='1',`city`='請選擇',`address`='xxx',`linker`='66',`linkphone`='77',`email`='99',`onhour`='21',`onminute`='11',`downhour`='21',`downminute`='22',`period`='2012-07-19',`account`='admin',`password`='admin',`mobile`='88',`usercount`='11' WHERE ( `id` = '12' ) [ RunTime:0.060667s ]
+[ 2012-07-19T23:45:37+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T23:45:37+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.001075s ]
+[ 2012-07-19T23:45:37+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.001335s ]
+[ 2012-07-19T23:45:43+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006222s ]
+[ 2012-07-19T23:45:43+08:00 ] SQL: SELECT * FROM `company` WHERE ( `id` = '12' ) LIMIT 1  [ RunTime:0.000838s ]
+[ 2012-07-19T23:45:43+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.006057s ]
+[ 2012-07-19T23:45:43+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.000771s ]
+[ 2012-07-19T23:45:43+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005344s ]
+[ 2012-07-19T23:45:43+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000656s ]
+[ 2012-07-19T23:46:39+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006228s ]
+[ 2012-07-19T23:46:39+08:00 ] SQL: SELECT * FROM `company` WHERE ( `id` = '12' ) LIMIT 1  [ RunTime:0.000856s ]
+[ 2012-07-19T23:46:39+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.006198s ]
+[ 2012-07-19T23:46:39+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.000731s ]
+[ 2012-07-19T23:46:39+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006838s ]
+[ 2012-07-19T23:46:39+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000663s ]
+[ 2012-07-19T23:46:39+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.005640s ]
+[ 2012-07-19T23:46:39+08:00 ] SQL: SELECT * FROM `area` WHERE pid=1 [ RunTime:0.000760s ]
+[ 2012-07-19T23:46:45+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.005801s ]
+[ 2012-07-19T23:46:45+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.001003s ]
+[ 2012-07-19T23:46:45+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006722s ]
+[ 2012-07-19T23:46:45+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000643s ]
+[ 2012-07-19T23:46:47+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-19T23:46:47+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006096s ]
+[ 2012-07-19T23:46:47+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000620s ]
+[ 2012-07-19T23:46:47+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.000805s ]

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 驗貨管理</div>
+			<div class="mainInfo">
+				<table width="695" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="437"><div class="topic2">驗貨單</div></td>
+						<td width="258" valign="bottom"><div class="mailNav">
+								<a href="__URL__/updateStockCheck?id={$sc.id}">修改驗貨單</a>
+							</div></td>
+					</tr>
+				</table>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+					<tr>
+						<th width="100" scope="row">驗貨單編號</th>
+						<td width="296">{$sc.checkcode}</td>
+						<th width="83" scope="row">驗貨日期</th>
+						<td width="211">{$sc.checkdate|date='Y/m/d',strtotime(###)}</td>
+					</tr>
+					<tr>
+						<th scope="row">採購對象</th>
+						<td>{$sc.manufacturer}</td>
+						<th scope="row">採購者</th>
+						<td>{$sc.purchaseuer}</td>
+					</tr>
+					<tr>
+						<th scope="row">驗貨者</th>
+						<td>{$sc.checkuser}</td>
+						<th scope="row">審核者</th>
+						<td>{$sc.puchasecheckuser}</td>
+					</tr>
+				</table>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="109" scope="col">採購單編號</th>
+						<th width="123" scope="col">商品編號</th>
+						<th width="185" scope="col">商品名稱</th>
+						<th width="72" scope="col">採購數</th>
+						<th width="67" scope="col">未到數</th>
+						<th width="71" scope="col">到貨數</th>
+						<th width="66" scope="col">小計($)</th>
+					</tr>
+					<volist name="scd" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.purchasecode}</td>
+					<td align="center">{$item.productcode}</td>
+					<td align="center">{$item.productname}</td>
+					<td align="center">{$item.quantity}</td>
+					<td align="center">{$item.uncome}</td>
+					<td align="center">{$item.income}</td>
+					<td align="center">{$item.subtotal}</td>
+					</tr>
+					</volist>
+					<tr class="trcolor3">
+						<td colspan="6" align="right"><strong>本次到貨金額：</strong></td>
+						<td align="center">{$sc.totalmoney}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

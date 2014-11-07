@@ -1,0 +1,164 @@
+[ 2012-04-26T00:36:08+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.006208s ]
+[ 2012-04-26T00:36:08+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000703s ]
+[ 2012-04-26T00:36:08+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000684s ]
+[ 2012-04-26T00:36:08+08:00 ] NOTIC: [8] Undefined variable: schedul 47f7a0d9fe5e7bd1571211a50e709970.php 第 93 行.
+[ 2012-04-26T00:36:17+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.005653s ]
+[ 2012-04-26T00:36:17+08:00 ] SQL: INSERT INTO `case_device_maintenance_scheduling` (`id`,`case`,`code`,`year`,`month`,`state`) VALUES ('','5','飞洒发送到','2911','01','新增') [ RunTime:0.236416s ]
+[ 2012-04-26T00:36:17+08:00 ] NOTIC: [8] Undefined index: st CaseAction.class.php 第 489 行.
+[ 2012-04-26T00:36:17+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 LIMIT 1  [ RunTime:0.001123s ]
+[ 2012-04-26T00:36:17+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 ORDER BY id desc LIMIT 0,10  [ RunTime:0.001101s ]
+[ 2012-04-26T00:36:17+08:00 ] NOTIC: [8] Undefined variable: schedul 47f7a0d9fe5e7bd1571211a50e709970.php 第 93 行.
+[ 2012-04-26T00:36:26+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.007483s ]
+[ 2012-04-26T00:36:26+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000942s ]
+[ 2012-04-26T00:36:26+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000835s ]
+[ 2012-04-26T00:36:27+08:00 ] NOTIC: [8] Undefined variable: schedul 47f7a0d9fe5e7bd1571211a50e709970.php 第 93 行.
+[ 2012-04-26T00:36:35+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.005909s ]
+[ 2012-04-26T00:36:35+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='確認' LIMIT 1  [ RunTime:0.000679s ]
+[ 2012-04-26T00:36:35+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='確認' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000686s ]
+[ 2012-04-26T00:36:35+08:00 ] NOTIC: [8] Undefined variable: schedul 47f7a0d9fe5e7bd1571211a50e709970.php 第 93 行.
+[ 2012-04-26T00:36:37+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.006374s ]
+[ 2012-04-26T00:36:37+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000796s ]
+[ 2012-04-26T00:36:37+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000879s ]
+[ 2012-04-26T00:36:38+08:00 ] NOTIC: [8] Undefined variable: schedul 47f7a0d9fe5e7bd1571211a50e709970.php 第 93 行.
+[ 2012-04-26T00:36:42+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.007507s ]
+[ 2012-04-26T00:36:42+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000881s ]
+[ 2012-04-26T00:36:42+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000961s ]
+[ 2012-04-26T00:36:43+08:00 ] NOTIC: [8] Undefined variable: schedul 47f7a0d9fe5e7bd1571211a50e709970.php 第 93 行.
+[ 2012-04-26T00:36:47+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.006620s ]
+[ 2012-04-26T00:36:47+08:00 ] NOTIC: [8] Undefined index: st CaseAction.class.php 第 489 行.
+[ 2012-04-26T00:36:47+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 LIMIT 1  [ RunTime:0.000654s ]
+[ 2012-04-26T00:36:47+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 ORDER BY id desc LIMIT 0,10  [ RunTime:0.000771s ]
+[ 2012-04-26T00:36:48+08:00 ] NOTIC: [8] Undefined variable: schedul 47f7a0d9fe5e7bd1571211a50e709970.php 第 93 行.
+[ 2012-04-26T00:36:54+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.006787s ]
+[ 2012-04-26T00:36:54+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.001019s ]
+[ 2012-04-26T00:36:54+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000745s ]
+[ 2012-04-26T00:36:54+08:00 ] NOTIC: [8] Undefined variable: schedul 47f7a0d9fe5e7bd1571211a50e709970.php 第 93 行.
+[ 2012-04-26T00:37:35+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.009492s ]
+[ 2012-04-26T00:37:35+08:00 ] NOTIC: [8] Undefined index: st CaseAction.class.php 第 489 行.
+[ 2012-04-26T00:37:35+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 LIMIT 1  [ RunTime:0.000748s ]
+[ 2012-04-26T00:37:35+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 ORDER BY id desc LIMIT 0,10  [ RunTime:0.000970s ]
+[ 2012-04-26T00:37:41+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.006795s ]
+[ 2012-04-26T00:37:41+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000753s ]
+[ 2012-04-26T00:37:41+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.001083s ]
+[ 2012-04-26T00:54:27+08:00 ] NOTIC: [8] Undefined index: SESSION_USER BaseAction.class.php 第 16 行.
+[ 2012-04-26T00:54:27+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2012-04-26T00:54:27+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2012-04-26T00:54:31+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.040413s ]
+[ 2012-04-26T00:54:31+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001358s ]
+[ 2012-04-26T00:54:31+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.010857s ]
+[ 2012-04-26T00:54:31+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msg` WHERE code='google' and INSTR(CONCAT(",",receiversid,","),",10,")>0 and isread =0 LIMIT 1  [ RunTime:0.001414s ]
+[ 2012-04-26T00:54:31+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.006599s ]
+[ 2012-04-26T00:54:31+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='google' and awoke =1 and uid =10 LIMIT 1  [ RunTime:0.001196s ]
+[ 2012-04-26T00:54:31+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.023035s ]
+[ 2012-04-26T00:54:31+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='google' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.000691s ]
+[ 2012-04-26T00:54:31+08:00 ] NOTIC: [8] Undefined variable: list 9d5a1930d87e20a74b80d839c5968b37.php 第 183 行.
+[ 2012-04-26T00:54:31+08:00 ] NOTIC: [8] Undefined variable: page 9d5a1930d87e20a74b80d839c5968b37.php 第 197 行.
+[ 2012-04-26T00:54:36+08:00 ] NOTIC: [8] Undefined index: case CaseAction.class.php 第 4 行.
+[ 2012-04-26T00:54:36+08:00 ] NOTIC: [8] Undefined index: case CaseAction.class.php 第 6 行.
+[ 2012-04-26T00:54:36+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 12 行.
+[ 2012-04-26T00:54:36+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.013452s ]
+[ 2012-04-26T00:54:36+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  code='google'  LIMIT 1  [ RunTime:0.000658s ]
+[ 2012-04-26T00:54:36+08:00 ] SQL: SELECT * FROM `case` WHERE  code='google'  ORDER BY id desc LIMIT 0,10  [ RunTime:0.000837s ]
+[ 2012-04-26T00:54:38+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.008114s ]
+[ 2012-04-26T00:54:38+08:00 ] SQL: SELECT c.*,za.`name` AS zaname,za.`ucode` AS zacode,yw.`name` AS ywname,yw.`ucode` AS ywcode,dd.`name` AS ddname,dd.`ucode` AS ddcode FROM `case` c INNER JOIN `user` za ON c.`casefzr`= za.`id` INNER JOIN `user` yw ON c.`businessfzr`=yw.`id` INNER JOIN `user` dd ON c.`casedd`=dd.`id` where c.id= 5 [ RunTime:0.001281s ]
+[ 2012-04-26T00:54:42+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.005695s ]
+[ 2012-04-26T00:54:42+08:00 ] NOTIC: [8] Undefined index: st CaseAction.class.php 第 489 行.
+[ 2012-04-26T00:54:42+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 LIMIT 1  [ RunTime:0.001594s ]
+[ 2012-04-26T00:54:42+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 ORDER BY id desc LIMIT 0,10  [ RunTime:0.000692s ]
+[ 2012-04-26T00:55:00+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.010438s ]
+[ 2012-04-26T00:55:00+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000882s ]
+[ 2012-04-26T00:55:00+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000686s ]
+[ 2012-04-26T00:55:07+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.006334s ]
+[ 2012-04-26T00:55:07+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.006809s ]
+[ 2012-04-26T00:55:07+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000809s ]
+[ 2012-04-26T00:55:14+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.005666s ]
+[ 2012-04-26T00:55:14+08:00 ] NOTIC: [8] Undefined index: st CaseAction.class.php 第 489 行.
+[ 2012-04-26T00:55:14+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 LIMIT 1  [ RunTime:0.000669s ]
+[ 2012-04-26T00:55:14+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 ORDER BY id desc LIMIT 0,10  [ RunTime:0.000691s ]
+[ 2012-04-26T00:57:31+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.007920s ]
+[ 2012-04-26T00:57:31+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000887s ]
+[ 2012-04-26T00:57:31+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000695s ]
+[ 2012-04-26T00:57:53+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.005554s ]
+[ 2012-04-26T00:57:53+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000685s ]
+[ 2012-04-26T00:57:53+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000851s ]
+[ 2012-04-26T00:58:05+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.007480s ]
+[ 2012-04-26T00:58:05+08:00 ] NOTIC: [8] Undefined index: st CaseAction.class.php 第 489 行.
+[ 2012-04-26T00:58:05+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 LIMIT 1  [ RunTime:0.000846s ]
+[ 2012-04-26T00:58:05+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 ORDER BY id desc LIMIT 0,10  [ RunTime:0.000957s ]
+[ 2012-04-26T00:58:09+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.005664s ]
+[ 2012-04-26T00:58:09+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000679s ]
+[ 2012-04-26T00:58:09+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.001022s ]
+[ 2012-04-26T00:59:17+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.005856s ]
+[ 2012-04-26T00:59:17+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000708s ]
+[ 2012-04-26T00:59:17+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.001152s ]
+[ 2012-04-26T00:59:22+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.005822s ]
+[ 2012-04-26T00:59:22+08:00 ] NOTIC: [8] Undefined index: st CaseAction.class.php 第 489 行.
+[ 2012-04-26T00:59:22+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 LIMIT 1  [ RunTime:0.000666s ]
+[ 2012-04-26T00:59:22+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 ORDER BY id desc LIMIT 0,10  [ RunTime:0.001755s ]
+[ 2012-04-26T00:59:36+08:00 ] ERR: (ThinkException) 非法操作deleteScheduling
+[ 2012-04-26T01:00:26+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.006098s ]
+[ 2012-04-26T01:00:26+08:00 ] NOTIC: [8] Undefined index: st CaseAction.class.php 第 489 行.
+[ 2012-04-26T01:00:26+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 LIMIT 1  [ RunTime:0.000667s ]
+[ 2012-04-26T01:00:26+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 ORDER BY id desc LIMIT 0,10  [ RunTime:0.007175s ]
+[ 2012-04-26T01:00:30+08:00 ] NOTIC: [8] Undefined index: itemcheckbox CaseAction.class.php 第 514 行.
+[ 2012-04-26T01:00:30+08:00 ] NOTIC: [2] implode(): Invalid arguments passed CaseAction.class.php 第 515 行.
+[ 2012-04-26T01:00:30+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.006493s ]
+[ 2012-04-26T01:00:30+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.001235s ]
+[ 2012-04-26T01:00:30+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000664s ]
+[ 2012-04-26T01:00:36+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.039270s ]
+[ 2012-04-26T01:00:36+08:00 ] NOTIC: [8] Undefined index: st CaseAction.class.php 第 489 行.
+[ 2012-04-26T01:00:36+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 LIMIT 1  [ RunTime:0.000666s ]
+[ 2012-04-26T01:00:36+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 ORDER BY id desc LIMIT 0,10  [ RunTime:0.000821s ]
+[ 2012-04-26T01:01:18+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.006318s ]
+[ 2012-04-26T01:01:18+08:00 ] NOTIC: [8] Undefined index: st CaseAction.class.php 第 489 行.
+[ 2012-04-26T01:01:18+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 LIMIT 1  [ RunTime:0.000856s ]
+[ 2012-04-26T01:01:18+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 ORDER BY id desc LIMIT 0,10  [ RunTime:0.001034s ]
+[ 2012-04-26T01:01:34+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.006383s ]
+[ 2012-04-26T01:01:35+08:00 ] SQL: DELETE FROM `case_device_maintenance_scheduling` WHERE ( `id` IN ('3','2','1') ) [ RunTime:0.173565s ]
+[ 2012-04-26T01:01:35+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000677s ]
+[ 2012-04-26T01:01:35+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.001639s ]
+[ 2012-04-26T01:01:39+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.006403s ]
+[ 2012-04-26T01:01:39+08:00 ] NOTIC: [8] Undefined index: st CaseAction.class.php 第 489 行.
+[ 2012-04-26T01:01:39+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 LIMIT 1  [ RunTime:0.000786s ]
+[ 2012-04-26T01:01:39+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 ORDER BY id desc LIMIT 0,10  [ RunTime:0.000831s ]
+[ 2012-04-26T01:01:44+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.005691s ]
+[ 2012-04-26T01:01:44+08:00 ] SQL:  update case_device_maintenance_scheduling set state='確認' where id in(Array) [ RunTime:0.000748s ]
+[ 2012-04-26T01:01:44+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.001423s ]
+[ 2012-04-26T01:01:44+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000946s ]
+[ 2012-04-26T01:02:13+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.005812s ]
+[ 2012-04-26T01:02:13+08:00 ] SQL:  update case_device_maintenance_scheduling set state='確認' where id in(Array) [ RunTime:0.000528s ]
+[ 2012-04-26T01:02:13+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000623s ]
+[ 2012-04-26T01:02:13+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.002635s ]
+[ 2012-04-26T01:02:55+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.006880s ]
+[ 2012-04-26T01:02:55+08:00 ] SQL:  update case_device_maintenance_scheduling set state='確認' where id in(5,4) [ RunTime:0.084408s ]
+[ 2012-04-26T01:02:55+08:00 ] NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given DbMysql.class.php 第 124 行.
+[ 2012-04-26T01:02:55+08:00 ] NOTIC: [2] mysql_free_result() expects parameter 1 to be resource, boolean given DbMysql.class.php 第 92 行.
+[ 2012-04-26T01:02:55+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.003720s ]
+[ 2012-04-26T01:02:55+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000703s ]
+[ 2012-04-26T01:03:05+08:00 ] NOTIC: [8] Undefined index: itemcheckbox CaseAction.class.php 第 522 行.
+[ 2012-04-26T01:03:05+08:00 ] NOTIC: [2] implode(): Invalid arguments passed CaseAction.class.php 第 523 行.
+[ 2012-04-26T01:03:05+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.008324s ]
+[ 2012-04-26T01:03:05+08:00 ] SQL:  update case_device_maintenance_scheduling set state='確認' where id in() [ RunTime:0.000396s ]
+[ 2012-04-26T01:03:05+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='確認' LIMIT 1  [ RunTime:0.000673s ]
+[ 2012-04-26T01:03:05+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='確認' ORDER BY id desc LIMIT 0,10  [ RunTime:0.002503s ]
+[ 2012-04-26T01:20:50+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.007021s ]
+[ 2012-04-26T01:20:50+08:00 ] SQL:  update case_device_maintenance_scheduling set state='確認' where id in(5,4) [ RunTime:0.063849s ]
+[ 2012-04-26T01:20:50+08:00 ] NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given DbMysql.class.php 第 124 行.
+[ 2012-04-26T01:20:50+08:00 ] NOTIC: [2] mysql_free_result() expects parameter 1 to be resource, boolean given DbMysql.class.php 第 92 行.
+[ 2012-04-26T01:20:50+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' LIMIT 1  [ RunTime:0.000688s ]
+[ 2012-04-26T01:20:50+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='新增' ORDER BY id desc LIMIT 0,10  [ RunTime:0.001015s ]
+[ 2012-04-26T01:20:54+08:00 ] NOTIC: [8] Undefined index: itemcheckbox CaseAction.class.php 第 522 行.
+[ 2012-04-26T01:20:54+08:00 ] NOTIC: [2] implode(): Invalid arguments passed CaseAction.class.php 第 523 行.
+[ 2012-04-26T01:20:54+08:00 ] SQL: SHOW COLUMNS FROM `case_device_maintenance_scheduling` [ RunTime:0.007541s ]
+[ 2012-04-26T01:20:54+08:00 ] SQL:  update case_device_maintenance_scheduling set state='確認' where id in() [ RunTime:0.000472s ]
+[ 2012-04-26T01:20:54+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='確認' LIMIT 1  [ RunTime:0.000680s ]
+[ 2012-04-26T01:20:54+08:00 ] SQL: SELECT * FROM `case_device_maintenance_scheduling` WHERE `case` = 5 and state='確認' ORDER BY id desc LIMIT 0,10  [ RunTime:0.000587s ]
+[ 2012-04-26T01:21:00+08:00 ] NOTIC: [8] Undefined index: case CaseAction.class.php 第 4 行.
+[ 2012-04-26T01:21:00+08:00 ] NOTIC: [8] Undefined index: case CaseAction.class.php 第 6 行.
+[ 2012-04-26T01:21:00+08:00 ] ERR: (ThinkException) 非法操作css
+[ 2012-04-26T01:21:25+08:00 ] NOTIC: [8] Undefined index: case CaseAction.class.php 第 4 行.
+[ 2012-04-26T01:21:25+08:00 ] NOTIC: [8] Undefined index: case CaseAction.class.php 第 6 行.
+[ 2012-04-26T01:26:21+08:00 ] NOTIC: [8] Undefined index: case CaseAction.class.php 第 4 行.
+[ 2012-04-26T01:26:21+08:00 ] NOTIC: [8] Undefined index: case CaseAction.class.php 第 6 行.
+[ 2012-04-26T01:26:30+08:00 ] NOTIC: [8] Undefined index: case CaseAction.class.php 第 4 行.
+[ 2012-04-26T01:26:30+08:00 ] NOTIC: [8] Undefined index: case CaseAction.class.php 第 6 行.

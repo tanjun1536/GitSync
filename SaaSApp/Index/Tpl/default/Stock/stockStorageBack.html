@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	$(function() {
+		$("#backdate").val(new Date().format("yyyy/MM/dd hh:mm"));
+	});
+	function calSubTotal(o) {
+		var v = parseInt(o.value);
+		if (isNaN(v)) {
+			alert('请输入数字!');
+			o.value = '';
+			$('#' + o.id).parent().next().html('');
+		} else {
+			var p = parseInt($('#' + o.id).parent().prev().html());
+			if (v > p) {
+				alert('退貨數不能大於到貨數!');
+				o.value = '';
+				$('#' + o.id).parent().next().html('');
+			} else {
+				var price = $('#' + o.id).parent().find('input[type=hidden]').val();
+				$('#' + o.id).parent().next().html(price * v);
+			}
+
+		}
+		calTotal();
+	}
+	function calTotal() {
+		var total = 0;
+		$("#purchasedetail tr").each(function(i) {
+			var td = $(this).find("td")[5];
+			if (td)
+				if ($(td).html() != '')
+					total += parseFloat($(td).html());
+		});
+		$("#total").html(total);
+		$("#totalmoney").val(total);
+	}
+	function check() {
+
+		var details = new Array();
+		var len = $("#purchasedetail tr").length;
+		$("#purchasedetail tr").each(function(i) {
+			if (i > 0 && i < len - 1) {
+				var tds = $(this).find("td");
+				var detail = new Array();
+				detail.push($(tds[0]).html());
+				detail.push($(tds[1]).html());
+				detail.push($(tds[2]).html());
+				detail.push($(tds[3]).html());
+				var p = $(tds[4]).find('input[type=hidden]').val();
+				var q = $(tds[4]).find('input[type=text]').val();
+				
+				if (q == '' || isNaN(parseInt(q))) {
+					detail.push(0);
+					detail.push(p);
+					detail.push(0);
+				} else {
+					detail.push(q);
+					detail.push(p);
+					detail.push($(tds[5]).html());
+				}
+
+				details.push(detail.join(','));
+			}
+
+		});
+		$("#backdetail").val(details.join(';'));
+		return true;
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 進貨管理</div>
+			<div class="mainInfo">
+				<form id="form2" name="form2" method="post" onsubmit="return check()" action="__URL__/stockStorageBack">
+					<input type="hidden" name="backuser" value="{@SESSION_USER.name}" /> 
+					<input type="hidden" name="checkid" value="{$sc.id}" /> 
+					<input type="hidden" name="backdate" id="backdate" /> 
+					<input type="hidden" name="totalmoney" id="totalmoney" value="0" /> 
+					<input type="hidden" name="backdetail" id="backdetail" />
+					<input type="hidden" name="code"  value="{@SESSION_USER.code}" />
+					<div class="topic2">退貨</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="100" scope="row">驗貨單編號</th>
+							<td width="244">{$sc.checkcode}</td>
+							<th width="97" scope="row">採購對象</th>
+							<td width="249">{$sc.mname}</td>
+						</tr>
+						<tr>
+							<th scope="row">進貨單編號</th>
+							<td>{$sc.storagecode}</td>
+							<th scope="row">進貨總金額</th>
+							<td>{$sc.totalmoney}</td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop" id="purchasedetail">
+						<tr>
+							<th width="120" scope="col">採購單編號</th>
+							<th width="134" scope="col">商品編號</th>
+							<th width="221" scope="col">商品名稱</th>
+							<th width="70" scope="col">到貨數</th>
+							<th width="70" scope="col">退貨數</th>
+							<th width="78" scope="col">小計($)</th>
+						</tr>
+						<volist name="scd" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center">{$item.purchasecode}</td>
+						<td align="center">{$item.productcode}</td>
+						<td align="center">{$item.productname}</td>
+						<td align="center">{$item.income}</td>
+						<td align="center"><input id="q{$i}" type="text" onkeyup="calSubTotal(this);" name="quantity" style="width: 50px" /><input type="hidden" value="{$item.price}" /></td>
+						<td align="center"></td>
+						</tr>
+						</volist>
+						<tr class="trcolor3">
+							<td colspan="5" align="right"><strong>退貨總金額：</strong></td>
+							<td align="center" id="total">0</td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th scope="col">備註</th>
+						</tr>
+						<tr>
+							<td><textarea name="textarea" rows="5" style="width: 680px"></textarea></td>
+						</tr>
+					</table>
+					<div align="center" style="margin-top: 10px">
+						<input type="submit" name="Submit" value="確認" /> <input type="reset" name="Submit2" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

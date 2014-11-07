@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">抄表管理 - 類別管理</div>
+			<div class="mainInfo">
+				<div class="topic2">新增／修改抄表資料</div>
+				<form action="__URL__/copyFormAdd" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="case" value="{@case}" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="113" scope="row">編號</th>
+							<td width="579"><input type="text" name="code" /></td>
+						</tr>
+						<tr>
+							<th scope="row">建物區域</th>
+							<td><input type="text" name="area" /></td>
+						</tr>
+						<tr>
+							<th scope="row">公共區域</th>
+							<td><input name="ispublic" type="radio" value="是" checked="checked" /> 是 <input name="ispublic" type="radio" value="否" /> 否</td>
+						</tr>
+						<tr>
+							<th scope="row">用戶名</th>
+							<td><input type="text" name="username" /></td>
+						</tr>
+						<tr>
+							<th scope="row">錶號</th>
+							<td><input type="text" name="gaugecode" /></td>
+						</tr>
+						<tr>
+							<th scope="row">倍數</th>
+							<td><input type="text" name="times" /></td>
+						</tr>
+						<tr>
+							<th scope="row">最大值</th>
+							<td><input type="text" name="maxvalue" /></td>
+						</tr>
+						<tr>
+							<th scope="row">類別</th>
+							<td><input type="text" name="type" /></td>
+						</tr>
+						<tr>
+							<th scope="row">排序</th>
+							<td><input type="text" name="ordernumber" /></td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td><input type="text" name="remark" style="width: 400px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit2" value="確定" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

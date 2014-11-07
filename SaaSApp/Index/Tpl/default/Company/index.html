@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	$(function() {
+
+	});
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">公司管理</div>
+			<div class="mainInfo">
+				<form id="form2" name="form2" method="post" action="__URL__/index">
+					<div class="mailNav">
+						<a href="__URL__/add">新增公司</a> <input type="text" name="key" /> <input type="submit" name="Submit2" value="搜尋" />
+					</div>
+				</form>
+				<form id="form1" name="form1" method="post" onsubmit="return delAwoke();" action="__URL__/delete">
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="news_list">
+						<tr>
+							<th width="115" scope="col">公司名稱</th>
+							<th width="115" scope="col">統一編號</th>
+							<th width="115" scope="col">聯絡人</th>
+							<th width="115" scope="col">聯絡電話</th>
+							<th scope="col">操作功能</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td width="115" scope="col">{$item.name}</td>
+						<td width="115" scope="col">{$item.code}</td>
+						<td width="115" scope="col">{$item.linker}</td>
+						<td width="115" scope="col">{$item.phone}</td>
+						<td align="center"><a href="__URL__/edit?id={$item.id}">修改</a>| <a onclick="return confirm('確認要刪除選擇的數據?');" href="__URL__/delete?id={$item.id}">刪除</a></td>
+						</tr>
+						</volist>
+					</table>
+				</form>
+
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	$(function() {
+		$('#lookerdeptid').change(function() {
+			getTeam('#lookerdeptid', '#lookerteamid');
+		});
+		$('#lookerteamid').change(function() {
+			getPeople('#lookerteamid', '#lookerid');
+		});
+	});
+	function getTeam(depart, teams) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getTeam",
+			data : "pid=" + $(depart).val(),
+			success : function(data) {
+				$(teams).empty();
+				$("<option value=''>選擇組別</option>").appendTo(teams);
+				var json = eval(data);
+				if (!json)
+					return;
+				$.each(json, function(k) {
+					$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name']) + "</option>").appendTo(teams);
+				});
+			}
+		});
+	}
+	function getPeople(depart, users) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getPeopleByTeam",
+			data : "id=" + $(depart).val(),
+			success : function(data) {
+				$(users).empty();
+				$("<option value=''>選擇員工</option>").appendTo(users);
+				var json = eval(data);
+				$.each(json, function(k) {
+					$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name']) + "(" + decodeURI(json[k]['ucode']) + ")</option>").appendTo(users);
+				});
+			}
+		});
+	}
+	function check() {
+		return validator.index('lookerid', '請選擇員工');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">專案管理- 查看人員</div>
+			<div class="mainInfo">
+				<div class="topic2">新增 / 修改查看人員</div>
+				<form id="form1" onsubmit="return check();" name="form1" method="post" action="__URL__/addLooker?case={@case}">
+					<input type="hidden" name="case" value="{@case}" />
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="102" scope="row">姓名</th>
+							<td width="230"><select name="lookerdeptid" id="lookerdeptid">
+									<option value="選擇部門">選擇部門</option>
+									<volist id="item" name="departs">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="lookerteamid" id="lookerteamid">
+									<option value="">選擇組別</option>
+							</select> <select name="lookerid" id="lookerid">
+									<option value="選擇員工">選擇員工</option>
+							</select></td>
+							<th width="102" scope="row">聯絡電話</th>
+							<td width="256"><input type="text" name="phone" /></td>
+						</tr>
+						<tr>
+							<th scope="row">email</th>
+							<td><input type="text" name="email" /></td>
+							<th width="102" scope="row">行動電話</th>
+							<td><input type="text" name="mobile" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="topic2">查看人員</div>
+				<form id="form1" name="form1" method="post" onsubmit="return confirm('是否確認刪除選擇的數據?')" action="__URL__/deleteLooker?case={@case}">
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="28" scope="col"><input type="checkbox" name="checkbox5" value="checkbox" /></th>
+							<th width="145" scope="col">姓名</th>
+							<th width="127" scope="col">聯絡電話</th>
+							<th width="127" scope="col">行動電話</th>
+							<th width="266" scope="col">EMAIL</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center"><input type="checkbox" name="itemcheckbox[]" value="{$item.id}" /></td>
+						<td align="center">{$item.name}({$item.ucode})</td>
+						<td align="center">{$item.phone}</td>
+						<td align="center">{$item.mobile}</td>
+						<td align="center">{$item.mobile}</td>
+						</tr>
+						</volist>
+					</table>
+					<div style="margin-top: 10px">
+						<input type="submit" name="Submit" value="刪除" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

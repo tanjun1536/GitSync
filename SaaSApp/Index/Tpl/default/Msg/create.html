@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/xheditor-1.2.1/xheditor-1.2.1.min.js" />
+<load href="__PUBLIC__/js/xheditor-1.2.1/xheditor_lang/zh-tw.js" />
+<load href="__PUBLIC__/js/xheditor-1.2.1/xheditor_skin/default/ui.css" />
+<script type="text/JavaScript">
+<!--
+	function check() {
+		return window.validator.empty("partersname", "請選擇收件人") ;
+	}
+	function MM_openBrWindow(theURL, winName, features) { //v2.0
+		var selUsers = document.getElementById("partersid").value;
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "&selUsers=" + selUsers, winName, features);
+	}
+
+	function MM_findObj(n, d) { //v4.01
+		var p, i, x;
+		if (!d)
+			d = document;
+		if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+			d = parent.frames[n.substring(p + 1)].document;
+			n = n.substring(0, p);
+		}
+		if (!(x = d[n]) && d.all)
+			x = d.all[n];
+		for (i = 0; !x && i < d.forms.length; i++)
+			x = d.forms[i][n];
+		for (i = 0; !x && d.layers && i < d.layers.length; i++)
+			x = MM_findObj(n, d.layers[i].document);
+		if (!x && d.getElementById)
+			x = d.getElementById(n);
+		return x;
+	}
+
+	function MM_showHideLayers() { //v6.0
+		var i, p, v, obj, args = MM_showHideLayers.arguments;
+		for (i = 0; i < (args.length - 2); i += 3)
+			if ((obj = MM_findObj(args[i])) != null) {
+				v = args[i + 2];
+				if (obj.style) {
+					obj = obj.style;
+					v = (v == 'show') ? 'visible' : (v == 'hide') ? 'hidden' : v;
+				}
+				obj.visibility = v;
+			}
+	}
+//-->
+</script>
+</head>
+
+<body onload="MM_showHideLayers('Layer1','','hide')">
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">一般訊息</div>
+			<div class="mainInfo">
+				<div class="mailNav">
+					<a href="__URL__/create" class="select">寫信</a><a href="__URL__/send">寄件備份</a><a href="__URL__/index">收件夾 (<strong>{@MSG_COMM}</strong>)
+					</a>
+				</div>
+				<form action="__URL__/addMsg" method="post" onsubmit="return check()" enctype="multipart/form-data" name="form2" id="form2">
+					{__NOTOKEN__}
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="91" scope="row"><span class="txt_y">＊</span>收件者</th>
+							<td width="601"><input type="hidden" id="partersid" name="receiversid" style="width: 550px" /> <input type="text" id="partersname" readonly="readonly" name="receiversname" style="width: 550px" /> <a href="#"><img src="__PUBLIC__/images/add_16.png" alt="" width="16" height="16" border="0" style="margin-bottom: -3px" onclick="MM_openBrWindow('__APP__/User/usercheckbox?id=partersid&name=partersname','','scrollbars=yes,scrollbars=yes,width=755,height=570')" /></a></td>
+						</tr>
+						<tr>
+							<th scope="row"><span class="txt_y">＊</span>主旨</th>
+							<td><input type="text" name="title" style="width: 550px" /></td>
+						</tr>
+						<tr>
+							<th valign="top" scope="row"><span class="txt_y">＊</span>內容</th>
+							<td><textarea class="xheditor-mini" name="cont" rows="16" style="width: 550px"></textarea></td>
+						</tr>
+						<tr>
+							<th valign="top" scope="row">附件</th>
+							<td>檔案1： <input type="file" name="atts[]" /> <br /> 檔案2： <input type="file" name="atts[]" /> <br /> 檔案3： <input type="file" name="atts[]" /> <br /> 檔案4： <input type="file" name="atts[]" /> <br /> 檔案5： <input type="file" name="atts[]" />
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit2" value="傳送" /> <input type="reset" name="Submit3" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

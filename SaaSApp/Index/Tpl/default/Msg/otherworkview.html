@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">交辦事項</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="">
+					<div class="mailNav">
+						<a href="__URL__/workcreate">寫信</a><a href="__URL__/otherwork" class="select"> 他人交辦事項 (<strong>{@MSG_OTHER_WORK}</strong>)
+						</a><a href="__URL__/work">我交辦事項(<strong>{@MSG_MINE_WORK}</strong>)
+						</a> <select name="select">
+							<option value="狀態搜尋">狀態搜尋</option>
+							<option value="要求回覆">要求回覆</option>
+							<option value="進度回報">進度回報</option>
+							<option value="結果回報">結果回報</option>
+							<option value="交辦完成">交辦完成</option>
+						</select> <input type="submit" name="Submit" value="搜尋" />
+					</div>
+				</form>
+				<div class="mailNav2">
+					<table width="683" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="599"><strong>顯示交辦事項主旨</strong></td>
+							<td width="76" valign="top"><a href="__URL__/otherworkresponse">回覆</a></td>
+						</tr>
+					</table>
+				</div>
+				<volist id="item" name="details">
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="mailwork_info">
+					<tr>
+						<td align="center" valign="top" bgcolor="#E1FBF0"><strong>{$item.state}</strong></td>
+						<td align="right" valign="top" bgcolor="#E1FBF0" class="mailwork_date">{$item.responsedate|date='Y/m/d H:i',strtotime(###)}</td>
+					</tr>
+					<tr>
+						<td width="80" align="center" valign="top"><div>
+								<notempty name="item.responserimage"> <img src="__PUBLIC__/Uploads/{$item.responserimage}" alt="" width="80" /> <else /> <img src="__PUBLIC__/images/no_picture.jpg" alt="" width="80" /> </notempty>
+							</div>
+							<div class="mailwork_name">{$item.responsename}</div></td>
+						<td width="615" valign="top">{$item.responsecont}</td>
+					</tr>
+					<notempty name="item.atts">
+					<tr>
+						<td colspan="2" valign="top" bgcolor="#EFEFEF"><div class="mailwork_File">
+								[<a href="__URL__/zipdown?names={$item.atts}">儲存附加檔案</a> ]
+								<volist name=":explode(',',$item['atts'])" id="att"> <a href="__URL__/down?name={$att|urlencode}" target="_blank">{$att}</a>； </volist>
+							</div></td>
+					</tr>
+					</notempty>
+				</table>
+				</volist>
+
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="mailwork_info">
+					<tr>
+						<td align="center" valign="top" bgcolor="#E1FBF0"><strong>要求回報</strong></td>
+						<td align="right" valign="top" bgcolor="#E1FBF0" class="mailwork_date">{$msg.senddate|date='Y/m/d H:i',strtotime(###)}</td>
+					</tr>
+					<tr>
+						<td width="80" align="center" valign="top"><div>
+								<notempty name="msg.senderimage"> <img src="__PUBLIC__/Uploads/{$msg.senderimage}" alt="" width="80" /> <else /> <img src="__PUBLIC__/images/no_picture.jpg" alt="" width="80" /> </notempty>
+							</div>
+							<div class="mailwork_name">{$msg.sendername}</div></td>
+						<td width="615" valign="top">{$msg.cont}</td>
+					</tr>
+					<notempty name="msg.atts">
+					<tr>
+						<td colspan="2" valign="top" bgcolor="#EFEFEF"><div class="mailwork_File">
+								[<a href="__URL__/zipdown?names={$msg.atts}">儲存附加檔案</a> ]
+								<volist name=":explode(',',$msg['atts'])" id="att"> <a href="__URL__/down?name={$att|urlencode}" target="_blank">{$att}</a>； </volist>
+							</div></td>
+					</tr>
+					</notempty>
+				</table>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

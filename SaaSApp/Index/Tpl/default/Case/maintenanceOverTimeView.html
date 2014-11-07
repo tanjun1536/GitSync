@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">設備管理 - 月保養週期</div>
+			<div class="mainInfo">
+				<div class="topic2">保養週期</div>
+				<div class="mailNav">
+					<a href="__URL__/editMaintenanceOverTime?case={@case}&id={$ov.id}">修改保養週期</a>
+				</div>
+				<form id="form1" name="form1" method="post" action="">
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th scope="row">主類別</th>
+							<td colspan="3">{$ov.mname}</td>
+						</tr>
+						<tr>
+							<th scope="row">子類別</th>
+							<td colspan="3">{$ov.cname}</td>
+						</tr>
+						<tr>
+							<th width="107" scope="row">保養週期名稱</th>
+							<td colspan="3">{$ov.name}</td>
+						</tr>
+						<tr>
+							<th scope="row">週期設定</th>
+							<td colspan="3">{$ov|getNameDetail}</td>
+						</tr>
+						<tr>
+							<th scope="row">保養個數</th>
+							<td width="236">{$ov.maintenancecount} 個</td>
+							<th width="91" scope="row">需求人力</th>
+							<td width="256">{$ov.needpersoncount} 人</td>
+						</tr>
+						<tr>
+							<th scope="row">每次分鐘數</th>
+							<td colspan="3">{$ov.minutespertime} 分鐘</td>
+						</tr>
+					</table>
+					<div class="back">
+						<a href="javascript:window.history.go(-1)">》回上頁</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

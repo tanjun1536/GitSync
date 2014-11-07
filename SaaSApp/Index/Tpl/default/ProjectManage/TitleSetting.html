@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+var province="{$title.province}";
+var city="{$title.city}";
+$(function() {
+	$('#province').change(function() {
+		getCity()
+	});
+	
+	if(province) $('#province').val(province).trigger('change');
+});
+function getCity() {
+	$.ajax({
+		type : "POST",
+		dataType : "json",
+		url : "__URL__/getCity",
+		data : "pid=" + $('#province').val(),
+		success : function(data) {
+			$("#city").empty();
+			$("<option value='請選擇'>請選擇</option>").appendTo("#city");
+			var json = eval(data);
+			$.each(json, function(k) {
+				$("<option value='"+json[k]['id']+"'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#city");
+			});
+			
+			if(city) $("#city").val(city);
+		}
+	});
+}
+
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">工程管理 - 表頭資料設定</div>
+			<div class="mainInfo">
+				<form action="__URL__/TitleSave" method="post"
+					enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="id" value="{$title.id}" /> <input
+						type="hidden" name="code" value="{@SESSION_USER.code}" />
+					<div class="topic2">表頭資料設定</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="128" scope="row">公司中文名稱</th>
+							<td width="562"><input type="text" name="chinesename"
+								value="{$title.chinesename}" style="width: 350px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">公司英文名稱</th>
+							<td><input type="text" name="englishname"
+								value="{$title.englishname}" style="width: 350px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">公司地址</th>
+							<td><select name="province" id="province">
+									<option value="請選擇">請選擇</option>
+									<volist name="provinces" id="item">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="city" id="city">
+									<option value="請選擇">請選擇</option>
+							</select> <input type="text" name="address" value="{$title.address}"
+								style="width: 300px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">公司電話</th>
+							<td><input type="text" name="phone" value="{$title.phone}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">公司傳真</th>
+							<td><input type="text" name="fax" value="{$title.fax}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">備註設定</th>
+							<td><textarea name="remark" rows="4" style="width: 450px">{$title.remark}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit3" value="確定送出" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

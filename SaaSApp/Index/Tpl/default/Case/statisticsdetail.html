@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">叫修單明細</div>
+			<div class="mainInfo">
+				<div class="mailNav">
+					<form action="{$action}" method="post" id="f1">
+						<a href="#" onclick="$('#f1').submit();" class="select">導出列表</a>
+					</form>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="130" scope="col">叫修單編號</th>
+						<th width="90" scope="col"><notempty name="ly">留言日期<else />叫修日期</notempty></th>
+						<th width="251" scope="col">設備編號／名稱</th>
+						<th width="71" scope="col">申請人</th>
+						<th width="76" scope="col">狀態</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center"><a href="__URL__/repairView?case={@case}&id={$item.id}">{$item.repaircode}</a></td>
+					<td align="center"><notempty name="ly">{$item.senddate|date='Y/m/d',strtotime(###)}<else />{$item.repairdate|date='Y/m/d',strtotime(###)}</notempty></td>
+					<td><span class="txt_green">{$item.devicecode}</span><br /> {$item.devicename}</td>
+					<td align="center">{$item.requestuser}</td>
+					<td align="center">{$item.state|getRepairState=$item['repairdate'],###,$warn['days']}</td>
+					</tr>
+					</volist>
+				</table>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

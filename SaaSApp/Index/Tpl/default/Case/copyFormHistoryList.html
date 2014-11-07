@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">業主管理 - 抄表紀錄列表</div>
+			<div class="mainInfo">
+				<div class="topic2">抄表紀錄列表</div>
+				<form id="form1" name="form1" method="post" action="">
+					<div class="mailNav">
+						<a href="__URL__/copyFormHistoryAddPage">新增抄表紀錄</a> 日期<input
+							type="text" name="sdate" class="Wdate" onfocus="WdatePicker()" /><input
+							type="submit" name="Submit" value="搜尋" />
+					</div>
+				</form>
+				<table width="695" border="0" cellpadding="0" cellspacing="0"
+					class="tab_thtop">
+					<tr>
+						<th width="192" scope="col">日期</th>
+						<th width="238" scope="col">抄表時間</th>
+						<th width="104" scope="col">抄表人</th>
+						<th width="159" scope="col">操作</th>
+					</tr>
+					<volist id="item" name="list"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.copydate|date='Y/m/d',strtotime(###)}</td>
+					<td align="center">{$item.copydatetime|date='Y/m/d
+						h:i:s',strtotime(###)}</td>
+					<td align="center">{$item.copyuser}</td>
+					<td align="center"><a
+						href="__URL__/copyFormHistoryEdit?id={$item.id}">修改</a> | <a
+						onclick="return confirm('是否刪除選擇的數據?')"
+						href="__URL__/copyFormHistoryDelete?id={$item.id}">刪除</a> | <a
+						href="__URL__/copyFormHistoryView?id={$item.id}">詳細資料</a></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

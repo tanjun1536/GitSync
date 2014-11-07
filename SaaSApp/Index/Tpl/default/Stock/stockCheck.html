@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	function MM_openBrWindow(theURL, winName, features) { //v2.0
+		var selUsers = document.getElementById("partersid").value;
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "?selUsers=" + selUsers, winName, features);
+
+	}
+	function selectUsers(idInput, nameInput) {
+		var selUsers = document.getElementById(idInput).value;
+		var theURL = "__APP__/User/usercheckbox?id=" + idInput + "&name=" + nameInput;
+		var features = 'scrollbars=yes,scrollbars=yes,width=755,height=570';
+		var winName = '';
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "&selUsers=" + selUsers, winName, features);
+	}
+	function check() {
+		return validator.empty('day', '請選擇日期');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 驗貨管理</div>
+			<div class="mainInfo">
+				<form id="form2" name="form2" method="post" action="">
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="88" scope="row">採購對象</th>
+							<td width="256"><input type="text" name="mname" /></td>
+							<th width="93" scope="row">狀態</th>
+							<td width="253"><select name="state">
+									<option value="請選擇">請選擇</option>
+									<option value="新進單">新進單</option>
+									<option value="不同意">不同意</option>
+									<option value="核可">核可</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2" value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="mailNav">
+				<if condition="check_power('新增驗貨單',$ext) eq 1">
+				<a href="__URL__/addStockCheckPage">新增驗貨單</a>
+							</if>
+					
+				</div>
+				<form id="form1" name="form1" method="post" onsubmit="return delAwoke()" action="__URL__/deleteStockCheck">
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="28" scope="col">&nbsp;</th>
+							<th width="162" scope="col">驗貨單編號</th>
+							<th width="277" scope="col">採購對象</th>
+							<th width="94" scope="col">驗貨日期</th>
+							<th width="66" scope="col">金額</th>
+							<th width="66" scope="col">狀態</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center"><input type="checkbox" name="itemcheckbox[]" value="{$item.id}" /></td>
+						<td align="center"><a href="__URL__/stockCheckView?id={$item.id}">{$item.checkcode}</a></td>
+						<td>{$item.mname}</td>
+						<td align="center">{$item.checkdate|date='Y/m/d',strtotime(###)}</td>
+						<td align="center">{$item.totalmoney}</td>
+						<td align="center">{$item.state}</td>
+						</tr>
+						</volist>
+					</table>
+					<div style="margin-top: 10px">
+					<if condition="check_power('刪除驗貨單',$ext) eq 1">
+					<input type="submit" name="Submit" value="刪除" />				
+							</if>
+						
+					</div>
+				</form>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

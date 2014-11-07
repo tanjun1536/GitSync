@@ -1,0 +1,730 @@
+[ 2013-05-03T00:00:11+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007364s ]
+[ 2013-05-03T00:00:11+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001059s ]
+[ 2013-05-03T00:00:14+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.008341s ]
+[ 2013-05-03T00:00:14+08:00 ] SQL: SELECT * FROM `team` WHERE depart=21 [ RunTime:0.000906s ]
+[ 2013-05-03T00:00:16+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007651s ]
+[ 2013-05-03T00:00:16+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001006s ]
+[ 2013-05-03T00:00:18+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.022529s ]
+[ 2013-05-03T00:00:18+08:00 ] SQL: SELECT * FROM `user` WHERE team=30 [ RunTime:0.002720s ]
+[ 2013-05-03T00:04:04+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.008163s ]
+[ 2013-05-03T00:04:05+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000952s ]
+[ 2013-05-03T00:04:08+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.010097s ]
+[ 2013-05-03T00:04:08+08:00 ] SQL: SELECT * FROM `team` WHERE depart=23 [ RunTime:0.001179s ]
+[ 2013-05-03T00:04:11+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.010931s ]
+[ 2013-05-03T00:04:11+08:00 ] SQL: SELECT * FROM `team` WHERE depart=21 [ RunTime:0.000889s ]
+[ 2013-05-03T00:04:13+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007885s ]
+[ 2013-05-03T00:04:13+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001134s ]
+[ 2013-05-03T00:04:14+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009094s ]
+[ 2013-05-03T00:04:14+08:00 ] SQL: SELECT * FROM `user` WHERE team=31 [ RunTime:0.002647s ]
+[ 2013-05-03T10:36:38+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-05-03T10:36:38+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-05-03T10:36:43+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.018612s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001369s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008625s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.054313s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.013445s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.005332s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.008022s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001274s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001155s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.003267s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.002419s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002153s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002391s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002449s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002283s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002204s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002144s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002092s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002685s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002204s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002231s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002541s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002210s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=21 [ RunTime:0.002446s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002463s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002393s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002639s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002616s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002318s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002357s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002220s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002173s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002502s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002310s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002429s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002386s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002168s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002455s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002659s ]
+[ 2013-05-03T10:36:43+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002293s ]
+[ 2013-05-03T10:36:44+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2013-05-03T10:36:44+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 21 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.002724s ]
+[ 2013-05-03T10:36:44+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-05-03T10:36:44+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 [ RunTime:0.004772s ]
+[ 2013-05-03T10:36:44+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 limit 0,20 [ RunTime:0.008281s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009008s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001108s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.008277s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.002115s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.007760s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.002190s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.007755s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001262s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001269s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.002538s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.002422s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002214s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002231s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002253s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002380s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002647s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002209s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002141s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002740s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002219s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002176s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002564s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002513s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=21 [ RunTime:0.002365s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002178s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002341s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002339s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002479s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002183s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002384s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002518s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002089s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002584s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002460s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002671s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002642s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002246s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002578s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002330s ]
+[ 2013-05-03T10:36:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002302s ]
+[ 2013-05-03T10:36:46+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-05-03T10:36:46+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 [ RunTime:0.004230s ]
+[ 2013-05-03T10:36:46+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 limit 0,20 [ RunTime:0.004563s ]
+[ 2013-05-03T10:37:13+08:00 ] SQL: SHOW COLUMNS FROM `accept` [ RunTime:0.007130s ]
+[ 2013-05-03T10:37:13+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept` WHERE  code='13108617' LIMIT 1  [ RunTime:0.001394s ]
+[ 2013-05-03T10:37:13+08:00 ] SQL: SELECT * FROM `accept` WHERE  code='13108617' ORDER BY id desc LIMIT 0,20  [ RunTime:0.001946s ]
+[ 2013-05-03T10:37:37+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007022s ]
+[ 2013-05-03T10:37:37+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001417s ]
+[ 2013-05-03T10:39:25+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007695s ]
+[ 2013-05-03T10:39:25+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001011s ]
+[ 2013-05-03T10:42:36+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007302s ]
+[ 2013-05-03T10:42:36+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001123s ]
+[ 2013-05-03T10:44:02+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006848s ]
+[ 2013-05-03T10:44:02+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000917s ]
+[ 2013-05-03T10:44:06+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007816s ]
+[ 2013-05-03T10:44:06+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001348s ]
+[ 2013-05-03T10:44:07+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009529s ]
+[ 2013-05-03T10:44:07+08:00 ] SQL: SELECT * FROM `user` WHERE team=31 [ RunTime:0.017294s ]
+[ 2013-05-03T10:44:10+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007688s ]
+[ 2013-05-03T10:44:10+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001194s ]
+[ 2013-05-03T10:44:11+08:00 ] NOTIC: [8] Undefined index: accept 014077284bb502c65790a9aa7c9cb2b0.php 第 302 行.
+[ 2013-05-03T10:51:20+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.008326s ]
+[ 2013-05-03T10:51:20+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001124s ]
+[ 2013-05-03T10:51:23+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007592s ]
+[ 2013-05-03T10:51:23+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001011s ]
+[ 2013-05-03T10:51:24+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008603s ]
+[ 2013-05-03T10:51:24+08:00 ] SQL: SELECT * FROM `user` WHERE team=30 [ RunTime:0.002852s ]
+[ 2013-05-03T10:51:47+08:00 ] NOTIC: [8] Undefined index: users AcceptAction.class.php 第 53 行.
+[ 2013-05-03T10:51:47+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007213s ]
+[ 2013-05-03T10:51:47+08:00 ] SQL: DELETE FROM accept_user WHERE accept=3 [ RunTime:0.000903s ]
+[ 2013-05-03T10:51:47+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() AcceptAction.class.php 第 59 行.
+[ 2013-05-03T10:51:47+08:00 ] ERR: (ThinkException) 无法加载模块Admin
+[ 2013-05-03T10:52:34+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007799s ]
+[ 2013-05-03T10:52:34+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000914s ]
+[ 2013-05-03T10:52:37+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007581s ]
+[ 2013-05-03T10:52:37+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.000995s ]
+[ 2013-05-03T10:52:38+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008742s ]
+[ 2013-05-03T10:52:38+08:00 ] SQL: SELECT * FROM `user` WHERE team=30 [ RunTime:0.003119s ]
+[ 2013-05-03T10:52:42+08:00 ] NOTIC: [8] Undefined index: users AcceptAction.class.php 第 53 行.
+[ 2013-05-03T10:52:42+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007088s ]
+[ 2013-05-03T10:52:42+08:00 ] SQL: DELETE FROM accept_user WHERE accept=3 [ RunTime:0.000756s ]
+[ 2013-05-03T10:52:42+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() AcceptAction.class.php 第 59 行.
+[ 2013-05-03T10:52:42+08:00 ] ERR: (ThinkException) 无法加载模块AdminAction
+[ 2013-05-03T10:54:42+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007499s ]
+[ 2013-05-03T10:54:42+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001116s ]
+[ 2013-05-03T10:54:44+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007634s ]
+[ 2013-05-03T10:54:44+08:00 ] SQL: SELECT * FROM `team` WHERE depart=21 [ RunTime:0.000881s ]
+[ 2013-05-03T10:54:46+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.011399s ]
+[ 2013-05-03T10:54:46+08:00 ] SQL: SELECT * FROM `team` WHERE depart=26 [ RunTime:0.000948s ]
+[ 2013-05-03T10:54:47+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008480s ]
+[ 2013-05-03T10:54:47+08:00 ] SQL: SELECT * FROM `user` WHERE team=54 [ RunTime:0.002454s ]
+[ 2013-05-03T10:54:51+08:00 ] NOTIC: [8] Undefined index: users AcceptAction.class.php 第 53 行.
+[ 2013-05-03T10:54:51+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.031626s ]
+[ 2013-05-03T10:54:51+08:00 ] SQL: DELETE FROM accept_user WHERE accept=3 [ RunTime:0.000792s ]
+[ 2013-05-03T10:54:51+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() AcceptAction.class.php 第 59 行.
+[ 2013-05-03T10:55:19+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007766s ]
+[ 2013-05-03T10:55:19+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000922s ]
+[ 2013-05-03T10:55:32+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007203s ]
+[ 2013-05-03T10:55:32+08:00 ] SQL: SELECT * FROM `team` WHERE depart=21 [ RunTime:0.000883s ]
+[ 2013-05-03T10:55:34+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007416s ]
+[ 2013-05-03T10:55:34+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001004s ]
+[ 2013-05-03T10:55:35+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.014987s ]
+[ 2013-05-03T10:55:35+08:00 ] SQL: SELECT * FROM `user` WHERE team=30 [ RunTime:0.002736s ]
+[ 2013-05-03T10:55:38+08:00 ] NOTIC: [8] Undefined index: users AcceptAction.class.php 第 53 行.
+[ 2013-05-03T10:55:38+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.012728s ]
+[ 2013-05-03T10:55:45+08:00 ] SQL: DELETE FROM accept_user WHERE accept=3 [ RunTime:0.002537s ]
+[ 2013-05-03T10:55:53+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() AcceptAction.class.php 第 59 行.
+[ 2013-05-03T10:56:20+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.008497s ]
+[ 2013-05-03T10:56:20+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000928s ]
+[ 2013-05-03T10:56:24+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007775s ]
+[ 2013-05-03T10:56:24+08:00 ] SQL: SELECT * FROM `team` WHERE depart=23 [ RunTime:0.001102s ]
+[ 2013-05-03T10:56:25+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007599s ]
+[ 2013-05-03T10:56:25+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.000994s ]
+[ 2013-05-03T10:56:26+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009294s ]
+[ 2013-05-03T10:56:26+08:00 ] SQL: SELECT * FROM `user` WHERE team=31 [ RunTime:0.002315s ]
+[ 2013-05-03T10:56:29+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.010053s ]
+[ 2013-05-03T10:56:29+08:00 ] SQL: SELECT * FROM `team` WHERE depart=21 [ RunTime:0.001602s ]
+[ 2013-05-03T10:56:31+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007552s ]
+[ 2013-05-03T10:56:31+08:00 ] SQL: SELECT * FROM `team` WHERE depart=23 [ RunTime:0.000939s ]
+[ 2013-05-03T10:56:33+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007926s ]
+[ 2013-05-03T10:56:33+08:00 ] SQL: SELECT * FROM `team` WHERE depart=22 [ RunTime:0.000907s ]
+[ 2013-05-03T10:56:35+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009167s ]
+[ 2013-05-03T10:56:35+08:00 ] SQL: SELECT * FROM `user` WHERE team=27 [ RunTime:0.002356s ]
+[ 2013-05-03T10:56:38+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007488s ]
+[ 2013-05-03T10:56:44+08:00 ] SQL: DELETE FROM accept_user WHERE accept=3 [ RunTime:0.001701s ]
+[ 2013-05-03T10:56:51+08:00 ] SQL: INSERT INTO `accept_user` (`accept`,`depart`,`team`,`username`) VALUES ('3','�','�','�') [ RunTime:0.001439s ]
+[ 2013-05-03T10:56:55+08:00 ] SQL: INSERT INTO `accept_user` (`accept`,`depart`,`team`,`username`) VALUES ('3','�','�','�') [ RunTime:0.001302s ]
+[ 2013-05-03T10:58:15+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.008152s ]
+[ 2013-05-03T10:58:15+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000920s ]
+[ 2013-05-03T10:58:18+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007465s ]
+[ 2013-05-03T10:58:18+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001012s ]
+[ 2013-05-03T10:58:19+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008700s ]
+[ 2013-05-03T10:58:19+08:00 ] SQL: SELECT * FROM `user` WHERE team=31 [ RunTime:0.002400s ]
+[ 2013-05-03T10:58:21+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007491s ]
+[ 2013-05-03T10:58:24+08:00 ] SQL: DELETE FROM accept_user WHERE accept=3 [ RunTime:0.001444s ]
+[ 2013-05-03T10:58:33+08:00 ] NOTIC: [8] Undefined index: depart AcceptAction.class.php 第 62 行.
+[ 2013-05-03T10:58:33+08:00 ] NOTIC: [8] Undefined index: team AcceptAction.class.php 第 63 行.
+[ 2013-05-03T10:58:33+08:00 ] NOTIC: [8] Undefined index: user AcceptAction.class.php 第 64 行.
+[ 2013-05-03T10:58:33+08:00 ] SQL: INSERT INTO `accept_user` (`accept`,`depart`,`team`,`username`) VALUES ('3',null,null,null) [ RunTime:0.001248s ]
+[ 2013-05-03T10:59:10+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007958s ]
+[ 2013-05-03T10:59:10+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000912s ]
+[ 2013-05-03T10:59:13+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.008211s ]
+[ 2013-05-03T10:59:13+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001018s ]
+[ 2013-05-03T10:59:14+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008649s ]
+[ 2013-05-03T10:59:14+08:00 ] SQL: SELECT * FROM `user` WHERE team=31 [ RunTime:0.002597s ]
+[ 2013-05-03T10:59:17+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007346s ]
+[ 2013-05-03T10:59:17+08:00 ] SQL: INSERT INTO `accept_user` (`accept`,`depart`,`team`,`username`) VALUES ('3','機電部','072塔樓客服','高丁彥(02585)') [ RunTime:0.000783s ]
+[ 2013-05-03T11:03:05+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007143s ]
+[ 2013-05-03T11:03:05+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000958s ]
+[ 2013-05-03T11:05:42+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007575s ]
+[ 2013-05-03T11:05:42+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000933s ]
+[ 2013-05-03T11:05:44+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007870s ]
+[ 2013-05-03T11:05:44+08:00 ] SQL: SELECT * FROM `team` WHERE depart=21 [ RunTime:0.000871s ]
+[ 2013-05-03T11:05:45+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007550s ]
+[ 2013-05-03T11:05:45+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.000995s ]
+[ 2013-05-03T11:05:46+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009938s ]
+[ 2013-05-03T11:05:46+08:00 ] SQL: SELECT * FROM `user` WHERE team=30 [ RunTime:0.003119s ]
+[ 2013-05-03T11:05:50+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007540s ]
+[ 2013-05-03T11:05:50+08:00 ] SQL: INSERT INTO `accept_user` (`accept`) VALUES ('94') [ RunTime:0.000747s ]
+[ 2013-05-03T11:05:50+08:00 ] NOTIC: [8] Undefined index: accept AcceptAction.class.php 第 49 行.
+[ 2013-05-03T11:05:50+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007184s ]
+[ 2013-05-03T11:05:50+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept_user` WHERE accetp= LIMIT 1  [ RunTime:0.000665s ]
+[ 2013-05-03T11:05:50+08:00 ] SQL: SELECT * FROM `accept_user` WHERE accetp= ORDER BY id desc LIMIT 0,20  [ RunTime:0.000904s ]
+[ 2013-05-03T11:06:41+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007245s ]
+[ 2013-05-03T11:06:41+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001126s ]
+[ 2013-05-03T11:06:43+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007037s ]
+[ 2013-05-03T11:06:43+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001004s ]
+[ 2013-05-03T11:06:44+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008849s ]
+[ 2013-05-03T11:06:44+08:00 ] SQL: SELECT * FROM `user` WHERE team=30 [ RunTime:0.003068s ]
+[ 2013-05-03T11:06:52+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007781s ]
+[ 2013-05-03T11:06:52+08:00 ] SQL: INSERT INTO `accept_user` (`accept`) VALUES ('3') [ RunTime:0.000778s ]
+[ 2013-05-03T11:06:52+08:00 ] NOTIC: [8] Undefined index: accept AcceptAction.class.php 第 49 行.
+[ 2013-05-03T11:06:52+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.006951s ]
+[ 2013-05-03T11:06:52+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept_user` WHERE accetp= LIMIT 1  [ RunTime:0.000674s ]
+[ 2013-05-03T11:06:52+08:00 ] SQL: SELECT * FROM `accept_user` WHERE accetp= ORDER BY id desc LIMIT 0,20  [ RunTime:0.000673s ]
+[ 2013-05-03T11:07:17+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.008793s ]
+[ 2013-05-03T11:07:17+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000912s ]
+[ 2013-05-03T11:07:20+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007587s ]
+[ 2013-05-03T11:07:20+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001172s ]
+[ 2013-05-03T11:07:21+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.013629s ]
+[ 2013-05-03T11:07:21+08:00 ] SQL: SELECT * FROM `user` WHERE team=30 [ RunTime:0.003200s ]
+[ 2013-05-03T11:07:27+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007151s ]
+[ 2013-05-03T11:07:45+08:00 ] SQL: INSERT INTO `accept_user` (`accept`) VALUES ('3') [ RunTime:0.001429s ]
+[ 2013-05-03T11:07:45+08:00 ] NOTIC: [8] Undefined index: accept AcceptAction.class.php 第 49 行.
+[ 2013-05-03T11:07:46+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007782s ]
+[ 2013-05-03T11:07:46+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept_user` WHERE accetp= LIMIT 1  [ RunTime:0.000674s ]
+[ 2013-05-03T11:07:46+08:00 ] SQL: SELECT * FROM `accept_user` WHERE accetp= ORDER BY id desc LIMIT 0,20  [ RunTime:0.000687s ]
+[ 2013-05-03T11:07:56+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007041s ]
+[ 2013-05-03T11:07:56+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001222s ]
+[ 2013-05-03T11:07:59+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007337s ]
+[ 2013-05-03T11:07:59+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001642s ]
+[ 2013-05-03T11:08:00+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009139s ]
+[ 2013-05-03T11:08:00+08:00 ] SQL: SELECT * FROM `user` WHERE team=30 [ RunTime:0.002813s ]
+[ 2013-05-03T11:08:02+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007498s ]
+[ 2013-05-03T11:08:09+08:00 ] SQL: INSERT INTO `accept_user` (`accept`,`acceptuser`) VALUES ('3','94') [ RunTime:0.005138s ]
+[ 2013-05-03T11:08:09+08:00 ] NOTIC: [8] Undefined index: accept AcceptAction.class.php 第 49 行.
+[ 2013-05-03T11:08:09+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007165s ]
+[ 2013-05-03T11:08:09+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept_user` WHERE accetp= LIMIT 1  [ RunTime:0.000689s ]
+[ 2013-05-03T11:08:09+08:00 ] SQL: SELECT * FROM `accept_user` WHERE accetp= ORDER BY id desc LIMIT 0,20  [ RunTime:0.000695s ]
+[ 2013-05-03T11:10:28+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009144s ]
+[ 2013-05-03T11:10:28+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.003060s ]
+[ 2013-05-03T11:10:28+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.004333s ]
+[ 2013-05-03T11:14:46+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009213s ]
+[ 2013-05-03T11:14:46+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.002799s ]
+[ 2013-05-03T11:14:46+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.004026s ]
+[ 2013-05-03T11:15:02+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009119s ]
+[ 2013-05-03T11:15:02+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.002785s ]
+[ 2013-05-03T11:15:02+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.004366s ]
+[ 2013-05-03T11:15:11+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007298s ]
+[ 2013-05-03T11:15:11+08:00 ] SQL: DELETE FROM `accept_user` WHERE ( `id` = '94' ) [ RunTime:0.002565s ]
+[ 2013-05-03T11:15:11+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008727s ]
+[ 2013-05-03T11:15:11+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.002777s ]
+[ 2013-05-03T11:15:11+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.004730s ]
+[ 2013-05-03T11:15:26+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.013070s ]
+[ 2013-05-03T11:15:29+08:00 ] SQL: DELETE FROM `accept_user` WHERE ( `id` = '94' ) [ RunTime:0.005718s ]
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: qData debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: data debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: sql debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: req debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: e debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: count debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: qData debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: data debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: items debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: hosts debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: repairData debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: userData debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined index: ROOT_DOCUMENT debug-eval 第 1 行.
+[ 2013-05-03T11:16:10+08:00 ] NOTIC: [8] Undefined variable: result debug-eval 第 1 行.
+[ 2013-05-03T11:16:40+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009628s ]
+[ 2013-05-03T11:16:40+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.003516s ]
+[ 2013-05-03T11:16:40+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.004469s ]
+[ 2013-05-03T11:18:32+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008879s ]
+[ 2013-05-03T11:18:32+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.002767s ]
+[ 2013-05-03T11:18:32+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.004247s ]
+[ 2013-05-03T11:18:37+08:00 ] SQL: DELETE FROM accept_user WHERE accetp=3 AND acceptuser=94  [ RunTime:0.000815s ]
+[ 2013-05-03T11:18:38+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.010840s ]
+[ 2013-05-03T11:18:38+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.003260s ]
+[ 2013-05-03T11:18:38+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.004062s ]
+[ 2013-05-03T11:19:05+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009582s ]
+[ 2013-05-03T11:19:05+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.003043s ]
+[ 2013-05-03T11:19:05+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.004416s ]
+[ 2013-05-03T11:19:37+08:00 ] SQL: DELETE FROM accept_user WHERE accetp=3 AND acceptuser=94  [ RunTime:0.001436s ]
+[ 2013-05-03T11:19:37+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008616s ]
+[ 2013-05-03T11:19:37+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.003330s ]
+[ 2013-05-03T11:19:37+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.004994s ]
+[ 2013-05-03T11:19:41+08:00 ] SQL: DELETE FROM accept_user WHERE accept=3 AND acceptuser=94  [ RunTime:0.056294s ]
+[ 2013-05-03T11:19:41+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009902s ]
+[ 2013-05-03T11:19:41+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.003290s ]
+[ 2013-05-03T11:19:41+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.003932s ]
+[ 2013-05-03T11:19:44+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007901s ]
+[ 2013-05-03T11:19:44+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001176s ]
+[ 2013-05-03T11:19:47+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007226s ]
+[ 2013-05-03T11:19:47+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.000988s ]
+[ 2013-05-03T11:19:49+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009412s ]
+[ 2013-05-03T11:19:49+08:00 ] SQL: SELECT * FROM `user` WHERE team=30 [ RunTime:0.002761s ]
+[ 2013-05-03T11:19:54+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007632s ]
+[ 2013-05-03T11:19:58+08:00 ] SQL: INSERT INTO `accept_user` (`accept`,`acceptuser`) VALUES ('3','94') [ RunTime:0.001656s ]
+[ 2013-05-03T11:19:58+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009394s ]
+[ 2013-05-03T11:19:58+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.002782s ]
+[ 2013-05-03T11:19:58+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.004424s ]
+[ 2013-05-03T11:20:12+08:00 ] SQL: DELETE FROM accept_user WHERE accept=3 AND acceptuser=94  [ RunTime:0.067814s ]
+[ 2013-05-03T11:20:12+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.010995s ]
+[ 2013-05-03T11:20:12+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.002929s ]
+[ 2013-05-03T11:20:12+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.003862s ]
+[ 2013-05-03T11:20:27+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007849s ]
+[ 2013-05-03T11:20:27+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001079s ]
+[ 2013-05-03T11:20:30+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007358s ]
+[ 2013-05-03T11:20:30+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001042s ]
+[ 2013-05-03T11:20:31+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009278s ]
+[ 2013-05-03T11:20:31+08:00 ] SQL: SELECT * FROM `user` WHERE team=31 [ RunTime:0.002791s ]
+[ 2013-05-03T11:20:34+08:00 ] SQL: SHOW COLUMNS FROM `accept_user` [ RunTime:0.007464s ]
+[ 2013-05-03T11:20:38+08:00 ] SQL: INSERT INTO `accept_user` (`accept`,`acceptuser`) VALUES ('3','165') [ RunTime:0.001428s ]
+[ 2013-05-03T11:20:38+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008718s ]
+[ 2013-05-03T11:20:38+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) LIMIT 1  [ RunTime:0.003004s ]
+[ 2013-05-03T11:20:38+08:00 ] SQL: SELECT * FROM `user` WHERE  id in( SELECT acceptuser from accept_user where accept=3) ORDER BY id desc LIMIT 0,20  [ RunTime:0.004194s ]
+[ 2013-05-03T11:21:06+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007016s ]
+[ 2013-05-03T11:21:06+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001249s ]
+[ 2013-05-03T11:21:36+08:00 ] SQL: SHOW COLUMNS FROM `accept` [ RunTime:0.008104s ]
+[ 2013-05-03T11:21:36+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept` WHERE  code='13108617' LIMIT 1  [ RunTime:0.000867s ]
+[ 2013-05-03T11:21:36+08:00 ] SQL: SELECT * FROM `accept` WHERE  code='13108617' ORDER BY id desc LIMIT 0,20  [ RunTime:0.001946s ]
+[ 2013-05-03T11:21:46+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-03T11:21:46+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-03T11:30:16+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009523s ]
+[ 2013-05-03T11:30:16+08:00 ] NOTIC: [2] Missing argument 1 for Model::query(), called in D:\SystemDevelop\PHPWorkSpace\SaaSApp\Index\Lib\Action\AcceptAction.class.php on line 48 and defined Model.class.php 第 1014 行.
+[ 2013-05-03T11:30:17+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-03T11:30:17+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009342s ]
+[ 2013-05-03T11:30:17+08:00 ] NOTIC: [2] Missing argument 1 for Model::query(), called in D:\SystemDevelop\PHPWorkSpace\SaaSApp\Index\Lib\Action\AcceptAction.class.php on line 48 and defined Model.class.php 第 1014 行.
+[ 2013-05-03T11:30:18+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-03T11:30:20+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009674s ]
+[ 2013-05-03T11:30:20+08:00 ] NOTIC: [2] Missing argument 1 for Model::query(), called in D:\SystemDevelop\PHPWorkSpace\SaaSApp\Index\Lib\Action\AcceptAction.class.php on line 48 and defined Model.class.php 第 1014 行.
+[ 2013-05-03T11:30:21+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-03T11:30:23+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009028s ]
+[ 2013-05-03T11:30:23+08:00 ] NOTIC: [2] Missing argument 1 for Model::query(), called in D:\SystemDevelop\PHPWorkSpace\SaaSApp\Index\Lib\Action\AcceptAction.class.php on line 48 and defined Model.class.php 第 1014 行.
+[ 2013-05-03T11:30:24+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-03T11:30:30+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009222s ]
+[ 2013-05-03T11:30:30+08:00 ] NOTIC: [2] Missing argument 1 for Model::query(), called in D:\SystemDevelop\PHPWorkSpace\SaaSApp\Index\Lib\Action\AcceptAction.class.php on line 48 and defined Model.class.php 第 1014 行.
+[ 2013-05-03T11:31:01+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-03T11:31:03+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009893s ]
+[ 2013-05-03T11:31:03+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004274s ]
+[ 2013-05-03T11:31:16+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-03T11:32:03+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009436s ]
+[ 2013-05-03T11:32:03+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004809s ]
+[ 2013-05-03T11:32:10+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-03T11:32:15+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.015887s ]
+[ 2013-05-03T11:32:15+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004343s ]
+[ 2013-05-03T11:32:16+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-03T11:32:42+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009251s ]
+[ 2013-05-03T11:32:42+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004339s ]
+[ 2013-05-03T11:32:43+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-03T11:32:55+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008683s ]
+[ 2013-05-03T11:32:55+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.006759s ]
+[ 2013-05-03T11:34:48+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.011532s ]
+[ 2013-05-03T11:34:48+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004925s ]
+[ 2013-05-03T11:35:11+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009284s ]
+[ 2013-05-03T11:35:11+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004507s ]
+[ 2013-05-03T11:35:53+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009629s ]
+[ 2013-05-03T11:35:53+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004311s ]
+[ 2013-05-03T11:36:11+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009465s ]
+[ 2013-05-03T11:36:11+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004017s ]
+[ 2013-05-03T11:36:26+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.012794s ]
+[ 2013-05-03T11:36:26+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004694s ]
+[ 2013-05-03T11:37:03+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009318s ]
+[ 2013-05-03T11:37:03+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004339s ]
+[ 2013-05-03T11:37:45+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009949s ]
+[ 2013-05-03T11:37:45+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004056s ]
+[ 2013-05-03T11:38:39+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009383s ]
+[ 2013-05-03T11:38:39+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.003931s ]
+[ 2013-05-03T11:40:55+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008807s ]
+[ 2013-05-03T11:40:55+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004120s ]
+[ 2013-05-03T11:41:01+08:00 ] NOTIC: [8] Undefined index: accept 2757fd2001496f48df13101996e006b5.php 第 241 行.
+[ 2013-05-03T11:41:01+08:00 ] NOTIC: [8] Undefined variable: list 2757fd2001496f48df13101996e006b5.php 第 287 行.
+[ 2013-05-03T11:41:15+08:00 ] NOTIC: [8] Undefined index: accept 2757fd2001496f48df13101996e006b5.php 第 241 行.
+[ 2013-05-03T11:41:15+08:00 ] NOTIC: [8] Undefined variable: list 2757fd2001496f48df13101996e006b5.php 第 287 行.
+[ 2013-05-03T11:41:19+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009430s ]
+[ 2013-05-03T11:41:19+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004188s ]
+[ 2013-05-03T11:41:24+08:00 ] NOTIC: [8] Undefined index: accept 2757fd2001496f48df13101996e006b5.php 第 241 行.
+[ 2013-05-03T11:41:24+08:00 ] NOTIC: [8] Undefined variable: list 2757fd2001496f48df13101996e006b5.php 第 287 行.
+[ 2013-05-03T11:41:34+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009701s ]
+[ 2013-05-03T11:41:34+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004445s ]
+[ 2013-05-03T11:44:37+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.018209s ]
+[ 2013-05-03T11:44:37+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004453s ]
+[ 2013-05-03T11:44:59+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008882s ]
+[ 2013-05-03T11:44:59+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.003944s ]
+[ 2013-05-03T11:51:05+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.010193s ]
+[ 2013-05-03T11:51:05+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004162s ]
+[ 2013-05-03T11:51:23+08:00 ] ERR: (ThinkException) 模板不存在[index/Tpl/default/Accept/acceptCheckList?accept=3.html]
+[ 2013-05-03T11:52:14+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.010116s ]
+[ 2013-05-03T11:52:14+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004240s ]
+[ 2013-05-03T11:52:45+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007414s ]
+[ 2013-05-03T11:52:45+08:00 ] NOTIC: [2] Missing argument 1 for BaseAction::UpLoadFile(), called in D:\SystemDevelop\PHPWorkSpace\SaaSApp\Index\Lib\Action\AcceptAction.class.php on line 57 and defined BaseAction.class.php 第 453 行.
+[ 2013-05-03T11:52:45+08:00 ] NOTIC: [8] Undefined offset: 1 BaseAction.class.php 第 464 行.
+[ 2013-05-03T11:52:45+08:00 ] SQL: INSERT INTO `accept_check` (`accept`,`acceptdate`,`acceptproject`,`acceptaddress`,`accepttype`,`acceptcontent`,`acceptusers`) VALUES ('3','2013-05-03','阿斯蒂芬','111','自驗','111','蔣逢吉') [ RunTime:0.122970s ]
+[ 2013-05-03T11:52:46+08:00 ] NOTIC: [8] Undefined index: id 230724ea4952d23694aebd7ce37d9891.php 第 223 行.
+[ 2013-05-03T11:52:46+08:00 ] NOTIC: [8] Undefined index: id 230724ea4952d23694aebd7ce37d9891.php 第 224 行.
+[ 2013-05-03T12:24:35+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009409s ]
+[ 2013-05-03T12:24:36+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=) [ RunTime:0.000771s ]
+[ 2013-05-03T12:24:54+08:00 ] NOTIC: [8] Undefined index: id 230724ea4952d23694aebd7ce37d9891.php 第 223 行.
+[ 2013-05-03T12:24:54+08:00 ] NOTIC: [8] Undefined index: id 230724ea4952d23694aebd7ce37d9891.php 第 224 行.
+[ 2013-05-03T12:25:53+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008971s ]
+[ 2013-05-03T12:25:53+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.005067s ]
+[ 2013-05-03T12:26:04+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007313s ]
+[ 2013-05-03T12:26:04+08:00 ] NOTIC: [8] Undefined offset: 1 BaseAction.class.php 第 464 行.
+[ 2013-05-03T12:26:04+08:00 ] SQL: INSERT INTO `accept_check` (`accept`,`acceptdate`,`acceptproject`,`acceptaddress`,`accepttype`,`acceptcontent`,`acceptusers`) VALUES ('3','2013-05-03','asasfas','asfdasf','自驗','asfdas','蔣逢吉') [ RunTime:0.089999s ]
+[ 2013-05-03T12:26:39+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009306s ]
+[ 2013-05-03T12:26:39+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.005865s ]
+[ 2013-05-03T12:26:52+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007189s ]
+[ 2013-05-03T12:26:52+08:00 ] NOTIC: [8] Undefined offset: 1 BaseAction.class.php 第 464 行.
+[ 2013-05-03T12:26:52+08:00 ] SQL: INSERT INTO `accept_check` (`accept`,`acceptdate`,`acceptproject`,`acceptaddress`,`accepttype`,`acceptcontent`,`acceptusers`) VALUES ('3','2013-05-03','asf','asdf','自驗','adf','蔣逢吉') [ RunTime:0.060259s ]
+[ 2013-05-03T12:27:15+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-05-03T12:27:15+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-05-03T12:27:45+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.010653s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001133s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007691s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.002126s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.009356s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.002296s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.008092s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001302s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001271s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.002715s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.002235s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002535s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002348s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002144s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002313s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002198s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002146s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002203s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002165s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002430s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002332s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002188s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002239s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=21 [ RunTime:0.002274s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002258s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002231s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002137s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002067s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002508s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002257s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002744s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002308s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002444s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002483s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002371s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002157s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.002536s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.002529s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002391s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002812s ]
+[ 2013-05-03T12:27:45+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 21 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.002411s ]
+[ 2013-05-03T12:27:45+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 [ RunTime:0.004830s ]
+[ 2013-05-03T12:27:45+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 limit 0,20 [ RunTime:0.004413s ]
+[ 2013-05-03T12:27:52+08:00 ] SQL: SHOW COLUMNS FROM `accept` [ RunTime:0.007829s ]
+[ 2013-05-03T12:27:52+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept` WHERE  code='13108617' LIMIT 1  [ RunTime:0.000837s ]
+[ 2013-05-03T12:27:52+08:00 ] SQL: SELECT * FROM `accept` WHERE  code='13108617' ORDER BY id desc LIMIT 0,20  [ RunTime:0.001190s ]
+[ 2013-05-03T12:27:56+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008547s ]
+[ 2013-05-03T12:27:56+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004086s ]
+[ 2013-05-03T12:28:05+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007288s ]
+[ 2013-05-03T12:28:37+08:00 ] NOTIC: [8] Undefined offset: 1 BaseAction.class.php 第 464 行.
+[ 2013-05-03T12:29:06+08:00 ] SQL: INSERT INTO `accept_check` (`accept`,`acceptdate`,`acceptproject`,`acceptaddress`,`accepttype`,`acceptcontent`,`acceptusers`) VALUES ('3','2013-05-03','ddd','dd','自驗','dd','蔣逢吉') [ RunTime:0.064802s ]
+[ 2013-05-03T12:29:14+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009315s ]
+[ 2013-05-03T12:29:14+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.005207s ]
+[ 2013-05-03T12:29:22+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.008800s ]
+[ 2013-05-03T12:29:48+08:00 ] NOTIC: [8] Undefined offset: 1 BaseAction.class.php 第 464 行.
+[ 2013-05-03T12:31:00+08:00 ] SQL: INSERT INTO `accept_check` (`accept`,`acceptdate`,`acceptproject`,`acceptaddress`,`accepttype`,`acceptcontent`,`acceptusers`) VALUES ('3','2013-05-07','ee','ee','自驗','ee','蔣逢吉') [ RunTime:0.070377s ]
+[ 2013-05-03T12:31:04+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.010154s ]
+[ 2013-05-03T12:31:04+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004074s ]
+[ 2013-05-03T12:31:14+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007766s ]
+[ 2013-05-03T12:31:24+08:00 ] NOTIC: [8] Undefined offset: 1 BaseAction.class.php 第 464 行.
+[ 2013-05-03T12:31:36+08:00 ] SQL: INSERT INTO `accept_check` (`accept`,`acceptdate`,`acceptproject`,`acceptaddress`,`accepttype`,`acceptcontent`,`acceptusers`,`atts`) VALUES ('3','2013-05-03','eeee','ee','自驗','ee','蔣逢吉','51833d9900013.jpg') [ RunTime:0.062876s ]
+[ 2013-05-03T12:33:38+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009565s ]
+[ 2013-05-03T12:33:38+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004001s ]
+[ 2013-05-03T12:33:41+08:00 ] SQL: SHOW COLUMNS FROM `accept` [ RunTime:0.007805s ]
+[ 2013-05-03T12:33:41+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept` WHERE  code='13108617' LIMIT 1  [ RunTime:0.000959s ]
+[ 2013-05-03T12:33:41+08:00 ] SQL: SELECT * FROM `accept` WHERE  code='13108617' ORDER BY id desc LIMIT 0,20  [ RunTime:0.000857s ]
+[ 2013-05-03T12:33:49+08:00 ] NOTIC: [8] Undefined index: accept AcceptAction.class.php 第 43 行.
+[ 2013-05-03T12:33:49+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.008534s ]
+[ 2013-05-03T12:33:51+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009289s ]
+[ 2013-05-03T12:33:51+08:00 ] SQL: select * from user where id in( SELECT acceptuser from accept_user where accept=3) [ RunTime:0.004022s ]
+[ 2013-05-03T12:34:05+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.008385s ]
+[ 2013-05-03T12:34:12+08:00 ] NOTIC: [8] Undefined offset: 2 BaseAction.class.php 第 464 行.
+[ 2013-05-03T12:34:12+08:00 ] SQL: INSERT INTO `accept_check` (`accept`,`acceptdate`,`acceptproject`,`acceptaddress`,`accepttype`,`acceptcontent`,`acceptusers`,`atts`) VALUES ('3','2013-05-03','fff','ff','自驗','ff','蔣逢吉','51833e43eccf4.jpg,51833e43f144c.png') [ RunTime:0.055573s ]
+[ 2013-05-03T12:34:12+08:00 ] NOTIC: [8] Undefined index: accept AcceptAction.class.php 第 43 行.
+[ 2013-05-03T12:34:12+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.008134s ]
+[ 2013-05-03T12:41:36+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007719s ]
+[ 2013-05-03T12:41:36+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept_check` WHERE  accept= 3 LIMIT 1  [ RunTime:0.000930s ]
+[ 2013-05-03T12:41:36+08:00 ] SQL: SELECT * FROM `accept_check` WHERE  accept= 3 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001075s ]
+[ 2013-05-03T12:41:37+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:37+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:37+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:37+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:37+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:37+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:37+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:37+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:50+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007428s ]
+[ 2013-05-03T12:41:50+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept_check` WHERE  accept= 3 LIMIT 1  [ RunTime:0.000877s ]
+[ 2013-05-03T12:41:50+08:00 ] SQL: SELECT * FROM `accept_check` WHERE  accept= 3 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001158s ]
+[ 2013-05-03T12:41:51+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:51+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:51+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:51+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:51+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:51+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:51+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:41:51+08:00 ] NOTIC: [8] A non well formed numeric value encountered 230724ea4952d23694aebd7ce37d9891.php 第 238 行.
+[ 2013-05-03T12:42:22+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.008586s ]
+[ 2013-05-03T12:42:22+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept_check` WHERE  accept= 3 LIMIT 1  [ RunTime:0.000865s ]
+[ 2013-05-03T12:42:22+08:00 ] SQL: SELECT * FROM `accept_check` WHERE  accept= 3 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001005s ]
+[ 2013-05-03T12:52:55+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007911s ]
+[ 2013-05-03T12:52:55+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.000967s ]
+[ 2013-05-03T12:55:12+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007752s ]
+[ 2013-05-03T12:55:12+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.001131s ]
+[ 2013-05-03T12:55:13+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 15 行.
+[ 2013-05-03T12:55:13+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 255 行.
+[ 2013-05-03T12:55:13+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 261 行.
+[ 2013-05-03T12:55:13+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 266 行.
+[ 2013-05-03T12:55:13+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 271 行.
+[ 2013-05-03T12:55:13+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 283 行.
+[ 2013-05-03T12:55:13+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 302 行.
+[ 2013-05-03T12:55:13+08:00 ] NOTIC: [8] Uninitialized string offset: 0 e2590a6da73d2ea4338fbfaf0f907e7e.php 第 302 行.
+[ 2013-05-03T12:55:20+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.009039s ]
+[ 2013-05-03T12:55:20+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.001198s ]
+[ 2013-05-03T12:55:21+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 15 行.
+[ 2013-05-03T12:55:21+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 255 行.
+[ 2013-05-03T12:55:21+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 261 行.
+[ 2013-05-03T12:55:21+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 266 行.
+[ 2013-05-03T12:55:21+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 271 行.
+[ 2013-05-03T12:55:21+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 283 行.
+[ 2013-05-03T12:55:21+08:00 ] NOTIC: [8] Undefined variable: acc e2590a6da73d2ea4338fbfaf0f907e7e.php 第 302 行.
+[ 2013-05-03T12:55:21+08:00 ] NOTIC: [8] Uninitialized string offset: 0 e2590a6da73d2ea4338fbfaf0f907e7e.php 第 302 行.
+[ 2013-05-03T12:55:29+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007148s ]
+[ 2013-05-03T12:55:29+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.001243s ]
+[ 2013-05-03T12:56:19+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.009636s ]
+[ 2013-05-03T12:56:23+08:00 ] SQL: UPDATE `accept_check` SET `accept`='3',`acceptdate`='2013-05-03 00:00:00',`acceptproject`='fff',`acceptaddress`='ff',`accepttype`='委外',`acceptcontent`='ff',`acceptusers`='�' WHERE ( `id` = '8' ) [ RunTime:0.049121s ]
+[ 2013-05-03T12:56:24+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007937s ]
+[ 2013-05-03T12:56:24+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept_check` WHERE  accept= 3 LIMIT 1  [ RunTime:0.000861s ]
+[ 2013-05-03T12:56:24+08:00 ] SQL: SELECT * FROM `accept_check` WHERE  accept= 3 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001289s ]
+[ 2013-05-03T12:56:28+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007358s ]
+[ 2013-05-03T12:56:28+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.001290s ]
+[ 2013-05-03T12:56:52+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.008464s ]
+[ 2013-05-03T12:56:56+08:00 ] SQL: UPDATE `accept_check` SET `accept`='3',`acceptdate`='2013-05-03 00:00:00',`acceptproject`='fff',`acceptaddress`='ff',`accepttype`='委外',`acceptcontent`='ff',`acceptusers`='张三,李四' WHERE ( `id` = '8' ) [ RunTime:0.071106s ]
+[ 2013-05-03T12:56:56+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.011397s ]
+[ 2013-05-03T12:56:56+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept_check` WHERE  accept= 3 LIMIT 1  [ RunTime:0.000874s ]
+[ 2013-05-03T12:56:56+08:00 ] SQL: SELECT * FROM `accept_check` WHERE  accept= 3 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001030s ]
+[ 2013-05-03T12:57:02+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007598s ]
+[ 2013-05-03T12:57:02+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.000922s ]
+[ 2013-05-03T13:12:46+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.008111s ]
+[ 2013-05-03T13:12:46+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.001065s ]
+[ 2013-05-03T13:12:46+08:00 ] NOTIC: [8] Uninitialized string offset: 0 e2590a6da73d2ea4338fbfaf0f907e7e.php 第 302 行.
+[ 2013-05-03T13:12:46+08:00 ] NOTIC: [8] Uninitialized string offset: 0 e2590a6da73d2ea4338fbfaf0f907e7e.php 第 302 行.
+[ 2013-05-03T13:13:33+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007655s ]
+[ 2013-05-03T13:13:33+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.001017s ]
+[ 2013-05-03T13:13:50+08:00 ] NOTIC: [8] Uninitialized string offset: 0 e2590a6da73d2ea4338fbfaf0f907e7e.php 第 302 行.
+[ 2013-05-03T13:13:50+08:00 ] NOTIC: [8] Uninitialized string offset: 0 e2590a6da73d2ea4338fbfaf0f907e7e.php 第 302 行.
+[ 2013-05-03T13:14:05+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.010551s ]
+[ 2013-05-03T13:14:05+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.000931s ]
+[ 2013-05-03T13:15:40+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007478s ]
+[ 2013-05-03T13:15:40+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.000972s ]
+[ 2013-05-03T13:15:47+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.008047s ]
+[ 2013-05-03T13:15:47+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.000942s ]
+[ 2013-05-03T13:16:01+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007188s ]
+[ 2013-05-03T13:16:01+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.000938s ]
+[ 2013-05-03T13:17:17+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.008053s ]
+[ 2013-05-03T13:17:17+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.001124s ]
+[ 2013-05-03T13:17:57+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.015001s ]
+[ 2013-05-03T13:17:57+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2013-05-03T13:17:59+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007226s ]
+[ 2013-05-03T13:17:59+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.000989s ]
+[ 2013-05-03T13:18:01+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007452s ]
+[ 2013-05-03T13:18:01+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.001056s ]
+[ 2013-05-03T13:18:13+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007270s ]
+[ 2013-05-03T13:18:14+08:00 ] SQL: UPDATE `accept_check` SET `accept`='3',`acceptdate`='2013-05-03 00:00:00',`acceptproject`='fff',`acceptaddress`='ff',`accepttype`='委外',`acceptcontent`='ff',`acceptusers`='张三,李四,王五' WHERE ( `id` = '8' ) [ RunTime:0.054220s ]
+[ 2013-05-03T13:18:14+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007407s ]
+[ 2013-05-03T13:18:14+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept_check` WHERE  accept= 3 LIMIT 1  [ RunTime:0.000862s ]
+[ 2013-05-03T13:18:14+08:00 ] SQL: SELECT * FROM `accept_check` WHERE  accept= 3 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001007s ]
+[ 2013-05-03T13:18:17+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.008487s ]
+[ 2013-05-03T13:18:17+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.000932s ]
+[ 2013-05-03T13:18:51+08:00 ] SQL: SHOW COLUMNS FROM `accept_check` [ RunTime:0.007386s ]
+[ 2013-05-03T13:18:51+08:00 ] SQL: SELECT * FROM `accept_check` WHERE ( `id` = '8' ) LIMIT 1  [ RunTime:0.001269s ]

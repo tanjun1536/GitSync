@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	var type="{$maintenance.type}";
+	var childtype="{$maintenance.childtype}";
+	var overtime="{$maintenance.overtime}";
+		
+	$(function() {
+		$("#type").change(function() {
+			getChildType();
+		});
+		$("#childtype").change(function() {
+			getOverTime();
+		});
+		if(type!='')
+			{
+				$("#type").val(type).trigger("change");
+			}
+
+	});
+	function getChildType() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getDeviceChildType",
+			data : "id=" + $("#type").val(),
+			success : function(data) {
+				$("#childtype").empty();
+				$("<option value='0'>請選擇</option>").appendTo("#childtype");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#childtype");
+				});
+				if(childtype!='')$("#childtype").val(childtype).trigger("change");
+			}
+		});
+
+	}
+	var c={@case};
+	function getOverTime() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getOverTime",
+			data :{"case":c,"type":$("#type").val(),"childtype":$("#childtype").val()},
+			success : function(data) {
+				$("#overtime").empty();
+				$("<option value='0'>請選擇</option>").appendTo("#overtime");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#overtime");
+				});
+				if(overtime!='')$("#overtime").val(overtime)
+			}
+		});
+
+	}
+	function addDetail()
+	{
+		if (validator.empty('project', '請輸入項目名稱!')) {
+			var table = $('#detail');
+			var len =$("#detail").find("tr").length;
+			var row = len%2 ==1?$("<tr></tr>"):$("<tr class='trcolor'></tr>");
+			var type=$("input[type=radio]:checked").val();
+			
+			var hValue = $('#project').val() + "," + $("input[type=radio]:checked").val() + "," + $('#standard').val()+ "," + $('#floor').val()+ "," + $('#cap').val()+","+$('#desc').val();
+			row.append($("<td></td>").append($('#project').val()).append($("<input type='hidden' value='" + hValue + "' name ='detail[]' />")));
+			if(type=='一般')
+				row.append($("<td></td>").append($("input[type=radio]:checked").val()));
+			else
+				row.append($("<td></td>").append("標準值"+$('#standard').val()+"下限"+$('#floor').val()+"上限"+$('#cap').val()));
+			row.append($("<td></td>").append($('#desc').val()));
+			row.append($("<td></td>").append($('<img onclick="$(this).parent().parent().remove();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+			table.append(row);
+			$('#project').val('');
+			$('#standard').val('');
+			$('#floor').val('');
+			$('#cap').val('');
+			$('#desc').val('');
+		}
+	}
+	function check()
+	{
+		if(validator.index('type', '請選擇類別!')&&
+		validator.index('childtype', '請選擇子類別!')&&
+		validator.index('overtime', '請選擇過期!'))
+			{
+			 	if($("#detail").find("tr").length>2)
+			 		return true;
+			 	else
+			 		{
+			 			alert('請添加明細');
+			 			return false;
+			 		}
+			}
+		return false;
+	}
+</script>
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">保養管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/addMaintenanceRecordDetail?case={@case}" onsubmit="return check()" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="case" value="{@case}" /> <input type="hidden" name="id" value="{$maintenance.id}" />
+					<div class="topic2">新增 / 修改保養明細</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="107" scope="row">類別</th>
+							<td width="585"><select name="type" id="type">
+									<option value="0" selected="selected">請選擇</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="childtype" id="childtype">
+									<option value="請選擇" selected="selected">請選擇</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">週期</th>
+							<td><select name="overtime" id="overtime">
+									<option value="請選擇" selected="selected">請選擇</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">證照等級</th>
+							<td><input type="text" name="cergrade" /></td>
+						</tr>
+						<tr>
+							<th scope="row">所需工具</th>
+							<td><input type="text" name="reqtools" /></td>
+						</tr>
+						<tr>
+							<th scope="row">所需料件</th>
+							<td><input type="text" name="reqmertials" /></td>
+						</tr>
+						<tr>
+							<th scope="row">備註</th>
+							<td><input type="text" name="remark" /></td>
+						</tr>
+					</table>
+					<div class="topic2">保養明細</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop" id="detail">
+						<tr>
+							<th width="150" scope="col">項目</th>
+							<th width="331" scope="col">資料類型</th>
+							<th width="188" scope="col">說明</th>
+							<th width="24" scope="col">&nbsp;</th>
+						</tr>
+						<tr>
+							<td><input type="text" name="project" id="project" /></td>
+							<td><input name="radiobutton" checked="checked" type="radio" value="一般" /> 一般<br /> <input name="radiobutton" type="radio" value="數值" /> 數值，標準值 <input type="text" name="standard" id="standard" style="width: 30px" /> 下限 <input type="text" name="floor" id="floor" style="width: 30px"> 上限 <input type="text" name="cap" id="cap" style="width: 30px" /></td>
+							<td><input type="text" name="desc" id="desc" style="width: 180px"></td>
+							<td><img src="__PUBLIC__/images/add_16.png" alt="新增" style="cursor: pointer;" onclick="addDetail()" width="16" height="16" /></td>
+						</tr>
+						<volist id="item" name="details"> <if condition="$i%2 eq 0">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if> 
+							<td>{$item.project}<input type="hidden" name="detail[]"  value="{$item.project},{$item.type},{$item.standard},{$item.floor},{$item.cap},{$item.descript}" /></td>
+							<td><if condition="$item.type eq '一般' ">一般<else/>標準值{$item.standard}下限{$item.floor}上限{$item.cap}</if></td>
+							<td>{$item.descript}</td>
+							<td><img onclick="$(this).parent().parent().remove();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" /></td>
+							</tr>
+						
+						</volist>
+					</table>
+					<div style="margin-top: 10px">
+						<input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

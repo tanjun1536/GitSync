@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">叫修單管理</div>
+			<div class="mainInfo">
+				<div class="topic2">叫修記錄</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+					<tr>
+						<th scope="row">叫修單編號</th>
+						<td>{$repair.repaircode}</td>
+						<th scope="row">叫修日期</th>
+						<td>{$repair.repairdate|date='Y/m/d H:i:s',strtotime(###)}</td>
+					</tr>
+					<tr>
+						<th width="123" scope="row">樓層區域</th>
+						<td width="359">{$repair.bname}／{$repair.bfname}／{$repair.aname}</td>
+						<th width="77" scope="row">申請人</th>
+						<td width="131">{$repair.requestuser}</td>
+					</tr>
+					<tr>
+						<th scope="row">設備類別</th>
+						<td colspan="3">{$repair.tname}／{$repair.ctname}</td>
+					</tr>
+					<tr>
+						<th scope="row">設備編號／名稱</th>
+						<td colspan="3"><label>{$repair.devicecode}<br /> {$repair.devicename}<br /> <strong>附件：</strong><a href="__URL__/down?name={$repair.atts|urlencode}" target="_blank">{$repair.atts}</a>
+						</label></td>
+					</tr>
+					<tr>
+						<th scope="row">派工</th>
+						<td colspan="3"><ul>
+								<li><strong>派工日期：</strong> <notempty name="dispatch"> <neq name="dispatch.dispatchdate" value="0000-00-00 00:00:00">{$dispatch.dispatchdate|date='Y/m/d',strtotime(###)}</neq></notempty></li>
+								<li><strong>執行時間：</strong>
+								<notempty name="dispatch"> <neq name="dispatch.dostartdate" value="0000-00-00 00:00:00"> {$dispatch.dostartdate|date='Y/m/d',strtotime(###)}</neq> {$dispatch.dostarthour}:{$dispatch.dostartminute} - <neq name="dispatch.doenddate" value="0000-00-00 00:00:00"> {$dispatch.doenddate|date='Y/m/d',strtotime(###)}</neq>{$dispatch.doendhour}:{$dispatch.doendminute}</notempty></li>
+								<li><strong>執行人：</strong>{$dispatch.dousersname}</li>
+							</ul></td>
+					</tr>
+					<tr>
+						<th scope="row">委外</th>
+						<td colspan="3"><ul>
+								<li><strong>委外日期：</strong> <notempty name="delegate"> <neq name="delegate.delegatedate" value="0000-00-00 00:00:00">{$delegate.delegatedate|date='Y/m/d',strtotime(###)}</neq></notempty></li>
+								<li><strong>委外廠商：</strong>{$delegate.manufactures}</li>
+								<li><strong>連絡人：</strong>{$delegate.linker}</li>
+								<li><strong>聯絡電話：</strong>{$delegate.linkphone}</li>
+							</ul></td>
+					</tr>
+					<tr>
+						<th scope="row">完工</th>
+						<td colspan="3"><ul>
+								<li><strong>完工日期：</strong> <notempty name="complete"> <neq name="complete.completedate" value="0000-00-00 00:00:00">{$complete.completedate|date='Y/m/d',strtotime(###)}</neq></notempty></li>
+								<li><strong>實際執行人／時間：</strong><br /> <volist name=":explode(',',$complete['dotimeandusers'])" id="tu">
+									<li>{$tu }</li>
+									</volist></li>
+								<li><strong>附件：</strong> <neq name="complete.atts"> <volist name=":explode(',',$complete['atts'])" id="att"> <a href="__URL__/down?name={$att|urlencode}" target="_blank">{$att}</a>； </volist> </neq></li>
+							</ul></td>
+					</tr>
+					<tr>
+						<th scope="row">相關聯結</th>
+						<td colspan="3"><ul>
+								<volist name=":explode(',',$complete['links'])" id="link">
+								<li><a href="{$link}" target="_blank">{$link}</a></li>
+								</volist>
+							</ul></td>
+					</tr>
+				</table>
+				<div class="mailNav">
+					<a href="#m1">我要留言</a>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="95" scope="col">留言日期</th>
+						<th width="83" scope="col">留言人</th>
+						<th width="458" scope="col">內容說明</th>
+						<th width="57" scope="col">備註</th>
+					</tr>
+					<volist id="item" name="msgs"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center"><neq name="item.senddate" value="0000-00-00 00:00:00">{$item.senddate|date='Y/m/d',strtotime(###)}</neq> </notempty></td>
+					<td align="center">{$item.senduser}</td>
+					<td>{$item.msg}</td>
+					<td align="center">{$item.msgtype}</td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+				<div class="topic2">
+					我要留言<a name="m1" id="m1"></a>
+				</div>
+				<form id="form1" onsubmit="$('#senddate').val(new Date().format('yyyy-MM-dd hh:mm:ss'))" name="form1" method="post" action="__URL__/addRepairViewMessage?case={$repair.case}&id={$repair.id}">
+					<input type="hidden" value="{$repair.id}" name="repair"><input type="hidden" name="senddate" id="senddate"><input type="hidden" name="senduser" value="{@SESSION_USER.name}"> <textarea name="msg" rows="6" style="width: 695px"></textarea>
+								<div style="margin-top: 10px">
+									<input type="submit" name="Submit" value="送出留言" /> <input type="reset" name="Submit2" value="取消" />
+								</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

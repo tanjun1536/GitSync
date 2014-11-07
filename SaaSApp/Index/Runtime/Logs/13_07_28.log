@@ -1,0 +1,1525 @@
+[ 2013-07-28T21:23:23+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-07-28T21:23:23+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-07-28T21:23:28+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.006945s ]
+[ 2013-07-28T21:23:28+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.044425s ]
+[ 2013-07-28T21:23:28+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.010310s ]
+[ 2013-07-28T21:23:29+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.904820s ]
+[ 2013-07-28T21:23:29+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.007069s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.466377s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.006299s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001254s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001199s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.085457s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.003751s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.003339s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.003923s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.003884s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.008097s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.003927s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.003493s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.003496s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.004342s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.003607s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.003781s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.003659s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.003573s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=21 [ RunTime:0.003787s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=21 [ RunTime:0.005223s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.004018s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.004641s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.003891s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.003840s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.004135s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.005781s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.003653s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.003649s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.003449s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.003641s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.005753s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.004310s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.003449s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.003457s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.003659s ]
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.003989s ]
+[ 2013-07-28T21:23:30+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 80 行.
+[ 2013-07-28T21:23:30+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 21 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.004031s ]
+[ 2013-07-28T21:23:31+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-07-28T21:23:31+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 [ RunTime:0.008694s ]
+[ 2013-07-28T21:23:31+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 limit 0,20 [ RunTime:0.011350s ]
+[ 2013-07-28T21:23:41+08:00 ] NOTIC: [8] Undefined index: key LimitAction.class.php 第 4 行.
+[ 2013-07-28T21:23:42+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007603s ]
+[ 2013-07-28T21:23:42+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001481s ]
+[ 2013-07-28T21:23:42+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' [ RunTime:0.055249s ]
+[ 2013-07-28T21:23:42+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' limit 0,20 [ RunTime:0.016797s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.008354s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE parent_id is null [ RunTime:0.001509s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.006926s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.011844s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.001108s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='6' ORDER BY id asc [ RunTime:0.001094s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='7' ORDER BY id asc [ RunTime:0.001115s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='8' ORDER BY id asc [ RunTime:0.001221s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='15' ORDER BY id asc [ RunTime:0.001242s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='16' ORDER BY id asc [ RunTime:0.001214s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='19' ORDER BY id asc [ RunTime:0.001284s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='24' ORDER BY id asc [ RunTime:0.001134s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='27' ORDER BY id asc [ RunTime:0.001231s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='31' ORDER BY id asc [ RunTime:0.001630s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='34' ORDER BY id asc [ RunTime:0.001250s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='35' ORDER BY id asc [ RunTime:0.003687s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='36' ORDER BY id asc [ RunTime:0.001290s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='39' ORDER BY id asc [ RunTime:0.001121s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='42' ORDER BY id asc [ RunTime:0.001435s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='45' ORDER BY id asc [ RunTime:0.001092s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='51' ORDER BY id asc [ RunTime:0.001188s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='59' ORDER BY id asc [ RunTime:0.001240s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='69' ORDER BY id asc [ RunTime:0.001180s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='76' ORDER BY id asc [ RunTime:0.001394s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='79' ORDER BY id asc [ RunTime:0.001166s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='87' ORDER BY id asc [ RunTime:0.001187s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='101' ORDER BY id asc [ RunTime:0.001520s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='107' ORDER BY id asc [ RunTime:0.001166s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='108' ORDER BY id asc [ RunTime:0.001172s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='111' ORDER BY id asc [ RunTime:0.001093s ]
+[ 2013-07-28T21:25:24+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='115' ORDER BY id asc [ RunTime:0.001092s ]
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: role 7dcef59bb94adbef57beca86a26ee95d.php 第 302 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: role 7dcef59bb94adbef57beca86a26ee95d.php 第 303 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:25+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:26+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:32+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.010396s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE parent_id is null [ RunTime:0.003464s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.007285s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.002469s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.001863s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='6' ORDER BY id asc [ RunTime:0.001606s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='7' ORDER BY id asc [ RunTime:0.002147s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='8' ORDER BY id asc [ RunTime:0.001706s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='15' ORDER BY id asc [ RunTime:0.001187s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='16' ORDER BY id asc [ RunTime:0.001649s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='19' ORDER BY id asc [ RunTime:0.001362s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='24' ORDER BY id asc [ RunTime:0.001650s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='27' ORDER BY id asc [ RunTime:0.001460s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='31' ORDER BY id asc [ RunTime:0.002409s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='34' ORDER BY id asc [ RunTime:0.001808s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='35' ORDER BY id asc [ RunTime:0.001314s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='36' ORDER BY id asc [ RunTime:0.001898s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='39' ORDER BY id asc [ RunTime:0.004437s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='42' ORDER BY id asc [ RunTime:0.001756s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='45' ORDER BY id asc [ RunTime:0.001456s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='51' ORDER BY id asc [ RunTime:0.001347s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='59' ORDER BY id asc [ RunTime:0.002665s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='69' ORDER BY id asc [ RunTime:0.001368s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='76' ORDER BY id asc [ RunTime:0.004696s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='79' ORDER BY id asc [ RunTime:0.001640s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='87' ORDER BY id asc [ RunTime:0.001189s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='101' ORDER BY id asc [ RunTime:0.001167s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='107' ORDER BY id asc [ RunTime:0.001755s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='108' ORDER BY id asc [ RunTime:0.001121s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='111' ORDER BY id asc [ RunTime:0.001089s ]
+[ 2013-07-28T21:25:33+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='115' ORDER BY id asc [ RunTime:0.001181s ]
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: role 7dcef59bb94adbef57beca86a26ee95d.php 第 302 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: role 7dcef59bb94adbef57beca86a26ee95d.php 第 303 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 324 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 349 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 318 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 343 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 388 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 377 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:35+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:25:51+08:00 ] SQL: SHOW COLUMNS FROM `role` [ RunTime:0.006498s ]
+[ 2013-07-28T21:25:51+08:00 ] SQL: SELECT * FROM `role` WHERE ( `id` = '11' ) LIMIT 1  [ RunTime:0.001129s ]
+[ 2013-07-28T21:25:51+08:00 ] SQL: SELECT 
+		  m.`id`
+		FROM
+		  menu m 
+		  INNER JOIN role_menu rm 
+		    ON m.`id` = rm.`mid` 
+		WHERE rid = 11  [ RunTime:0.002233s ]
+[ 2013-07-28T21:25:51+08:00 ] NOTIC: [8] Undefined variable: rm LimitAction.class.php 第 82 行.
+[ 2013-07-28T21:25:51+08:00 ] SQL: SELECT 
+		  m.`id`,rm.`ext`
+		FROM
+		  menu m 
+		  INNER JOIN role_menu rm 
+		    ON m.`id` = rm.`mid` 
+		  WHERE rm.`ext` IS NOT NULL  AND rm.`rid`= 11 [ RunTime:0.003741s ]
+[ 2013-07-28T21:25:51+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.007081s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE parent_id is null [ RunTime:0.001415s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.006975s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.001112s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.001074s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='6' ORDER BY id asc [ RunTime:0.001192s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='7' ORDER BY id asc [ RunTime:0.004580s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='8' ORDER BY id asc [ RunTime:0.001567s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='15' ORDER BY id asc [ RunTime:0.001055s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='16' ORDER BY id asc [ RunTime:0.002635s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='19' ORDER BY id asc [ RunTime:0.001119s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='24' ORDER BY id asc [ RunTime:0.001047s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='27' ORDER BY id asc [ RunTime:0.001494s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='31' ORDER BY id asc [ RunTime:0.001995s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='34' ORDER BY id asc [ RunTime:0.001133s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='35' ORDER BY id asc [ RunTime:0.001506s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='36' ORDER BY id asc [ RunTime:0.001060s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='39' ORDER BY id asc [ RunTime:0.001333s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='42' ORDER BY id asc [ RunTime:0.001121s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='45' ORDER BY id asc [ RunTime:0.001158s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='51' ORDER BY id asc [ RunTime:0.001299s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='59' ORDER BY id asc [ RunTime:0.001159s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='69' ORDER BY id asc [ RunTime:0.001119s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='76' ORDER BY id asc [ RunTime:0.002431s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='79' ORDER BY id asc [ RunTime:0.001283s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='87' ORDER BY id asc [ RunTime:0.001363s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='101' ORDER BY id asc [ RunTime:0.001364s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='107' ORDER BY id asc [ RunTime:0.001246s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='108' ORDER BY id asc [ RunTime:0.001063s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='111' ORDER BY id asc [ RunTime:0.001597s ]
+[ 2013-07-28T21:25:52+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='115' ORDER BY id asc [ RunTime:0.001320s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.006522s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE parent_id is null [ RunTime:0.001362s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.007031s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.001434s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.002279s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='6' ORDER BY id asc [ RunTime:0.001380s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='7' ORDER BY id asc [ RunTime:0.001077s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='8' ORDER BY id asc [ RunTime:0.001115s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='15' ORDER BY id asc [ RunTime:0.004510s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='16' ORDER BY id asc [ RunTime:0.001278s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='19' ORDER BY id asc [ RunTime:0.001534s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='24' ORDER BY id asc [ RunTime:0.005137s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='27' ORDER BY id asc [ RunTime:0.001140s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='31' ORDER BY id asc [ RunTime:0.001661s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='34' ORDER BY id asc [ RunTime:0.001143s ]
+[ 2013-07-28T21:30:48+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='35' ORDER BY id asc [ RunTime:0.001418s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='36' ORDER BY id asc [ RunTime:0.001125s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='39' ORDER BY id asc [ RunTime:0.001095s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='42' ORDER BY id asc [ RunTime:0.001247s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='45' ORDER BY id asc [ RunTime:0.001916s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='51' ORDER BY id asc [ RunTime:0.001435s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='59' ORDER BY id asc [ RunTime:0.001546s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='69' ORDER BY id asc [ RunTime:0.001130s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='76' ORDER BY id asc [ RunTime:0.001370s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='79' ORDER BY id asc [ RunTime:0.001116s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='87' ORDER BY id asc [ RunTime:0.001294s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='101' ORDER BY id asc [ RunTime:0.001399s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='107' ORDER BY id asc [ RunTime:0.001116s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='108' ORDER BY id asc [ RunTime:0.001359s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='111' ORDER BY id asc [ RunTime:0.001163s ]
+[ 2013-07-28T21:30:49+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='115' ORDER BY id asc [ RunTime:0.001160s ]
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: role 7dcef59bb94adbef57beca86a26ee95d.php 第 298 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: role 7dcef59bb94adbef57beca86a26ee95d.php 第 303 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: role 7dcef59bb94adbef57beca86a26ee95d.php 第 308 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 329 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 354 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 323 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 348 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: exts 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() 7dcef59bb94adbef57beca86a26ee95d.php 第 393 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:50+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 382 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:30:51+08:00 ] NOTIC: [8] Undefined variable: rm 7dcef59bb94adbef57beca86a26ee95d.php 第 387 行.
+[ 2013-07-28T21:31:08+08:00 ] SQL: SHOW COLUMNS FROM `role` [ RunTime:0.006239s ]
+[ 2013-07-28T21:31:08+08:00 ] SQL: SHOW COLUMNS FROM `role_menu` [ RunTime:0.007428s ]
+[ 2013-07-28T21:31:08+08:00 ] SQL: INSERT INTO `role` (`id`,`name`,`menus`,`code`,`ordernumber`) VALUES ('','测试排序','[{\"mi\":\"1\",\"ext\":null},{\"mi\":\"2\",\"ext\":null},{\"mi\":\"3\",\"ext\":null},{\"mi\":\"4\",\"ext\":null},{\"mi\":\"5\",\"ext\":null}]','13108617','1') [ RunTime:0.000791s ]
+[ 2013-07-28T21:31:08+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('','1',null) [ RunTime:0.000782s ]
+[ 2013-07-28T21:31:08+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('','2',null) [ RunTime:0.000731s ]
+[ 2013-07-28T21:31:08+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('','3',null) [ RunTime:0.000713s ]
+[ 2013-07-28T21:31:08+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('','4',null) [ RunTime:0.000713s ]
+[ 2013-07-28T21:31:08+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('','5',null) [ RunTime:0.000719s ]
+[ 2013-07-28T21:31:08+08:00 ] NOTIC: [8] Undefined index: key LimitAction.class.php 第 4 行.
+[ 2013-07-28T21:31:08+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006560s ]
+[ 2013-07-28T21:31:08+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001000s ]
+[ 2013-07-28T21:31:08+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' [ RunTime:0.016390s ]
+[ 2013-07-28T21:31:08+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' limit 0,20 [ RunTime:0.008532s ]
+[ 2013-07-28T21:31:12+08:00 ] SQL: SHOW COLUMNS FROM `role` [ RunTime:0.006204s ]
+[ 2013-07-28T21:31:12+08:00 ] SQL: SHOW COLUMNS FROM `role_menu` [ RunTime:0.006843s ]
+[ 2013-07-28T21:31:12+08:00 ] NOTIC: [8] Undefined index: id LimitAction.class.php 第 36 行.
+[ 2013-07-28T21:31:12+08:00 ] NOTIC: [8] Undefined index: key LimitAction.class.php 第 4 行.
+[ 2013-07-28T21:31:12+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006265s ]
+[ 2013-07-28T21:31:12+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000901s ]
+[ 2013-07-28T21:31:12+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' [ RunTime:0.013310s ]
+[ 2013-07-28T21:31:12+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' limit 20,20 [ RunTime:0.005582s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SHOW COLUMNS FROM `role` [ RunTime:0.006057s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `role` WHERE ( `id` = '44' ) LIMIT 1  [ RunTime:0.000926s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT 
+		  m.`id`
+		FROM
+		  menu m 
+		  INNER JOIN role_menu rm 
+		    ON m.`id` = rm.`mid` 
+		WHERE rid = 44  [ RunTime:0.002018s ]
+[ 2013-07-28T21:31:18+08:00 ] NOTIC: [8] Undefined variable: rm LimitAction.class.php 第 85 行.
+[ 2013-07-28T21:31:18+08:00 ] NOTIC: [8] Undefined variable: rm LimitAction.class.php 第 89 行.
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT 
+		  m.`id`,rm.`ext`
+		FROM
+		  menu m 
+		  INNER JOIN role_menu rm 
+		    ON m.`id` = rm.`mid` 
+		  WHERE rm.`ext` IS NOT NULL  AND rm.`rid`= 44 [ RunTime:0.002961s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.005751s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE parent_id is null [ RunTime:0.001202s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.005624s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.002138s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.001246s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='6' ORDER BY id asc [ RunTime:0.001343s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='7' ORDER BY id asc [ RunTime:0.001062s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='8' ORDER BY id asc [ RunTime:0.001223s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='15' ORDER BY id asc [ RunTime:0.001070s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='16' ORDER BY id asc [ RunTime:0.001339s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='19' ORDER BY id asc [ RunTime:0.001333s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='24' ORDER BY id asc [ RunTime:0.001447s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='27' ORDER BY id asc [ RunTime:0.001263s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='31' ORDER BY id asc [ RunTime:0.001080s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='34' ORDER BY id asc [ RunTime:0.001063s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='35' ORDER BY id asc [ RunTime:0.001460s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='36' ORDER BY id asc [ RunTime:0.004922s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='39' ORDER BY id asc [ RunTime:0.001074s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='42' ORDER BY id asc [ RunTime:0.001087s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='45' ORDER BY id asc [ RunTime:0.001156s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='51' ORDER BY id asc [ RunTime:0.001941s ]
+[ 2013-07-28T21:31:18+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='59' ORDER BY id asc [ RunTime:0.001133s ]
+[ 2013-07-28T21:31:19+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='69' ORDER BY id asc [ RunTime:0.001232s ]
+[ 2013-07-28T21:31:19+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='76' ORDER BY id asc [ RunTime:0.002013s ]
+[ 2013-07-28T21:31:19+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='79' ORDER BY id asc [ RunTime:0.004030s ]
+[ 2013-07-28T21:31:19+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='87' ORDER BY id asc [ RunTime:0.001174s ]
+[ 2013-07-28T21:31:19+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='101' ORDER BY id asc [ RunTime:0.001105s ]
+[ 2013-07-28T21:31:19+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='107' ORDER BY id asc [ RunTime:0.001212s ]
+[ 2013-07-28T21:31:19+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='108' ORDER BY id asc [ RunTime:0.001482s ]
+[ 2013-07-28T21:31:19+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='111' ORDER BY id asc [ RunTime:0.002100s ]
+[ 2013-07-28T21:31:19+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='115' ORDER BY id asc [ RunTime:0.001464s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: SHOW COLUMNS FROM `role` [ RunTime:0.005304s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: SHOW COLUMNS FROM `role_menu` [ RunTime:0.006292s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: UPDATE `role` SET `name`='测试排序',`menus`='[{\"mi\":\"1\",\"ext\":null},{\"mi\":\"2\",\"ext\":null},{\"mi\":\"3\",\"ext\":null},{\"mi\":\"4\",\"ext\":null},{\"mi\":\"5\",\"ext\":null},{\"mi\":\"6\",\"ext\":null},{\"mi\":\"7\",\"ext\":null},{\"mi\":\"8\",\"ext\":null},{\"mi\":\"9\",\"ext\":null},{\"mi\":\"10\",\"ext\":null},{\"mi\":\"11\",\"ext\":null},{\"mi\":\"12\",\"ext\":null},{\"mi\":\"13\",\"ext\":null},{\"mi\":\"14\",\"ext\":null}]',`code`='13108617',`ordernumber`='1' WHERE ( `id` = '44' ) [ RunTime:0.001621s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: DELETE FROM role_menu WHERE rid=44 [ RunTime:0.003886s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','1',null) [ RunTime:0.000716s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','2',null) [ RunTime:0.001174s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','3',null) [ RunTime:0.001384s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','4',null) [ RunTime:0.000700s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','5',null) [ RunTime:0.000689s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','6',null) [ RunTime:0.001357s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','7',null) [ RunTime:0.002106s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','8',null) [ RunTime:0.000834s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','9',null) [ RunTime:0.000754s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','10',null) [ RunTime:0.000818s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','11',null) [ RunTime:0.001223s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','12',null) [ RunTime:0.000871s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','13',null) [ RunTime:0.006250s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: INSERT INTO `role_menu` (`rid`,`mid`,`ext`) VALUES ('44','14',null) [ RunTime:0.000856s ]
+[ 2013-07-28T21:31:31+08:00 ] NOTIC: [8] Undefined index: key LimitAction.class.php 第 4 行.
+[ 2013-07-28T21:31:31+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006378s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.007366s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' [ RunTime:0.010850s ]
+[ 2013-07-28T21:31:31+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' limit 0,20 [ RunTime:0.007508s ]
+[ 2013-07-28T21:31:35+08:00 ] SQL: SHOW COLUMNS FROM `role` [ RunTime:0.005396s ]
+[ 2013-07-28T21:31:35+08:00 ] SQL: SHOW COLUMNS FROM `role_menu` [ RunTime:0.005420s ]
+[ 2013-07-28T21:31:35+08:00 ] NOTIC: [8] Undefined index: id LimitAction.class.php 第 36 行.
+[ 2013-07-28T21:31:35+08:00 ] NOTIC: [8] Undefined index: key LimitAction.class.php 第 4 行.
+[ 2013-07-28T21:31:35+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007834s ]
+[ 2013-07-28T21:31:35+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000863s ]
+[ 2013-07-28T21:31:35+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' [ RunTime:0.013849s ]
+[ 2013-07-28T21:31:35+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' limit 20,20 [ RunTime:0.006145s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SHOW COLUMNS FROM `role` [ RunTime:0.005824s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `role` WHERE ( `id` = '44' ) LIMIT 1  [ RunTime:0.001039s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT 
+		  m.`id`
+		FROM
+		  menu m 
+		  INNER JOIN role_menu rm 
+		    ON m.`id` = rm.`mid` 
+		WHERE rid = 44  [ RunTime:0.007290s ]
+[ 2013-07-28T21:31:39+08:00 ] NOTIC: [8] Undefined variable: rm LimitAction.class.php 第 82 行.
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT 
+		  m.`id`,rm.`ext`
+		FROM
+		  menu m 
+		  INNER JOIN role_menu rm 
+		    ON m.`id` = rm.`mid` 
+		  WHERE rm.`ext` IS NOT NULL  AND rm.`rid`= 44 [ RunTime:0.003229s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.005717s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE parent_id is null [ RunTime:0.001340s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.007136s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.001065s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.002013s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='6' ORDER BY id asc [ RunTime:0.001151s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='7' ORDER BY id asc [ RunTime:0.003691s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='8' ORDER BY id asc [ RunTime:0.002543s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='15' ORDER BY id asc [ RunTime:0.001068s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='16' ORDER BY id asc [ RunTime:0.001253s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='19' ORDER BY id asc [ RunTime:0.001094s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='24' ORDER BY id asc [ RunTime:0.001074s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='27' ORDER BY id asc [ RunTime:0.001092s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='31' ORDER BY id asc [ RunTime:0.001155s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='34' ORDER BY id asc [ RunTime:0.005093s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='35' ORDER BY id asc [ RunTime:0.001723s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='36' ORDER BY id asc [ RunTime:0.001190s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='39' ORDER BY id asc [ RunTime:0.001201s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='42' ORDER BY id asc [ RunTime:0.001376s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='45' ORDER BY id asc [ RunTime:0.001082s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='51' ORDER BY id asc [ RunTime:0.001090s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='59' ORDER BY id asc [ RunTime:0.001120s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='69' ORDER BY id asc [ RunTime:0.001356s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='76' ORDER BY id asc [ RunTime:0.001245s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='79' ORDER BY id asc [ RunTime:0.003193s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='87' ORDER BY id asc [ RunTime:0.001390s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='101' ORDER BY id asc [ RunTime:0.001073s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='107' ORDER BY id asc [ RunTime:0.001225s ]
+[ 2013-07-28T21:31:39+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='108' ORDER BY id asc [ RunTime:0.001163s ]
+[ 2013-07-28T21:31:40+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='111' ORDER BY id asc [ RunTime:0.001557s ]
+[ 2013-07-28T21:31:40+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='115' ORDER BY id asc [ RunTime:0.001070s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SHOW COLUMNS FROM `role` [ RunTime:0.005660s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `role` WHERE ( `id` = '44' ) LIMIT 1  [ RunTime:0.001047s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT 
+		  m.`id`
+		FROM
+		  menu m 
+		  INNER JOIN role_menu rm 
+		    ON m.`id` = rm.`mid` 
+		WHERE rid = 44  [ RunTime:0.003148s ]
+[ 2013-07-28T21:33:05+08:00 ] NOTIC: [8] Undefined variable: rm LimitAction.class.php 第 82 行.
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT 
+		  m.`id`,rm.`ext`
+		FROM
+		  menu m 
+		  INNER JOIN role_menu rm 
+		    ON m.`id` = rm.`mid` 
+		  WHERE rm.`ext` IS NOT NULL  AND rm.`rid`= 44 [ RunTime:0.003698s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.011610s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE parent_id is null [ RunTime:0.001273s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SHOW COLUMNS FROM `menu` [ RunTime:0.009057s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='1' ORDER BY id asc [ RunTime:0.001794s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='2' ORDER BY id asc [ RunTime:0.001278s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='6' ORDER BY id asc [ RunTime:0.001392s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='7' ORDER BY id asc [ RunTime:0.001267s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='8' ORDER BY id asc [ RunTime:0.007936s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='15' ORDER BY id asc [ RunTime:0.001668s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='16' ORDER BY id asc [ RunTime:0.001112s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='19' ORDER BY id asc [ RunTime:0.001131s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='24' ORDER BY id asc [ RunTime:0.005838s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='27' ORDER BY id asc [ RunTime:0.001291s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='31' ORDER BY id asc [ RunTime:0.003001s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='34' ORDER BY id asc [ RunTime:0.001049s ]
+[ 2013-07-28T21:33:05+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='35' ORDER BY id asc [ RunTime:0.001300s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='36' ORDER BY id asc [ RunTime:0.002109s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='39' ORDER BY id asc [ RunTime:0.001078s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='42' ORDER BY id asc [ RunTime:0.001329s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='45' ORDER BY id asc [ RunTime:0.001369s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='51' ORDER BY id asc [ RunTime:0.001106s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='59' ORDER BY id asc [ RunTime:0.001106s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='69' ORDER BY id asc [ RunTime:0.001129s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='76' ORDER BY id asc [ RunTime:0.001523s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='79' ORDER BY id asc [ RunTime:0.001129s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='87' ORDER BY id asc [ RunTime:0.001247s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='101' ORDER BY id asc [ RunTime:0.001184s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='107' ORDER BY id asc [ RunTime:0.001330s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='108' ORDER BY id asc [ RunTime:0.001741s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='111' ORDER BY id asc [ RunTime:0.002387s ]
+[ 2013-07-28T21:33:06+08:00 ] SQL: SELECT * FROM `menu` WHERE 1=1 AND parent_id='115' ORDER BY id asc [ RunTime:0.001450s ]
+[ 2013-07-28T21:33:13+08:00 ] NOTIC: [8] Undefined index: key LimitAction.class.php 第 4 行.
+[ 2013-07-28T21:33:13+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005324s ]
+[ 2013-07-28T21:33:13+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000862s ]
+[ 2013-07-28T21:33:13+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' order by ordernumber [ RunTime:0.012320s ]
+[ 2013-07-28T21:33:13+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' order by ordernumber limit 0,20 [ RunTime:0.009188s ]
+[ 2013-07-28T21:33:28+08:00 ] NOTIC: [8] Undefined index: key LimitAction.class.php 第 4 行.
+[ 2013-07-28T21:33:28+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005767s ]
+[ 2013-07-28T21:33:28+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.003216s ]
+[ 2013-07-28T21:33:28+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' order by ordernumber [ RunTime:0.011459s ]
+[ 2013-07-28T21:33:28+08:00 ] SQL: SELECT *,(SELECT COUNT(id) FROM user WHERE role=r.id) AS users FROM role r  where r.code='13108617' order by ordernumber limit 20,20 [ RunTime:0.005928s ]

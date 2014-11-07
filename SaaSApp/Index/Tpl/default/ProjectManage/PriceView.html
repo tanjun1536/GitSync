@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">工程管理 - 工程報價</div>
+			<div class="mainInfo">
+				<div class="topic2">工程報價單</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="1"
+					class="tabThSide">
+
+					<tr>
+						<th scope="row">報價單號</th>
+						<td>{$price.pricecode}</td>
+						<th scope="row">報價日期</th>
+						<td>{$price.pricedate}</td>
+					</tr>
+					<tr>
+						<th width="128" scope="row">分項</th>
+						<td width="216">{$price.pricesubitem}</td>
+						<th width="122" scope="row">BU單位</th>
+						<td width="224">{$price.BUunit}</td>
+					</tr>
+					<tr>
+						<th scope="row">製表人</th>
+						<td colspan="3">{$price.tabulator}</td>
+					</tr>
+					<tr>
+						<th scope="row">承辦人</th>
+						<td colspan="3">{$price.undertakername}</td>
+					</tr>
+					<tr>
+						<th scope="row">承辦人電話</th>
+						<td>{$price.phone}</td>
+						<th scope="row">承辦人EMAIL</th>
+						<td>{$price.email}</td>
+					</tr>
+					<tr>
+						<th scope="row">案場名稱</th>
+						<td colspan="3">{$price.casename}</td>
+					</tr>
+					<tr>
+						<th scope="row">工程名稱</th>
+						<td colspan="3">{$price.projectname}</td>
+					</tr>
+					<tr>
+						<th scope="row">客戶名稱</th>
+						<td>{$price.clientname}</td>
+						<th scope="row">聯絡人</th>
+						<td>{$price.linker}</td>
+					</tr>
+					<tr>
+						<th scope="row">客戶地址</th>
+						<td colspan="3">{$price.clientprovname}{$price.clientcityname}{$price.clietnaddress}</td>
+					</tr>
+					<tr>
+						<th scope="row">客戶統編</th>
+						<td>{$price.clientcode}</td>
+						<th scope="row">客戶電話</th>
+						<td>{$price.clientphone}</td>
+					</tr>
+					<tr>
+						<th scope="row">客戶傳真</th>
+						<td colspan="3">{$price.clientfax}</td>
+					</tr>
+					<tr>
+						<th scope="row">送貨(工程地點)</th>
+						<td colspan="3">{$price.projectprovname}{$price.projectcityname}{$price.projectaddress}</td>
+					</tr>
+					<tr>
+						<th scope="row">預估施工方式</th>
+						<td colspan="3">{$price.estimateconstructionmethods}</td>
+					</tr>
+					<tr>
+						<th scope="row">預估委外方式</th>
+						<td colspan="3">{$price.estimatedelegatemethods}</td>
+					</tr>
+					<tr>
+						<th scope="row">預估工資成本</th>
+						<td>{$price.estimatesalarycost}</td>
+						<th scope="row">預估材料成本</th>
+						<td>{$price.estimatemeterialcost}</td>
+					</tr>
+					<tr>
+						<th scope="row">預估發包成本</th>
+						<td>{$price.estimatefbcost}</td>
+						<th scope="row">預估其他成本</th>
+						<td>{$price.estimateothercost}</td>
+					</tr>
+					<tr>
+						<th scope="row">預估總成本</th>
+						<td>{$price.estimatetotalcost}</td>
+						<th scope="row">成交價</th>
+						<td>{$price.strikeprice}</td>
+					</tr>
+					<tr>
+						<th scope="row">預估毛利</th>
+						<td>{$price.estimategrossprofit}</td>
+						<th scope="row">預估毛利率</th>
+						<td>{$price.estimategrossprofitrate}</td>
+					</tr>
+					<tr>
+						<th scope="row">實際施工方式</th>
+						<td colspan="3">{$price.factconstructionmethods}</td>
+					</tr>
+					<tr>
+						<th scope="row">實際委外方式</th>
+						<td colspan="3">{$price.factdelegatemethods}</td>
+					</tr>
+					<tr>
+						<th scope="row">實際委外廠商</th>
+						<td>{$price.factdelegatecompany}</td>
+						<th scope="row">實際工資成本</th>
+						<td>{$price.factsalarycost}</td>
+					</tr>
+					<tr>
+						<th scope="row">實際材料成本</th>
+						<td>{$price.factmeterialcost}</td>
+						<th scope="row">實際其他成本</th>
+						<td>{$price.facttotalcost}</td>
+					</tr>
+					<tr>
+						<th scope="row">實際總成本</th>
+						<td>{$price.facttotalcost}</td>
+						<th scope="row">實際成交價</th>
+						<td>{$price.factstrikeprice}</td>
+					</tr>
+					<tr>
+						<th scope="row">實際毛利</th>
+						<td>{$price.factgrossprofit}</td>
+						<th scope="row">實際毛利率</th>
+						<td>{$price.factgrossprofitrate}</td>
+					</tr>
+					<tr>
+						<th scope="row">備註說明</th>
+						<td colspan="3">{$price.projectremark}</td>
+					</tr>
+				</table>
+				<table width="695" border="0" cellpadding="0" cellspacing="1"
+					class="tabThSide">
+					<tr>
+						<th width="34" scope="col">NO</th>
+						<th width="326" scope="col">品名/項目</th>
+						<th width="53" scope="col">數量</th>
+						<th width="54" scope="col">單位</th>
+						<th width="60" scope="col">單價</th>
+						<th width="69" scope="col">複價</th>
+						<th width="91" scope="col">備註/規格</th>
+					</tr>
+					<volist name="details" id="item"> <if condition="$i%2 eq 1">
+					<tr class="trcolor">
+						<else />
+						<tr>
+					</if>
+					<td align="center">{$i}</td>
+					<td>{$item.productname}</td>
+					<td align="center">{$item.productquantity}</td>
+					<td align="center">{$item.productunit}</td>
+					<td align="center">{$item.price}</td>
+					<td align="center">{$item.productfj}</td>
+					<td align="center">{$item.remark}</td>
+					</tr>
+					</volist>
+				</table>
+				<div>
+					<p>
+						合計：{$price.total}<br /> 稅金(5%)：{$price.taxprice}<br /> 總價：{$price.totalprice}<br /> 備註：{$price.priceremark}<br />
+					</p>
+				</div>
+				<div class="back">
+					<a href="javascript:window.history.go(-1)">》回上頁</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

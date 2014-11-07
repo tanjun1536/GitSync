@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">專案管理</div>
+			<div class="mainInfo">
+				<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<div class="mailNav">
+						<if condition="check_power('新增專案',$ext) eq 1"> <a href="__URL__/add">新增專案</a> </if>
+						專案名稱 <input type="text" name="key" /> <input type="submit" name="Submit" value="搜尋" />
+					</div>
+				</form>
+				<form action="__URL__/delete" method="post" enctype="multipart/form-data" name="form1" onsubmit="return confirm('是否確認刪除選擇的數據?')" id="form1">
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="28" scope="col">&nbsp;</th>
+							<th width="371" scope="col">專案名稱</th>
+							<th width="98" scope="col">專案起始日</th>
+							<th width="98" scope="col">預定結束日</th>
+							<th width="98" scope="col">實際結束日</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+						<tr class="trcolor">
+						</if>
+						<td align="center"><input type="checkbox" name="itemcheckbox[]" value="{$item.id}" /></td>
+						<td><a href="__URL__/content?case={$item.id}">{$item.name}</a></td>
+						<td align="center">{$item.casestartdate|date='Y/m/d',strtotime(###)}</td>
+						<td align="center">{$item.caseevaluateenddate|date='Y/m/d',strtotime(###)}</td>
+						<td align="center"><neq name="item.casereallyenddate" value="0000-00-00 00:00:00">{$item.casereallyenddate|date='Y/m/d',strtotime(###)}</neq></td>
+						</tr>
+						</volist>
+					</table>
+					<div style="margin-top: 10px">
+						<if condition="check_power('刪除專案',$ext) eq 1"> <input type="submit" name="Submit2" value="刪除" /> </if>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

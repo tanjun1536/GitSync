@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	var mt = "{$mt}";
+	var ct = "{$ct}";
+	$(function() {
+		$("#smt").change(function() {
+			getChildType();
+		});
+		if (mt)
+			$("#smt").val(mt).trigger('change');
+	});
+	function getChildType() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getChildType",
+			data : "type=" + $("#smt").val(),
+			success : function(data) {
+				$("#sct").empty();
+				$("<option value='請選擇'>請選擇</option>").appendTo("#sct");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#sct");
+				});
+				if (ct)
+					$("#sct").val(ct);
+			}
+		});
+
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">會計系統- 科目設定</div>
+			<div class="mainInfo">
+				<form action="__URL__/subjectlist" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<div class="topic2">會計科目</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="90" scope="row">類別</th>
+							<td width="602"><select name="smt" id="smt">
+									<option value="">請選擇</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="sct" id="sct">
+									<option value="">請選擇</option>
+							</select> <input type="submit" name="Submit" value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="mailNav">
+					<a href="__URL__/addSubjectPage">新增會計科目</a><a href="__URL__/subjectChildTypeAddPage">新增子類別</a><a href="__URL__/subjectTypeList">類別列表</a>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="131" scope="col">科目代號</th>
+						<th width="214" scope="col">科目名稱</th>
+						<th width="214" scope="col">所屬類別</th>
+						<th width="134" scope="col">操作</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.subjectcode}</td>
+					<td align="center">{$item.subjectname}</td>
+					<td>{$item.mname} &gt; {$item.cname}</td>
+					<td align="center"><a href="__URL__/editSubject?id={$item.id}">修改科目 </a> | <a onclick="return confirm('是否刪除選擇的數據?');" href="__URL__/deleteSubject?id={$item.id}">刪除</a></td>
+					</tr>
+					</volist>
+				</table>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

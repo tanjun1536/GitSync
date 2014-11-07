@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	$(function() {
+		$("#shour").val('{$business.shour}');
+		$("#sminute").val('{$business.sminute}');
+		$("#ehour").val('{$business.ehour}');
+		$("#eminute").val('{$business.eminute}');
+		var spec='{$business.specificmatters}';
+		var specs=document.getElementsByName("specific[]");
+		for(var i=0;i<specs.length;i++)
+			{
+				if(spec.indexOf(specs[i].value)>-1)
+					{
+					specs[i].checked=true;
+					}
+			}
+	});
+	function check() {
+		return validator.empty('date', '請選擇日期!') && validator.index('shour', '請選擇開始小時!') && validator.index('sminute', '請選擇開始分鐘!') && validator.index('ehour', '請選擇結束小時!') && validator.index('eminute', '請選擇結束分鐘!');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">業務管理</div>
+			<div class="mainInfo">
+				<form action="__URL__/update" onsubmit="return check()" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" value="{$business.id}" name="id" />
+					<div class="topic2">新增 / 修改紀錄</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+
+						<tr>
+							<th width="135" scope="row">日期</th>
+							<td width="557"><input type="text" name="date" id="date" value="{$business.date}" class="Wdate" onfocus="WdatePicker()" /></td>
+						</tr>
+						<tr>
+							<th scope="row">時間</th>
+							<td>開始 <select name="shour" id="shour">
+									<option value="時">時</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+							</select> ： <select name="sminute" id="sminute">
+									<option value="分">分</option>
+									<option value="00">00</option>
+									<option value="30">30</option>
+							</select> ；結束 <select name="ehour" id="ehour">
+									<option value="時">時</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+							</select> ： <select name="eminute" id="eminute">
+									<option value="分">分</option>
+									<option value="00">00</option>
+									<option value="30">30</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">公司名稱</th>
+							<td><input type="text" name="companyname" value="{$business.companyname}" style="width: 300px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">統一編號</th>
+							<td><input type="text" name="businesscode" value="{$business.businesscode}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡人</th>
+							<td>姓名 <input type="text" name="linkername" value="{$business.linkername}" /> ；職位 <input type="text" name="linkerduty" value="{$business.linkerduty}" /> <br /> 電話 <input type="text" name="linkerphone" value="{$business.linkerphone}" /> ；手機 <input type="text" name="linkermobile" value="{$business.linkermobile}" /> <br /> Email <input type="text" name="linkeremail" value="{$business.linkeremail}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">互動方式</th>
+							<td><if condition="$business.interactiveway eq '' ">
+								<input name="interactiveway" type="radio" value="電話聯繫" checked="checked" /> 電話聯繫 <input name="interactiveway" type="radio" value="親自拜訪" /> 親自拜訪<else />
+								<input name="interactiveway" type="radio" value="電話聯繫" /> 電話聯繫 <input name="interactiveway" checked="checked" type="radio" value="親自拜訪" /> 親自拜訪</if></td>
+						</tr>
+						<tr>
+							<th scope="row">具體事項</th>
+							<td><input type="checkbox" name="specific[]" value="初次拜訪" /> 初次拜訪 <input type="checkbox" name="specific[]" value="業務報價" /> 業務報價 <input type="checkbox" name="specific[]" value="工程報價" /> 工程報價 <input type="checkbox" name="specific[]" value="維修報價" /> 維修報價<br /> <input type="checkbox" name="specific[]" value="會議" /> 會議 <input type="checkbox" name="specific[]" value="簽約" /> 簽約 <input type="checkbox" name="specific[]" value="收款" /> 收款 <input type="checkbox" name="specific[]" value="維護" /> 維護</td>
+						</tr>
+						<tr>
+							<th scope="row">狀態</th>
+							<td><eq name="business.state" value="預訂工作"><input name="state" type="radio" value="預訂工作" checked="checked" /> 預訂工作 <input name="state" type="radio" value="完成工作" /> 完成工作<else/><input name="state" type="radio" value="預訂工作"  /> 預訂工作 <input name="state" type="radio" value="完成工作" checked="checked"/> 完成工作</eq></td>
+						</tr>
+						<tr>
+							<th scope="row">提醒</th>
+							<td><eq name="business.awoke" value="0">
+								<input name="awoke" type="radio" value="1" /> 加入提醒 <input name="awoke" type="radio" value="0" checked="checked" /> 不提醒<else />
+								<input name="awoke" type="radio" checked="checked" value="1" /> 加入提醒 <input name="awoke" type="radio" value="0"  /> 不提醒</eq></td>
+						</tr>
+						<tr>
+							<th scope="row">詳細說明</th>
+							<td><label> <textarea name="detail" rows="6" style="width: 500px">{$business.detail}</textarea>
+							</label></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

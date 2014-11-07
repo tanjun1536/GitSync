@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">一般訊息</div>
+			<div class="mainInfo">
+				<div class="mailNav">
+					<a href="__URL__/create">寫信</a><a href="__URL__/send"> 寄件備份</a><a href="__URL__/index" class="select">收件夾(<strong>{@MSG_COMM}</strong>)
+					</a>
+				</div>
+				<div class="mailNav2">
+					<div>
+						<a href="__URL__/response?id={$msg.id}">回覆</a><a href="__URL__/sendtoothers?id={$msg.id}">轉寄</a>
+					</div>
+					<table width="683" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td bgcolor="#D2ECFB"><strong>寄件者 :</strong></td>
+							<td width="458" bgcolor="#D2ECFB">{$msg.sendername}</td>
+							<td width="170" align="right" bgcolor="#D2ECFB">{$msg.senddate|date='y/m/d h:m A',strtotime(###)}</td>
+						</tr>
+						<tr>
+							<td width="55" bgcolor="#D2ECFB"><strong>收件者 :</strong></td>
+							<td colspan="2" bgcolor="#D2ECFB">{$msg.receiversname}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#D2ECFB"><strong>主 旨 :</strong></td>
+							<td colspan="2" bgcolor="#D2ECFB">Re:{$msg.title}</td>
+						</tr>
+					</table>
+				</div>
+				<notempty name="msg.atts">
+				<div class="mailFile">
+					<input type="hidden" value="{$msg.atts}" name="atts"> </input> [ <a href="__URL__/zipdown?names={$msg.atts}">儲存全部附件</a> ] <volist name=":explode(',',$msg['atts'])" id="att"> <a href="__URL__/down?name={$att|urlencode}" target="_blank">{$att}</a>； </volist>
+				</div>
+				</notempty>
+				<div>{$msg.cont}</div>
+				<notempty name="orign">
+				<div class="mail_info">
+					<div>{$orign.cont}</div>
+					<div class="mail_orig">
+						----- Original Message ----- <br /> <strong>寄件者：</strong>{$orign.sendername}<br /> 
+						<strong>收件者：</strong>{$orign.receiversname} <br /> 
+						<strong>寄件日期：</strong>{$orign.senddate|date='y/m/d h:m A',strtotime(###)} <br /> 
+						<strong>主旨：</strong>{$orign.title}<br />
+					</div>
+					<div>{$orign.cont}</div>
+				</div></notempty>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

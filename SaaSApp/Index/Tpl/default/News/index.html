@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	function MM_openBrWindow(theURL, winName, features) { //v2.0
+		window.open(theURL, winName, features);
+	}
+
+	$(function() {
+		$('#headerchecker').click(function() {
+
+			if ($(this).attr("checked") == 'checked') {
+				$("[name='itemcheckbox[]']").attr("checked", 'true');
+			} else {
+				$("[name='itemcheckbox[]']").removeAttr("checked");
+
+			}
+		});
+
+	});
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">公佈欄</div>
+			<div class="mainInfo">
+				<form id="form2" name="form2" method="post" action="__URL__/index">
+					<div class="mailNav">
+						<if condition="check_power('新增訊息',$ext) eq 1"> <a href="__URL__/add">新增訊息</a> </if>
+						<input type="text" name="key" /> <input type="submit" name="Submit2" value="搜尋" />
+					</div>
+				</form>
+				<form id="form1" name="form1" method="post" onsubmit="return delAwoke();" action="__URL__/delete">
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="news_list">
+						<tr>
+							<th width="28" scope="col"><input type="checkbox" id="headerchecker" value="checkbox" /></th>
+							<th width="115" scope="col">發佈日期</th>
+							<th width="447" scope="col">主題</th>
+							<th width="103" scope="col">發佈人</th>
+							<th width="103" scope="col">瀏覽者</th>
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center"><input type="checkbox" name="itemcheckbox[]" value="{$item.id}" /></td>
+						<td align="center">{$item.senddate|date='Y-m-d',strtotime(###)}</td>
+						<td><notempty name="item.atts">
+						 <volist name=":explode(',',$item['atts'])" id="att">
+						  <a href="__URL__/down?name={$att}">
+						   <img style="border: 0" src="__PUBLIC__/images/063.gif"></img></a> 
+						   </volist> </notempty> 
+						   <a href="__URL__/view?id={$item.id}">{$item.title}</a></td>
+						<td align="center">{$item.uname}</td>
+						<td align="center">{$item.readercount} (<a href="#" onclick="MM_openBrWindow('__URL__/viewreaders?id={$item.id}&depart=','','width=775,height=500')">明細</a>)
+						</td>
+						</tr>
+						</volist>
+					</table>
+					<div style="margin-top: 10px">
+						<if condition="check_power('刪除訊息',$ext) eq 1"> <input type="submit" name="Submit" value="刪除" /> </if>
+					</div>
+				</form>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

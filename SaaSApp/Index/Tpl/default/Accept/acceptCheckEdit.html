@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<script type="text/javascript">
+	$(function() {
+		$("input[type='radio'][value='{$acc.accepttype}']").attr("checked",
+				true);
+	});
+	function addFile() {
+		$('#fileContainer').append('<li></li>').append(
+				'<input type="file" name="att[]" />');
+	}
+	function check() {
+		var users = [];
+		$('#users li span').each(function() {
+			users.push($(this).html());
+		});
+		$("#acceptusers").val(users.join(","));
+	}
+	function addUser() {
+		if ($("#acceptuser").val() != '') {
+
+			$("#users")
+					.append(
+							'<li><span>'
+									+ $("#acceptuser").val()
+									+ '</span><a href="javascript:void(0)" onclick="$(this).parent().remove();"><img src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" /></a></li>');
+			$("#acceptuser").val('');
+		}
+	}
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">點交驗收管理 - 點交驗收列表</div>
+			<div class="mainInfo">
+				<form action="__URL__/acceptCheckSave?accept={.accept}" onsubmit="return check()" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="accept" value="{.accept}" /> <input type="hidden" name="id" value="{.id}" /> <input type="hidden" name="acceptusers" id="acceptusers" value="{$acc.acceptusers}" />
+					<div class="topic2">新增點交紀錄</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="111" scope="row">日期</th>
+							<td width="581"><input type="text" name="acceptdate" value="{$acc.acceptdate}" class="Wdate" onfocus="WdatePicker()" /></td>
+						</tr>
+						<tr>
+							<th scope="row">工程名稱</th>
+							<td><input type="text" name="acceptproject" value="{$acc.acceptproject}" style="width: 400px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">地點</th>
+							<td><input type="text" name="acceptaddress" value="{$acc.acceptaddress}" style="width: 400px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">點交類型</th>
+							<td><input name="accepttype" type="radio" value="自驗" checked="checked" /> 自驗 <input name="accepttype" type="radio" value="委外" /> 委外</td>
+						</tr>
+						<tr>
+							<th scope="row">內容說明</th>
+							<td><textarea name="acceptcontent" rows="5" style="width: 500px">{$acc.acceptcontent}</textarea></td>
+						</tr>
+						<tr>
+							<th scope="row">上傳圖片</th>
+							<td><ul id="fileContainer">
+									<li><input type="file" name="atts[]" /><a href="javascript:void(0)" onclick="addFile()"> <img src="__PUBLIC__/images/add_16.png" alt="增加" width="16" height="16" border="0" /></a></li>
+								</ul></td>
+						</tr>
+						<tr>
+							<th scope="row">參與人員</th>
+							<td><input type="text" name="acceptuser" id="acceptuser" /> <a href="javascript:void(0)" onclick="addUser()"><img src="__PUBLIC__/images/add_16.png" alt="增加" width="16" height="16" border="0" /></a>
+								<div>
+									<ul id="users">
+										<volist name=":explode(',',$acc['acceptusers'])" id="item">
+										<li><span>{$item}</span><a href="javascript:void(0)" onclick="$(this).parent().remove();"><img src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" /></a></li>
+										</volist>
+									</ul>
+								</div></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

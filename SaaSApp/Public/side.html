@@ -1,0 +1,99 @@
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<div class="sideLeft">
+	<div>
+		<a href="__APP__/User/profile"> <img src="__PUBLIC__/<php>if(empty($_SESSION['SESSION_USER']['userimage'])) echo 'images/3_03.jpg';  else echo 'Uploads/'.$_SESSION['SESSION_USER']['userimage'];</php>" alt="" width="151" border="0" />
+		</a>
+	</div>
+	<div class="name">
+		<a href="__APP__/User/Profile"><php> echo $_SESSION['SESSION_USER']['name']</php></a>
+	</div>
+	<div id="divdate">
+		<script>
+			WdatePicker({
+				eCont : "divdate",
+				skin:"twoer",
+				onpicked : function(dp) {
+					window.top.location.href='__APP__/Work/index?date=' + dp.cal.getDateStr();
+				}
+			})
+		</script>
+	</div>
+	<div class="menuSide">
+		<ul>
+			<volist id="item" name="LeftMenu"> <empty name="item.children"> <if condition="$item.name eq '提醒'">
+			<li><img src="{$item.image}" alt="" width="23" height="23" /><a href="{$item.link}">{$item.name}({@AWOKE_WORK})</a></li>
+			<else />
+			<li><img src="{$item.image}" alt="" width="23" height="23" /><a href="{$item.link}">{$item.name}</a></li>
+			</if> <else /> <if condition="$item.name eq '專案管理'">
+			<li><img src="__PUBLIC__/images/hire_me.png" alt="" width="23" height="23" /><a href="__APP__/Case/index">專案管理</a></li>
+			<else />
+			<li><img src="{$item.image}" alt="" width="23" height="23" />{$item.name}
+				<ul>
+					<volist id="citem" name="item.children"> <if condition="$citem.name eq '一般訊息'">
+					<li><a href="__APP__/Msg/index">一般訊息</a>({@MSG_COMM})</li>
+					<elseif condition="$citem.name eq '我交辦事項'" />
+					<li><a href="__APP__/Msg/work"><php>if($_SESSION['MSG_MINE_WORK']>0) echo '<font color="red">我交辦事項('.$_SESSION["MSG_MINE_WORK"].')</font>'; else echo '我交辦事項('.$_SESSION["MSG_MINE_WORK"].')';</php></a></li>
+					<elseif condition="$citem.name eq '他人交辦事項'" />
+					<li><a href="__APP__/Msg/otherwork"><php>if($_SESSION['MSG_OTHER_WORK']>0) echo '<font color="red">他人交辦事項('.$_SESSION["MSG_OTHER_WORK"].')</font>'; else echo '他人交辦事項('.$_SESSION["MSG_OTHER_WORK"].')';</php></a></li>
+					<else />
+					<li><a href="{$citem.link}">{$citem.name}</a></li>
+					</if> </volist>
+				</ul></li>
+			</if> </empty> </volist>
+			<!-- 			<li><img src="__PUBLIC__/images/icon_edit.gif" alt="" width="23" height="23" /><a href="__APP__/User/profile">編輯個人檔案</a></li> -->
+			<!-- 			<li><img src="__PUBLIC__/images/icon_mail.gif" alt="" width="23" height="23" />訊息 -->
+			<!-- 				<ul> -->
+			<!-- 					<li><a href="__APP__/Msg/index">一般訊息</a>({@MSG_COMM})</li> -->
+			<!-- 					<li><a href="__APP__/Msg/work"><php>if($_SESSION['MSG_MINE_WORK']>0) echo '<font color="red">我交辦事項('.$_SESSION["MSG_MINE_WORK"].')</font>'; else echo '我交辦事項('.$_SESSION["MSG_MINE_WORK"].')';</php></a></li> -->
+			<!-- 					<li><a href="__APP__/Msg/work"><php>if($_SESSION['MSG_OTHER_WORK']>0) echo '<font color="red">他人交辦事項('.$_SESSION["MSG_OTHER_WORK"].')</font>'; else echo '他人交辦事項('.$_SESSION["MSG_OTHER_WORK"].')';</php></a></li> -->
+			<!-- 				</ul></li> -->
+			<!-- 			<li><img src="__PUBLIC__/images/icon_recommend.gif" alt="" width="23" height="23" /><a href="__APP__/Remind/index">提醒</a> ({@AWOKE_WORK})</li> -->
+			<!-- 			<li><img src="__PUBLIC__/images/icon_friend.gif" alt="" width="23" height="23" /><a href="__APP__/User/friend">同事名單</a></li> -->
+			<!-- 			<li><img src="__PUBLIC__/images/company_32.png" alt="" width="23" height="23" />公司管理 -->
+			<!-- 				<ul> -->
+			<!-- 					<li><a href="__APP__/Company/edit?code={@SESSION_USER.code}">公司基本資料</a></li> -->
+			<!-- 					<li><a href="__APP__/Depart/index">部門管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Team/index">組別管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Level/index">級別管理</a></li> -->
+			<!-- 					<li><a href="__APP__/User/index">員工管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Limit/index">權限管理</a></li> -->
+			<!-- 				</ul></li> -->
+			<!-- 			<li><img src="__PUBLIC__/images/document.png" alt="" width="23" height="23" /><a href="__APP__/Contract/index">合約管理</a></li> -->
+			<!-- 			<li><img src="__PUBLIC__/images/user_business_chart_32.png" alt="" width="23" height="23" /><a href="__APP__/Customer/index">客戶管理</a></li> -->
+			<!-- 			<li><img src="__PUBLIC__/images/page_text_chart_32.png" alt="" width="23" height="23" />業務管理 -->
+			<!-- 				<ul> -->
+			<!-- 					<li><a href="__APP__/Business/index">業務資料追蹤表</a></li> -->
+			<!-- 					<li><a href="__APP__/Business/bid">業務報價管理</a></li> -->
+			<!-- 				</ul></li> -->
+			<!-- 			<li><img src="__PUBLIC__/images/hire_me.png" alt="" width="23" height="23" /><a href="__APP__/Case/index">專案管理</a></li> -->
+			<!-- 			<li><img src="__PUBLIC__/images/pd_32.png" alt="" width="23" height="23" />商品管理 -->
+			<!-- 				<ul> -->
+			<!-- 					<li><a href="__APP__/Stock/productBigType">商品類別管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Stock/product">商品列表</a></li> -->
+			<!-- 				</ul></li> -->
+			<!-- 			<li><img src="__PUBLIC__/images/business_32.png" alt="" width="23" height="23" />廠商管理 -->
+			<!-- 				<ul> -->
+			<!-- 					<li><a href="__APP__/Stock/manufacturersType">廠商類別管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Stock/manufacturers">廠商列表</a></li> -->
+			<!-- 				</ul></li> -->
+			<!-- 			<li><img src="__PUBLIC__/images/stock.png" alt="" width="23" height="23" />進銷存管理 -->
+			<!-- 				<ul> -->
+			<!-- 					<li><a href="__APP__/Stock/stock">庫存管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Stock/purchase">採購管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Stock/stockCheck">驗貨管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Stock/stockStorage">進貨管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Stock/stockChange">異動管理</a></li> -->
+			<!-- 				</ul></li> -->
+			<!-- 			<li><img src="__PUBLIC__/images/accounting.png" alt="" width="23" height="23" />會計系統 -->
+			<!-- 				<ul> -->
+			<!-- 					<li><a href="__APP__/Account/accountlist">常用帳號設定</a></li> -->
+			<!-- 					<li><a href="__APP__/Account/subjectlist">科目設定</a></li> -->
+			<!-- 					<li><a href="__APP__/Account/incomelist">收入管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Account/paylist">支付管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Account/billlist">傳票管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Account/caselist">專案管理</a></li> -->
+			<!-- 					<li><a href="__APP__/Account/budgetlist">預算管理</a></li> -->
+			<!-- 				</ul></li> -->
+		</ul>
+	</div>
+</div>

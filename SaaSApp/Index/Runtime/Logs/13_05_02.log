@@ -1,0 +1,152 @@
+[ 2013-05-02T22:11:59+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-05-02T22:11:59+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-05-02T22:13:01+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.018129s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001502s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007755s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.002818s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.010270s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.095974s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.010910s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.002724s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001799s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.019181s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.003652s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.002372s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.002819s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002846s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.002416s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002341s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.003127s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002530s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.002673s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.002852s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.005837s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.004145s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002560s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=21 [ RunTime:0.002822s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002328s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002998s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002860s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002663s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002710s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002432s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002366s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002266s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.002387s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.004044s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002727s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002351s ]
+[ 2013-05-02T22:13:01+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.003430s ]
+[ 2013-05-02T22:13:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.003038s ]
+[ 2013-05-02T22:13:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002774s ]
+[ 2013-05-02T22:13:02+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002647s ]
+[ 2013-05-02T22:13:02+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2013-05-02T22:13:02+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 21 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.002500s ]
+[ 2013-05-02T22:13:02+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-05-02T22:13:02+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 [ RunTime:0.005337s ]
+[ 2013-05-02T22:13:02+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 limit 0,20 [ RunTime:0.005130s ]
+[ 2013-05-02T22:13:16+08:00 ] SQL: SHOW COLUMNS FROM `accept` [ RunTime:0.008422s ]
+[ 2013-05-02T22:13:16+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept` WHERE  code='13108617' LIMIT 1  [ RunTime:0.000970s ]
+[ 2013-05-02T22:13:16+08:00 ] SQL: SELECT * FROM `accept` WHERE  code='13108617' ORDER BY id desc LIMIT 0,20  [ RunTime:0.000931s ]
+[ 2013-05-02T22:18:13+08:00 ] SQL: SHOW COLUMNS FROM `accept` [ RunTime:0.009055s ]
+[ 2013-05-02T22:18:13+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept` WHERE  code='13108617' LIMIT 1  [ RunTime:0.001492s ]
+[ 2013-05-02T22:18:13+08:00 ] SQL: SELECT * FROM `accept` WHERE  code='13108617' ORDER BY id desc LIMIT 0,20  [ RunTime:0.000857s ]
+[ 2013-05-02T22:18:36+08:00 ] ERR: (ThinkException) 非法操作workcheck_add.php
+[ 2013-05-02T22:46:08+08:00 ] ERR: (ThinkException) 非法操作workcheck_add.php
+[ 2013-05-02T22:47:05+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T22:47:06+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T22:47:39+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T22:47:39+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T22:48:30+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T22:48:30+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T22:51:28+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T22:51:28+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T22:51:46+08:00 ] SQL: SHOW COLUMNS FROM `accept` [ RunTime:0.009081s ]
+[ 2013-05-02T22:51:46+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `accept` WHERE  code='13108617' LIMIT 1  [ RunTime:0.000948s ]
+[ 2013-05-02T22:51:46+08:00 ] SQL: SELECT * FROM `accept` WHERE  code='13108617' ORDER BY id desc LIMIT 0,20  [ RunTime:0.001096s ]
+[ 2013-05-02T22:53:17+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T22:53:17+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T22:54:18+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T22:54:18+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T23:01:12+08:00 ] ERR: (ThinkException) 非法操作workcheck_worker_add.php
+[ 2013-05-02T23:02:25+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T23:02:25+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T23:03:29+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T23:03:29+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T23:07:58+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T23:07:58+08:00 ] ERR: (ThinkException) 非法操作images
+[ 2013-05-02T23:32:01+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.015916s ]
+[ 2013-05-02T23:32:01+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.004596s ]
+[ 2013-05-02T23:32:10+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.008024s ]
+[ 2013-05-02T23:32:10+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001188s ]
+[ 2013-05-02T23:32:14+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.008038s ]
+[ 2013-05-02T23:32:14+08:00 ] SQL: SELECT * FROM `team` WHERE depart=21 [ RunTime:0.001047s ]
+[ 2013-05-02T23:33:50+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.010395s ]
+[ 2013-05-02T23:33:50+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001003s ]
+[ 2013-05-02T23:33:54+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007821s ]
+[ 2013-05-02T23:33:54+08:00 ] SQL: SELECT * FROM `team` WHERE depart=21 [ RunTime:0.003058s ]
+[ 2013-05-02T23:33:58+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007367s ]
+[ 2013-05-02T23:33:58+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001123s ]
+[ 2013-05-02T23:34:01+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.013374s ]
+[ 2013-05-02T23:34:01+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.000984s ]
+[ 2013-05-02T23:34:03+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009778s ]
+[ 2013-05-02T23:34:03+08:00 ] SQL: SELECT * FROM `user` WHERE team=31 [ RunTime:0.016587s ]
+[ 2013-05-02T23:53:34+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007360s ]
+[ 2013-05-02T23:53:34+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001552s ]
+[ 2013-05-02T23:54:47+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.027444s ]
+[ 2013-05-02T23:54:47+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001189s ]
+[ 2013-05-02T23:54:56+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.010991s ]
+[ 2013-05-02T23:54:56+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001020s ]
+[ 2013-05-02T23:54:57+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009295s ]
+[ 2013-05-02T23:54:57+08:00 ] SQL: SELECT * FROM `user` WHERE team=30 [ RunTime:0.002896s ]
+[ 2013-05-02T23:59:19+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.008262s ]
+[ 2013-05-02T23:59:19+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.006500s ]
+[ 2013-05-02T23:59:22+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.014700s ]
+[ 2013-05-02T23:59:22+08:00 ] SQL: SELECT * FROM `team` WHERE depart=21 [ RunTime:0.000926s ]
+[ 2013-05-02T23:59:25+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.012977s ]
+[ 2013-05-02T23:59:25+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001131s ]
+[ 2013-05-02T23:59:27+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.011125s ]
+[ 2013-05-02T23:59:27+08:00 ] SQL: SELECT * FROM `user` WHERE team=31 [ RunTime:0.002667s ]

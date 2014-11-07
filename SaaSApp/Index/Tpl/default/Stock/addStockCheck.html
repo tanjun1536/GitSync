@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<load href="__PUBLIC__/js/jquery.format.1.03.js" />
+<script type="text/JavaScript">
+	$(function() {
+		$("#manufacturertype").change(function() {
+			getManufacturers();
+		});
+		$("#manufacturer").change(function() {
+			getPurchase();
+		});
+		$(".int").format({
+			precision : 0,
+			allow_negative : false,
+			autofix : true
+		});
+		$("#checkdate").val(new Date().format("yyyy/MM/dd hh:mm"));
+	});
+
+	function getManufacturers() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getManufacturers",
+			data : "type=" + $("#manufacturertype").val(),
+			success : function(data) {
+				$("#manufacturer").empty();
+				$("<option value=''>選擇公司</option>").appendTo("#manufacturer");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['mname']) + "</option>").appendTo("#manufacturer");
+				});
+			}
+
+		});
+
+	}
+
+	function getPurchase() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getPurchase",
+			data : "manufacturer=" + $("#manufacturer").val(),
+			success : function(data) {
+				var json = eval(data);
+				if (json == null)
+					return;
+				var table = $("#purchasedetail");
+				$.each(json, function(k) {
+					var len = $("#purchasedetail tr").length;
+					var lastRow = $("#purchasedetail tr")[len - 2];
+					var row = len % 2 == 1 ? $("<tr class=\"trcolor\"></tr>") : $("<tr></tr>");
+					//	var hValue = $('#productcode').val() + "," + $('#productname').html() + "," + $('#productprice').html()+ "," + $('#quantity').val()+ "," + $('#subtotal').html();
+					row.append($("<td align=\"center\"></td>").append(decodeURI(json[k]['purchasecode'])));
+					row.append($("<td align=\"center\"></td>").append(decodeURI(json[k]['productcode'])));
+					row.append($("<td align=\"center\"></td>").append(decodeURI(json[k]['productname'])));
+					row.append($("<td align=\"center\"></td>").append(decodeURI(json[k]['quantity'])));
+					row.append($("<td align=\"center\"></td>").append(decodeURI(json[k]['unincome'])));
+					row.append($("<td align=\"center\"></td>").append($("<input id='fuck" + k + "' type='text' onkeyup='calSubTotal(this);'  style='width: 50px' /><input type='hidden' value='"+json[k]['price']+"' />")));
+					row.append($("<td align=\"center\"></td>"));
+					$(lastRow).after(row);
+				});
+			}
+
+		});
+
+	}
+	function calSubTotal(o) {
+		var v = parseInt(o.value);
+		if (isNaN(v)) {
+			alert('请输入数字!');
+			o.value = '';
+			$('#' + o.id).parent().next().html('');
+		} else {
+			var p = parseInt($('#' + o.id).parent().prev().html());
+			if (v > p) {
+				alert('到貨數不能大於未到數!');
+				o.value = '';
+				$('#' + o.id).parent().next().html('');
+			} else {
+				var price = $('#' + o.id).parent().find('input[type=hidden]').val();
+				$('#' + o.id).parent().next().html(price * v);
+			}
+
+		}
+		calTotal();
+	}
+	function calTotal() {
+		var total = 0;
+		$("#purchasedetail tr").each(function(i) {
+			var td = $(this).find("td")[6];
+			if (td)
+				if ($(td).html() != '')
+					total += parseFloat($(td).html());
+		});
+		$("#total").html(total);
+		$("#totalmoney").val(total);
+	}
+	function check() {
+
+		var details = new Array();
+		var len = $("#purchasedetail tr").length;
+		$("#purchasedetail tr").each(function(i) {
+			if (i>0 && i < len - 1) {
+				var tds = $(this).find("td");
+				var detail = new Array();
+				detail.push($(tds[0]).html());
+				detail.push($(tds[1]).html());
+				detail.push($(tds[2]).html());
+				detail.push($(tds[3]).html());
+				detail.push($(tds[4]).html());
+				var p= $(tds[5]).find('input[type=hidden]').val();
+				var q = $(tds[5]).find('input[type=text]').val();
+				if (q == '' || isNaN(parseInt(q))) {
+					detail.push(0);
+					detail.push(0);
+				} else {
+					detail.push(q);
+					detail.push($(tds[6]).html());
+				}
+					detail.push(p);
+				
+				details.push(detail.join(','));
+			}
+			
+		});
+		$("#checkdetail").val(details.join(';'));
+		return validator.empty('checkcode', '請輸入驗貨單編號') && validator.index('manufacturertype', '請選擇類別') && validator.index('manufacturer', '請選擇公司');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 驗貨管理</div>
+			<div class="mainInfo">
+				<form id="form2" name="form2" onsubmit="return check()" method="post" action="__URL__/addStockCheck">
+					<input type="hidden" name="checkuser" value="{@SESSION_USER.name}" /> 
+					<input type="hidden" name="checkdate" id="checkdate" /> 
+					<input type="hidden" name="state" value="新進單" />
+					<input type="hidden" name="totalmoney" id="totalmoney" value="0" /> 
+					<input type="hidden" name="checkdetail" id="checkdetail" /> 
+					<input type="hidden" name="code" style="width: 400px" value="{@SESSION_USER.code}" />
+					<div class="topic2">新增驗貨單</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="88" scope="row">驗貨單編號</th>
+							<td><input type="text" name="checkcode" id="checkcode" value="{$linecode}" readonly="readonly"/></td>
+						</tr>
+						<tr>
+							<th scope="row">採購對象</th>
+							<td><select name="manufacturertype" id="manufacturertype">
+									<option value="">選擇類別</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="manufacturer" id="manufacturer">
+									<option value="">選擇公司</option>
+							</select></td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop" id="purchasedetail">
+						<tr>
+							<th width="109" scope="col">採購單編號</th>
+							<th width="123" scope="col">商品編號</th>
+							<th width="185" scope="col">商品名稱</th>
+							<th width="72" scope="col">採購數</th>
+							<th width="67" scope="col">未到數</th>
+							<th width="71" scope="col">到貨數</th>
+							<th width="66" scope="col">小計($)</th>
+						</tr>
+						<tr class="trcolor3">
+							<td colspan="6" align="right"><strong>本次到貨金額：</strong></td>
+							<td align="center" id="total">0</td>
+						</tr>
+					</table>
+					<div align="center" style="margin-top: 10px">
+						<input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

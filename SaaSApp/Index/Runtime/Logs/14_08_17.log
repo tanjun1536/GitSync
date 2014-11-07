@@ -1,0 +1,1738 @@
+[ 2014-08-17T13:11:21+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2014-08-17T13:11:21+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2014-08-17T13:11:26+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.130007s ]
+[ 2014-08-17T13:11:26+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.003000s ]
+[ 2014-08-17T13:11:26+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.107006s ]
+[ 2014-08-17T13:11:26+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.313018s ]
+[ 2014-08-17T13:11:26+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.095005s ]
+[ 2014-08-17T13:11:26+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.193011s ]
+[ 2014-08-17T13:11:26+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.046002s ]
+[ 2014-08-17T13:11:26+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:11:26+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.095006s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.014000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007001s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.007000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.006001s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.004000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.003000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.000000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003001s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.003000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004000s ]
+[ 2014-08-17T13:11:27+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004001s ]
+[ 2014-08-17T13:11:27+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2014-08-17T13:11:28+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.007000s ]
+[ 2014-08-17T13:11:28+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007001s ]
+[ 2014-08-17T13:11:28+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc [ RunTime:0.048002s ]
+[ 2014-08-17T13:11:28+08:00 ] SQL: SELECT 
+			  m.*,IFNULL(mr.readerid,0) isread 
+			FROM
+			  msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+			WHERE INSTR(
+			    CONCAT(',', m.receiversid, ','),
+			    CONCAT(',', 30, ',')
+			  ) > 0 AND m.code = 13108617 ORDER by m.id desc limit 0,20 [ RunTime:0.035002s ]
+[ 2014-08-17T13:12:55+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:12:55+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:12:55+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:12:56+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.124007s ]
+[ 2014-08-17T13:12:56+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.002000s ]
+[ 2014-08-17T13:12:56+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:12:56+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:12:56+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:12:59+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.071004s ]
+[ 2014-08-17T13:12:59+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `stock_out_type` WHERE  `code`='13108617'  LIMIT 1  [ RunTime:0.003000s ]
+[ 2014-08-17T13:12:59+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE  `code`='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.002001s ]
+[ 2014-08-17T13:12:59+08:00 ] NOTIC: [8] Undefined variable: outtype c535fcd3365154ed85ed109526d0ba35.php 第 151 行.
+[ 2014-08-17T13:12:59+08:00 ] NOTIC: [8] Undefined variable: outtype c535fcd3365154ed85ed109526d0ba35.php 第 155 行.
+[ 2014-08-17T13:13:04+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.008000s ]
+[ 2014-08-17T13:13:04+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-08-17T13:13:04+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.055003s ]
+[ 2014-08-17T13:13:04+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-08-17' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:13:04+08:00 ] SQL: INSERT INTO `stock_line_code` (`date`,`type`,`line`,`code`) VALUES ('2014-08-17','O',1,'13108617') [ RunTime:0.064004s ]
+[ 2014-08-17T13:13:04+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 311 行.
+[ 2014-08-17T13:13:04+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 371 行.
+[ 2014-08-17T13:13:04+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 375 行.
+[ 2014-08-17T13:13:04+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 407 行.
+[ 2014-08-17T13:13:04+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 420 行.
+[ 2014-08-17T13:13:14+08:00 ] NOTIC: [8192] Assigning the return value of new by reference is deprecated Reader.php 第 916 行.
+[ 2014-08-17T13:13:14+08:00 ] NOTIC: [8] Undefined offset: 8 StockAction.class.php 第 1751 行.
+[ 2014-08-17T13:13:14+08:00 ] NOTIC: [8] Undefined offset: 8 StockAction.class.php 第 1751 行.
+[ 2014-08-17T13:13:14+08:00 ] NOTIC: [8] Undefined offset: 8 StockAction.class.php 第 1751 行.
+[ 2014-08-17T13:13:15+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.008000s ]
+[ 2014-08-17T13:13:15+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-08-17T13:13:15+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.008000s ]
+[ 2014-08-17T13:13:15+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-08-17' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:13:15+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=2,`date`='2014-08-17',`code`='13108617' WHERE ( `id` = '67' ) [ RunTime:0.139008s ]
+[ 2014-08-17T13:15:09+08:00 ] NOTIC: [8192] Assigning the return value of new by reference is deprecated Reader.php 第 916 行.
+[ 2014-08-17T13:15:10+08:00 ] NOTIC: [8] Undefined offset: 8 StockAction.class.php 第 1751 行.
+[ 2014-08-17T13:15:10+08:00 ] NOTIC: [8] Undefined offset: 8 StockAction.class.php 第 1751 行.
+[ 2014-08-17T13:15:10+08:00 ] NOTIC: [8] Undefined offset: 8 StockAction.class.php 第 1751 行.
+[ 2014-08-17T13:15:11+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.006000s ]
+[ 2014-08-17T13:15:11+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-08-17T13:15:11+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.004001s ]
+[ 2014-08-17T13:15:11+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-08-17' AND type='O' LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-08-17T13:15:11+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=3,`date`='2014-08-17',`code`='13108617' WHERE ( `id` = '67' ) [ RunTime:0.079005s ]
+[ 2014-08-17T13:16:20+08:00 ] NOTIC: [8] Undefined index: sdepart ProjectManageAction.class.php 第 8 行.
+[ 2014-08-17T13:16:20+08:00 ] NOTIC: [8] Undefined index: sdate ProjectManageAction.class.php 第 9 行.
+[ 2014-08-17T13:16:20+08:00 ] NOTIC: [8] Undefined index: sstate ProjectManageAction.class.php 第 10 行.
+[ 2014-08-17T13:16:21+08:00 ] SQL: SHOW COLUMNS FROM `project_price` [ RunTime:0.112006s ]
+[ 2014-08-17T13:16:21+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `project_price` WHERE  `code`='13108617'  LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:16:21+08:00 ] SQL: SELECT * FROM `project_price` WHERE  `code`='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.002000s ]
+[ 2014-08-17T13:16:24+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.094005s ]
+[ 2014-08-17T13:16:24+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.002000s ]
+[ 2014-08-17T13:16:24+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.087005s ]
+[ 2014-08-17T13:16:24+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.001000s ]
+[ 2014-08-17T13:16:24+08:00 ] SQL: SHOW COLUMNS FROM `project_price_linecode` [ RunTime:0.027001s ]
+[ 2014-08-17T13:16:24+08:00 ] SQL: SELECT * FROM `project_price_linecode` WHERE `code`= '13108617' AND date='2014-08-17' LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-08-17T13:16:24+08:00 ] SQL: INSERT INTO `project_price_linecode` (`date`,`line`,`code`) VALUES ('2014-08-17',1,'13108617') [ RunTime:0.123007s ]
+[ 2014-08-17T13:18:47+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 4 行.
+[ 2014-08-17T13:18:48+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.103006s ]
+[ 2014-08-17T13:18:48+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  LIMIT 1  [ RunTime:0.100006s ]
+[ 2014-08-17T13:18:48+08:00 ] SQL: SELECT * FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001000s ]
+[ 2014-08-17T13:18:51+08:00 ] SQL: SHOW COLUMNS FROM `case_content` [ RunTime:0.069004s ]
+[ 2014-08-17T13:18:51+08:00 ] SQL: select * from case_content where id =9 [ RunTime:0.001000s ]
+[ 2014-08-17T13:18:51+08:00 ] NOTIC: [8] Undefined index: caseName 6a80fc463fa49e147ec5390fac1af20e.php 第 107 行.
+[ 2014-08-17T13:19:02+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:02+08:00 ] NOTIC: [8] Undefined index: name BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:02+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:02+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:02+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:02+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:02+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:02+08:00 ] NOTIC: [8] Undefined index: build BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:02+08:00 ] NOTIC: [8] Undefined index: floor BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:02+08:00 ] NOTIC: [8] Undefined index: area BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:02+08:00 ] NOTIC: [8] Undefined index: type BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:02+08:00 ] NOTIC: [8] Undefined index: childtype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:03+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.188011s ]
+[ 2014-08-17T13:19:03+08:00 ] NOTIC: [8] Undefined index: q BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:03+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 9  order by repairdate desc [ RunTime:0.391022s ]
+[ 2014-08-17T13:19:04+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 9  order by repairdate desc limit 0,20 [ RunTime:0.023001s ]
+[ 2014-08-17T13:19:04+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.105006s ]
+[ 2014-08-17T13:19:04+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 9 LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:19:04+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '申請叫修' AND `case` = 9 [ RunTime:0.031002s ]
+[ 2014-08-17T13:19:04+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '派工' AND `case` = 9 [ RunTime:0.023001s ]
+[ 2014-08-17T13:19:04+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '委外' AND `case` = 9 [ RunTime:0.021001s ]
+[ 2014-08-17T13:19:04+08:00 ] SQL: SHOW COLUMNS FROM `case_device_buildingtype` [ RunTime:0.042003s ]
+[ 2014-08-17T13:19:04+08:00 ] SQL: SELECT * FROM `case_device_buildingtype` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-08-17T13:19:04+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.056003s ]
+[ 2014-08-17T13:19:04+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-08-17T13:19:04+08:00 ] NOTIC: [8] Undefined variable: build e2ab549fb0459c40412e5130be1fd81e.php 第 10 行.
+[ 2014-08-17T13:19:04+08:00 ] NOTIC: [8] Undefined variable: floor e2ab549fb0459c40412e5130be1fd81e.php 第 11 行.
+[ 2014-08-17T13:19:04+08:00 ] NOTIC: [8] Undefined variable: area e2ab549fb0459c40412e5130be1fd81e.php 第 12 行.
+[ 2014-08-17T13:19:04+08:00 ] NOTIC: [8] Undefined variable: type e2ab549fb0459c40412e5130be1fd81e.php 第 13 行.
+[ 2014-08-17T13:19:04+08:00 ] NOTIC: [8] Undefined variable: childtype e2ab549fb0459c40412e5130be1fd81e.php 第 14 行.
+[ 2014-08-17T13:19:04+08:00 ] NOTIC: [8] Undefined index: caseName e2ab549fb0459c40412e5130be1fd81e.php 第 216 行.
+[ 2014-08-17T13:19:04+08:00 ] NOTIC: [8] Undefined variable: repaircode e2ab549fb0459c40412e5130be1fd81e.php 第 228 行.
+[ 2014-08-17T13:19:04+08:00 ] NOTIC: [8] Undefined variable: sdispatcher e2ab549fb0459c40412e5130be1fd81e.php 第 230 行.
+[ 2014-08-17T13:19:04+08:00 ] NOTIC: [8] Undefined variable: devicename e2ab549fb0459c40412e5130be1fd81e.php 第 234 行.
+[ 2014-08-17T13:19:04+08:00 ] NOTIC: [8] Undefined variable: askman e2ab549fb0459c40412e5130be1fd81e.php 第 236 行.
+[ 2014-08-17T13:19:04+08:00 ] NOTIC: [8] Undefined variable: sdate e2ab549fb0459c40412e5130be1fd81e.php 第 240 行.
+[ 2014-08-17T13:19:04+08:00 ] NOTIC: [8] Undefined variable: edate e2ab549fb0459c40412e5130be1fd81e.php 第 242 行.
+[ 2014-08-17T13:19:51+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:51+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:51+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:19:53+08:00 ] SQL: SELECT * FROM (SELECT 
+				  i.*,
+			  if(ISNULL(i.state),
+			  IF(
+			    ISNULL(z.cstate),
+			    '正常',
+			    '異常'
+			  ),IF(LENGTH(TRIM(i.`state`))<1,'正常','異常')) cstate 
+				FROM
+				  case_device_maintenance_detail_instance i 
+				  LEFT  JOIN 
+				    (SELECT 
+				       COUNT(b.id) AS cstate,
+				      b.`instance` 
+				    FROM
+				      `case_device_maintenance_detail_instance_detail` b 
+				     
+				    WHERE result = '異常' 
+				      OR result < `floor` 
+				      OR result > cap 
+				    GROUP BY b.`instance`) z 
+				    ON i.`id` = z.instance 
+				WHERE i.`case`=9) x  order by id desc  [ RunTime:1.274073s ]
+[ 2014-08-17T13:19:54+08:00 ] SQL: SELECT * FROM (SELECT 
+				  i.*,
+			  if(ISNULL(i.state),
+			  IF(
+			    ISNULL(z.cstate),
+			    '正常',
+			    '異常'
+			  ),IF(LENGTH(TRIM(i.`state`))<1,'正常','異常')) cstate 
+				FROM
+				  case_device_maintenance_detail_instance i 
+				  LEFT  JOIN 
+				    (SELECT 
+				       COUNT(b.id) AS cstate,
+				      b.`instance` 
+				    FROM
+				      `case_device_maintenance_detail_instance_detail` b 
+				     
+				    WHERE result = '異常' 
+				      OR result < `floor` 
+				      OR result > cap 
+				    GROUP BY b.`instance`) z 
+				    ON i.`id` = z.instance 
+				WHERE i.`case`=9) x  order by id desc  limit 0,20 [ RunTime:0.843049s ]
+[ 2014-08-17T13:19:55+08:00 ] NOTIC: [8] Undefined variable: state 956deb052db685e8afa4e689d7e53d1b.php 第 23 行.
+[ 2014-08-17T13:19:55+08:00 ] NOTIC: [8] Undefined index: caseName 956deb052db685e8afa4e689d7e53d1b.php 第 129 行.
+[ 2014-08-17T13:19:55+08:00 ] NOTIC: [8] Undefined variable: sdate 956deb052db685e8afa4e689d7e53d1b.php 第 143 行.
+[ 2014-08-17T13:19:55+08:00 ] NOTIC: [8] Undefined variable: edate 956deb052db685e8afa4e689d7e53d1b.php 第 145 行.
+[ 2014-08-17T13:20:04+08:00 ] SQL: SELECT cdmd.*,cdt.`id` AS tid ,cdct.`id` AS ctid,cdt.`name` AS tname ,cdct.`name` AS ctname FROM `case_device_maintenance_detail_instance` cdmd INNER JOIN case_device c ON c.`devicecode`=cdmd.`devicecode`
+			  INNER JOIN case_device_child_type cdct ON c.`childtype`=cdct.`id` INNER JOIN case_device_type cdt ON c.`type` =cdt.`id` WHERE cdmd.`id`=6903 [ RunTime:0.195011s ]
+[ 2014-08-17T13:20:04+08:00 ] SQL: SELECT 
+			  * ,
+			  CASE WHEN `result`='正常' THEN '正常'
+			       WHEN `result`='異常' THEN '異常'
+			        WHEN `result`>=floor AND `result`<=cap THEN '正常'
+			        ELSE '異常'
+			  END AS cstate
+			 FROM
+			  `case_device_maintenance_detail_instance_detail`  
+			 WHERE instance=6903 [ RunTime:0.087005s ]
+[ 2014-08-17T13:20:04+08:00 ] NOTIC: [8] Undefined index: caseName bcd0c1fc17f3aba502af9476c38ef637.php 第 111 行.
+[ 2014-08-17T13:21:09+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.008000s ]
+[ 2014-08-17T13:21:09+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 9 [ RunTime:0.000000s ]
+[ 2014-08-17T13:21:09+08:00 ] SQL: SHOW COLUMNS FROM `case_device_buildingtype` [ RunTime:0.008000s ]
+[ 2014-08-17T13:21:09+08:00 ] SQL: SELECT * FROM `case_device_buildingtype` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-08-17T13:21:09+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair_linecode` [ RunTime:0.089005s ]
+[ 2014-08-17T13:21:09+08:00 ] SQL: SELECT * FROM `case_device_repair_linecode` WHERE `case`= 9 AND date='2014-08-17' LIMIT 1  [ RunTime:0.004000s ]
+[ 2014-08-17T13:21:09+08:00 ] SQL: INSERT INTO `case_device_repair_linecode` (`date`,`case`,`code`) VALUES ('2014-08-17','9',1) [ RunTime:0.078005s ]
+[ 2014-08-17T13:21:09+08:00 ] SQL: select * from case_device where devicecode='ACCH005' [ RunTime:0.044002s ]
+[ 2014-08-17T13:21:09+08:00 ] NOTIC: [8] Undefined index: caseName 560c60c282f78ab1c1cc5b6012fe574c.php 第 263 行.
+[ 2014-08-17T13:21:10+08:00 ] SQL: SHOW COLUMNS FROM `case_device_child_type` [ RunTime:0.008001s ]
+[ 2014-08-17T13:21:10+08:00 ] SQL: SELECT * FROM `case_device_child_type` WHERE  type=32 [ RunTime:0.003000s ]
+[ 2014-08-17T13:21:11+08:00 ] SQL: SHOW COLUMNS FROM `case_device_building_floor` [ RunTime:0.072004s ]
+[ 2014-08-17T13:21:11+08:00 ] SQL: SELECT * FROM `case_device_building_floor` WHERE  buildingtype=11 [ RunTime:0.001000s ]
+[ 2014-08-17T13:21:12+08:00 ] SQL: SHOW COLUMNS FROM `case_device` [ RunTime:0.008001s ]
+[ 2014-08-17T13:21:12+08:00 ] SQL: SELECT * FROM `case_device` WHERE  `case` =9 and type= 32 and childtype= 119 and build= 11 [ RunTime:0.033002s ]
+[ 2014-08-17T13:21:22+08:00 ] SQL: SHOW COLUMNS FROM `case_device_building_floor_area` [ RunTime:0.064004s ]
+[ 2014-08-17T13:21:22+08:00 ] SQL: SELECT * FROM `case_device_building_floor_area` WHERE  floor=53 [ RunTime:0.002000s ]
+[ 2014-08-17T13:29:30+08:00 ] SQL: SELECT cdmd.*,cdt.`id` AS tid ,cdct.`id` AS ctid,cdt.`name` AS tname ,cdct.`name` AS ctname FROM `case_device_maintenance_detail_instance` cdmd INNER JOIN case_device c ON c.`devicecode`=cdmd.`devicecode`
+			  INNER JOIN case_device_child_type cdct ON c.`childtype`=cdct.`id` INNER JOIN case_device_type cdt ON c.`type` =cdt.`id` WHERE cdmd.`id`=6903 [ RunTime:0.001000s ]
+[ 2014-08-17T13:29:30+08:00 ] SQL: SELECT 
+			  * ,
+			  CASE WHEN `result`='正常' THEN '正常'
+			       WHEN `result`='異常' THEN '異常'
+			        WHEN `result`>=floor AND `result`<=cap THEN '正常'
+			        ELSE '異常'
+			  END AS cstate
+			 FROM
+			  `case_device_maintenance_detail_instance_detail`  
+			 WHERE instance=6903 [ RunTime:0.001000s ]
+[ 2014-08-17T13:29:30+08:00 ] NOTIC: [8] Undefined index: caseName bcd0c1fc17f3aba502af9476c38ef637.php 第 111 行.
+[ 2014-08-17T13:29:31+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:31+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:31+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:32+08:00 ] SQL: SELECT * FROM (SELECT 
+				  i.*,
+			  if(ISNULL(i.state),
+			  IF(
+			    ISNULL(z.cstate),
+			    '正常',
+			    '異常'
+			  ),IF(LENGTH(TRIM(i.`state`))<1,'正常','異常')) cstate 
+				FROM
+				  case_device_maintenance_detail_instance i 
+				  LEFT  JOIN 
+				    (SELECT 
+				       COUNT(b.id) AS cstate,
+				      b.`instance` 
+				    FROM
+				      `case_device_maintenance_detail_instance_detail` b 
+				     
+				    WHERE result = '異常' 
+				      OR result < `floor` 
+				      OR result > cap 
+				    GROUP BY b.`instance`) z 
+				    ON i.`id` = z.instance 
+				WHERE i.`case`=9) x  order by id desc  [ RunTime:0.051002s ]
+[ 2014-08-17T13:29:32+08:00 ] SQL: SELECT * FROM (SELECT 
+				  i.*,
+			  if(ISNULL(i.state),
+			  IF(
+			    ISNULL(z.cstate),
+			    '正常',
+			    '異常'
+			  ),IF(LENGTH(TRIM(i.`state`))<1,'正常','異常')) cstate 
+				FROM
+				  case_device_maintenance_detail_instance i 
+				  LEFT  JOIN 
+				    (SELECT 
+				       COUNT(b.id) AS cstate,
+				      b.`instance` 
+				    FROM
+				      `case_device_maintenance_detail_instance_detail` b 
+				     
+				    WHERE result = '異常' 
+				      OR result < `floor` 
+				      OR result > cap 
+				    GROUP BY b.`instance`) z 
+				    ON i.`id` = z.instance 
+				WHERE i.`case`=9) x  order by id desc  limit 0,20 [ RunTime:0.000000s ]
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined variable: state 956deb052db685e8afa4e689d7e53d1b.php 第 23 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: caseName 956deb052db685e8afa4e689d7e53d1b.php 第 129 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined variable: sdate 956deb052db685e8afa4e689d7e53d1b.php 第 143 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined variable: edate 956deb052db685e8afa4e689d7e53d1b.php 第 145 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: name BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: build BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: floor BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: area BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: type BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:32+08:00 ] NOTIC: [8] Undefined index: childtype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:33+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.005000s ]
+[ 2014-08-17T13:29:33+08:00 ] NOTIC: [8] Undefined index: q BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:34+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 9  order by repairdate desc [ RunTime:0.243014s ]
+[ 2014-08-17T13:29:34+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 9  order by repairdate desc limit 0,20 [ RunTime:0.000000s ]
+[ 2014-08-17T13:29:34+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.005001s ]
+[ 2014-08-17T13:29:34+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 9 LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-08-17T13:29:34+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '申請叫修' AND `case` = 9 [ RunTime:0.001000s ]
+[ 2014-08-17T13:29:34+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '派工' AND `case` = 9 [ RunTime:0.000000s ]
+[ 2014-08-17T13:29:34+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '委外' AND `case` = 9 [ RunTime:0.000000s ]
+[ 2014-08-17T13:29:34+08:00 ] SQL: SHOW COLUMNS FROM `case_device_buildingtype` [ RunTime:0.004000s ]
+[ 2014-08-17T13:29:34+08:00 ] SQL: SELECT * FROM `case_device_buildingtype` WHERE  `case` = 9 [ RunTime:0.001000s ]
+[ 2014-08-17T13:29:34+08:00 ] SQL: SHOW COLUMNS FROM `case_device_type` [ RunTime:0.004001s ]
+[ 2014-08-17T13:29:34+08:00 ] SQL: SELECT * FROM `case_device_type` WHERE  `case` = 9 [ RunTime:0.000000s ]
+[ 2014-08-17T13:29:34+08:00 ] NOTIC: [8] Undefined variable: build e2ab549fb0459c40412e5130be1fd81e.php 第 10 行.
+[ 2014-08-17T13:29:34+08:00 ] NOTIC: [8] Undefined variable: floor e2ab549fb0459c40412e5130be1fd81e.php 第 11 行.
+[ 2014-08-17T13:29:34+08:00 ] NOTIC: [8] Undefined variable: area e2ab549fb0459c40412e5130be1fd81e.php 第 12 行.
+[ 2014-08-17T13:29:34+08:00 ] NOTIC: [8] Undefined variable: type e2ab549fb0459c40412e5130be1fd81e.php 第 13 行.
+[ 2014-08-17T13:29:34+08:00 ] NOTIC: [8] Undefined variable: childtype e2ab549fb0459c40412e5130be1fd81e.php 第 14 行.
+[ 2014-08-17T13:29:34+08:00 ] NOTIC: [8] Undefined index: caseName e2ab549fb0459c40412e5130be1fd81e.php 第 216 行.
+[ 2014-08-17T13:29:34+08:00 ] NOTIC: [8] Undefined variable: repaircode e2ab549fb0459c40412e5130be1fd81e.php 第 228 行.
+[ 2014-08-17T13:29:34+08:00 ] NOTIC: [8] Undefined variable: sdispatcher e2ab549fb0459c40412e5130be1fd81e.php 第 230 行.
+[ 2014-08-17T13:29:34+08:00 ] NOTIC: [8] Undefined variable: devicename e2ab549fb0459c40412e5130be1fd81e.php 第 234 行.
+[ 2014-08-17T13:29:34+08:00 ] NOTIC: [8] Undefined variable: askman e2ab549fb0459c40412e5130be1fd81e.php 第 236 行.
+[ 2014-08-17T13:29:34+08:00 ] NOTIC: [8] Undefined variable: sdate e2ab549fb0459c40412e5130be1fd81e.php 第 240 行.
+[ 2014-08-17T13:29:34+08:00 ] NOTIC: [8] Undefined variable: edate e2ab549fb0459c40412e5130be1fd81e.php 第 242 行.
+[ 2014-08-17T13:29:41+08:00 ] SQL: SHOW COLUMNS FROM `case_content` [ RunTime:0.007001s ]
+[ 2014-08-17T13:29:41+08:00 ] SQL: select * from case_content where id =9 [ RunTime:0.001000s ]
+[ 2014-08-17T13:29:41+08:00 ] NOTIC: [8] Undefined index: caseName 6a80fc463fa49e147ec5390fac1af20e.php 第 107 行.
+[ 2014-08-17T13:29:41+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 4 行.
+[ 2014-08-17T13:29:42+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.007000s ]
+[ 2014-08-17T13:29:42+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  LIMIT 1  [ RunTime:0.000000s ]
+[ 2014-08-17T13:29:42+08:00 ] SQL: SELECT * FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  ORDER BY id desc LIMIT 0,20  [ RunTime:0.002000s ]
+[ 2014-08-17T13:29:45+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:45+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:45+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:29:46+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.000000s ]
+[ 2014-08-17T13:29:46+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.000000s ]
+[ 2014-08-17T13:29:46+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:29:46+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:29:46+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:29:50+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.009001s ]
+[ 2014-08-17T13:29:50+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-08-17T13:29:50+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.008000s ]
+[ 2014-08-17T13:29:50+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-08-17' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:29:50+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=4,`date`='2014-08-17',`code`='13108617' WHERE ( `id` = '67' ) [ RunTime:0.185010s ]
+[ 2014-08-17T13:29:50+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 311 行.
+[ 2014-08-17T13:29:50+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 371 行.
+[ 2014-08-17T13:29:50+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 375 行.
+[ 2014-08-17T13:29:50+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 407 行.
+[ 2014-08-17T13:29:50+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 420 行.
+[ 2014-08-17T13:37:18+08:00 ] SQL: SHOW COLUMNS FROM `stock_warehouse` [ RunTime:0.004000s ]
+[ 2014-08-17T13:37:18+08:00 ] SQL: SELECT * FROM `stock_warehouse` WHERE stockcode='24D069B' and stockstate='開啟'  LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:37:30+08:00 ] SQL: select  id,companyname `name` from client where companyname like '%和%' OR clientcode ='和' [ RunTime:0.001000s ]
+[ 2014-08-17T13:37:45+08:00 ] SQL: SELECT 
+															p_price AS productprice,p_pc_price as productpcprice,
+														  p_all_name AS productname,p_unit AS productunit,
+														  p_size AS productsize,
+														  p_model AS productmodel,
+														  p_cp AS productcp,p_from AS productcd
+															FROM
+															  tb_pro WHERE p_id = 'L01D01PH010' [ RunTime:0.053003s ]
+[ 2014-08-17T13:38:08+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.006000s ]
+[ 2014-08-17T13:38:08+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.005001s ]
+[ 2014-08-17T13:38:08+08:00 ] SQL: INSERT INTO `stock_change` (`type`,`outcode`,`billcode`,`outwarehousecode`,`outwarehousename`,`outtype`,`outtypename`,`outdate`,`outuser`,`outhour`,`outminute`,`totalmoney`,`remark`,`state`,`objid`,`objtype`,`ordercode`,`taketoaccount`,`code`) VALUES ('出庫','O2014081704','1111','24D069B','耗材組資產倉','8','產品維修出庫單','2014/08/17','吳明貞','13','29','360','','新進單','8','客戶','123123','1','13108617') [ RunTime:0.001000s ]
+[ 2014-08-17T13:38:08+08:00 ] SQL: INSERT INTO `stock_change_detail` (`remark`,`productcode`,`productname`,`price`,`quantity`,`subtotal`,`productunit`,`productmodel`,`productsize`,`productcp`,`productcd`,`changeid`) VALUES ('2','L01D01PH010','飛利浦 螺旋燈管 5W/110V/827*E-27 Tornado','180','2','360','隻','Tornado','5W/110V/827*E-27','飛利浦、展析、金馬、祿冠、中寶','中國',15) [ RunTime:0.001000s ]
+[ 2014-08-17T13:38:08+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:38:08+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:38:08+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:38:08+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.001000s ]
+[ 2014-08-17T13:38:08+08:00 ] NOTIC: [2] urlencode() expects parameter 1 to be string, array given BaseAction.class.php 第 235 行.
+[ 2014-08-17T13:38:08+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-08-17T13:38:08+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:38:08+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:38:08+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:38:08+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T13:38:08+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T13:38:08+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T13:38:08+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T13:38:08+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T13:38:25+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.007001s ]
+[ 2014-08-17T13:38:25+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '15' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:38:25+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.006000s ]
+[ 2014-08-17T13:38:25+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 15 [ RunTime:0.000000s ]
+[ 2014-08-17T13:41:22+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.005000s ]
+[ 2014-08-17T13:41:22+08:00 ] SQL: UPDATE `stock_change` SET `remark`='',`state`='核可' WHERE ( `id` = '15' ) [ RunTime:0.001000s ]
+[ 2014-08-17T13:41:22+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '15' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:41:22+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.004000s ]
+[ 2014-08-17T13:41:22+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 15 [ RunTime:0.000000s ]
+[ 2014-08-17T13:41:22+08:00 ] SQL: SHOW COLUMNS FROM `stock_product_storage` [ RunTime:0.004000s ]
+[ 2014-08-17T13:41:22+08:00 ] SQL: SELECT * FROM stock_product_storage WHERE stockcode='24D069B' AND productcode ='L01D01PH010' AND code ='13108617' order by id desc limit 1 [ RunTime:0.001000s ]
+[ 2014-08-17T13:41:22+08:00 ] SQL: INSERT INTO `stock_product_storage` (`storage`,`stockcode`,`productcode`,`detailid`,`code`) VALUES (-2,'24D069B','L01D01PH010','15','13108617') [ RunTime:0.022001s ]
+[ 2014-08-17T13:41:22+08:00 ] SQL: SHOW COLUMNS FROM `account_pay` [ RunTime:0.005000s ]
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined index: indate StockAction.class.php 第 1362 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined index: intype StockAction.class.php 第 1363 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined index: intypename StockAction.class.php 第 1364 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined index: totalmoney StockAction.class.php 第 1365 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined index: code StockAction.class.php 第 1366 行.
+[ 2014-08-17T13:41:22+08:00 ] SQL: INSERT INTO `account_pay` (`indate`,`objecttype`,`objectname`,`incomemoney`,`code`,`paystate`) VALUES (null,null,null,null,null,'未兌現') [ RunTime:0.000000s ]
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:41:22+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.002000s ]
+[ 2014-08-17T13:41:22+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.002000s ]
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T13:41:22+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T13:41:53+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:41:53+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:41:53+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:41:54+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.001000s ]
+[ 2014-08-17T13:41:54+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.000000s ]
+[ 2014-08-17T13:41:54+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:41:54+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:41:54+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:41:57+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.005000s ]
+[ 2014-08-17T13:41:57+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.000000s ]
+[ 2014-08-17T13:41:57+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.004000s ]
+[ 2014-08-17T13:41:57+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-08-17' AND type='O' LIMIT 1  [ RunTime:0.001001s ]
+[ 2014-08-17T13:41:57+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=5,`date`='2014-08-17',`code`='13108617' WHERE ( `id` = '67' ) [ RunTime:0.101005s ]
+[ 2014-08-17T13:41:58+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 312 行.
+[ 2014-08-17T13:41:58+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 372 行.
+[ 2014-08-17T13:41:58+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 376 行.
+[ 2014-08-17T13:41:58+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 408 行.
+[ 2014-08-17T13:41:58+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 421 行.
+[ 2014-08-17T13:42:04+08:00 ] SQL: SHOW COLUMNS FROM `stock_warehouse` [ RunTime:0.008000s ]
+[ 2014-08-17T13:42:04+08:00 ] SQL: SELECT * FROM `stock_warehouse` WHERE stockcode='24D069B' and stockstate='開啟'  LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:42:08+08:00 ] SQL: select  id,companyname `name` from client where companyname like '%和%' OR clientcode ='和' [ RunTime:0.001000s ]
+[ 2014-08-17T13:42:15+08:00 ] SQL: SELECT 
+															p_price AS productprice,p_pc_price as productpcprice,
+														  p_all_name AS productname,p_unit AS productunit,
+														  p_size AS productsize,
+														  p_model AS productmodel,
+														  p_cp AS productcp,p_from AS productcd
+															FROM
+															  tb_pro WHERE p_id = 'L01D01PH010' [ RunTime:0.001000s ]
+[ 2014-08-17T13:42:30+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.010001s ]
+[ 2014-08-17T13:42:30+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.008001s ]
+[ 2014-08-17T13:42:30+08:00 ] SQL: INSERT INTO `stock_change` (`type`,`outcode`,`billcode`,`outwarehousecode`,`outwarehousename`,`outtype`,`outtypename`,`outdate`,`outuser`,`outhour`,`outminute`,`totalmoney`,`remark`,`state`,`objid`,`objtype`,`ordercode`,`taketoaccount`,`code`) VALUES ('出庫','O2014081705','23232','24D069B','耗材組資產倉','8','產品維修出庫單','2014/08/17','吳明貞','13','41','540','','新進單','17','客戶','1231','1','13108617') [ RunTime:0.000000s ]
+[ 2014-08-17T13:42:31+08:00 ] SQL: INSERT INTO `stock_change_detail` (`remark`,`productcode`,`productname`,`price`,`quantity`,`subtotal`,`productunit`,`productmodel`,`productsize`,`productcp`,`productcd`,`changeid`) VALUES ('2','L01D01PH010','飛利浦 螺旋燈管 5W/110V/827*E-27 Tornado','180','3','540','隻','Tornado','5W/110V/827*E-27','飛利浦、展析、金馬、祿冠、中寶','中國',16) [ RunTime:0.000000s ]
+[ 2014-08-17T13:42:31+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:42:31+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:42:31+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:42:31+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.001000s ]
+[ 2014-08-17T13:42:31+08:00 ] NOTIC: [2] urlencode() expects parameter 1 to be string, array given BaseAction.class.php 第 235 行.
+[ 2014-08-17T13:42:31+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.000000s ]
+[ 2014-08-17T13:42:31+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:42:31+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:42:31+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:42:31+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T13:42:31+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T13:42:31+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T13:42:31+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T13:42:31+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T13:42:34+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.008000s ]
+[ 2014-08-17T13:42:34+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '16' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:42:34+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.007000s ]
+[ 2014-08-17T13:42:34+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 16 [ RunTime:0.001000s ]
+[ 2014-08-17T13:42:38+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.009000s ]
+[ 2014-08-17T13:42:38+08:00 ] SQL: UPDATE `stock_change` SET `remark`='',`state`='核可' WHERE ( `id` = '16' ) [ RunTime:0.001000s ]
+[ 2014-08-17T13:42:38+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '16' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:42:38+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.006001s ]
+[ 2014-08-17T13:42:38+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 16 [ RunTime:0.001000s ]
+[ 2014-08-17T13:42:38+08:00 ] SQL: SHOW COLUMNS FROM `stock_product_storage` [ RunTime:0.007000s ]
+[ 2014-08-17T13:42:38+08:00 ] SQL: SELECT * FROM stock_product_storage WHERE stockcode='24D069B' AND productcode ='L01D01PH010' AND code ='13108617' order by id desc limit 1 [ RunTime:0.000000s ]
+[ 2014-08-17T13:42:38+08:00 ] SQL: INSERT INTO `stock_product_storage` (`storage`,`stockcode`,`productcode`,`detailid`,`code`) VALUES (-5,'24D069B','L01D01PH010','16','13108617') [ RunTime:0.000000s ]
+[ 2014-08-17T13:42:45+08:00 ] SQL: SHOW COLUMNS FROM `account_pay` [ RunTime:0.009000s ]
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined index: indate StockAction.class.php 第 1362 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined index: intype StockAction.class.php 第 1363 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined index: intypename StockAction.class.php 第 1364 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined index: totalmoney StockAction.class.php 第 1365 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined index: code StockAction.class.php 第 1366 行.
+[ 2014-08-17T13:42:45+08:00 ] SQL: INSERT INTO `account_pay` (`indate`,`objecttype`,`objectname`,`incomemoney`,`code`,`paystate`) VALUES (null,null,null,null,null,'未兌現') [ RunTime:0.001000s ]
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:42:45+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.002000s ]
+[ 2014-08-17T13:42:45+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.002000s ]
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T13:42:45+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T13:45:40+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.011001s ]
+[ 2014-08-17T13:45:40+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:45:40+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:45:40+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:45:40+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.001000s ]
+[ 2014-08-17T13:45:40+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-08-17T13:45:40+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:45:40+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:45:40+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:45:40+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T13:45:40+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T13:45:40+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T13:45:40+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T13:45:40+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T13:46:22+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:46:22+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:46:22+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:46:23+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.000000s ]
+[ 2014-08-17T13:46:23+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-08-17T13:46:23+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:46:23+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:46:23+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:46:26+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.009000s ]
+[ 2014-08-17T13:46:26+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-08-17T13:46:26+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.005000s ]
+[ 2014-08-17T13:46:26+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-08-17' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:46:26+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=6,`date`='2014-08-17',`code`='13108617' WHERE ( `id` = '67' ) [ RunTime:0.176011s ]
+[ 2014-08-17T13:46:27+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 312 行.
+[ 2014-08-17T13:46:27+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 372 行.
+[ 2014-08-17T13:46:27+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 376 行.
+[ 2014-08-17T13:46:27+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 408 行.
+[ 2014-08-17T13:46:27+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 421 行.
+[ 2014-08-17T13:46:31+08:00 ] SQL: SHOW COLUMNS FROM `stock_warehouse` [ RunTime:0.008001s ]
+[ 2014-08-17T13:46:31+08:00 ] SQL: SELECT * FROM `stock_warehouse` WHERE stockcode='24D069B' and stockstate='開啟'  LIMIT 1  [ RunTime:0.002000s ]
+[ 2014-08-17T13:46:38+08:00 ] SQL: select  id,companyname `name` from client where companyname like '%和%' OR clientcode ='和' [ RunTime:0.001000s ]
+[ 2014-08-17T13:46:46+08:00 ] SQL: SELECT 
+															p_price AS productprice,p_pc_price as productpcprice,
+														  p_all_name AS productname,p_unit AS productunit,
+														  p_size AS productsize,
+														  p_model AS productmodel,
+														  p_cp AS productcp,p_from AS productcd
+															FROM
+															  tb_pro WHERE p_id = 'L01D01PH010' [ RunTime:0.001001s ]
+[ 2014-08-17T13:46:53+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.012001s ]
+[ 2014-08-17T13:46:53+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.010001s ]
+[ 2014-08-17T13:46:53+08:00 ] SQL: INSERT INTO `stock_change` (`type`,`outcode`,`billcode`,`outwarehousecode`,`outwarehousename`,`outtype`,`outtypename`,`outdate`,`outuser`,`outhour`,`outminute`,`totalmoney`,`remark`,`state`,`objid`,`objtype`,`ordercode`,`taketoaccount`,`code`) VALUES ('出庫','O2014081706','121','24D069B','耗材組資產倉','8','產品維修出庫單','2014/08/17','吳明貞','13','46','720','','新進單','18','客戶','141','1','13108617') [ RunTime:0.000000s ]
+[ 2014-08-17T13:46:53+08:00 ] SQL: INSERT INTO `stock_change_detail` (`remark`,`productcode`,`productname`,`price`,`quantity`,`subtotal`,`productunit`,`productmodel`,`productsize`,`productcp`,`productcd`,`changeid`) VALUES ('3','L01D01PH010','飛利浦 螺旋燈管 5W/110V/827*E-27 Tornado','180','4','720','隻','Tornado','5W/110V/827*E-27','飛利浦、展析、金馬、祿冠、中寶','中國',17) [ RunTime:0.000000s ]
+[ 2014-08-17T13:46:53+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:46:53+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:46:53+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:46:53+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.002000s ]
+[ 2014-08-17T13:46:53+08:00 ] NOTIC: [2] urlencode() expects parameter 1 to be string, array given BaseAction.class.php 第 235 行.
+[ 2014-08-17T13:46:53+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.002000s ]
+[ 2014-08-17T13:46:53+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:46:53+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:46:53+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:46:53+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T13:46:53+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T13:46:53+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T13:46:53+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T13:46:53+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T13:46:59+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.010001s ]
+[ 2014-08-17T13:46:59+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '17' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:46:59+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.004001s ]
+[ 2014-08-17T13:46:59+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 17 [ RunTime:0.001000s ]
+[ 2014-08-17T13:47:25+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.009000s ]
+[ 2014-08-17T13:47:25+08:00 ] SQL: UPDATE `stock_change` SET `remark`='rwrewerqwer',`state`='核可' WHERE ( `id` = '17' ) [ RunTime:0.001000s ]
+[ 2014-08-17T13:47:28+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '17' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:47:28+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.012001s ]
+[ 2014-08-17T13:47:28+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 17 [ RunTime:0.001000s ]
+[ 2014-08-17T13:47:28+08:00 ] SQL: SHOW COLUMNS FROM `stock_product_storage` [ RunTime:0.010000s ]
+[ 2014-08-17T13:47:32+08:00 ] SQL: SELECT * FROM stock_product_storage WHERE stockcode='24D069B' AND productcode ='L01D01PH010' AND code ='13108617' order by id desc limit 1 [ RunTime:0.001001s ]
+[ 2014-08-17T13:47:36+08:00 ] SQL: INSERT INTO `stock_product_storage` (`storage`,`stockcode`,`productcode`,`detailid`,`code`) VALUES (-9,'24D069B','L01D01PH010','17','13108617') [ RunTime:0.001000s ]
+[ 2014-08-17T13:47:40+08:00 ] SQL: SHOW COLUMNS FROM `account_pay` [ RunTime:0.011001s ]
+[ 2014-08-17T13:47:40+08:00 ] NOTIC: [8] Undefined index: indate StockAction.class.php 第 1362 行.
+[ 2014-08-17T13:47:40+08:00 ] NOTIC: [8] Undefined index: intype StockAction.class.php 第 1363 行.
+[ 2014-08-17T13:47:41+08:00 ] NOTIC: [8] Undefined index: intypename StockAction.class.php 第 1364 行.
+[ 2014-08-17T13:47:41+08:00 ] NOTIC: [8] Undefined index: totalmoney StockAction.class.php 第 1365 行.
+[ 2014-08-17T13:47:42+08:00 ] NOTIC: [8] Undefined index: code StockAction.class.php 第 1366 行.
+[ 2014-08-17T13:47:43+08:00 ] SQL: INSERT INTO `account_pay` (`indate`,`objecttype`,`objectname`,`incomemoney`,`code`,`paystate`) VALUES (null,null,null,null,null,'未兌現') [ RunTime:0.002000s ]
+[ 2014-08-17T13:47:50+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:47:50+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:47:50+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:47:50+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.002000s ]
+[ 2014-08-17T13:47:50+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.003000s ]
+[ 2014-08-17T13:47:50+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:47:50+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:47:50+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:47:50+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T13:47:50+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T13:47:50+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T13:47:50+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T13:47:50+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T13:57:45+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.006000s ]
+[ 2014-08-17T13:57:52+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:57:52+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:57:52+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:57:52+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.007000s ]
+[ 2014-08-17T13:57:52+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-08-17T13:57:52+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:57:52+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:57:52+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:57:52+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T13:57:52+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T13:57:52+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T13:57:52+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T13:57:52+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T13:57:57+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:57:57+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:57:57+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:57:58+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.001000s ]
+[ 2014-08-17T13:57:58+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-08-17T13:57:58+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:57:58+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:57:58+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:58:01+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.004000s ]
+[ 2014-08-17T13:58:01+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.001000s ]
+[ 2014-08-17T13:58:01+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.003000s ]
+[ 2014-08-17T13:58:01+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-08-17' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:58:01+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=7,`date`='2014-08-17',`code`='13108617' WHERE ( `id` = '67' ) [ RunTime:0.138008s ]
+[ 2014-08-17T13:58:01+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 312 行.
+[ 2014-08-17T13:58:01+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 372 行.
+[ 2014-08-17T13:58:01+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 376 行.
+[ 2014-08-17T13:58:01+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 408 行.
+[ 2014-08-17T13:58:01+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 421 行.
+[ 2014-08-17T13:58:06+08:00 ] SQL: SHOW COLUMNS FROM `stock_warehouse` [ RunTime:0.008001s ]
+[ 2014-08-17T13:58:06+08:00 ] SQL: SELECT * FROM `stock_warehouse` WHERE stockcode='24D069B' and stockstate='開啟'  LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:58:11+08:00 ] SQL: select  id,companyname `name` from client where companyname like '%和%' OR clientcode ='和' [ RunTime:0.001001s ]
+[ 2014-08-17T13:58:19+08:00 ] SQL: SELECT 
+															p_price AS productprice,p_pc_price as productpcprice,
+														  p_all_name AS productname,p_unit AS productunit,
+														  p_size AS productsize,
+														  p_model AS productmodel,
+														  p_cp AS productcp,p_from AS productcd
+															FROM
+															  tb_pro WHERE p_id = 'L01D01PH010' [ RunTime:0.001000s ]
+[ 2014-08-17T13:58:30+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.010001s ]
+[ 2014-08-17T13:58:30+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.006001s ]
+[ 2014-08-17T13:58:30+08:00 ] SQL: INSERT INTO `stock_change` (`type`,`outcode`,`billcode`,`outwarehousecode`,`outwarehousename`,`outtype`,`outtypename`,`outdate`,`outuser`,`outhour`,`outminute`,`totalmoney`,`remark`,`state`,`objid`,`objtype`,`ordercode`,`taketoaccount`,`code`) VALUES ('出庫','O2014081707','2423','24D069B','耗材組資產倉','8','產品維修出庫單','2014/08/17','吳明貞','13','58','','3','新進單','14','客戶','23423','1','13108617') [ RunTime:0.001000s ]
+[ 2014-08-17T13:58:30+08:00 ] NOTIC: [8] Undefined index: detail StockAction.class.php 第 1187 行.
+[ 2014-08-17T13:58:30+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:58:30+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:58:30+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:58:30+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.001000s ]
+[ 2014-08-17T13:58:30+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-08-17T13:58:30+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:58:30+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:58:30+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:58:30+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T13:58:30+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T13:58:30+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T13:58:30+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T13:58:30+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T13:58:35+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.009001s ]
+[ 2014-08-17T13:58:35+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '18' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T13:58:35+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.009000s ]
+[ 2014-08-17T13:58:35+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 18 [ RunTime:0.001000s ]
+[ 2014-08-17T13:58:43+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.008001s ]
+[ 2014-08-17T13:58:43+08:00 ] SQL: UPDATE `stock_change` SET `remark`='',`state`='核可' WHERE ( `id` = '18' ) [ RunTime:0.001000s ]
+[ 2014-08-17T13:58:46+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '18' ) LIMIT 1  [ RunTime:0.002000s ]
+[ 2014-08-17T13:58:46+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.007001s ]
+[ 2014-08-17T13:58:46+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 18 [ RunTime:0.001000s ]
+[ 2014-08-17T13:58:46+08:00 ] SQL: SHOW COLUMNS FROM `stock_product_storage` [ RunTime:0.008001s ]
+[ 2014-08-17T13:58:48+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() StockAction.class.php 第 1337 行.
+[ 2014-08-17T13:58:52+08:00 ] SQL: SHOW COLUMNS FROM `account_income` [ RunTime:0.010001s ]
+[ 2014-08-17T13:58:55+08:00 ] SQL: INSERT INTO `account_income` (`incomemoney`,`code`,`paystate`) VALUES ('','13108617','未兌現') [ RunTime:0.001001s ]
+[ 2014-08-17T13:58:55+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:58:55+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:58:55+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T13:58:55+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.002000s ]
+[ 2014-08-17T13:58:55+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-08-17T13:58:55+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T13:58:55+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T13:58:55+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T13:58:55+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T13:58:55+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T13:58:55+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T13:58:55+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T13:58:55+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T14:00:37+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:00:37+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:00:37+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:00:38+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.001000s ]
+[ 2014-08-17T14:00:38+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.000000s ]
+[ 2014-08-17T14:00:38+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T14:00:38+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T14:00:38+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T14:00:42+08:00 ] SQL: SHOW COLUMNS FROM `stock_out_type` [ RunTime:0.010001s ]
+[ 2014-08-17T14:00:42+08:00 ] SQL: SELECT * FROM `stock_out_type` WHERE code ='13108617' [ RunTime:0.000000s ]
+[ 2014-08-17T14:00:42+08:00 ] SQL: SHOW COLUMNS FROM `stock_line_code` [ RunTime:0.005001s ]
+[ 2014-08-17T14:00:42+08:00 ] SQL: SELECT * FROM `stock_line_code` WHERE `code`= '13108617' AND date='2014-08-17' AND type='O' LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T14:00:42+08:00 ] SQL: UPDATE `stock_line_code` SET `type`='O',`line`=8,`date`='2014-08-17',`code`='13108617' WHERE ( `id` = '67' ) [ RunTime:0.097006s ]
+[ 2014-08-17T14:00:42+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 312 行.
+[ 2014-08-17T14:00:42+08:00 ] NOTIC: [8] Undefined variable: orderuser 0596615bec4f0f25509318d80771481b.php 第 372 行.
+[ 2014-08-17T14:00:42+08:00 ] NOTIC: [8] Undefined variable: ordercode 0596615bec4f0f25509318d80771481b.php 第 376 行.
+[ 2014-08-17T14:00:42+08:00 ] NOTIC: [8] Undefined variable: list 0596615bec4f0f25509318d80771481b.php 第 408 行.
+[ 2014-08-17T14:00:42+08:00 ] NOTIC: [8] Undefined variable: total 0596615bec4f0f25509318d80771481b.php 第 421 行.
+[ 2014-08-17T14:00:48+08:00 ] SQL: SHOW COLUMNS FROM `stock_warehouse` [ RunTime:0.008001s ]
+[ 2014-08-17T14:00:48+08:00 ] SQL: SELECT * FROM `stock_warehouse` WHERE stockcode='24D069B' and stockstate='開啟'  LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T14:00:54+08:00 ] SQL: select  id,companyname `name` from client where companyname like '%和%' OR clientcode ='和' [ RunTime:0.001000s ]
+[ 2014-08-17T14:01:07+08:00 ] SQL: SELECT 
+															p_price AS productprice,p_pc_price as productpcprice,
+														  p_all_name AS productname,p_unit AS productunit,
+														  p_size AS productsize,
+														  p_model AS productmodel,
+														  p_cp AS productcp,p_from AS productcd
+															FROM
+															  tb_pro WHERE p_id = 'L01D01PH010' [ RunTime:0.000000s ]
+[ 2014-08-17T14:01:15+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.007001s ]
+[ 2014-08-17T14:01:15+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.006000s ]
+[ 2014-08-17T14:01:15+08:00 ] SQL: INSERT INTO `stock_change` (`type`,`outcode`,`billcode`,`outwarehousecode`,`outwarehousename`,`outtype`,`outtypename`,`outdate`,`outuser`,`outhour`,`outminute`,`totalmoney`,`remark`,`state`,`objid`,`objtype`,`ordercode`,`taketoaccount`,`code`) VALUES ('出庫','O2014081708','21434','24D069B','耗材組資產倉','8','產品維修出庫單','2014/08/17','吳明貞','14','0','','3','新進單','15','客戶','1231231','1','13108617') [ RunTime:0.000000s ]
+[ 2014-08-17T14:01:15+08:00 ] NOTIC: [8] Undefined index: detail StockAction.class.php 第 1187 行.
+[ 2014-08-17T14:01:15+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:01:15+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:01:15+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:01:15+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.002000s ]
+[ 2014-08-17T14:01:15+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.003000s ]
+[ 2014-08-17T14:01:15+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T14:01:15+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T14:01:15+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T14:01:15+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T14:01:15+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T14:01:15+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T14:01:15+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T14:01:15+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T14:01:18+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.009001s ]
+[ 2014-08-17T14:01:18+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '19' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T14:01:18+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.004000s ]
+[ 2014-08-17T14:01:18+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 19 [ RunTime:0.001000s ]
+[ 2014-08-17T14:01:38+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.009001s ]
+[ 2014-08-17T14:01:38+08:00 ] SQL: UPDATE `stock_change` SET `remark`='sdf',`state`='核可' WHERE ( `id` = '19' ) [ RunTime:0.001000s ]
+[ 2014-08-17T14:01:42+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '19' ) LIMIT 1  [ RunTime:0.002000s ]
+[ 2014-08-17T14:01:42+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.006000s ]
+[ 2014-08-17T14:01:42+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 19 [ RunTime:0.001000s ]
+[ 2014-08-17T14:01:43+08:00 ] SQL: SHOW COLUMNS FROM `stock_product_storage` [ RunTime:0.007000s ]
+[ 2014-08-17T14:01:45+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() StockAction.class.php 第 1337 行.
+[ 2014-08-17T14:02:20+08:00 ] SQL: SHOW COLUMNS FROM `account_income` [ RunTime:0.010001s ]
+[ 2014-08-17T14:02:59+08:00 ] SQL: INSERT INTO `account_income` (`incomemoney`,`code`,`paystate`) VALUES ('','13108617','未兌現') [ RunTime:0.003000s ]
+[ 2014-08-17T14:02:59+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:02:59+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:02:59+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:02:59+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.002000s ]
+[ 2014-08-17T14:02:59+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.002000s ]
+[ 2014-08-17T14:02:59+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T14:02:59+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T14:02:59+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T14:02:59+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T14:02:59+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T14:02:59+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T14:02:59+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T14:02:59+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T14:03:48+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:03:48+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:03:48+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:03:49+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.001000s ]
+[ 2014-08-17T14:03:49+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-08-17T14:03:49+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T14:03:49+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T14:03:49+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T14:03:53+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.012001s ]
+[ 2014-08-17T14:03:53+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '19' ) LIMIT 1  [ RunTime:0.002000s ]
+[ 2014-08-17T14:03:53+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.009000s ]
+[ 2014-08-17T14:03:53+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 19 [ RunTime:0.000000s ]
+[ 2014-08-17T14:03:56+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.007000s ]
+[ 2014-08-17T14:03:56+08:00 ] SQL: UPDATE `stock_change` SET `remark`='',`state`='核可' WHERE ( `id` = '19' ) [ RunTime:0.001000s ]
+[ 2014-08-17T14:03:59+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '19' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T14:04:00+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.008000s ]
+[ 2014-08-17T14:04:00+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 19 [ RunTime:0.001000s ]
+[ 2014-08-17T14:04:00+08:00 ] SQL: SHOW COLUMNS FROM `stock_product_storage` [ RunTime:0.008000s ]
+[ 2014-08-17T14:04:00+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() StockAction.class.php 第 1337 行.
+[ 2014-08-17T14:04:02+08:00 ] SQL: SHOW COLUMNS FROM `account_income` [ RunTime:0.009000s ]
+[ 2014-08-17T14:04:18+08:00 ] SQL: INSERT INTO `account_income` (`indate`,`objecttype`,`objectname`,`incomemoney`,`code`,`paystate`) VALUES ('2014-08-17','8','產品維修出庫單','','13108617','未兌現') [ RunTime:0.002000s ]
+[ 2014-08-17T14:04:21+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:04:21+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:04:21+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:04:21+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.001000s ]
+[ 2014-08-17T14:04:21+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-08-17T14:04:21+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T14:04:21+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T14:04:21+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T14:04:21+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 170 行.
+[ 2014-08-17T14:04:21+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 171 行.
+[ 2014-08-17T14:04:21+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 172 行.
+[ 2014-08-17T14:04:21+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 173 行.
+[ 2014-08-17T14:04:21+08:00 ] NOTIC: [8] Undefined variable: ext a392c1f87970b051aa272373946e2205.php 第 174 行.
+[ 2014-08-17T14:05:37+08:00 ] SQL: SHOW COLUMNS FROM `account_income` [ RunTime:0.010001s ]
+[ 2014-08-17T14:05:37+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:05:37+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:05:37+08:00 ] NOTIC: [8] Undefined index: spaystate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:05:37+08:00 ] NOTIC: [8] Undefined index: spaymode BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:05:37+08:00 ] NOTIC: [8] Undefined index: objname BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:05:37+08:00 ] SQL: select * from account_income where code ='13108617' [ RunTime:0.002000s ]
+[ 2014-08-17T14:06:33+08:00 ] NOTIC: [8] Undefined index: stocktype BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:06:33+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:06:33+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 240 行.
+[ 2014-08-17T14:06:34+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  [ RunTime:0.000000s ]
+[ 2014-08-17T14:06:34+08:00 ] SQL: SELECT * FROM (SELECT 
+		  IF(
+		    ISNULL(sc.inwarehousecode),
+		    sc.outwarehousecode,
+		    sc.inwarehousecode
+		  ) warehousecode ,
+		  IF(
+		    ISNULL(sc.inwarehousename),
+		    sc.outwarehousename,
+		    sc.inwarehousename
+		  ) warehousename,
+		    IF(
+		    ISNULL(sc.indate),
+		    sc.outdate,
+		    sc.indate
+		  ) dodate,
+		  sc.`type`,
+		  sc.`state`,sc.id
+		  
+		FROM
+		  `stock_change` sc  WHERE sc.`code`= '13108617' ) x WHERE id is NOT NULL  limit 0,20 [ RunTime:0.001000s ]
+[ 2014-08-17T14:06:34+08:00 ] NOTIC: [8] Undefined variable: type a392c1f87970b051aa272373946e2205.php 第 11 行.
+[ 2014-08-17T14:06:34+08:00 ] NOTIC: [8] Undefined variable: sdate a392c1f87970b051aa272373946e2205.php 第 162 行.
+[ 2014-08-17T14:06:34+08:00 ] NOTIC: [8] Undefined variable: edate a392c1f87970b051aa272373946e2205.php 第 163 行.
+[ 2014-08-17T14:06:45+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.006000s ]
+[ 2014-08-17T14:06:45+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '19' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T14:06:45+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.005001s ]
+[ 2014-08-17T14:06:45+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 19 [ RunTime:0.000000s ]
+[ 2014-08-17T14:06:50+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.009001s ]
+[ 2014-08-17T14:06:50+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '18' ) LIMIT 1  [ RunTime:0.001001s ]
+[ 2014-08-17T14:06:50+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.004000s ]
+[ 2014-08-17T14:06:50+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 18 [ RunTime:0.000000s ]
+[ 2014-08-17T14:06:59+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.008001s ]
+[ 2014-08-17T14:06:59+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '15' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T14:06:59+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.006000s ]
+[ 2014-08-17T14:06:59+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 15 [ RunTime:0.001001s ]
+[ 2014-08-17T14:08:18+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.009001s ]
+[ 2014-08-17T14:08:18+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '16' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T14:08:18+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.005000s ]
+[ 2014-08-17T14:08:18+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 16 [ RunTime:0.001000s ]
+[ 2014-08-17T14:08:23+08:00 ] SQL: SHOW COLUMNS FROM `stock_change` [ RunTime:0.010001s ]
+[ 2014-08-17T14:08:23+08:00 ] SQL: SELECT * FROM `stock_change` WHERE ( `id` = '17' ) LIMIT 1  [ RunTime:0.001000s ]
+[ 2014-08-17T14:08:23+08:00 ] SQL: SHOW COLUMNS FROM `stock_change_detail` [ RunTime:0.005000s ]
+[ 2014-08-17T14:08:23+08:00 ] SQL: SELECT * FROM `stock_change_detail` WHERE changeid= 17 [ RunTime:0.000000s ]

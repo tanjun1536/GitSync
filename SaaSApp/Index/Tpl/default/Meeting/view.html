@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">文件管理 - 會議管理</div>
+			<div class="mainInfo">
+				<div class="topic2">
+					<a href="personnel1_add.php">會議紀錄</a>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+
+					<tr>
+						<th width="129" scope="row">會議主題</th>
+						<td colspan="3">{$meet.topic}</td>
+					</tr>
+					<tr>
+						<th scope="row">開會時間</th>
+						<td width="228">{$meet.day}{$meet.hours}:{$meet.minutes}</td>
+						<th width="114" scope="row">地點</th>
+						<td width="219">{$meet.address}</td>
+					</tr>
+					<tr>
+						<th scope="row">會議主持</th>
+						<td>{$meet.hname}({$meet.hucode})</td>
+						<th scope="row">會議記錄人</th>
+						<td>{$meet.rname}({$meet.rucode})</td>
+					</tr>
+					<tr>
+						<th scope="row">會議發起人</th>
+						<td colspan="3"><label>{$meet.sname}({$meet.sucode})</label></td>
+					</tr>
+					<tr>
+						<th scope="row">與會人員</th>
+						<td><ul>
+								<volist name=":explode(',',$meet['partersname'])" id="user">
+								<li>{$user }</li>
+								</volist>
+							</ul></td>
+						<th scope="row">實際出席人員</th>
+						<td><ul>
+								<volist name=":explode(',',$meet['partersname'])" id="user">
+								<li><label name="factpartersname[]">{$user}</label></li>
+								</volist>
+							</ul></td>
+					</tr>
+					<tr>
+						<th scope="row">相關附件</th>
+						<td colspan="3"><neq name="meet.atts"> <input type="hidden" value="{$meet.atts}" name="atts"> </input> <volist name=":explode(',',$meet['atts'])" id="att"> <a href="__URL__/down?name={$att|urlencode}" target="_blank">{$att}</a>； </volist> </neq></td>
+					</tr>
+						<tr>
+						<th scope="row">會議主題說明</th>
+						<td colspan="3">{$meet.remark}</td>
+					</tr>
+					<tr>
+						<th scope="row">會議內容描述</th>
+						<td colspan="3">{$meet.cont}</td>
+					</tr>
+				</table>
+				<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+					<tr>
+						<th scope="col">決議事項</th>
+					</tr>
+					<tr>
+						<td><table width="680" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<th width="412" scope="col">內容描述</th>
+									<th width="236" scope="col">交辦</th>
+								</tr>
+								<volist id="item" name="choices">
+								<tr>
+									<td>{$item.cont}</td>
+									<td>{$item.users}</td>
+								</tr>
+								</volist>
+							</table></td>
+					</tr>
+				</table>
+				<div class="back">
+					<a href="javascript:window.history.go(-1)">》 回上頁 </a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

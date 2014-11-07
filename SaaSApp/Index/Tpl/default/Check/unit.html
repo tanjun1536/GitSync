@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+var depart="{$depart}";
+var team="{$team}";
+$(function() {
+	$("#depart").change(function() {
+		getTeam("#depart","#team");
+	});
+	if(depart) $("#depart").val(depart).trigger("change");
+
+});
+function getTeam(depart, teams) {
+	$.ajax({
+		type : "POST",
+		dataType : "json",
+		url : "__URL__/getTeam",
+		data : "pid=" + $(depart).val(),
+		success : function(data) {
+			$(teams).empty();
+			$("<option value=''>所有單位</option>").appendTo(teams);
+			var json = eval(data);
+			if(!json)return;
+			$.each(json, function(k) {
+				$("<option  value='"+json[k]['id']+"'>" + decodeURI(json[k]['name'])  + "</option>").appendTo(teams);
+			});
+			if(team) $("#team").val(team);
+		}
+	});
+}
+	function on() {
+		$("#af").val('on');
+		$("#form1").submit();
+	}
+	function down() {
+		$("#af").val('down');
+		$("#form1").submit();
+	}
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">出勤紀錄 - 部門出勤</div>
+			<div class="mainInfo">
+				<div style="margin-bottom: 10px">
+					<form id="form1" name="form1" method="post" action="">
+						<strong>部門： <select name="depart" id="depart" disabled="disabled">
+								<option value="">所有部門</option>
+								<volist id="item" name="departs">
+								<option value="{$item.id}">{$item.name}</option>
+								</volist>
+						</select> 
+						</strong><strong>單位： <select name="team" id="team" disabled="disabled">
+								<option value="">所有單位</option>
+						</select> 日期：
+						</strong> <input type="text" name="sdate" class="Wdate" value="{$sdate}" onfocus="WdatePicker()" style="width: 100px" /> ~ <input type="text" value="{$edate}" class="Wdate" onfocus="WdatePicker()"  name="edate" style="width: 100px" /> 
+						<input type="button" name="Submit" onclick="$('#form1').attr('action','__URL__/unit').submit();" value="搜尋" />
+						<input type="button" name="Submit" onclick="$('#form1').attr('action','__URL__/exportCheckUnit').submit();" value="導出" />
+					</form>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+<!-- 						<th width="183" scope="col">日期</th> -->
+						<th width="183" scope="col">類別</th>
+						<th width="183" scope="col">員工</th>
+						<th width="182" scope="col">上班時間</th>
+						<th width="177" scope="col">下班時間</th>
+						<th width="151" scope="col">時數</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+<!-- 					<td align="center">{$item.date|date='Y/m/d',strtotime(###)} ({$item.date|getWeek})</td> -->
+					<td align="center">{$item.type}</td>
+					<td align="center"><a href="__URL__/viewperson?pid={$item.userid}">{$item.name}({$item.ucode})</a></td>
+					<td align="center">{$item.ontime|formatDate=###,'Y/m/d H:i:s'}</td>
+					<td align="center">{$item.downtime|formatDate=###,'Y/m/d H:i:s'}</td>
+					<td align="center">{$item.difftime|formatDate=###,'H小时i分s秒'}</td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<script type="text/JavaScript">
+	$(function() {
+		$("#checkdate").val(new Date().format("yyyy/MM/dd hh:mm"));
+	});
+	function Check(o) {
+		$("#purchasestate").val(o.value);
+		$("#form2").submit();
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 採購管理</div>
+			<div class="mainInfo">
+				<form id="form2" name="form2" method="post" action="__URL__/purchaseCheck">
+					<input type="hidden" name="id" id="id" value="{$sp.id}" /> 
+					<input type="hidden" name="purchasestate" id="purchasestate"  />
+					<input type="hidden" name="checkuser"  value="{@SESSION_USER.name}" />
+					<input type="hidden" name="checkdate" id="checkdate"  />
+					<div class="topic2">審核採購單</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="100" scope="row">採購編號</th>
+							<td width="296">{$sp.purchasecode}</td>
+							<th width="83" scope="row">採購日期</th>
+							<td width="211">{$sp.purchasedate|date='Y/m/d',strtotime(###)}</td>
+						</tr>
+						<tr>
+							<th scope="row">採購對象</th>
+							<td>{$sp.mname}</td>
+							<th scope="row">採購者</th>
+							<td>{$sp.purchaseuser}</td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="168" scope="col">商品編號</th>
+							<th width="316" scope="col">商品名稱</th>
+							<th width="84" scope="col">單價</th>
+							<th width="51" scope="col">數量</th>
+							<th width="74" scope="col">小計</th>
+						</tr>
+						<volist name="spd" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center">{$item.productcode}</td>
+						<td>{$item.productname}</td>
+						<td align="center">{$item.price}</td>
+						<td align="center">{$item.quantity}</td>
+						<td align="center">{$item.subtotal}</td>
+						</tr>
+						</volist>
+						<tr class="trcolor3">
+							<td colspan="4" align="right"><strong>總計金額：</strong></td>
+							<td align="center">{$sp.totalmoney}</td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th scope="col">備註</th>
+						</tr>
+						<tr>
+							<td><textarea name="remark" rows="5" style="width: 680px"></textarea></td>
+						</tr>
+					</table>
+					<div align="center" style="margin-top: 10px">
+						<input type="button" name="Submit" onclick="Check(this)" value="核可" /> <input type="button" onclick="Check(this)" name="Submit2" value="不同意" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

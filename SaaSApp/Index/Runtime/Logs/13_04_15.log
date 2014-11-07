@@ -1,0 +1,212 @@
+[ 2013-04-15T20:09:23+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-04-15T20:09:23+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-04-15T20:09:38+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009496s ]
+[ 2013-04-15T20:09:38+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.001833s ]
+[ 2013-04-15T20:09:38+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.009045s ]
+[ 2013-04-15T20:09:38+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.003862s ]
+[ 2013-04-15T20:09:38+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.009269s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.016560s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.009992s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001498s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001718s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.014253s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 [ RunTime:0.003254s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 [ RunTime:0.004184s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 [ RunTime:0.010891s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 [ RunTime:0.002633s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 [ RunTime:0.003255s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 [ RunTime:0.002186s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 [ RunTime:0.002577s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 [ RunTime:0.002156s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 [ RunTime:0.003066s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 [ RunTime:0.003390s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 [ RunTime:0.002550s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 [ RunTime:0.002265s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 [ RunTime:0.002655s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.003097s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.002312s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 [ RunTime:0.002986s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 [ RunTime:0.002224s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 [ RunTime:0.002385s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 [ RunTime:0.002837s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 [ RunTime:0.002948s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 [ RunTime:0.002472s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.003253s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 [ RunTime:0.002658s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 [ RunTime:0.002457s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 [ RunTime:0.002186s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 [ RunTime:0.008260s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 [ RunTime:0.003502s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 [ RunTime:0.002622s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 [ RunTime:0.002536s ]
+[ 2013-04-15T20:09:39+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 79 行.
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 21 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.002856s ]
+[ 2013-04-15T20:09:39+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 [ RunTime:0.004668s ]
+[ 2013-04-15T20:09:39+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10 limit 0,20 [ RunTime:0.004699s ]
+[ 2013-04-15T20:10:15+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 4 行.
+[ 2013-04-15T20:10:15+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.008681s ]
+[ 2013-04-15T20:10:15+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  code='13108617'  LIMIT 1  [ RunTime:0.000875s ]
+[ 2013-04-15T20:10:15+08:00 ] SQL: SELECT * FROM `case` WHERE  code='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.004350s ]
+[ 2013-04-15T20:10:20+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.008448s ]
+[ 2013-04-15T20:10:20+08:00 ] SQL: SELECT c.*,za.`name` AS zaname,za.`ucode` AS zacode,yw.`name` AS ywname,yw.`ucode` AS ywcode,dd.`name` AS ddname,dd.`ucode` AS ddcode FROM `case` c INNER JOIN `user` za ON c.`casefzr`= za.`id` INNER JOIN `user` yw ON c.`businessfzr`=yw.`id` INNER JOIN `user` dd ON c.`casedd`=dd.`id` where c.id= 9 [ RunTime:0.001646s ]
+[ 2013-04-15T20:10:27+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform` [ RunTime:0.010228s ]
+[ 2013-04-15T20:10:27+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_copyform` WHERE `case` = 9 LIMIT 1  [ RunTime:0.000988s ]
+[ 2013-04-15T20:10:27+08:00 ] SQL: SELECT * FROM `case_copyform` WHERE `case` = 9 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001689s ]
+[ 2013-04-15T20:10:34+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history` [ RunTime:0.007821s ]
+[ 2013-04-15T20:10:34+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_copyform_history` WHERE `case` = 9 LIMIT 1  [ RunTime:0.001350s ]
+[ 2013-04-15T20:10:34+08:00 ] SQL: SELECT * FROM `case_copyform_history` WHERE `case` = 9 ORDER BY id desc LIMIT 0,20  [ RunTime:0.000950s ]
+[ 2013-04-15T20:10:44+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history_detail` [ RunTime:0.008651s ]
+[ 2013-04-15T20:10:44+08:00 ] SQL: SELECT * FROM `case_copyform_history_detail` WHERE copyid =16 [ RunTime:0.001546s ]
+[ 2013-04-15T20:15:17+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history_detail` [ RunTime:0.007895s ]
+[ 2013-04-15T20:15:17+08:00 ] SQL: SELECT * FROM `case_copyform_history_detail` WHERE copyid =16 [ RunTime:0.001186s ]
+[ 2013-04-15T20:15:22+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform` [ RunTime:0.013789s ]
+[ 2013-04-15T20:15:22+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_copyform` WHERE `case` = 9 LIMIT 1  [ RunTime:0.001314s ]
+[ 2013-04-15T20:15:22+08:00 ] SQL: SELECT * FROM `case_copyform` WHERE `case` = 9 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001795s ]
+[ 2013-04-15T20:15:31+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform` [ RunTime:0.014429s ]
+[ 2013-04-15T20:15:31+08:00 ] SQL: SELECT * FROM `case_copyform` WHERE ( `id` = '10' ) LIMIT 1  [ RunTime:0.001214s ]
+[ 2013-04-15T20:15:50+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform` [ RunTime:0.010483s ]
+[ 2013-04-15T20:15:50+08:00 ] SQL: UPDATE `case_copyform` SET `case`='9',`code`='電表B1',`area`='eee',`ispublic`='是',`username`='UUU',`gaugecode`='1234',`times`='20',`maxvalue`='99999',`type`='1',`ordernumber`='1',`remark`='1' WHERE ( `id` = '10' ) [ RunTime:0.076409s ]
+[ 2013-04-15T20:15:50+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_copyform` WHERE `case` = 9 LIMIT 1  [ RunTime:0.000823s ]
+[ 2013-04-15T20:15:50+08:00 ] SQL: SELECT * FROM `case_copyform` WHERE `case` = 9 ORDER BY id desc LIMIT 0,20  [ RunTime:0.000932s ]
+[ 2013-04-15T20:15:56+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history` [ RunTime:0.009675s ]
+[ 2013-04-15T20:15:56+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_copyform_history` WHERE `case` = 9 LIMIT 1  [ RunTime:0.000937s ]
+[ 2013-04-15T20:15:56+08:00 ] SQL: SELECT * FROM `case_copyform_history` WHERE `case` = 9 ORDER BY id desc LIMIT 0,20  [ RunTime:0.000951s ]
+[ 2013-04-15T20:16:01+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history_detail` [ RunTime:0.008073s ]
+[ 2013-04-15T20:16:01+08:00 ] SQL: SELECT * FROM `case_copyform_history_detail` WHERE copyid =16 [ RunTime:0.001079s ]
+[ 2013-04-15T20:16:09+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history` [ RunTime:0.008240s ]
+[ 2013-04-15T20:16:09+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_copyform_history` WHERE `case` = 9 LIMIT 1  [ RunTime:0.001092s ]
+[ 2013-04-15T20:16:09+08:00 ] SQL: SELECT * FROM `case_copyform_history` WHERE `case` = 9 ORDER BY id desc LIMIT 0,20  [ RunTime:0.002099s ]
+[ 2013-04-15T20:16:11+08:00 ] SQL: SELECT 
+		  ccf.*,
+		  IF(
+		    ISNULL(cch.alldegree),
+		    0,
+		    cch.alldegree
+		  ) predegree 
+		FROM
+		  `case_copyform` ccf 
+		  LEFT JOIN 
+		    (SELECT 
+		      c.* 
+		    FROM
+		      `case_copyform_history` m 
+		      INNER JOIN `case_copyform_history_detail` c 
+		        ON m.id = c.`copyid` 
+		    WHERE m.id = 
+		      (SELECT 
+		        MAX(id) 
+		      FROM
+		        `case_copyform_history` 
+		      WHERE `case` = 9)) cch 
+		    ON ccf.`gaugecode` = cch.`gaugecode`  WHERE ccf.`case` = 9 [ RunTime:0.001587s ]
+[ 2013-04-15T20:22:27+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history` [ RunTime:0.012382s ]
+[ 2013-04-15T20:22:27+08:00 ] NOTIC: [8] Undefined index: id CaseAction.class.php 第 3784 行.
+[ 2013-04-15T20:22:27+08:00 ] SQL: INSERT INTO `case_copyform_history` (`case`,`copyuser`,`copydate`,`copydatetime`) VALUES ('9','管理员','2013-04-15','2013-04-15 08:22:27') [ RunTime:0.000969s ]
+[ 2013-04-15T20:22:27+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history_detail` [ RunTime:0.014425s ]
+[ 2013-04-15T20:22:27+08:00 ] SQL: INSERT INTO `case_copyform_history_detail` (`copyid`,`code`,`area`,`username`,`gaugecode`,`type`,`predegree`,`alldegree`,`thisdegree`) VALUES (17,'<input type=\"hidden\" id=\"times\" value=\"20\"><input type=\"hidden\" id=\"maxvalue\" value=\"99999\">電表B1','eee','UUU','1234','1','50','60','200') [ RunTime:0.000785s ]
+[ 2013-04-15T20:22:28+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_copyform_history` WHERE `case` = 9 LIMIT 1  [ RunTime:0.001059s ]
+[ 2013-04-15T20:22:28+08:00 ] SQL: SELECT * FROM `case_copyform_history` WHERE `case` = 9 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001050s ]
+[ 2013-04-15T20:22:31+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history_detail` [ RunTime:0.008538s ]
+[ 2013-04-15T20:22:31+08:00 ] SQL: SELECT * FROM `case_copyform_history_detail` WHERE copyid =17 [ RunTime:0.001380s ]
+[ 2013-04-15T20:28:07+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history` [ RunTime:0.007239s ]
+[ 2013-04-15T20:28:07+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_copyform_history` WHERE `case` = 9 LIMIT 1  [ RunTime:0.001284s ]
+[ 2013-04-15T20:28:07+08:00 ] SQL: SELECT * FROM `case_copyform_history` WHERE `case` = 9 ORDER BY id desc LIMIT 0,20  [ RunTime:0.002561s ]
+[ 2013-04-15T20:28:14+08:00 ] SQL: SELECT 
+		  ccf.*,
+		  IF(
+		    ISNULL(cch.alldegree),
+		    0,
+		    cch.alldegree
+		  ) predegree 
+		FROM
+		  `case_copyform` ccf 
+		  LEFT JOIN 
+		    (SELECT 
+		      c.* 
+		    FROM
+		      `case_copyform_history` m 
+		      INNER JOIN `case_copyform_history_detail` c 
+		        ON m.id = c.`copyid` 
+		    WHERE m.id = 
+		      (SELECT 
+		        MAX(id) 
+		      FROM
+		        `case_copyform_history` 
+		      WHERE `case` = 9)) cch 
+		    ON ccf.`gaugecode` = cch.`gaugecode`  WHERE ccf.`case` = 9 [ RunTime:0.001223s ]
+[ 2013-04-15T20:29:20+08:00 ] SQL: SELECT 
+		  ccf.*,
+		  IF(
+		    ISNULL(cch.alldegree),
+		    0,
+		    cch.alldegree
+		  ) predegree 
+		FROM
+		  `case_copyform` ccf 
+		  LEFT JOIN 
+		    (SELECT 
+		      c.* 
+		    FROM
+		      `case_copyform_history` m 
+		      INNER JOIN `case_copyform_history_detail` c 
+		        ON m.id = c.`copyid` 
+		    WHERE m.id = 
+		      (SELECT 
+		        MAX(id) 
+		      FROM
+		        `case_copyform_history` 
+		      WHERE `case` = 9)) cch 
+		    ON ccf.`gaugecode` = cch.`gaugecode`  WHERE ccf.`case` = 9 [ RunTime:0.001500s ]
+[ 2013-04-15T20:31:03+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history` [ RunTime:0.010934s ]
+[ 2013-04-15T20:31:03+08:00 ] NOTIC: [8] Undefined index: id CaseAction.class.php 第 3784 行.
+[ 2013-04-15T20:31:03+08:00 ] SQL: INSERT INTO `case_copyform_history` (`case`,`copyuser`,`copydate`,`copydatetime`) VALUES ('9','管理员','2013-04-15','2013-04-15 08:31:03') [ RunTime:0.001001s ]
+[ 2013-04-15T20:31:03+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history_detail` [ RunTime:0.008077s ]
+[ 2013-04-15T20:31:03+08:00 ] SQL: INSERT INTO `case_copyform_history_detail` (`copyid`,`code`,`area`,`username`,`gaugecode`,`type`,`predegree`,`alldegree`,`thisdegree`) VALUES (18,'電表B1','eee','UUU','1234','1','60','10','21998780') [ RunTime:0.000818s ]
+[ 2013-04-15T20:31:04+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case_copyform_history` WHERE `case` = 9 LIMIT 1  [ RunTime:0.001719s ]
+[ 2013-04-15T20:31:04+08:00 ] SQL: SELECT * FROM `case_copyform_history` WHERE `case` = 9 ORDER BY id desc LIMIT 0,20  [ RunTime:0.001240s ]
+[ 2013-04-15T20:31:08+08:00 ] SQL: SHOW COLUMNS FROM `case_copyform_history_detail` [ RunTime:0.011838s ]
+[ 2013-04-15T20:31:08+08:00 ] SQL: SELECT * FROM `case_copyform_history_detail` WHERE copyid =18 [ RunTime:0.000971s ]

@@ -1,0 +1,320 @@
+[ 2013-08-22T14:44:54+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-08-22T14:44:54+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-08-22T14:45:13+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007081s ]
+[ 2013-08-22T14:45:13+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = 'admin' ) LIMIT 1  [ RunTime:0.021929s ]
+[ 2013-08-22T14:45:13+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.005766s ]
+[ 2013-08-22T14:45:13+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=10
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 10, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.070378s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.006764s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =10 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.023565s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.006106s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =10 LIMIT 1  [ RunTime:0.001487s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =10 LIMIT 1  [ RunTime:0.001139s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=21 [ RunTime:0.022859s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004130s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.003699s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.003815s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004516s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.003779s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004640s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.005650s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004089s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004366s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.003935s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004064s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004069s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.003789s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004068s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004277s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004150s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=21 [ RunTime:0.003891s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.003970s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004917s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004120s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.003936s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.003703s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.003783s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=21 [ RunTime:0.003869s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004451s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004486s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004541s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.003850s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004417s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004782s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=21 order by ordernumber,id [ RunTime:0.004055s ]
+[ 2013-08-22T14:45:14+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 80 行.
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 21 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.003983s ]
+[ 2013-08-22T14:45:14+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-08-22T14:45:14+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-08-22T14:45:14+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10  ORDER BY w.id desc  [ RunTime:0.009457s ]
+[ 2013-08-22T14:45:14+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 10  ORDER BY w.id desc  limit 0,20 [ RunTime:0.009200s ]
+[ 2013-08-22T14:45:15+08:00 ] NOTIC: [8] Undefined variable: sdate a2c51faf257f2ebe48aa3609eae55296.php 第 261 行.
+[ 2013-08-22T14:45:15+08:00 ] NOTIC: [8] Undefined variable: edate a2c51faf257f2ebe48aa3609eae55296.php 第 261 行.
+[ 2013-08-22T14:45:20+08:00 ] NOTIC: [8] Undefined index: id UserAction.class.php 第 162 行.
+[ 2013-08-22T14:45:20+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007660s ]
+[ 2013-08-22T14:45:20+08:00 ] SQL: SELECT * FROM `user` WHERE ( `id` = 10 ) LIMIT 1  [ RunTime:0.001095s ]
+[ 2013-08-22T14:45:20+08:00 ] SQL: SHOW COLUMNS FROM `experience` [ RunTime:0.006019s ]
+[ 2013-08-22T14:45:20+08:00 ] SQL: SELECT * FROM `experience` WHERE 1=1 AND uid='10' ORDER BY id asc [ RunTime:0.001329s ]
+[ 2013-08-22T14:45:20+08:00 ] SQL: SHOW COLUMNS FROM `education` [ RunTime:0.005995s ]
+[ 2013-08-22T14:45:20+08:00 ] SQL: SELECT * FROM `education` WHERE 1=1 AND uid='10' ORDER BY id asc [ RunTime:0.017234s ]
+[ 2013-08-22T14:45:20+08:00 ] SQL: SHOW COLUMNS FROM `skill` [ RunTime:0.005950s ]
+[ 2013-08-22T14:45:20+08:00 ] SQL: SELECT * FROM `skill` WHERE 1=1 AND uid='10' ORDER BY id asc [ RunTime:0.000984s ]
+[ 2013-08-22T14:45:20+08:00 ] SQL: SHOW COLUMNS FROM `family` [ RunTime:0.006859s ]
+[ 2013-08-22T14:45:20+08:00 ] SQL: SELECT * FROM `family` WHERE 1=1 AND uid='10' ORDER BY id asc [ RunTime:0.001372s ]
+[ 2013-08-22T14:45:20+08:00 ] SQL: SHOW COLUMNS FROM `certificate` [ RunTime:0.006140s ]
+[ 2013-08-22T14:45:21+08:00 ] SQL: SELECT * FROM `certificate` WHERE 1=1 AND uid='10' ORDER BY id asc [ RunTime:0.001055s ]
+[ 2013-08-22T14:45:21+08:00 ] SQL: SHOW COLUMNS FROM `dutydelegate` [ RunTime:0.009470s ]
+[ 2013-08-22T14:45:21+08:00 ] SQL: SELECT * FROM `dutydelegate` WHERE 1=1 AND uid='10' ORDER BY id asc [ RunTime:0.001002s ]
+[ 2013-08-22T14:45:21+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.006151s ]
+[ 2013-08-22T14:45:21+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.020326s ]
+[ 2013-08-22T14:45:21+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006351s ]
+[ 2013-08-22T14:45:21+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000930s ]
+[ 2013-08-22T14:45:21+08:00 ] SQL: SHOW COLUMNS FROM `level` [ RunTime:0.006469s ]
+[ 2013-08-22T14:45:21+08:00 ] SQL: SELECT * FROM `level` WHERE  code='13108617'  [ RunTime:0.003851s ]
+[ 2013-08-22T14:45:21+08:00 ] SQL: SHOW COLUMNS FROM `role` [ RunTime:0.006156s ]
+[ 2013-08-22T14:45:21+08:00 ] SQL: SELECT * FROM `role` WHERE  code='13108617'  [ RunTime:0.320492s ]
+[ 2013-08-22T14:45:22+08:00 ] NOTIC: [8] Undefined variable: url 96780bf5e12b40322bfdc7cecad56504.php 第 447 行.
+[ 2013-08-22T14:45:23+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007302s ]
+[ 2013-08-22T14:45:23+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.002743s ]
+[ 2013-08-22T14:45:23+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.005888s ]
+[ 2013-08-22T14:45:23+08:00 ] SQL: SELECT * FROM `area` WHERE pid=2 [ RunTime:0.001226s ]
+[ 2013-08-22T14:46:04+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007477s ]
+[ 2013-08-22T14:46:04+08:00 ] SQL: SELECT * FROM `user` WHERE ( `id` = '10' ) LIMIT 1  [ RunTime:0.001142s ]
+[ 2013-08-22T14:46:04+08:00 ] SQL: SHOW COLUMNS FROM `experience` [ RunTime:0.006396s ]
+[ 2013-08-22T14:46:04+08:00 ] SQL: SELECT * FROM `experience` WHERE 1=1 AND uid='10' ORDER BY id asc [ RunTime:0.000843s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SHOW COLUMNS FROM `education` [ RunTime:0.006177s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SELECT * FROM `education` WHERE 1=1 AND uid='10' ORDER BY id asc [ RunTime:0.000946s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SHOW COLUMNS FROM `skill` [ RunTime:0.006337s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SELECT * FROM `skill` WHERE 1=1 AND uid='10' ORDER BY id asc [ RunTime:0.000813s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SHOW COLUMNS FROM `family` [ RunTime:0.005537s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SELECT * FROM `family` WHERE 1=1 AND uid='10' ORDER BY id asc [ RunTime:0.000879s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SHOW COLUMNS FROM `certificate` [ RunTime:0.006298s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SELECT * FROM `certificate` WHERE 1=1 AND uid='10' ORDER BY id asc [ RunTime:0.001832s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SHOW COLUMNS FROM `dutydelegate` [ RunTime:0.006046s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SELECT * FROM `dutydelegate` WHERE 1=1 AND uid='10' ORDER BY id asc [ RunTime:0.003817s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.005831s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.001007s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.012364s ]
+[ 2013-08-22T14:46:05+08:00 ] SQL: SELECT * FROM `depart` WHERE ( `id` = '20' ) LIMIT 1  [ RunTime:0.000982s ]
+[ 2013-08-22T14:46:06+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.006611s ]
+[ 2013-08-22T14:46:06+08:00 ] SQL: SELECT * FROM `area` WHERE pid=2 [ RunTime:0.001018s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007476s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.001153s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.007006s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.011930s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.006689s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.004096s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.006970s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.001142s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.001416s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=26 [ RunTime:0.003799s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003955s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003897s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.004651s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.004631s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003662s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.004453s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003623s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.004342s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003783s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003978s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003719s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003785s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003862s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003673s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.004339s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=26 [ RunTime:0.003981s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003714s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003928s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003867s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003889s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.005203s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.004573s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=26 [ RunTime:0.004289s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.004386s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003943s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003857s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.004366s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003988s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003858s ]
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=26 order by ordernumber,id [ RunTime:0.003955s ]
+[ 2013-08-22T14:53:07+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 80 行.
+[ 2013-08-22T14:53:07+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 26 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.003909s ]
+[ 2013-08-22T14:53:08+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-08-22T14:53:08+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-08-22T14:53:08+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-08-22T14:53:08+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 30  ORDER BY w.id desc  [ RunTime:0.009816s ]
+[ 2013-08-22T14:53:08+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 30  ORDER BY w.id desc  limit 0,20 [ RunTime:0.008971s ]
+[ 2013-08-22T14:53:08+08:00 ] NOTIC: [8] Undefined variable: sdate a2c51faf257f2ebe48aa3609eae55296.php 第 261 行.
+[ 2013-08-22T14:53:08+08:00 ] NOTIC: [8] Undefined variable: edate a2c51faf257f2ebe48aa3609eae55296.php 第 261 行.
+[ 2013-08-22T14:53:15+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.032333s ]
+[ 2013-08-22T14:53:15+08:00 ] SQL: SELECT * FROM `user` WHERE ( `id` = '30' ) LIMIT 1  [ RunTime:0.001074s ]
+[ 2013-08-22T14:53:15+08:00 ] SQL: SHOW COLUMNS FROM `experience` [ RunTime:0.005885s ]
+[ 2013-08-22T14:53:15+08:00 ] SQL: SELECT * FROM `experience` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000845s ]
+[ 2013-08-22T14:53:15+08:00 ] SQL: SHOW COLUMNS FROM `education` [ RunTime:0.005826s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SELECT * FROM `education` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000861s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SHOW COLUMNS FROM `skill` [ RunTime:0.015131s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SELECT * FROM `skill` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.001165s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SHOW COLUMNS FROM `family` [ RunTime:0.005977s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SELECT * FROM `family` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000875s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SHOW COLUMNS FROM `certificate` [ RunTime:0.005828s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SELECT * FROM `certificate` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.001171s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SHOW COLUMNS FROM `dutydelegate` [ RunTime:0.006530s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SELECT * FROM `dutydelegate` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000933s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.005616s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.001276s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007071s ]
+[ 2013-08-22T14:53:16+08:00 ] SQL: SELECT * FROM `depart` WHERE ( `id` = '22' ) LIMIT 1  [ RunTime:0.001208s ]
+[ 2013-08-22T14:53:17+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.006566s ]
+[ 2013-08-22T14:53:17+08:00 ] SQL: SELECT * FROM `area` WHERE pid=請選擇 [ RunTime:0.000695s ]
+[ 2013-08-22T14:53:20+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009825s ]
+[ 2013-08-22T14:53:20+08:00 ] SQL: SELECT * FROM `user` WHERE ( `id` = '30' ) LIMIT 1  [ RunTime:0.001079s ]
+[ 2013-08-22T14:53:20+08:00 ] SQL: SHOW COLUMNS FROM `experience` [ RunTime:0.006085s ]
+[ 2013-08-22T14:53:20+08:00 ] SQL: SELECT * FROM `experience` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000997s ]
+[ 2013-08-22T14:53:20+08:00 ] SQL: SHOW COLUMNS FROM `education` [ RunTime:0.006224s ]
+[ 2013-08-22T14:53:20+08:00 ] SQL: SELECT * FROM `education` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000836s ]
+[ 2013-08-22T14:53:20+08:00 ] SQL: SHOW COLUMNS FROM `skill` [ RunTime:0.007053s ]
+[ 2013-08-22T14:53:20+08:00 ] SQL: SELECT * FROM `skill` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000843s ]
+[ 2013-08-22T14:53:20+08:00 ] SQL: SHOW COLUMNS FROM `family` [ RunTime:0.007814s ]
+[ 2013-08-22T14:53:20+08:00 ] SQL: SELECT * FROM `family` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000828s ]
+[ 2013-08-22T14:53:21+08:00 ] SQL: SHOW COLUMNS FROM `certificate` [ RunTime:0.005793s ]
+[ 2013-08-22T14:53:21+08:00 ] SQL: SELECT * FROM `certificate` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000862s ]
+[ 2013-08-22T14:53:21+08:00 ] SQL: SHOW COLUMNS FROM `dutydelegate` [ RunTime:0.005810s ]
+[ 2013-08-22T14:53:21+08:00 ] SQL: SELECT * FROM `dutydelegate` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000855s ]
+[ 2013-08-22T14:53:21+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.006572s ]
+[ 2013-08-22T14:53:21+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.000930s ]
+[ 2013-08-22T14:53:21+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005950s ]
+[ 2013-08-22T14:53:21+08:00 ] SQL: SELECT * FROM `depart` WHERE ( `id` = '22' ) LIMIT 1  [ RunTime:0.000806s ]
+[ 2013-08-22T14:53:21+08:00 ] NOTIC: [8] Undefined index: canedit UserAction.class.php 第 264 行.
+[ 2013-08-22T14:53:22+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.005718s ]
+[ 2013-08-22T14:53:22+08:00 ] SQL: SELECT * FROM `area` WHERE pid=請選擇 [ RunTime:0.000880s ]
+[ 2013-08-22T14:53:31+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008028s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SELECT * FROM `user` WHERE ( `id` = '30' ) LIMIT 1  [ RunTime:0.001150s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SHOW COLUMNS FROM `experience` [ RunTime:0.006730s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SELECT * FROM `experience` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.001722s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SHOW COLUMNS FROM `education` [ RunTime:0.006491s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SELECT * FROM `education` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000835s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SHOW COLUMNS FROM `skill` [ RunTime:0.005767s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SELECT * FROM `skill` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000813s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SHOW COLUMNS FROM `family` [ RunTime:0.005738s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SELECT * FROM `family` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000958s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SHOW COLUMNS FROM `certificate` [ RunTime:0.006660s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SELECT * FROM `certificate` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.001335s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SHOW COLUMNS FROM `dutydelegate` [ RunTime:0.007970s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SELECT * FROM `dutydelegate` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000873s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.006583s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.000949s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006202s ]
+[ 2013-08-22T14:53:32+08:00 ] SQL: SELECT * FROM `depart` WHERE ( `id` = '22' ) LIMIT 1  [ RunTime:0.000915s ]
+[ 2013-08-22T14:53:33+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.006591s ]
+[ 2013-08-22T14:53:33+08:00 ] SQL: SELECT * FROM `area` WHERE pid=請選擇 [ RunTime:0.000710s ]
+[ 2013-08-22T14:53:47+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.022540s ]
+[ 2013-08-22T14:53:47+08:00 ] NOTIC: [8] Use of undefined constant image_type_to_extension - assumed 'image_type_to_extension' Image.class.php 第 44 行.
+[ 2013-08-22T14:53:48+08:00 ] SQL: UPDATE `user` SET `ucode`='03231',`team`='27',`depart`='22',`name`='吳明貞',`username`='03231',`password`='03231',`origin`='',`province`='請選擇',`city`='請選擇',`address`='',`card`='',`sex`='女',`birthyear`='',`birthmonth`='',`birthday`='',`bloodtype`='請選擇',`phone`='',`mobile`='',`email`='1104jane@gmail.com',`onduty`='2010-06-01',`offduty`='1999-11-30',`armyremark`='',`salary`='',`health`='',`linkman`='',`linkrelation`='',`userimage`='1377154427.jpg' WHERE ( `id` = '30' ) [ RunTime:0.045078s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008853s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SELECT * FROM `user` WHERE ( `id` = '30' ) LIMIT 1  [ RunTime:0.001127s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SHOW COLUMNS FROM `experience` [ RunTime:0.007343s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SELECT * FROM `experience` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.002748s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SHOW COLUMNS FROM `education` [ RunTime:0.005867s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SELECT * FROM `education` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000832s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SHOW COLUMNS FROM `skill` [ RunTime:0.005579s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SELECT * FROM `skill` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.001097s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SHOW COLUMNS FROM `family` [ RunTime:0.009103s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SELECT * FROM `family` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.001247s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SHOW COLUMNS FROM `certificate` [ RunTime:0.006462s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SELECT * FROM `certificate` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000940s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SHOW COLUMNS FROM `dutydelegate` [ RunTime:0.006430s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SELECT * FROM `dutydelegate` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.001092s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.005690s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.001047s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.008247s ]
+[ 2013-08-22T14:53:48+08:00 ] SQL: SELECT * FROM `depart` WHERE ( `id` = '22' ) LIMIT 1  [ RunTime:0.001150s ]
+[ 2013-08-22T14:53:48+08:00 ] NOTIC: [8] Undefined index: canedit UserAction.class.php 第 264 行.
+[ 2013-08-22T14:53:50+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.005552s ]
+[ 2013-08-22T14:53:50+08:00 ] SQL: SELECT * FROM `area` WHERE pid=請選擇 [ RunTime:0.000715s ]

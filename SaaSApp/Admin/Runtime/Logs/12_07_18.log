@@ -1,0 +1,10 @@
+[ 2012-07-18T15:16:09+08:00 ] ERR: (ThinkException) 模板不存在[Admin/Tpl/default/Index/login.html]
+[ 2012-07-18T15:25:39+08:00 ] ERR: (ThinkException) 模板不存在[Admin/Tpl/__APP__/Company/index.html]
+[ 2012-07-18T15:25:49+08:00 ] ERR: (ThinkException) 模板不存在[Admin/Tpl/__APP__/Company/index.html]
+[ 2012-07-18T15:50:50+08:00 ] ERR: (ThinkException) 无法加载模块Team
+[ 2012-07-18T15:58:30+08:00 ] NOTIC: [8] Undefined variable: list f8b7c952455fd1a8c7031cc81044f5ee.php 第 175 行.
+[ 2012-07-18T15:58:30+08:00 ] NOTIC: [8] Undefined variable: page f8b7c952455fd1a8c7031cc81044f5ee.php 第 187 行.
+[ 2012-07-18T15:58:32+08:00 ] NOTIC: [8] Undefined variable: list f8b7c952455fd1a8c7031cc81044f5ee.php 第 175 行.
+[ 2012-07-18T15:58:32+08:00 ] NOTIC: [8] Undefined variable: page f8b7c952455fd1a8c7031cc81044f5ee.php 第 187 行.
+[ 2012-07-18T16:10:45+08:00 ] NOTIC: [8] Undefined variable: list f8b7c952455fd1a8c7031cc81044f5ee.php 第 175 行.
+[ 2012-07-18T16:10:45+08:00 ] NOTIC: [8] Undefined variable: page f8b7c952455fd1a8c7031cc81044f5ee.php 第 187 行.

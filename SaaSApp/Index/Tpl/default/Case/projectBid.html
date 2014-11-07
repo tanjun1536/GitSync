@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">叫修單管理- 工程報價</div>
+			<div class="mainInfo">
+				<div class="topic2">報價單搜尋</div>
+				<form id="form2" name="form2" method="post" action="">
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="104" scope="row">客戶名稱</th>
+							<td colspan="3"><input type="text" name="cname" style="width: 250px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">報價日期</th>
+							<td width="240"><input type="text" name="ddate" /></td>
+							<th width="102" scope="row">狀態</th>
+							<td width="244"><select name="sstate">
+									<option value="" selected="selected">請選擇</option>
+									<option value="報價">報價</option>
+									<option value="議價">議價</option>
+									<option value="簽約確定">簽約確定</option>
+									<option value="完工">完工</option>
+							</select></td>
+						</tr>
+
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit" value="搜尋" /></td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td><div class="topic2">工程報價列表</div></td>
+							<td valign="bottom"><div class="mailNav">
+									<a href="__URL__/addBid?case={@case}">新增報價單</a>
+								</div></td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+						<tr>
+							<th width="120" scope="col">報價單編號</th>
+							<th width="95" scope="col">報價日期</th>
+							<th width="194" scope="col">客戶名稱</th>
+							<th width="84" scope="col">統一編號</th>
+							<th width="76" scope="col">發票金額</th>
+							<th width="72" scope="col">狀態</th>
+							<th width="72" scope="col">操作</th>
+						</tr>
+						<volist id="item" name="list"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center"><a href="__URL__/bidView?case={@case}&id={$item.id}">{$item.bidcode}</a></td>
+						<td align="center">{$item.biddate|date='Y/m/d',strtotime(###)}</td>
+						<td>{$item.clientname}</td>
+						<td align="center">{$item.uniquecode}</td>
+						<td align="center">{$item.invoicemoney}</td>
+						<td align="center">{$item.state}</td>
+						<td align="center"><a href="__URL__/editBid?case={@case}&id={$item.id}">修改</a> <a onclick="return confirm('是否確認刪除選擇的數據?');" href="__URL__/deleteBid?case={@case}&id={$item.id}">刪除</a></td>
+						</tr>
+						</volist>
+					</table>
+					<div class="pages">
+					{$page}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

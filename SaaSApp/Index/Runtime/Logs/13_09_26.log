@@ -1,0 +1,1464 @@
+[ 2013-09-26T15:54:48+08:00 ] NOTIC: [8] Undefined index: username IndexAction.class.php 第 4 行.
+[ 2013-09-26T15:54:48+08:00 ] NOTIC: [8] Undefined index: pwd IndexAction.class.php 第 5 行.
+[ 2013-09-26T15:57:03+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009963s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT * FROM `user` WHERE ( `username` = '03231' ) LIMIT 1  [ RunTime:0.001311s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SHOW COLUMNS FROM `msg` [ RunTime:0.006971s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT COUNT(*) as C FROM (SELECT
+		m.id,IFNULL(mr.readerid,0) isread
+		FROM
+		msg m LEFT JOIN msgreader mr ON m.`id`=mr.`msgid` AND mr.`readerid`=30
+		WHERE INSTR(
+				CONCAT(',', m.receiversid, ','),
+				CONCAT(',', 30, ',')
+		) > 0 AND m.code = 13108617) z WHERE z.isread =0 [ RunTime:0.154195s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SHOW COLUMNS FROM `work` [ RunTime:0.006953s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `work` WHERE code='13108617' and awoke =1 and uid =30 and UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(DATE_ADD(
+			    STR_TO_DATE(
+			      CONCAT(
+			        DATE(`date`),
+			        ' ',
+			        ehour,
+			        ':',
+			        eminute,
+			        ':00'
+			      ),
+			      '%Y-%m-%d %H:%i:%s'
+			    ),INTERVAL overday DAY)
+			  ) < 0   LIMIT 1  [ RunTime:0.149228s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SHOW COLUMNS FROM `msgwork` [ RunTime:0.006842s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and issenderread =0 and senderid =30 LIMIT 1  [ RunTime:0.002774s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `msgwork` WHERE code='13108617' and isreceiverread =0 and receiverid =30 LIMIT 1  [ RunTime:0.002188s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=1 and rm.`rid`=20 [ RunTime:0.023155s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=1 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005231s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=2 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004533s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=6 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005961s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=7 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005282s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=8 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004519s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=34 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005206s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=35 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004459s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=36 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005201s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=39 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005627s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=42 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004269s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=45 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004873s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=51 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004502s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=108 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004182s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=111 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.009067s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=115 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005488s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005316s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and pos=0 and rm.`rid`=20 [ RunTime:0.006359s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=15 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004998s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=16 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005340s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=19 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005222s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=24 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004855s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=27 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004910s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=31 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005350s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id is NULL and (pos=2 OR m.name='專案管理') and rm.`rid`=20 [ RunTime:0.004893s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=59 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004807s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=69 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004634s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=76 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004400s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=79 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005807s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=87 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004273s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=101 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.004691s ]
+[ 2013-09-26T15:57:03+08:00 ] SQL: SELECT m.id,m.`name`,m.`parent_id`,m.`link`,m.`image`,m.`target`,rm.`ext` FROM menu m INNER JOIN role_menu rm ON m.`id`=rm.`mid` WHERE m.parent_id=107 and rm.`rid`=20 order by ordernumber,id [ RunTime:0.005045s ]
+[ 2013-09-26T15:57:04+08:00 ] NOTIC: [8] Undefined index: exts BaseAction.class.php 第 80 行.
+[ 2013-09-26T15:57:04+08:00 ] SQL: SELECT 
+			  rm.*,
+			  m.`link` 
+			FROM
+			  `menu` m 
+			  INNER JOIN `role_menu` rm 
+			    ON m.`id` = rm.`mid` 
+			WHERE rm.`rid` = 20 
+			  AND m.`ext` IS NOT NULL  [ RunTime:0.005812s ]
+[ 2013-09-26T15:57:04+08:00 ] NOTIC: [8] Undefined index: key WorkAction.class.php 第 15 行.
+[ 2013-09-26T15:57:04+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-09-26T15:57:04+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-26T15:57:04+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 30  ORDER BY w.id desc  [ RunTime:0.021912s ]
+[ 2013-09-26T15:57:04+08:00 ] SQL: SELECT 
+			  w.* ,u.`ucode`,d.`id` depart,IFNULL(t.`name` ,w.typename) `type`
+			FROM
+			  `work` w 
+			  INNER JOIN `user` u 
+			    ON u.`id` = w.`uid` 
+			   INNER JOIN depart d ON d.`id`=u.`depart`
+			   LEFT JOIN `type` t ON t.`id`=w.`type`
+			WHERE w.`code` = '13108617' AND w.uid= 30  ORDER BY w.id desc  limit 0,20 [ RunTime:0.025659s ]
+[ 2013-09-26T15:57:05+08:00 ] NOTIC: [8] Undefined variable: sdate a2c51faf257f2ebe48aa3609eae55296.php 第 261 行.
+[ 2013-09-26T15:57:05+08:00 ] NOTIC: [8] Undefined variable: edate a2c51faf257f2ebe48aa3609eae55296.php 第 261 行.
+[ 2013-09-26T15:58:05+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 4 行.
+[ 2013-09-26T15:58:05+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 5 行.
+[ 2013-09-26T15:58:05+08:00 ] SQL: select COUNT(*) from `check` WHERE  `code`='13108617'  and uid=30 [ RunTime:0.058743s ]
+[ 2013-09-26T15:58:05+08:00 ] SQL: select *,TIMEDIFF(downtime,ontime) difftime from `check` WHERE  `code`='13108617'  and uid=30 order by id desc  limit 0,20 [ RunTime:0.005579s ]
+[ 2013-09-26T15:58:41+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 4 行.
+[ 2013-09-26T15:58:41+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 5 行.
+[ 2013-09-26T15:58:41+08:00 ] SQL: select COUNT(*) from `check` WHERE  `code`='13108617'  and uid=30 [ RunTime:0.001899s ]
+[ 2013-09-26T15:58:41+08:00 ] NOTIC: [8] Undefined variable: list BaseAction.class.php 第 263 行.
+[ 2013-09-26T15:58:45+08:00 ] SQL: SHOW COLUMNS FROM `check` [ RunTime:0.007191s ]
+[ 2013-09-26T15:58:45+08:00 ] SQL: SELECT * FROM `check` WHERE type='一般' and DATEDIFF(date,'2013-09-26')=0 and  uid=30 LIMIT 1  [ RunTime:0.004870s ]
+[ 2013-09-26T15:58:45+08:00 ] SQL: SELECT * FROM company  WHERE CONCAT(onhour,onminute)>'1558' AND code='13108617' [ RunTime:0.001159s ]
+[ 2013-09-26T15:58:46+08:00 ] SQL: INSERT INTO `check` (`type`,`code`,`date`,`uid`,`status`,`ontime`) VALUES ('一般','13108617','2013-09-26 15:58:45','30','異常','2013-09-26 15:58:45') [ RunTime:0.049695s ]
+[ 2013-09-26T15:58:46+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 4 行.
+[ 2013-09-26T15:58:46+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 5 行.
+[ 2013-09-26T15:58:46+08:00 ] SQL: select COUNT(*) from `check` WHERE  `code`='13108617'  and uid=30 [ RunTime:0.004048s ]
+[ 2013-09-26T15:58:46+08:00 ] SQL: select *,TIMEDIFF(downtime,ontime) difftime from `check` WHERE  `code`='13108617'  and uid=30 order by id desc  limit 0,20 [ RunTime:0.002509s ]
+[ 2013-09-26T16:16:22+08:00 ] SQL: SELECT * FROM user WHERE depart=(SELECT depart FROM user WHERE id=30) [ RunTime:0.004693s ]
+[ 2013-09-26T16:16:22+08:00 ] SQL: select * from depart where `code` = '13108617' [ RunTime:0.001134s ]
+[ 2013-09-26T16:16:22+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 127 行.
+[ 2013-09-26T16:16:22+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 128 行.
+[ 2013-09-26T16:16:22+08:00 ] NOTIC: [8] Undefined index: depart CheckAction.class.php 第 129 行.
+[ 2013-09-26T16:16:22+08:00 ] NOTIC: [8] Undefined index: team CheckAction.class.php 第 130 行.
+[ 2013-09-26T16:16:22+08:00 ] SQL: SELECT c.*,TIMEDIFF(c.downtime,c.ontime) difftime,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.depart=22 [ RunTime:0.001379s ]
+[ 2013-09-26T16:16:22+08:00 ] SQL: SELECT c.*,TIMEDIFF(c.downtime,c.ontime) difftime,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.depart=22 order by c.id desc  limit 0,20 [ RunTime:0.001335s ]
+[ 2013-09-26T16:16:23+08:00 ] NOTIC: [8] Undefined variable: team ad2fc65979b2686ffcb34de24ea0af3b.php 第 11 行.
+[ 2013-09-26T16:16:23+08:00 ] NOTIC: [8] Undefined variable: sdate ad2fc65979b2686ffcb34de24ea0af3b.php 第 291 行.
+[ 2013-09-26T16:16:23+08:00 ] NOTIC: [8] Undefined variable: edate ad2fc65979b2686ffcb34de24ea0af3b.php 第 291 行.
+[ 2013-09-26T16:16:23+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.006858s ]
+[ 2013-09-26T16:16:23+08:00 ] SQL: SELECT * FROM `team` WHERE depart=22 [ RunTime:0.001296s ]
+[ 2013-09-26T16:18:31+08:00 ] SQL: SELECT * FROM user WHERE depart=(SELECT depart FROM user WHERE id=30) [ RunTime:0.007796s ]
+[ 2013-09-26T16:18:31+08:00 ] SQL: select * from depart where `code` = '13108617' [ RunTime:0.003403s ]
+[ 2013-09-26T16:18:31+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 127 行.
+[ 2013-09-26T16:18:31+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 128 行.
+[ 2013-09-26T16:18:31+08:00 ] NOTIC: [8] Undefined index: depart CheckAction.class.php 第 129 行.
+[ 2013-09-26T16:18:31+08:00 ] NOTIC: [8] Undefined index: team CheckAction.class.php 第 130 行.
+[ 2013-09-26T16:18:31+08:00 ] SQL: SELECT c.*,TIMEDIFF(c.downtime,c.ontime) difftime,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.depart=22 [ RunTime:0.001491s ]
+[ 2013-09-26T16:18:31+08:00 ] SQL: SELECT c.*,TIMEDIFF(c.downtime,c.ontime) difftime,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.depart=22 order by c.id desc  limit 0,20 [ RunTime:0.001553s ]
+[ 2013-09-26T16:18:32+08:00 ] NOTIC: [8] Undefined variable: team ad2fc65979b2686ffcb34de24ea0af3b.php 第 11 行.
+[ 2013-09-26T16:18:32+08:00 ] NOTIC: [8] Undefined variable: sdate ad2fc65979b2686ffcb34de24ea0af3b.php 第 291 行.
+[ 2013-09-26T16:18:32+08:00 ] NOTIC: [8] Undefined variable: edate ad2fc65979b2686ffcb34de24ea0af3b.php 第 291 行.
+[ 2013-09-26T16:18:32+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.005562s ]
+[ 2013-09-26T16:18:32+08:00 ] SQL: SELECT * FROM `team` WHERE depart=22 [ RunTime:0.000925s ]
+[ 2013-09-26T16:18:35+08:00 ] NOTIC: [8] Undefined index: depart CheckAction.class.php 第 175 行.
+[ 2013-09-26T16:18:55+08:00 ] SQL: SELECT c.type,CONCAT(u.`name`,'(',u.ucode,')') uname,c.`ontime`,c.`downtime`, TIMEDIFF(c.downtime,c.ontime) difftime FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.depart=22 [ RunTime:0.000922s ]
+[ 2013-09-26T16:19:01+08:00 ] SQL: SELECT * FROM user WHERE depart=(SELECT depart FROM user WHERE id=30) [ RunTime:0.004140s ]
+[ 2013-09-26T16:19:01+08:00 ] SQL: select * from depart where `code` = '13108617' [ RunTime:0.000938s ]
+[ 2013-09-26T16:19:01+08:00 ] NOTIC: [8] Undefined index: sdate CheckAction.class.php 第 222 行.
+[ 2013-09-26T16:19:01+08:00 ] NOTIC: [8] Undefined index: edate CheckAction.class.php 第 223 行.
+[ 2013-09-26T16:19:01+08:00 ] NOTIC: [8] Undefined index: depart CheckAction.class.php 第 224 行.
+[ 2013-09-26T16:19:01+08:00 ] NOTIC: [8] Undefined index: team CheckAction.class.php 第 225 行.
+[ 2013-09-26T16:19:01+08:00 ] SQL: SELECT c.*,TIMEDIFF(c.downtime,c.ontime) difftime,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.depart=22 and u.team=27 [ RunTime:0.001154s ]
+[ 2013-09-26T16:19:01+08:00 ] SQL: SELECT c.*,TIMEDIFF(c.downtime,c.ontime) difftime,u.id as userid,u.`name`,u.`ucode` FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.depart=22 and u.team=27 order by c.id desc  limit 0,20 [ RunTime:0.001020s ]
+[ 2013-09-26T16:19:02+08:00 ] NOTIC: [8] Undefined variable: sdate 3021a20df15dd790fbbeb72c17596457.php 第 288 行.
+[ 2013-09-26T16:19:02+08:00 ] NOTIC: [8] Undefined variable: edate 3021a20df15dd790fbbeb72c17596457.php 第 288 行.
+[ 2013-09-26T16:19:02+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007156s ]
+[ 2013-09-26T16:19:02+08:00 ] SQL: SELECT * FROM `team` WHERE depart=22 [ RunTime:0.001859s ]
+[ 2013-09-26T16:19:04+08:00 ] NOTIC: [8] Undefined index: depart CheckAction.class.php 第 274 行.
+[ 2013-09-26T16:19:04+08:00 ] NOTIC: [8] Undefined index: team CheckAction.class.php 第 275 行.
+[ 2013-09-26T16:19:10+08:00 ] SQL: SELECT c.type,CONCAT(u.`name`,'(',u.ucode,')') uname,c.`ontime`,c.`downtime`, TIMEDIFF(c.downtime,c.ontime) difftime FROM `check` c INNER JOIN `user`  u ON c.`uid`=u.`id` WHERE 1=1  and u.depart=22 and u.team=27 [ RunTime:0.001278s ]
+[ 2013-09-26T16:19:40+08:00 ] NOTIC: [8] Undefined index: key CaseAction.class.php 第 4 行.
+[ 2013-09-26T16:19:40+08:00 ] SQL: SHOW COLUMNS FROM `case` [ RunTime:0.007765s ]
+[ 2013-09-26T16:19:40+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  LIMIT 1  [ RunTime:0.001809s ]
+[ 2013-09-26T16:19:40+08:00 ] SQL: SELECT * FROM `case` WHERE  `code`='13108617'  and id in (SELECT 
+						  `case` 
+						FROM
+						  case_member 
+						WHERE memberid = 30 
+						UNION ALL
+						SELECT 
+						  `case` 
+						FROM
+						  case_looker 
+						WHERE lookerid = 30  )  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001677s ]
+[ 2013-09-26T16:19:43+08:00 ] SQL: SHOW COLUMNS FROM `case_content` [ RunTime:0.005930s ]
+[ 2013-09-26T16:19:43+08:00 ] SQL: select * from case_content where id =26 [ RunTime:0.000972s ]
+[ 2013-09-26T16:19:43+08:00 ] NOTIC: [8] Undefined index: caseName 6a80fc463fa49e147ec5390fac1af20e.php 第 107 行.
+[ 2013-09-26T16:19:43+08:00 ] SQL: SHOW COLUMNS FROM `case_content` [ RunTime:0.005912s ]
+[ 2013-09-26T16:19:43+08:00 ] SQL: select * from case_content where id =26 [ RunTime:0.000837s ]
+[ 2013-09-26T16:19:44+08:00 ] NOTIC: [8] Undefined index: caseName 6a80fc463fa49e147ec5390fac1af20e.php 第 107 行.
+[ 2013-09-26T16:19:52+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006356s ]
+[ 2013-09-26T16:19:52+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000923s ]
+[ 2013-09-26T16:19:52+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.006086s ]
+[ 2013-09-26T16:19:52+08:00 ] SQL: SELECT t.*,u.`name` AS uname,u.`ucode`  FROM case_team t INNER JOIN `user` u ON t.`teamerid`=u.`id`  WHERE t.case = 26 [ RunTime:0.001665s ]
+[ 2013-09-26T16:19:52+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 17 行.
+[ 2013-09-26T16:19:52+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 18 行.
+[ 2013-09-26T16:19:52+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 19 行.
+[ 2013-09-26T16:19:52+08:00 ] NOTIC: [8] Undefined index: caseName f345a7f0f823acbf2c2893815db2b8b3.php 第 185 行.
+[ 2013-09-26T16:19:52+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 194 行.
+[ 2013-09-26T16:19:52+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 199 行.
+[ 2013-09-26T16:19:52+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 214 行.
+[ 2013-09-26T16:19:52+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 215 行.
+[ 2013-09-26T16:21:01+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.007892s ]
+[ 2013-09-26T16:21:01+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000983s ]
+[ 2013-09-26T16:21:01+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.008982s ]
+[ 2013-09-26T16:21:02+08:00 ] SQL: SELECT t.*,u.`name` AS uname,u.`ucode`  FROM case_team t LEFT JOIN `user` u ON t.`teamerid`=u.`id`  WHERE t.case = 26 [ RunTime:0.001182s ]
+[ 2013-09-26T16:21:02+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 17 行.
+[ 2013-09-26T16:21:02+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 18 行.
+[ 2013-09-26T16:21:02+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 19 行.
+[ 2013-09-26T16:21:02+08:00 ] NOTIC: [8] Undefined index: caseName f345a7f0f823acbf2c2893815db2b8b3.php 第 185 行.
+[ 2013-09-26T16:21:02+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 194 行.
+[ 2013-09-26T16:21:02+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 199 行.
+[ 2013-09-26T16:21:02+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 214 行.
+[ 2013-09-26T16:21:02+08:00 ] NOTIC: [8] Undefined variable: team f345a7f0f823acbf2c2893815db2b8b3.php 第 215 行.
+[ 2013-09-26T16:22:27+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005799s ]
+[ 2013-09-26T16:22:27+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001547s ]
+[ 2013-09-26T16:22:27+08:00 ] SQL: SHOW COLUMNS FROM `case_team` [ RunTime:0.006403s ]
+[ 2013-09-26T16:22:27+08:00 ] SQL: SELECT * FROM `case_team` WHERE  `case` = 26 [ RunTime:0.001432s ]
+[ 2013-09-26T16:22:27+08:00 ] SQL: SHOW COLUMNS FROM `case_member` [ RunTime:0.007110s ]
+[ 2013-09-26T16:22:27+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=26 [ RunTime:0.004292s ]
+[ 2013-09-26T16:22:27+08:00 ] SQL: SELECT member.*,u.name,u.ucode FROM case_member member INNER JOIN `user` u ON member.`memberid`=u.`id` WHERE member.`case`=26 limit 0,20 [ RunTime:0.001492s ]
+[ 2013-09-26T16:22:28+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 12 行.
+[ 2013-09-26T16:22:28+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 13 行.
+[ 2013-09-26T16:22:28+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 14 行.
+[ 2013-09-26T16:22:28+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 15 行.
+[ 2013-09-26T16:22:28+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 16 行.
+[ 2013-09-26T16:22:28+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 17 行.
+[ 2013-09-26T16:22:28+08:00 ] NOTIC: [8] Undefined index: caseName 28283a51db16df7c448990352f7778f1.php 第 203 行.
+[ 2013-09-26T16:22:28+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 211 行.
+[ 2013-09-26T16:22:28+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 224 行.
+[ 2013-09-26T16:22:28+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 228 行.
+[ 2013-09-26T16:22:28+08:00 ] NOTIC: [8] Undefined variable: member 28283a51db16df7c448990352f7778f1.php 第 230 行.
+[ 2013-09-26T16:22:32+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.005365s ]
+[ 2013-09-26T16:22:32+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001042s ]
+[ 2013-09-26T16:22:33+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007793s ]
+[ 2013-09-26T16:22:33+08:00 ] SQL: SELECT * FROM `user` WHERE team=30 [ RunTime:0.003931s ]
+[ 2013-09-26T16:22:36+08:00 ] NOTIC: [8] Undefined index: id CaseAction.class.php 第 216 行.
+[ 2013-09-26T16:22:36+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007449s ]
+[ 2013-09-26T16:22:36+08:00 ] SQL: SELECT * FROM `user` LIMIT 1  [ RunTime:0.001197s ]
+[ 2013-09-26T16:23:55+08:00 ] NOTIC: [8] Undefined index: id CaseAction.class.php 第 216 行.
+[ 2013-09-26T16:23:55+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007058s ]
+[ 2013-09-26T16:23:55+08:00 ] SQL: SELECT * FROM `user` LIMIT 1  [ RunTime:0.001241s ]
+[ 2013-09-26T16:24:03+08:00 ] NOTIC: [8] Undefined variable: cat debug-eval 第 1 行.
+[ 2013-09-26T16:24:03+08:00 ] NOTIC: [8] Undefined variable: categories debug-eval 第 1 行.
+[ 2013-09-26T16:24:03+08:00 ] NOTIC: [8] Undefined variable: cat2 debug-eval 第 1 行.
+[ 2013-09-26T16:24:03+08:00 ] NOTIC: [8] Undefined variable: cat debug-eval 第 1 行.
+[ 2013-09-26T16:24:03+08:00 ] NOTIC: [8] Undefined index: ontime debug-eval 第 1 行.
+[ 2013-09-26T16:28:00+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007284s ]
+[ 2013-09-26T16:28:00+08:00 ] SQL: SELECT * FROM `user` WHERE ( `id` = '109' ) LIMIT 1  [ RunTime:0.001291s ]
+[ 2013-09-26T16:28:00+08:00 ] NOTIC: [8] Undefined variable: cat debug-eval 第 1 行.
+[ 2013-09-26T16:28:00+08:00 ] NOTIC: [8] Undefined variable: cat debug-eval 第 1 行.
+[ 2013-09-26T16:28:00+08:00 ] NOTIC: [8] Undefined index: ontime debug-eval 第 1 行.
+[ 2013-09-26T16:28:00+08:00 ] NOTIC: [8] Undefined variable: cat2 debug-eval 第 1 行.
+[ 2013-09-26T16:28:00+08:00 ] NOTIC: [8] Undefined variable: categories debug-eval 第 1 行.
+[ 2013-09-26T16:28:34+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:34+08:00 ] NOTIC: [8] Undefined index: name BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:34+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:34+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:34+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:34+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:34+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:34+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.034980s ]
+[ 2013-09-26T16:28:34+08:00 ] NOTIC: [8] Undefined index: q BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:34+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26  order by repairdate desc [ RunTime:0.130289s ]
+[ 2013-09-26T16:28:34+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26  order by repairdate desc limit 0,20 [ RunTime:0.011553s ]
+[ 2013-09-26T16:28:34+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.006271s ]
+[ 2013-09-26T16:28:34+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 26 LIMIT 1  [ RunTime:0.000857s ]
+[ 2013-09-26T16:28:34+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '申請叫修' AND `case` = 26 [ RunTime:0.037070s ]
+[ 2013-09-26T16:28:34+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '派工' AND `case` = 26 [ RunTime:0.036852s ]
+[ 2013-09-26T16:28:34+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '委外' AND `case` = 26 [ RunTime:0.041298s ]
+[ 2013-09-26T16:28:35+08:00 ] NOTIC: [8] Undefined index: caseName e2ab549fb0459c40412e5130be1fd81e.php 第 111 行.
+[ 2013-09-26T16:28:35+08:00 ] NOTIC: [8] Undefined variable: repaircode e2ab549fb0459c40412e5130be1fd81e.php 第 123 行.
+[ 2013-09-26T16:28:35+08:00 ] NOTIC: [8] Undefined variable: sdispatcher e2ab549fb0459c40412e5130be1fd81e.php 第 125 行.
+[ 2013-09-26T16:28:35+08:00 ] NOTIC: [8] Undefined variable: devicename e2ab549fb0459c40412e5130be1fd81e.php 第 129 行.
+[ 2013-09-26T16:28:35+08:00 ] NOTIC: [8] Undefined variable: askman e2ab549fb0459c40412e5130be1fd81e.php 第 131 行.
+[ 2013-09-26T16:28:35+08:00 ] NOTIC: [8] Undefined variable: sdate e2ab549fb0459c40412e5130be1fd81e.php 第 135 行.
+[ 2013-09-26T16:28:35+08:00 ] NOTIC: [8] Undefined variable: edate e2ab549fb0459c40412e5130be1fd81e.php 第 137 行.
+[ 2013-09-26T16:28:54+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:54+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:54+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:54+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:54+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:54+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:54+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.007197s ]
+[ 2013-09-26T16:28:54+08:00 ] NOTIC: [8] Undefined index: q BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:28:55+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26 AND devicename like '%%'  order by repairdate desc [ RunTime:0.056675s ]
+[ 2013-09-26T16:28:55+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26 AND devicename like '%%'  order by repairdate desc limit 0,20 [ RunTime:0.015940s ]
+[ 2013-09-26T16:28:55+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.006166s ]
+[ 2013-09-26T16:28:55+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 26 LIMIT 1  [ RunTime:0.001005s ]
+[ 2013-09-26T16:28:55+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '申請叫修' AND `case` = 26 [ RunTime:0.036287s ]
+[ 2013-09-26T16:28:55+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '派工' AND `case` = 26 [ RunTime:0.037029s ]
+[ 2013-09-26T16:28:55+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '委外' AND `case` = 26 [ RunTime:0.035757s ]
+[ 2013-09-26T16:28:56+08:00 ] NOTIC: [8] Undefined index: caseName e2ab549fb0459c40412e5130be1fd81e.php 第 111 行.
+[ 2013-09-26T16:28:56+08:00 ] NOTIC: [8] Undefined variable: repaircode e2ab549fb0459c40412e5130be1fd81e.php 第 123 行.
+[ 2013-09-26T16:28:56+08:00 ] NOTIC: [8] Undefined variable: sdispatcher e2ab549fb0459c40412e5130be1fd81e.php 第 125 行.
+[ 2013-09-26T16:28:56+08:00 ] NOTIC: [8] Undefined variable: askman e2ab549fb0459c40412e5130be1fd81e.php 第 131 行.
+[ 2013-09-26T16:28:56+08:00 ] NOTIC: [8] Undefined variable: sdate e2ab549fb0459c40412e5130be1fd81e.php 第 135 行.
+[ 2013-09-26T16:28:56+08:00 ] NOTIC: [8] Undefined variable: edate e2ab549fb0459c40412e5130be1fd81e.php 第 137 行.
+[ 2013-09-26T16:29:35+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:29:44+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:29:44+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:29:44+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:29:45+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:29:45+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:29:47+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.007861s ]
+[ 2013-09-26T16:29:49+08:00 ] NOTIC: [8] Undefined index: q BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:30:05+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26 AND devicename like '%%'  order by repairdate desc [ RunTime:0.016949s ]
+[ 2013-09-26T16:30:05+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26 AND devicename like '%%'  order by repairdate desc limit 0,20 [ RunTime:0.014100s ]
+[ 2013-09-26T16:30:05+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.006209s ]
+[ 2013-09-26T16:30:05+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 26 LIMIT 1  [ RunTime:0.001436s ]
+[ 2013-09-26T16:30:05+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '申請叫修' AND `case` = 26 [ RunTime:0.044261s ]
+[ 2013-09-26T16:30:05+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '派工' AND `case` = 26 [ RunTime:0.038073s ]
+[ 2013-09-26T16:30:05+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '委外' AND `case` = 26 [ RunTime:0.037747s ]
+[ 2013-09-26T16:30:06+08:00 ] NOTIC: [8] Undefined index: caseName e2ab549fb0459c40412e5130be1fd81e.php 第 111 行.
+[ 2013-09-26T16:30:06+08:00 ] NOTIC: [8] Undefined variable: repaircode e2ab549fb0459c40412e5130be1fd81e.php 第 123 行.
+[ 2013-09-26T16:30:06+08:00 ] NOTIC: [8] Undefined variable: sdispatcher e2ab549fb0459c40412e5130be1fd81e.php 第 125 行.
+[ 2013-09-26T16:30:06+08:00 ] NOTIC: [8] Undefined variable: askman e2ab549fb0459c40412e5130be1fd81e.php 第 131 行.
+[ 2013-09-26T16:30:06+08:00 ] NOTIC: [8] Undefined variable: sdate e2ab549fb0459c40412e5130be1fd81e.php 第 135 行.
+[ 2013-09-26T16:30:06+08:00 ] NOTIC: [8] Undefined variable: edate e2ab549fb0459c40412e5130be1fd81e.php 第 137 行.
+[ 2013-09-26T16:30:09+08:00 ] NOTIC: [8] Undefined index: sstate BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:30:11+08:00 ] NOTIC: [8] Undefined index: code BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:30:11+08:00 ] NOTIC: [8] Undefined index: askman BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:30:11+08:00 ] NOTIC: [8] Undefined index: sdate BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:30:11+08:00 ] NOTIC: [8] Undefined index: edate BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:30:11+08:00 ] NOTIC: [8] Undefined index: sdispatcher BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:30:11+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.006441s ]
+[ 2013-09-26T16:30:11+08:00 ] NOTIC: [8] Undefined index: q BaseAction.class.php 第 241 行.
+[ 2013-09-26T16:30:11+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26 AND devicename like '%照明設備-1F承租戶%'  order by repairdate desc [ RunTime:0.015340s ]
+[ 2013-09-26T16:30:12+08:00 ] SQL: SELECT * FROM case_device_repair WHERE `case` = 26 AND devicename like '%照明設備-1F承租戶%'  order by repairdate desc limit 0,20 [ RunTime:0.014377s ]
+[ 2013-09-26T16:30:12+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.006743s ]
+[ 2013-09-26T16:30:12+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 26 LIMIT 1  [ RunTime:0.001668s ]
+[ 2013-09-26T16:30:12+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '申請叫修' AND `case` = 26 [ RunTime:0.035501s ]
+[ 2013-09-26T16:30:12+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '派工' AND `case` = 26 [ RunTime:0.036449s ]
+[ 2013-09-26T16:30:12+08:00 ] SQL: SELECT COUNT(*) as c FROM case_device_repair WHERE state= '委外' AND `case` = 26 [ RunTime:0.035717s ]
+[ 2013-09-26T16:30:12+08:00 ] NOTIC: [8] Undefined index: caseName e2ab549fb0459c40412e5130be1fd81e.php 第 111 行.
+[ 2013-09-26T16:30:12+08:00 ] NOTIC: [8] Undefined variable: repaircode e2ab549fb0459c40412e5130be1fd81e.php 第 123 行.
+[ 2013-09-26T16:30:12+08:00 ] NOTIC: [8] Undefined variable: sdispatcher e2ab549fb0459c40412e5130be1fd81e.php 第 125 行.
+[ 2013-09-26T16:30:12+08:00 ] NOTIC: [8] Undefined variable: askman e2ab549fb0459c40412e5130be1fd81e.php 第 131 行.
+[ 2013-09-26T16:30:12+08:00 ] NOTIC: [8] Undefined variable: sdate e2ab549fb0459c40412e5130be1fd81e.php 第 135 行.
+[ 2013-09-26T16:30:12+08:00 ] NOTIC: [8] Undefined variable: edate e2ab549fb0459c40412e5130be1fd81e.php 第 137 行.
+[ 2013-09-26T16:30:57+08:00 ] NOTIC: [8] Undefined index: case CaseAction.class.php 第 2552 行.
+[ 2013-09-26T16:30:57+08:00 ] NOTIC: [8] Undefined index: year CaseAction.class.php 第 2553 行.
+[ 2013-09-26T16:30:57+08:00 ] NOTIC: [8] Undefined index: month CaseAction.class.php 第 2554 行.
+[ 2013-09-26T16:30:57+08:00 ] SQL: SELECT 
+			 *,
+			  day1 + day2 + day3 + day4 + day5 + day6 + day7 + day8 + day9 + day10 + day11 + day12 + day13 + day14 + day15 + day16 + + day17 + day18 + day19 + day20 + day21 + day22 + day23 + day24 + day25 + day26 + day27 + day28 + day29 + day30 + day31 AS rt 
+			FROM
+			  (SELECT st.id,st.n,
+			 SUM(IF(DAY(st.t) = 1, st.c, 0)) AS day1,
+			 SUM(IF(DAY(st.t) = 2, st.c, 0)) AS day2,
+			 SUM(IF(DAY(st.t) = 3, st.c, 0)) AS day3,
+			 SUM(IF(DAY(st.t) = 4, st.c, 0)) AS day4,
+			 SUM(IF(DAY(st.t) = 5, st.c, 0)) AS day5,
+			 SUM(IF(DAY(st.t) = 6, st.c, 0)) AS day6,
+			 SUM(IF(DAY(st.t) = 7, st.c, 0)) AS day7,
+			 SUM(IF(DAY(st.t) = 8, st.c, 0)) AS day8,
+			 SUM(IF(DAY(st.t) = 9, st.c, 0)) AS day9,
+			 SUM(IF(DAY(st.t) = 10, st.c, 0)) AS day10,
+			 SUM(IF(DAY(st.t) = 11, st.c, 0)) AS day11,
+			 SUM(IF(DAY(st.t) = 12, st.c, 0)) AS day12,
+			 SUM(IF(DAY(st.t) = 13, st.c, 0)) AS day13,
+			 SUM(IF(DAY(st.t) = 14, st.c, 0)) AS day14,
+			 SUM(IF(DAY(st.t) = 15, st.c, 0)) AS day15,
+			 SUM(IF(DAY(st.t) = 16, st.c, 0)) AS day16,
+			 SUM(IF(DAY(st.t) = 17, st.c, 0)) AS day17,
+			 SUM(IF(DAY(st.t) = 18, st.c, 0)) AS day18,
+			 SUM(IF(DAY(st.t) = 19, st.c, 0)) AS day19,
+			 SUM(IF(DAY(st.t) = 20, st.c, 0)) AS day20,
+			 SUM(IF(DAY(st.t) = 21, st.c, 0)) AS day21,
+			 SUM(IF(DAY(st.t) = 22, st.c, 0)) AS day22,
+			 SUM(IF(DAY(st.t) = 23, st.c, 0)) AS day23,
+			 SUM(IF(DAY(st.t) = 24, st.c, 0)) AS day24,
+			 SUM(IF(DAY(st.t) = 25, st.c, 0)) AS day25,
+			 SUM(IF(DAY(st.t) = 26, st.c, 0)) AS day26,
+			 SUM(IF(DAY(st.t) = 27, st.c, 0)) AS day27,
+			 SUM(IF(DAY(st.t) = 28, st.c, 0)) AS day28,
+			 SUM(IF(DAY(st.t) = 29, st.c, 0)) AS day29,
+			 SUM(IF(DAY(st.t) = 30, st.c, 0)) AS day30,
+			 SUM(IF(DAY(st.t) = 31, st.c, 0)) AS day31
+			 FROM (
+			SELECT 
+			  t.id,t.`name` AS n,
+			  DATE(r.repairdate) AS t,
+			  COUNT(r.id) AS c 
+			FROM
+			  `case_device_repair` r 
+			  INNER JOIN case_device_type t 
+			    ON r.`type` = t.`id` 
+			WHERE r.`case` = 26 
+			  AND YEAR(r.repairdate) = 2013 
+			  AND MONTH(r.repairdate) = 09 
+			GROUP BY t.id,t.`name`,
+			  DATE(r.repairdate) 
+			ORDER BY t.`name`,
+			  DATE(r.repairdate) 
+			  ) st GROUP BY st.n  WITH ROLLUP) f [ RunTime:0.118954s ]
+[ 2013-09-26T16:30:57+08:00 ] NOTIC: [8] Undefined index: id ec4d4f9a35a38d94f058985b99be1669.php 第 106 行.
+[ 2013-09-26T16:30:57+08:00 ] NOTIC: [8] Undefined index: rt ec4d4f9a35a38d94f058985b99be1669.php 第 106 行.
+[ 2013-09-26T16:30:57+08:00 ] NOTIC: [8] Undefined index: rb ec4d4f9a35a38d94f058985b99be1669.php 第 107 行.
+[ 2013-09-26T16:30:59+08:00 ] NOTIC: [8] Undefined index: childtype CaseAction.class.php 第 2743 行.
+[ 2013-09-26T16:31:00+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.006337s ]
+[ 2013-09-26T16:31:00+08:00 ] SQL: SELECT * FROM case_device_repair WHERE  `case` = 26 AND type=47 AND YEAR(repairdate) = 2013  AND MONTH(repairdate) =09  [ RunTime:0.089269s ]
+[ 2013-09-26T16:31:00+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.005468s ]
+[ 2013-09-26T16:31:00+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 26 LIMIT 1  [ RunTime:0.000884s ]
+[ 2013-09-26T16:31:00+08:00 ] NOTIC: [8] Undefined index: caseName 147bb40773e0973ae82db54f72027e42.php 第 110 行.
+[ 2013-09-26T16:31:10+08:00 ] NOTIC: [8] Undefined index: childtype CaseAction.class.php 第 2743 行.
+[ 2013-09-26T16:31:10+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.006032s ]
+[ 2013-09-26T16:31:10+08:00 ] SQL: SELECT * FROM case_device_repair WHERE  `case` = 26 AND type=47 AND YEAR(repairdate) = 2013  AND MONTH(repairdate) =09  [ RunTime:0.087546s ]
+[ 2013-09-26T16:31:10+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.005286s ]
+[ 2013-09-26T16:31:10+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 26 LIMIT 1  [ RunTime:0.000814s ]
+[ 2013-09-26T16:31:11+08:00 ] NOTIC: [8] Undefined index: caseName 147bb40773e0973ae82db54f72027e42.php 第 110 行.
+[ 2013-09-26T16:31:11+08:00 ] NOTIC: [8] Undefined index: childtype CaseAction.class.php 第 2743 行.
+[ 2013-09-26T16:31:11+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.007092s ]
+[ 2013-09-26T16:31:11+08:00 ] SQL: SELECT * FROM case_device_repair WHERE  `case` = 26 AND type=47 AND YEAR(repairdate) = 2013  AND MONTH(repairdate) =09  [ RunTime:0.104484s ]
+[ 2013-09-26T16:31:11+08:00 ] SQL: SHOW COLUMNS FROM `case_warn_days` [ RunTime:0.007014s ]
+[ 2013-09-26T16:31:12+08:00 ] SQL: SELECT * FROM `case_warn_days` WHERE `case` = 26 LIMIT 1  [ RunTime:0.000818s ]
+[ 2013-09-26T16:31:12+08:00 ] NOTIC: [8] Undefined index: caseName 147bb40773e0973ae82db54f72027e42.php 第 110 行.
+[ 2013-09-26T16:33:22+08:00 ] NOTIC: [8] Undefined index: childtype CaseAction.class.php 第 2743 行.
+[ 2013-09-26T16:33:22+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.007112s ]
+[ 2013-09-26T16:33:26+08:00 ] SQL: SELECT 
+
+  r.`repaircode`,
+  r.`repairdate`,
+  CONCAT(
+    build.`name`,
+    fl.`name`,
+    ar.`name`
+  ) AS region,
+  mt.`name` AS mainType,
+  ct.`name` AS childType,
+  r.`devicecode`,
+  r.`devicename`,
+  CONCAT(
+    IFNULL(r.remark, ''),
+    '
+',
+    IFNULL(
+      (SELECT 
+        doremark 
+      FROM
+        case_device_repair_dispatch 
+      WHERE `repair` = r.id 
+      LIMIT 1),
+      ''
+    ),
+    '
+',
+    IFNULL(
+      (SELECT 
+        remark 
+      FROM
+        case_device_repair_delegate 
+      WHERE `repair` = r.id 
+      LIMIT 1),
+      ''
+    ),
+    '
+',
+    IFNULL(
+      (SELECT 
+        completeremark 
+      FROM
+        case_device_repair_complete 
+      WHERE `repair` = r.id 
+      LIMIT 1),
+      ''
+    ),
+    '
+',
+    IFNULL(
+      (SELECT 
+        GROUP_CONCAT(msg) 
+      FROM
+        `case_device_repair_message` 
+      WHERE `repair` = r.id),
+      ''
+    )
+  ) AS msg,
+  (SELECT 
+    `dotimeandusers` 
+  FROM
+    `case_device_repair_complete` 
+  WHERE `repair` = r.`id` 
+  LIMIT 1) AS `dotimeandusers` 
+FROM
+  `case_device_repair` r 
+  INNER JOIN `case_device_buildingtype` build 
+    ON r.`build` = build.`id` 
+  INNER JOIN `case_device_building_floor` fl 
+    ON fl.`id` = r.`floor` 
+  INNER JOIN `case_device_building_floor_area` ar 
+    ON ar.`id` = r.`area` 
+  INNER JOIN `case_device_type` mt 
+    ON r.`type` = mt.`id` 
+  INNER JOIN `case_device_child_type` ct 
+    ON r.`childtype` = ct.`id` 
+  LEFT JOIN `case_device_repair_dispatch` disp 
+    ON r.`id` = disp.`repair`  
+			  WHERE r.`case`=26 AND r.`type` =47 AND YEAR(r.`repairdate`) = 2013 AND MONTH(r.repairdate) =09  [ RunTime:4.173137s ]
+[ 2013-09-26T16:35:56+08:00 ] NOTIC: [8] Undefined index: childtype CaseAction.class.php 第 2743 行.
+[ 2013-09-26T16:35:56+08:00 ] SQL: SHOW COLUMNS FROM `case_device_repair` [ RunTime:0.006114s ]
+[ 2013-09-26T16:35:59+08:00 ] SQL: SELECT 
+
+  r.`repaircode`,
+  r.`repairdate`,
+  CONCAT(
+    build.`name`,'/',
+    fl.`name`,'/',
+    ar.`name`
+  ) AS region,
+  mt.`name` AS mainType,
+  ct.`name` AS childType,
+  r.`devicecode`,
+  r.`devicename`,
+  CONCAT(
+    IFNULL(r.remark, ''),
+    '
+',
+    IFNULL(
+      (SELECT 
+        doremark 
+      FROM
+        case_device_repair_dispatch 
+      WHERE `repair` = r.id 
+      LIMIT 1),
+      ''
+    ),
+    '
+',
+    IFNULL(
+      (SELECT 
+        remark 
+      FROM
+        case_device_repair_delegate 
+      WHERE `repair` = r.id 
+      LIMIT 1),
+      ''
+    ),
+    '
+',
+    IFNULL(
+      (SELECT 
+        completeremark 
+      FROM
+        case_device_repair_complete 
+      WHERE `repair` = r.id 
+      LIMIT 1),
+      ''
+    ),
+    '
+',
+    IFNULL(
+      (SELECT 
+        GROUP_CONCAT(msg) 
+      FROM
+        `case_device_repair_message` 
+      WHERE `repair` = r.id),
+      ''
+    )
+  ) AS msg,
+  (SELECT 
+    `dotimeandusers` 
+  FROM
+    `case_device_repair_complete` 
+  WHERE `repair` = r.`id` 
+  LIMIT 1) AS `dotimeandusers` 
+FROM
+  `case_device_repair` r 
+  INNER JOIN `case_device_buildingtype` build 
+    ON r.`build` = build.`id` 
+  INNER JOIN `case_device_building_floor` fl 
+    ON fl.`id` = r.`floor` 
+  INNER JOIN `case_device_building_floor_area` ar 
+    ON ar.`id` = r.`area` 
+  INNER JOIN `case_device_type` mt 
+    ON r.`type` = mt.`id` 
+  INNER JOIN `case_device_child_type` ct 
+    ON r.`childtype` = ct.`id` 
+  LEFT JOIN `case_device_repair_dispatch` disp 
+    ON r.`id` = disp.`repair`  
+			  WHERE r.`case`=26 AND r.`type` =47 AND YEAR(r.`repairdate`) = 2013 AND MONTH(r.repairdate) =09  [ RunTime:3.137159s ]
+[ 2013-09-26T16:36:47+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007657s ]
+[ 2013-09-26T16:36:47+08:00 ] SQL: SELECT * FROM `user` WHERE ( `id` = '30' ) LIMIT 1  [ RunTime:0.001219s ]
+[ 2013-09-26T16:36:47+08:00 ] SQL: SHOW COLUMNS FROM `experience` [ RunTime:0.005589s ]
+[ 2013-09-26T16:36:47+08:00 ] SQL: SELECT * FROM `experience` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000985s ]
+[ 2013-09-26T16:36:47+08:00 ] SQL: SHOW COLUMNS FROM `education` [ RunTime:0.006831s ]
+[ 2013-09-26T16:36:47+08:00 ] SQL: SELECT * FROM `education` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.003363s ]
+[ 2013-09-26T16:36:47+08:00 ] SQL: SHOW COLUMNS FROM `skill` [ RunTime:0.007412s ]
+[ 2013-09-26T16:36:47+08:00 ] SQL: SELECT * FROM `skill` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.017933s ]
+[ 2013-09-26T16:36:47+08:00 ] SQL: SHOW COLUMNS FROM `family` [ RunTime:0.006792s ]
+[ 2013-09-26T16:36:47+08:00 ] SQL: SELECT * FROM `family` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.000913s ]
+[ 2013-09-26T16:36:47+08:00 ] SQL: SHOW COLUMNS FROM `certificate` [ RunTime:0.009557s ]
+[ 2013-09-26T16:36:48+08:00 ] SQL: SELECT * FROM `certificate` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.001076s ]
+[ 2013-09-26T16:36:48+08:00 ] SQL: SHOW COLUMNS FROM `dutydelegate` [ RunTime:0.008700s ]
+[ 2013-09-26T16:36:48+08:00 ] SQL: SELECT * FROM `dutydelegate` WHERE 1=1 AND uid='30' ORDER BY id asc [ RunTime:0.001510s ]
+[ 2013-09-26T16:36:48+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.041775s ]
+[ 2013-09-26T16:36:48+08:00 ] SQL: SELECT * FROM `area` WHERE pid=0 [ RunTime:0.012706s ]
+[ 2013-09-26T16:36:48+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006263s ]
+[ 2013-09-26T16:36:48+08:00 ] SQL: SELECT * FROM `depart` WHERE ( `id` = '22' ) LIMIT 1  [ RunTime:0.001110s ]
+[ 2013-09-26T16:36:48+08:00 ] NOTIC: [8] Undefined index: canedit UserAction.class.php 第 286 行.
+[ 2013-09-26T16:36:49+08:00 ] SQL: SHOW COLUMNS FROM `area` [ RunTime:0.008342s ]
+[ 2013-09-26T16:36:49+08:00 ] SQL: SELECT * FROM `area` WHERE pid=請選擇 [ RunTime:0.000873s ]
+[ 2013-09-26T16:36:54+08:00 ] NOTIC: [8] Undefined index: date MeetingAction.class.php 第 5 行.
+[ 2013-09-26T16:36:54+08:00 ] NOTIC: [8] Undefined index: state MeetingAction.class.php 第 6 行.
+[ 2013-09-26T16:36:54+08:00 ] SQL: SHOW COLUMNS FROM `meeting` [ RunTime:0.010085s ]
+[ 2013-09-26T16:36:54+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `meeting` WHERE  `code`='13108617'  LIMIT 1  [ RunTime:0.001527s ]
+[ 2013-09-26T16:36:54+08:00 ] SQL: SELECT * FROM `meeting` WHERE  `code`='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.001473s ]
+[ 2013-09-26T16:36:55+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 244 行.
+[ 2013-09-26T16:36:55+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 247 行.
+[ 2013-09-26T16:36:55+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 250 行.
+[ 2013-09-26T16:36:55+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 253 行.
+[ 2013-09-26T16:37:14+08:00 ] SQL: SELECT
+				  m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+				FROM meeting m 
+				INNER JOIN user hu
+				ON hu.id=m.hoster
+				INNER JOIN user ru
+				ON ru.id=m.recorder
+				INNER JOIN user su
+				ON su.id=m.starter WHERE m.id=109 [ RunTime:0.001389s ]
+[ 2013-09-26T16:37:14+08:00 ] SQL: SHOW COLUMNS FROM `meetingchoice` [ RunTime:0.006303s ]
+[ 2013-09-26T16:37:14+08:00 ] SQL: SELECT * FROM `meetingchoice` WHERE meetingid=109 [ RunTime:0.000935s ]
+[ 2013-09-26T16:37:15+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-09-26T16:38:33+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005883s ]
+[ 2013-09-26T16:38:33+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001199s ]
+[ 2013-09-26T16:39:39+08:00 ] SQL: SELECT
+				  m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+				FROM meeting m 
+				INNER JOIN user hu
+				ON hu.id=m.hoster
+				INNER JOIN user ru
+				ON ru.id=m.recorder
+				INNER JOIN user su
+				ON su.id=m.starter WHERE m.id=110 [ RunTime:0.001234s ]
+[ 2013-09-26T16:39:39+08:00 ] SQL: SHOW COLUMNS FROM `meetingchoice` [ RunTime:0.009415s ]
+[ 2013-09-26T16:39:39+08:00 ] SQL: SELECT * FROM `meetingchoice` WHERE meetingid=110 [ RunTime:0.001271s ]
+[ 2013-09-26T16:39:40+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-09-26T16:39:55+08:00 ] SQL: SELECT
+				  m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+				FROM meeting m 
+				INNER JOIN user hu
+				ON hu.id=m.hoster
+				INNER JOIN user ru
+				ON ru.id=m.recorder
+				INNER JOIN user su
+				ON su.id=m.starter WHERE m.id=109 [ RunTime:0.003415s ]
+[ 2013-09-26T16:39:55+08:00 ] SQL: SHOW COLUMNS FROM `meetingchoice` [ RunTime:0.006165s ]
+[ 2013-09-26T16:39:55+08:00 ] SQL: SELECT * FROM `meetingchoice` WHERE meetingid=109 [ RunTime:0.000908s ]
+[ 2013-09-26T16:39:56+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-09-26T16:40:12+08:00 ] SQL: SELECT
+				  m.*,hu.name AS hname ,hu.ucode AS hucode,ru.name AS rname ,ru.ucode AS rucode,su.name AS sname ,su.ucode AS sucode
+				FROM meeting m 
+				INNER JOIN user hu
+				ON hu.id=m.hoster
+				INNER JOIN user ru
+				ON ru.id=m.recorder
+				INNER JOIN user su
+				ON su.id=m.starter WHERE m.id=110 [ RunTime:0.001233s ]
+[ 2013-09-26T16:40:12+08:00 ] SQL: SHOW COLUMNS FROM `meetingchoice` [ RunTime:0.005525s ]
+[ 2013-09-26T16:40:12+08:00 ] SQL: SELECT * FROM `meetingchoice` WHERE meetingid=110 [ RunTime:0.001467s ]
+[ 2013-09-26T16:40:13+08:00 ] NOTIC: [8] Undefined index: value TagLibCx.class.php 第 353 行.
+[ 2013-09-26T16:40:43+08:00 ] NOTIC: [8] Undefined index: depart UserAction.class.php 第 399 行.
+[ 2013-09-26T16:40:43+08:00 ] NOTIC: [8] Undefined index: team UserAction.class.php 第 400 行.
+[ 2013-09-26T16:40:43+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007864s ]
+[ 2013-09-26T16:40:43+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` LIMIT 1  [ RunTime:0.001194s ]
+[ 2013-09-26T16:40:44+08:00 ] SQL: SELECT * FROM `user` ORDER BY id desc [ RunTime:0.006604s ]
+[ 2013-09-26T16:40:44+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.011916s ]
+[ 2013-09-26T16:40:44+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000867s ]
+[ 2013-09-26T16:40:44+08:00 ] NOTIC: [8] Undefined variable: depart 145340539db2f08d45d4773c1ffef375.php 第 11 行.
+[ 2013-09-26T16:40:44+08:00 ] NOTIC: [8] Undefined variable: team 145340539db2f08d45d4773c1ffef375.php 第 12 行.
+[ 2013-09-26T16:42:21+08:00 ] NOTIC: [8] Undefined index: date MeetingAction.class.php 第 5 行.
+[ 2013-09-26T16:42:21+08:00 ] NOTIC: [8] Undefined index: state MeetingAction.class.php 第 6 行.
+[ 2013-09-26T16:42:21+08:00 ] SQL: SHOW COLUMNS FROM `meeting` [ RunTime:0.006689s ]
+[ 2013-09-26T16:42:21+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `meeting` WHERE  `code`='13108617'  LIMIT 1  [ RunTime:0.001197s ]
+[ 2013-09-26T16:42:21+08:00 ] SQL: SELECT * FROM `meeting` WHERE  `code`='13108617'  ORDER BY id desc LIMIT 0,20  [ RunTime:0.004609s ]
+[ 2013-09-26T16:42:22+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 244 行.
+[ 2013-09-26T16:42:22+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 247 行.
+[ 2013-09-26T16:42:22+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 250 行.
+[ 2013-09-26T16:42:22+08:00 ] NOTIC: [8] Undefined variable: state 5f35f841ac37e9bc51c0c6f1cc479bf7.php 第 253 行.
+[ 2013-09-26T16:42:23+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006181s ]
+[ 2013-09-26T16:42:23+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001250s ]
+[ 2013-09-26T16:42:26+08:00 ] NOTIC: [8] Undefined index: selUsers UserAction.class.php 第 396 行.
+[ 2013-09-26T16:42:26+08:00 ] NOTIC: [8] Undefined index: depart UserAction.class.php 第 399 行.
+[ 2013-09-26T16:42:26+08:00 ] NOTIC: [8] Undefined index: team UserAction.class.php 第 400 行.
+[ 2013-09-26T16:42:26+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007600s ]
+[ 2013-09-26T16:42:26+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` LIMIT 1  [ RunTime:0.001702s ]
+[ 2013-09-26T16:42:26+08:00 ] SQL: SELECT * FROM `user` ORDER BY id desc [ RunTime:0.005729s ]
+[ 2013-09-26T16:42:27+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005348s ]
+[ 2013-09-26T16:42:27+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000890s ]
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: depart 145340539db2f08d45d4773c1ffef375.php 第 11 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: team 145340539db2f08d45d4773c1ffef375.php 第 12 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 15 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:27+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:28+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:37+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.007168s ]
+[ 2013-09-26T16:42:37+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001075s ]
+[ 2013-09-26T16:42:39+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009110s ]
+[ 2013-09-26T16:42:39+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE   depart=20 AND team=30 LIMIT 1  [ RunTime:0.001836s ]
+[ 2013-09-26T16:42:39+08:00 ] SQL: SELECT * FROM `user` WHERE   depart=20 AND team=30 ORDER BY id desc [ RunTime:0.004379s ]
+[ 2013-09-26T16:42:39+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.005704s ]
+[ 2013-09-26T16:42:40+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000919s ]
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 15 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] NOTIC: [8] Undefined variable: selUsers 145340539db2f08d45d4773c1ffef375.php 第 110 行.
+[ 2013-09-26T16:42:40+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.005704s ]
+[ 2013-09-26T16:42:40+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001156s ]
+[ 2013-09-26T16:42:48+08:00 ] NOTIC: [8] Undefined index: depart UserAction.class.php 第 399 行.
+[ 2013-09-26T16:42:48+08:00 ] NOTIC: [8] Undefined index: team UserAction.class.php 第 400 行.
+[ 2013-09-26T16:42:48+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008726s ]
+[ 2013-09-26T16:42:48+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` LIMIT 1  [ RunTime:0.001151s ]
+[ 2013-09-26T16:42:48+08:00 ] SQL: SELECT * FROM `user` ORDER BY id desc [ RunTime:0.006171s ]
+[ 2013-09-26T16:42:48+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006213s ]
+[ 2013-09-26T16:42:48+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.001861s ]
+[ 2013-09-26T16:42:49+08:00 ] NOTIC: [8] Undefined variable: depart 145340539db2f08d45d4773c1ffef375.php 第 11 行.
+[ 2013-09-26T16:42:49+08:00 ] NOTIC: [8] Undefined variable: team 145340539db2f08d45d4773c1ffef375.php 第 12 行.
+[ 2013-09-26T16:43:05+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.005641s ]
+[ 2013-09-26T16:43:05+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001096s ]
+[ 2013-09-26T16:43:08+08:00 ] SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009559s ]
+[ 2013-09-26T16:43:08+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `user` WHERE   depart=20 AND team=30 LIMIT 1  [ RunTime:0.001243s ]
+[ 2013-09-26T16:43:08+08:00 ] SQL: SELECT * FROM `user` WHERE   depart=20 AND team=30 ORDER BY id desc [ RunTime:0.004725s ]
+[ 2013-09-26T16:43:08+08:00 ] SQL: SHOW COLUMNS FROM `depart` [ RunTime:0.006221s ]
+[ 2013-09-26T16:43:08+08:00 ] SQL: SELECT * FROM `depart` WHERE  code='13108617'  [ RunTime:0.000877s ]
+[ 2013-09-26T16:43:08+08:00 ] SQL: SHOW COLUMNS FROM `team` [ RunTime:0.005255s ]
+[ 2013-09-26T16:43:08+08:00 ] SQL: SELECT * FROM `team` WHERE depart=20 [ RunTime:0.001020s ]

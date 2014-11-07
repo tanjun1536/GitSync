@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/JavaScript">
+	 var bt="{$bt}";
+	 var mt="{$mt}";
+	 var ct="{$ct}";
+	 var cct="{$cct}";
+	$(function() {
+		$("#bigtype").change(function() {
+			getMainType();
+		});
+		$("#maintype").change(function() {
+			getChildType();
+		});
+		$("#childtype").change(function() {
+			getCChildType();
+		});
+		
+		if(bt)$("#bigtype").val(bt).trigger('change');
+	});
+	function getMainType() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getMainType",
+			data : "type=" + $("#bigtype").val(),
+			success : function(data) {
+				$("#maintype").empty();
+				$("<option value=''>請選擇主類別</option>").appendTo("#maintype");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$(
+							"<option value='" + json[k]['id'] + "'>"
+									+ decodeURI(json[k]['s_name']) + "</option>")
+							.appendTo("#maintype");
+				});
+				if (mt)
+					$("#maintype").val(mt).trigger('change');
+			}
+
+		});
+
+	}
+	function getChildType() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getChildType",
+			data : "type=" + $("#maintype").val(),
+			success : function(data) {
+				$("#childtype").empty();
+				$("<option value=''>請選擇子類別</option>").appendTo("#childtype");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$(
+							"<option value='" + json[k]['id'] + "'>"
+									+ decodeURI(json[k]['s_name']) + "</option>")
+							.appendTo("#childtype");
+				});
+				if(ct)$("#childtype").val(ct).trigger('change');
+			}
+
+		});
+
+	}
+	function getCChildType() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getCChildType",
+			data : "mt=" + $("#maintype").val() + "&ct="
+					+ $("#childtype").val(),
+			success : function(data) {
+				$("#cchildtype").empty();
+				$("<option value=''>請選擇次類別</option>").appendTo("#cchildtype");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$(
+							"<option value='" + json[k]['id'] + "'>"
+									+ decodeURI(json[k]['s_name']) + "</option>")
+							.appendTo("#cchildtype");
+				});
+				if(cct)$("#cchildtype").val(cct);
+			}
+
+		});
+
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">商品管理 - 商品列表</div>
+			<div class="mainInfo">
+				<form action="" method="post" enctype="multipart/form-data"
+					name="form1" id="form1">
+					<div class="topic2">商品搜尋</div>
+					<table width="695" border="0" align="center" cellpadding="0"
+						cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="101" scope="row">類別</th>
+							<td colspan="3"><select name="bigtype" id="bigtype">
+									<option value="">請選擇大類別</option>
+									<volist id="item" name="btypes">
+										<option value="{$item.id}">{$item.s_name}</option>
+									</volist>
+							</select>
+							<select name="maintype" id="maintype">
+									<option value="">請選擇主類別</option>
+							</select> <select name="childtype" id="childtype">
+									<option value="">請選擇子類別</option>
+							</select> <select name="cchildtype" id="cchildtype">
+									<option value="">請選擇次類別</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">商品編號</th>
+							<td width="244"><input type="text" name="pcode" value="{$code}" /></td>
+							<th width="114" scope="row">商品名稱</th>
+							<td width="231"><input type="text" name="pname" value="{$name}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2"
+								value="搜尋" /></td>
+						</tr>
+					</table>
+				</form>
+				<form id="form2" name="form2" method="post" action="">
+<!-- 					<div class="mailNav"> -->
+<!-- 						<if condition="check_power('新增商品',$ext) eq 1"> <a -->
+<!-- 							href="__URL__/addProductPage">新增商品</a> </if> -->
+
+<!-- 					</div> -->
+					<table width="695" border="0" cellpadding="0" cellspacing="0"
+						class="tab_thtop">
+						<tr>
+							<th width="107" scope="col">商品編號</th>
+							<th width="83" scope="col">品牌(中文)</th>
+							<th width="105" scope="col">商品名稱</th>
+							<th width="83" scope="col">規格/尺寸</th>
+							<th width="83" scope="col">型號</th>
+							<th width="47" scope="col">價格</th>
+<!-- 							<th width="85" scope="col">操作</th> -->
+						</tr>
+						<volist name="list" id="item"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center">{$item.p_id}</td>
+						<td align="center">{$item.b_name}</td>
+						<td>{$item.p_name}</td>
+						<td align="center">{$item.p_size}</td>
+						<td align="center">{$item.p_model}</td>
+						<td align="right">{$item.p_price}</td>
+<!-- 						<td align="center"><xif -->
+<!-- 								condition="check_power('修改商品',$ext) eq 1"> <a -->
+<!-- 								href="__URL__/updateProduct?id={$item.id}">修改</a> </xif> | <xif -->
+<!-- 								condition="check_power('刪除商品',$ext) eq 1"> <a -->
+<!-- 								onclick="return confirm('是否刪除該數據?')" -->
+<!-- 								href="__URL__/deleteProduct?id={$item.id}">刪除</a> </xif></td> -->
+						</tr>
+						</volist>
+					</table>
+					<div class="pages">{$page}</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	var mt = "{$ov.devicetype}";
+	var ct = "{$ov.devicechildtype}";
+	var pt="{$ov.type}";
+	var work="{$ov.work}";
+	$(function() {
+		$("#devicetype").change(function() {
+			getChild();
+		});
+		if(work)$("#work").val(work);
+		if(mt)$("#devicetype").val(mt).trigger("change");
+		if(pt){
+			$("#startday").val("{$ov.startday}");
+			$("#startmonth").val("{$ov.startmonth}");
+			$("#costday").val("{$ov.costday}");
+			$("input[name=type][value={$ov.type}]").attr("checked",true);
+			if (pt == 'D') {
+				
+			} else if (pt == 'W') {
+				$("#wstartday").val("{$ov.startday}");
+				$("#wcostday").val("{$ov.costday}");
+			} else if (pt == 'M') {
+				$("#mstartday").val("{$ov.startday}");
+				$("#mcostday").val("{$ov.costday}");
+			} else if (pt == 'Q') {
+				$("#qmonth").val("{$ov.startmonth}");
+				$("#qstartday").val("{$ov.startday}");
+				$("#qcostday").val("{$ov.costday}");
+			} else if (pt == 'H') {
+				$("#hmonth").val("{$ov.startmonth}");
+				$("#hstartday").val("{$ov.startday}");
+				$("#hcostday").val("{$ov.costday}");
+			} else if (pt == 'Y') {
+				$("#ymonth").val("{$ov.startmonth}");
+				$("#ystartday").val("{$ov.startday}");
+				$("#ycostday").val("{$ov.costday}");
+			}
+		}
+	});
+	function getChild() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getDeviceChildType",
+			data : "id=" + $("#devicetype").val(),
+			success : function(data) {
+				$("#devicechildtype").empty();
+				$("<option value='請選擇'>請選擇</option>").appendTo("#devicechildtype");
+				var json = eval(data);
+				if (json == null)
+					return;
+				$.each(json, function(k) {
+					$("<option value='" + json[k]['id'] + "'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#devicechildtype");
+				});
+				if(mt)$("#devicechildtype").val(ct);
+			}
+		});
+
+	}
+	function check() {
+		if (validator.index('devicetype', '請選擇主類別') && validator.index('devicechildtype', '請選擇子類別')&& validator.index('work', '請選擇班別') && validator.empty('name', '請輸入保養週期名稱')) {
+			var item = $('input:radio:checked').val();
+			if (item == 'D') {
+				
+			} else if (item == 'W') {
+				$("#startday").val($("#wstartday").val());
+				$("#costday").val($("#wcostday").val());
+			} else if (item == 'M') {
+				$("#startday").val($("#mstartday").val());
+				$("#costday").val($("#mcostday").val());
+			} else if (item == 'Q') {
+				$("#startmonth").val($("#qmonth").val());
+				$("#startday").val($("#qstartday").val());
+				$("#costday").val($("#qcostday").val());
+			} else if (item == 'H') {
+				$("#startmonth").val($("#hmonth").val());
+				$("#startday").val($("#hstartday").val());
+				$("#costday").val($("#hcostday").val());
+			} else if (item == 'Y') {
+				$("#startmonth").val($("#ymonth").val());
+				$("#startday").val($("#ystartday").val());
+				$("#costday").val($("#ycostday").val());
+			}
+			return true;
+		}
+		return false;
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">設備管理 - 保養週期</div>
+			<div class="mainInfo">
+				<div class="topic2">新增保養週期</div>
+				<form onsubmit="return check()" id="form1" name="form1" method="post" action="__URL__/addMaintenanceOverTime?case={@case}">
+					<input type="hidden" name="case" value="{@case}" /> <input type="hidden" name="id" value="{$ov.id}" />
+				
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+
+						<tr>
+							<th width="102" scope="row">主類別</th>
+							<td colspan="3"><select name="devicetype" id="devicetype">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="types">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th width="102" scope="row">子類別</th>
+							<td colspan="3"><select name="devicechildtype" id="devicechildtype">
+									<option value="請選擇">請選擇</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th width="102" scope="row">班別</th>
+							<td colspan="3"><select name="work" id="work">
+									<option value="請選擇">請選擇</option>
+									<volist id="item" name="works">
+									<option value="{$item.id}">{$item.workcode}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th width="102" scope="row">保養週期名稱</th>
+							<td colspan="3"><input type="text" name="name" id="name" value="{$ov.name}"/></td>
+						</tr>
+						<tr>
+							<th scope="row">週期設定</th>
+							<td colspan="3">
+							<input type="hidden" name="startday" id="startday" />
+							<input type="hidden" name="costday" id=costday />
+							<input type="hidden" name="startmonth" id=startmonth />
+							<input name="type" type="radio" checked="checked" value="D" /> 日保養 ， 每隔1天1次 ，保養時間1天 <br /> 
+							<input name="type" type="radio" value="W" /> 週保養 - 每週<input type="text" id="wstartday" style="width: 30px" /> ， 每隔7天1次 ，保養時間 <input type="text" id="wcostday" style="width: 30px" /> 天 <br /> 
+							<input name="type" type="radio" value="M" /> 月保養 - 每月 <input type="text" id="mstartday" style="width: 30px" /> 日， 每年12次 ，保養時間 <input type="text" id="mcostday" style="width: 30px" /> 天 <br /> 
+							<input name="type" type="radio" value="Q" /> 季保養 - 每年 <input type="text" id="qmonth" style="width: 30px" /> 月 <input type="text" id="qstartday" style="width: 30px" /> 日， 每年4次 ，保養時間 <input type="text" id="qcostday" style="width: 30px" /> 天 <br /> 
+							<input name="type" type="radio" value="H" /> 半年保養 -每年 <input type="text" id="hmonth" style="width: 30px" /> 月 <input type="text" id="hstartday" style="width: 30px" /> 日， 每年2次 ，保養時間 <input type="text" id="hcostday" style="width: 30px" /> 天 <br />
+							<input name="type" type="radio" value="Y" /> 年保養 - 每年 <input type="text" id="ymonth" style="width: 30px" /> 月 <input type="text" id="ystartday" style="width: 30px" /> 日， 每年1次 ，保養時間 <input type="text" id="ycostday" style="width: 30px" /> 天</td>
+						</tr>
+						<tr>
+							<th scope="row">保養個數</th>
+							<td width="241"><input type="text" name="maintenancecount" value="{$ov.maintenancecount}" style="width: 50px" /> 個</td>
+							<th width="91" scope="row">需求人力</th>
+							<td width="256"><input type="text" name="needpersoncount" value="{$ov.needpersoncount}" style="width: 50px" /> 人</td>
+						</tr>
+						<tr>
+							<th scope="row">每次分鐘數</th>
+							<td colspan="3"><input type="text" name="minutespertime" value="{$ov.minutespertime}" style="width: 50px" /> 分鐘</td>
+						</tr>
+
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2" value="保存" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

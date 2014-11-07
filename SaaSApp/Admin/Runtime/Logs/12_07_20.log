@@ -1,0 +1,10 @@
+[ 2012-07-20T01:22:59+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.013858s ]
+[ 2012-07-20T01:22:59+08:00 ] SQL: SELECT * FROM `company` WHERE ( `account` = 'hohsin' ) LIMIT 1  [ RunTime:0.000877s ]
+[ 2012-07-20T01:23:00+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-20T01:23:00+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.012807s ]
+[ 2012-07-20T01:23:00+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.001777s ]
+[ 2012-07-20T01:23:00+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.003481s ]
+[ 2012-07-20T01:23:32+08:00 ] NOTIC: [8] Undefined index: key CompanyAction.class.php 第 6 行.
+[ 2012-07-20T01:23:32+08:00 ] SQL: SHOW COLUMNS FROM `company` [ RunTime:0.007765s ]
+[ 2012-07-20T01:23:32+08:00 ] SQL: SELECT COUNT(*) AS tp_count FROM `company` LIMIT 1  [ RunTime:0.000639s ]
+[ 2012-07-20T01:23:32+08:00 ] SQL: SELECT * FROM `company` ORDER BY id desc LIMIT 0,20  [ RunTime:0.003271s ]

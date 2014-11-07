@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/jquery.format.1.03.js" />
+<script type="text/JavaScript">
+	$(function(){
+// 		$("#productcode").live("blur", function() {
+// 			getProduct();
+// 		});
+		$(".int").format({
+			precision : 0,
+			allow_negative : false,
+			autofix : true
+		});
+	});
+	function getProduct() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getProductStorage",
+			data : "code=" + $("#productcode").val()+"&stockcode={$stock.stockcode}",
+			success : function(data) {
+				var json = eval(data);
+				if (json) {
+					$("#productcode").val(json.productcode)
+					$("#name").html(json.productname);
+					$("#price").html(json.productprice);
+					$("#storage").html(json.storage);
+				} else {
+					alert('商品編號輸入有錯誤！');
+					$("#productcode").trigger('focus');
+				}
+			}
+
+		});
+
+	}
+	function addInventory() {
+		if (validator.empty('productcode', '請輸入商品編號!') && validator.empty('factquantity', '請輸入數量!')) {
+			var table=$("#detail");
+			var len = $("#detail tr").length;
+			var row = len % 2 == 0 ? $("<tr class=\"trcolor\"></tr>") : $("<tr></tr>");
+			var hValue = $('#productcode').val() + "," + $('#name').html() + "," + $('#price').html() + "," + $('#storage').html() + "," + $('#factquantity').val();
+			row.append($("<td align=\"center\"></td>").append($('#productcode').val()).append($("<input type='hidden' value='" + hValue + "' name ='detail[]' />")));
+			row.append($("<td></td>").append($('#name').html()));
+			row.append($("<td align=\"center\"></td>").append($('#price').html()));
+			row.append($("<td align=\"center\"></td>").append($('#storage').html()));
+			row.append($("<td align=\"center\"></td>").append($('#factquantity').val()));
+			row.append($("<td align=\"center\"></td>").append($('<img onclick="$(this).parent().parent().remove();calTotal();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+			table.append(row);
+			$('#productcode').val('');
+			$('#factquantity').val('');
+			$('#name').html('');
+			$('#price').html('');
+			$('#storage').html('');
+
+		}
+
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 庫存管理</div>
+			<div class="mainInfo">
+				<div class="topic2">
+					<a href="__URL__/stockView?id={$stock.id}">{$stock.stockname}</a> - 新增盤點紀錄
+				</div>
+				<form action="__URL__/stockInventoryDetailSave?id={.id}&stockid={.stockid}" method="post"
+					enctype="multipart/form-data" name="form1" id="form1">
+					<input type="hidden" name="continue" id="continue" value="1"/>
+					<input type="hidden" name="stockid" value="{.stockid}"/>
+					<input type="hidden" name="inventoryid" value="{.id}"/>
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="123" scope="row">盤點開始日期</th>
+							<td width="221">{$inventory.startdate|formatDate}</td>
+							<th width="124" scope="row">倉庫關閉時間</th>
+							<td width="222">{$inventory.stockclosehour}:{$inventory.stockcloseminute}</td>
+						</tr>
+					</table>
+					<div class="mailNav">
+						匯入盤點紀錄 <input type="file" name="file" /> <input type="submit"
+							name="Submit" value="匯入" />
+					</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="0"
+						class="tab_thtop" id="detail">
+						<tr>
+							<th width="141" scope="col">商品編號</th>
+							<th width="306" scope="col">商品名稱</th>
+							<th width="65" scope="col">單價</th>
+							<th width="83" scope="col">預估數量</th>
+							<th width="78" scope="col">實際數量</th>
+							<th width="20" scope="col">&nbsp;</th>
+						</tr>
+						<tr>
+							<td align="center"><input type="text" name="productcode" id="productcode"
+								style="width: 80px" /><input type="button" value="搜尋" onclick="getProduct()"></td>
+							<td id="name">&nbsp;</td>
+							<td align="center" id="price">&nbsp;</td>
+							<td align="center" id="storage">&nbsp;</td>
+							<td align="center"><input type="text" name="factquantity" id="factquantity" class="int"
+								style="width: 30px" /></td>
+							<td align="center"><img
+									src="__PUBLIC__/images/add_16.png" style="cursor: pointer;" onclick="addInventory()" alt="加入" width="16" height="16"
+									border="0" /></td>
+						</tr>
+					</table>
+					<div style="margin-top: 10px">
+						<p>
+							<input type="submit" name="Submit2" value="確定送出，且繼續新增紀錄" /> <input
+								type="submit" name="Submit22" onclick="$('#continue').val(0)" value="確定送出，並結束盤點" />
+						</p>
+					</div>
+				</form>
+				<div>
+					<strong>註:</strong> <br />
+					確定結束盤點後，將不可再針對此次盤點紀錄做「修改」或「新增」的操作功能，並同時「開啟倉庫」
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

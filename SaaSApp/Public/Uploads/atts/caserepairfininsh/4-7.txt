@@ -1,0 +1,7 @@
+1、手机文章下线按钮，在发布菜单栏加入一个菜单下线
+2、平板下线：把文章列出来，勾选文章下线，如果全部下就删除html否则重新生成html。下板
+3、焦点加入：发布，上线，下线。
+4、模版排版，文章顺序。
+5、pad列表接口每次读取10条版面 
+6、文章20条 getPadDocPageList getDocList(String deviceType="ipad,iphone,android" ) 
+7、全局搜索

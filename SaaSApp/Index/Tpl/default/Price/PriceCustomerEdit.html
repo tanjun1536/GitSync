@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/date.js" />
+<script type="text/javascript">
+	var dept = "{$price.queryerdepart}";
+	var team = "{$price.queryerteam}";
+	var queryer = "{$price.queryer}";
+	var reqtype = "{$price.reqtype}";
+	$(function() {
+		$("#querydate").val(new Date().format("yyyy/MM/dd hh:mm"));
+		$("#tdquerydate").html($("#querydate").val());
+		$('#queryerdepart').change(function() {
+			getTeam('#queryerdepart', '#queryerteam');
+		});
+		$('#queryerteam').change(function() {
+			getPeople('#queryerteam', '#queryer');
+		});
+		
+		if(dept)$('#queryerdepart').val(dept).trigger('change');
+		if(reqtype)$("#reqtype").val(reqtype);
+	});
+	function getTeam(depart, teams) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getTeam",
+			data : "pid=" + $(depart).val(),
+			success : function(data) {
+				$(teams).empty();
+				$("<option value=''>選擇組別</option>").appendTo(teams);
+				var json = eval(data);
+				if (!json)
+					return;
+				$.each(json, function(k) {
+					$(
+							"<option  value='"+json[k]['id']+"'>"
+									+ decodeURI(json[k]['name']) + "</option>")
+							.appendTo(teams);
+				});
+				if(team)$(teams).val(team).trigger('change');
+			}
+		});
+	}
+	function getPeople(depart, users) {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getPeopleByTeam",
+			data : "id=" + $(depart).val(),
+			success : function(data) {
+				$(users).empty();
+				$("<option value=''>員工姓名</option>").appendTo(users);
+				var json = eval(data);
+				$.each(json, function(k) {
+					if (json[k]['id'] != $('#user').val())
+						$(
+								"<option  value='"+json[k]['id']+"'>"
+										+ decodeURI(json[k]['name']) + "("
+										+ decodeURI(json[k]['ucode'])
+										+ ")</option>").appendTo(users);
+				});
+				if(queryer)$(users).val(queryer);
+			}
+		});
+	}
+	var editrow = null;
+	function addCP() {
+
+		if (editrow == null) {
+			var len = $("#tabCP tr").length;
+			var lastRow = $("#tabCP tr")[len - 3];
+			var row = $("<tr></tr>");
+			var hValue = $('#cp').val() + "," + $('#spmc').val() + ","
+					+ $('#ggcc').val() + "," + $('#cpxh').val() + ","
+					+ $('#sl').val() + "," + $('#dw').val() + ","
+					+ $('#dj').val() + "," + $('#fj').val() + ","
+					+ $('#bz').val();
+			row
+					.append($("<input type='hidden' value='" + hValue + "' name ='detail[]' />"))
+			row.append($("<td></td>").append($('#cp').val()));
+			row.append($("<td></td>").append($('#spmc').val()));
+			row.append($("<td></td>").append($('#ggcc').val()));
+			row.append($("<td></td>").append($('#cpxh').val()));
+			row.append($("<td></td>").append($('#sl').val()));
+			row.append($("<td></td>").append($('#dw').val()));
+			row.append($("<td></td>").append($('#dj').val()));
+			row.append($("<td></td>").append($('#fj').val()));
+			row.append($("<td></td>").append($('#bz').val()));
+			row
+					.append($("<td></td>")
+							.append(
+									$('<img onclick="editCP($(this).parent().parent());" style="cursor:pointer" src="__PUBLIC__/images/icon_edit.gif" alt="編輯" width="16" height="16" border="0" />'))
+							.append(
+									$('<img onclick="$(this).parent().parent().remove();cal();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" />')));
+			$(lastRow).after(row);
+
+		} else {
+
+			var tds = editrow.find('td');
+			$(tds[0]).html($('#cp').val());
+			$(tds[1]).html($('#spmc').val());
+			$(tds[2]).html($('#ggcc').val());
+			$(tds[3]).html($('#cpxh').val());
+			$(tds[4]).html($('#sl').val());
+			$(tds[5]).html($('#dw').val());
+			$(tds[6]).html($('#dj').val());
+			$(tds[7]).html($('#fj').val());
+			$(tds[8]).html($('#bz').val());
+			editrow = null;
+			$("#s").val("新增");
+		}
+		cal();
+		$('#cp').val('');
+		$('#spmc').val('');
+		$('#ggcc').val('');
+		$('#cpxh').val('');
+		$('#sl').val('');
+		$('#dw').val('');
+		$('#dj').val('');
+		$('#fj').val('');
+		$('#bz').val('');
+
+	}
+	function editCP(row) {
+		editrow = row;
+		var tds = editrow.find('td');
+		$('#cp').val($(tds[0]).html());
+		$('#spmc').val($(tds[1]).html());
+		$('#ggcc').val($(tds[2]).html());
+		$('#cpxh').val($(tds[3]).html());
+		$('#sl').val($(tds[4]).html());
+		$('#dw').val($(tds[5]).html());
+		$('#dj').val($(tds[6]).html());
+		$('#fj').val($(tds[7]).html());
+		$('#bz').val($(tds[8]).html());
+		$("#s").val("保存");
+	}
+	function cal() {
+		var totalDJ = 0;
+		var totalFJ = 0;
+		var len = $("#tabCP tr").length;
+		$("#tabCP tr").each(function(index) {
+			if (index > 0 && index < len - 1) {
+				var tdArr = $(this).find("td");
+				totalDJ += fn.getFloat($(tdArr[6]).html());
+				totalFJ += fn.getFloat($(tdArr[7]).html());
+			}
+
+		});
+
+		$("#totaldj").val(totalDJ);
+		$("#totalfj").val(totalFJ);
+		$("#tdTotalDJ").html(totalDJ);
+		$("#tdTotalFJ").html(totalFJ);
+	}
+	function check() {
+		return validator.empty('name', '請輸入公司名稱');
+	}
+</script>
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">詢價管理 - 客戶詢價管理</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="__URL__/PriceCustomerSave">
+				<input type="hidden" name="id" value="{$price.id}" /> 
+					<input type="hidden" name="code" value="{@SESSION_USER.code}" />
+					<input type="hidden" name="type" value="客戶詢價" />
+					 <input type="hidden"
+						name="querydate" id="querydate" value="{$price.querydate}" /> <input type="hidden"
+						name="querycode" id="querycode" value="{$price.querycode}" /> <input type="hidden"
+						name="state" value="未處理" /> <input type="hidden" name="totaldj" id="totaldj"
+						value="{$price.totaldj}" /> <input type="hidden" name="totalfj" id="totalfj"
+						value="{$price.totalfj}" />
+					<div class="topic2">新增／修改詢價單</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th width="116" scope="row">日期</th>
+							<td width="228" id="tdquerydate">{$price.querydate|date='Y/m/d',strtotime(###)}</td>
+							<th width="100" scope="row">編號</th>
+							<td width="246" id="tdquerycode">{$price.querycode}</td>
+						</tr>
+						<tr>
+							<th scope="row">詢價人</th>
+							<td colspan="3" id="tdqueryer">
+								{$price.queryername}
+<!-- 							<select id="queryerdepart" name="queryerdepart"> -->
+<!-- 									<option value="">選擇部門</option> -->
+<!-- 									<volist id="item" name="departs"> -->
+<!-- 									<option value="{$item.id}">{$item.name}</option> -->
+<!-- 									</volist> -->
+<!-- 							</select> <select name="queryerteam" id="queryerteam"> -->
+<!-- 									<option value="">選擇組別</option> -->
+<!-- 							</select><select id="queryer" name="queryer"> -->
+<!-- 									<option value="員工姓名">員工姓名</option> -->
+<!-- 							</select> -->
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">申請類別</th>
+							<td colspan="3"><select name="reqtype" id="reqtype">
+									<option value="">請選擇</option>
+									<option value="照明">照明</option>
+									<option value="電料">電料</option>
+									<option value="水料">水料</option>
+									<option value="消防">消防</option>
+									<option value="空調">空調</option>
+									<option value="泵浦">泵浦</option>
+									<option value="馬達">馬達</option>
+									<option value="五金">五金</option>
+									<option value="弱電">弱電</option>
+									<option value="3C">3C</option>
+									<option value="儀器">儀器</option>
+									<option value="其他">其他</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th scope="row">狀態</th>
+							<td colspan="3">{$price.state}</td>
+						</tr>
+						<tr>
+							<th scope="row">採購說明</th>
+							<td colspan="3"><input type="text" name="purchaseremark" value="{$price.purchaseremark}"
+								style="width: 400px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">備註說明</th>
+							<td colspan="3"><input type="text" name="remark" value="{$price.remark}"
+								style="width: 400px" /></td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th colspan="4" scope="col">新增商品</th>
+						</tr>
+						<tr>
+							<td width="74" class="tdcolor2">廠牌</td>
+							<td width="270"><input type="text" name="cp" id="cp" /></td>
+							<td width="74" class="tdcolor2">商品名稱</td>
+							<td width="272"><input type="text" name="spmc" id="spmc" /></td>
+						</tr>
+						<tr>
+							<td class="tdcolor2">規格尺寸</td>
+							<td><input type="text" name="ggcc" id="ggcc" /></td>
+							<td class="tdcolor2">產品型號</td>
+							<td><input type="text" name="cpxh" id="cpxh" /></td>
+						</tr>
+						<tr>
+							<td class="tdcolor2">數量</td>
+							<td><input type="text" name="sl" id="sl" /></td>
+							<td class="tdcolor2">單位</td>
+							<td><input type="text" name="dw" id="dw" /></td>
+						</tr>
+						<tr>
+							<td class="tdcolor2">單價</td>
+							<td><input type="text" name="dj" id="dj" /></td>
+							<td class="tdcolor2">複價</td>
+							<td><input type="text" name="fj" id="fj" /></td>
+						</tr>
+						<tr>
+							<td class="tdcolor2">備註</td>
+							<td colspan="3"><input type="text" name="bz" style="width: 400px" id="bz" /></td>
+						</tr>
+						<tr>
+							<td class="tdcolor2">&nbsp;</td>
+							<td colspan="3"><input type="button" onclick="addCP()" value="新增" id="s" /></td>
+						</tr>
+					</table>
+					<table width="695" border="0" cellpadding="0" cellspacing="1" class="tabThSide" id="tabCP">
+						<tr>
+							<th width="89" scope="col"><span class="tdcolor2">廠牌</span></th>
+							<th width="128" scope="col"><span class="tdcolor2">商品名稱</span></th>
+							<th width="77" scope="col"><span class="tdcolor2">規格尺寸</span></th>
+							<th width="79" scope="col"><span class="tdcolor2">產品型號</span></th>
+							<th width="44" scope="col"><span class="tdcolor2">數量</span></th>
+							<th width="48" scope="col"><span class="tdcolor2">單位</span></th>
+							<th width="49" scope="col"><span class="tdcolor2">單價</span></th>
+							<th width="43" scope="col"><span class="tdcolor2">複價</span></th>
+							<th width="74" scope="col"><span class="tdcolor2">備註</span></th>
+							<th width="53" scope="col">操作</th>
+						</tr>
+						<volist id="item" name="details">
+						<tr>
+							<td>{$item.cp}</td>
+							<td>{$item.spmc}</td>
+							<td>{$item.ggcc}</td>
+							<td>{$item.cpxh}</td>
+							<td>{$item.sl}</td>
+							<td>{$item.dw}</td>
+							<td>{$item.dj}</td>
+							<td>{$item.fj}</td>
+							<td>{$item.bz}</td>
+							<td><img onclick="editCP($(this).parent().parent());" style="cursor:pointer" src="__PUBLIC__/images/icon_edit.gif" alt="編輯" width="16" height="16" border="0" /><img onclick="$(this).parent().parent().remove();cal();" style="cursor:pointer" src="__PUBLIC__/images/close_16.png" alt="刪除" width="16" height="16" border="0" /></td>
+							<input type="hidden" name="detail[]"
+								value="{$item.cp},{$item.spmc},{$item.ggcc},{$item.cpxh},{$item.sl},{$item.dw},{$item.dj},{$item.fj},{$item.bz}" />
+						</tr>
+						</volist>
+						<tr>
+							<td colspan="6" align="right" class="tdcolor1">總計</td>
+							<td align="center" id="tdTotalDJ">{$price.totaldj}</td>
+							<td align="center" id="tdTotalFJ">{$price.totalfj}</td>
+							<td colspan="2" class="tdcolor3">&nbsp;</td>
+						</tr>
+						<tr>
+							<td colspan="10" align="center"><input type="submit" name="Submit2" value="確定送出" /> <input
+								type="reset" name="Submit3" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

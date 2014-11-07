@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">工程管理 - 發票請款申請</div>
+			<div class="mainInfo">
+				<form id="form1" name="form1" method="post" action="__URL__/InvoiceList">
+					<div class="topic2">搜尋</div>
+					<table width="695" border="0" cellpadding="0" cellspacing="1"
+						class="tabThSide">
+						<tr>
+							<th width="104" scope="row">請款日期</th>
+							<td width="239"><input type="text" name="sdate"
+								class="Wdate" onfocus="WdatePicker()" value="{$sdate}" /></td>
+							<th width="120" scope="row">對應報價單號</th>
+							<td width="227"><input type="text" name="spricecode" value="{$spricecode}"  /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td colspan="3"><input type="submit" name="Submit2"
+								value="搜尋" /></td>
+						</tr>
+					</table>
+					<div class="mailNav">
+						<a href="__URL__/InvoiceAdd">新增發票請款記錄</a>
+					</div>
+				</form>
+				<table width="695" border="0" cellpadding="0" cellspacing="1"
+					class="tabThSide">
+					<tr>
+						<th width="98" scope="col">請款日期</th>
+						<th width="128" scope="col">對應報價單號</th>
+						<th width="71" scope="col">申請人</th>
+						<th width="205" scope="col">申請單位</th>
+						<th width="98" scope="col">發票總金額</th>
+						<th width="108" scope="col">操作</th>
+					</tr>
+					<volist id="item" name="list"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<tr>
+						<td align="center">{$item.reqdate}</td>
+						<td align="center">{$item.pricecode}</td>
+						<td align="center">{$item.requestuser}</td>
+						<td>{$item.requestunitname}</td>
+						<td align="center">{$item.totalprice}</td>
+						<td align="center"><div>
+								<a href="#">作廢</a>|<a href="__URL__/InvoiceEdit?id={$item.id}">修改</a> | <a onclick="return confirm('確認要刪除選擇的數據?')" href="__URL__/InvoiceDelete?id={$item.id}">刪除</a>
+							</div></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

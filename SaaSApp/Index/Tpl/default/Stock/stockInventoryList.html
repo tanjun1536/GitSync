@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/base.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<script type="text/JavaScript">
+	function MM_openBrWindow(theURL, winName, features) { //v2.0
+		var selUsers = document.getElementById("partersid").value;
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "?selUsers=" + selUsers, winName, features);
+
+	}
+	function selectUsers(idInput, nameInput) {
+		var selUsers = document.getElementById(idInput).value;
+		var theURL = "__APP__/User/usercheckbox?id=" + idInput + "&name="
+				+ nameInput;
+		var features = 'scrollbars=yes,scrollbars=yes,width=755,height=570';
+		var winName = '';
+		if (selUsers == '')
+			window.open(theURL, winName, features);
+		else
+			window.open(theURL + "&selUsers=" + selUsers, winName, features);
+	}
+	function check() {
+		return validator.empty('day', '請選擇日期');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">進銷存管理 - 庫存管理</div>
+			<div class="mainInfo">
+				<div class="topic2">
+					<a href="__URL__/stockView?id={$stock.id}">{$stock.stockname}</a> -
+					盤點紀錄
+				</div>
+				<form id="form1" name="form1" method="post"
+					action="__URL__/stockInventorySave?id={$stock.id}">
+					<input type="hidden" name="inventoryuser"
+						value="{@SESSION_USER.name}({@SESSION_USER.ucode})" />
+					<input type="hidden" value="{$stock.id}" name="stockid"/>
+					<div>
+						<table width="695" border="0" cellpadding="0" cellspacing="1"
+							class="tabThSide">
+							<tr>
+								<th width="123" scope="row">盤點開始日期</th>
+								<td width="221"><input type="text" class="Wdate"
+									onfocus="WdatePicker()" name="startdate" style="width: 100px" /></td>
+								<th width="124" scope="row">倉庫關閉時間</th>
+								<td width="222"><select name="stockclosehour">
+										<option value="00">00</option>
+										<option value="01">01</option>
+										<option value="02">02</option>
+										<option value="03">03</option>
+										<option value="04">04</option>
+										<option value="05">05</option>
+										<option value="06">06</option>
+										<option value="07">07</option>
+										<option value="08">08</option>
+										<option value="09">09</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+										<option value="19">19</option>
+										<option value="20">20</option>
+										<option value="21">21</option>
+										<option value="22">22</option>
+										<option value="23">23</option>
+								</select> 時 <input type="text" name="stockcloseminute"
+									style="width: 20PX" /> 分</td>
+							</tr>
+							<tr>
+								<th scope="row">&nbsp;</th>
+								<td colspan="3"><input type="submit" name="Submit"
+									value="新增紀錄" /></td>
+							</tr>
+						</table>
+					</div>
+				</form>
+				<table width="695" border="0" cellpadding="0" cellspacing="0"
+					class="tab_thtop">
+					<tr>
+						<th width="227" scope="col">開始</th>
+						<th width="240" scope="col">結束</th>
+						<th width="140" scope="col">盤點紀錄人</th>
+						<th width="86" scope="col">操作</th>
+					</tr>
+					<volist name="list" id="item"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.startdate|date='Y/m/d',strtotime(###)} {$item.stockclosehour}:{$item.stockcloseminute}</td>
+					<td align="center">{$item.enddate|formatDate} {$item.stockopenhour}:{$item.stockopenminute}</td>
+					<td align="center">{$item.inventoryuser}</td>
+					<td align="center"><a href="__URL__/stockInventoryView?id={$item.id}&stockid={$stock.id}">明細</a></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

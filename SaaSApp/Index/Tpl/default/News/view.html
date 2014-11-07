@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">公佈欄</div>
+			<div class="news_info">
+				<h1>{$news.title}</h1>
+				<div class="txt_lightblue" style="margin-bottom: 20px">{$news.senddate} {$news.uname} 發佈</div>
+				<div>{$news.content}</div>
+				<div class="words01">
+					附件：<notempty name="news.atts">
+						 <volist name=":explode(',',$news['atts'])" id="att">
+						  <a href="__URL__/down?name={$att}">
+						   <img style="border: 0" src="__PUBLIC__/images/063.gif"></img>{$att}</a> 
+						   </volist> </notempty> <br />
+					</a>相關連結：<a href="{$news.link}" target="_blank">{$news.link}</a>
+				</div>
+				<div class="back">
+					<a href="__URL__/index">》 回上頁 </a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

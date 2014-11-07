@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	$(function() {
+		$('#headerchecker').click(function() {
+
+			if ($(this).attr("checked") == 'checked') {
+				$("[name='itemcheckbox[]']").attr("checked", 'true');
+			} else {
+				$("[name='itemcheckbox[]']").removeAttr("checked");
+
+			}
+		});
+		var state="{$state}";
+		if(state)$("#sstate").val(state);
+	});
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side_case.html" />
+		<div class="mainPage">
+			<include file="Public/top_caseName.html" />
+			<div class="topic">保養管理 - 保養紀錄</div>
+			<div class="mainInfo">
+				<div class="mailNav">
+					<form id="form2" name="form2" method="post"
+						action="__URL__/maintenanceRecord?case={@case}">
+						狀態 <select name="sstate" id="sstate">
+							<option value="">請選擇</option>
+							<option value="正常">正常</option>
+							<option value="異常">異常</option>
+							<option value="關機">關機</option>
+						</select> 日期： <input type="text" name="sdate" id="sdate" class="Wdate" value="{$sdate}"
+							onfocus="WdatePicker()" style="width: 80px" /> ~ <input
+							type="text" name="edate" id="edate" class="Wdate" value="{$edate}"
+							onfocus="WdatePicker()" style="width: 80px" /> <input
+							type="submit" name="Submit" value="搜尋" />
+					</form>
+				</div>
+
+				<form id="form1" name="form1" method="post"
+					action="__URL__/deleteMaintenanceRecord?case={@case}">
+					<table width="695" border="0" cellpadding="0" cellspacing="0"
+						class="tab_thtop">
+						<tr>
+							<th width="28" scope="col"><input type="checkbox"
+								name="headerchecker" id="headerchecker" value="checkbox" /></th>
+							<th width="104" scope="col">保養編號</th>
+							<th width="100" scope="col">保養日期</th>
+							<th width="116" scope="col">設備編號</th>
+							<th width="220" scope="col">設備名稱</th>
+							<th width="69" scope="col">保養人</th>
+							<th width="56" scope="col">狀態</th>
+						</tr>
+						<volist id="item" name="list"> <if condition="$i%2 eq 1">
+						<tr>
+							<else />
+							<tr class="trcolor">
+						</if>
+						<td align="center"><input type="checkbox"
+							name="itemcheckbox[]" value="{$item.id}" /></td>
+						<td align="center"><a
+							href="__URL__/maintenanceRecordView?case={@case}&id={$item.id}">{$item.maintenancecode}</a></td>
+						<td align="center">{$item.maintenancedate|date='Y/m/d',strtotime(###)}</td>
+						<td align="center">{$item.devicecode}</td>
+						<td>{$item.devicename}</td>
+						<td align="center">{$item.maintenanceuser}</td>
+						<td align="center"><if condition="$item.cstate eq '異常' ">
+							<span class="txt_red">{$item.cstate}</span> <else />
+							{$item.cstate}</if></td>
+						</tr>
+						</volist>
+					</table>
+					<div style="margin-top: 10px">
+						<if condition="check_power('刪除',$ext) eq 1"> <input
+							type="submit" name="Submit2" value="刪除" /> </if>
+					</div>
+					<div class="pages">{$page}</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

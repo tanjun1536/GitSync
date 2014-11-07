@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+</head>
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">文件管理 - 會議管理</div>
+			<div class="mainInfo">
+				<div class="mailNav">
+					<form id="form2" name="form2" method="post" action="__URL__/index">
+						<a href="__URL__/add">新增會議通知</a> 日期 <input type="text" name="date" class="Wdate" onfocus="WdatePicker()" /> <select name="state">
+							<option value="">選擇狀態</option>
+							<if condition="$state eq '會議通知'">
+							<option value="會議通知" selected="selected">會議通知</option>
+							<else />
+							<option value="會議通知">會議通知</option>
+							</if>
+							<if condition="$state eq '會議記錄'">
+							<option value="會議記錄" selected="selected">會議記錄</option>
+							<else />
+							<option value="會議記錄">會議記錄</option>
+							</if>
+							<if condition="$state eq '會議取消'">
+							<option value="會議取消" selected="selected">會議取消</option>
+							<else />
+							<option value="會議取消">會議取消</option>
+							</if>
+							<if condition="$state eq '不拘'">
+							<option value="" selected="selected">不拘</option>
+							<else />
+							<option value="">不拘</option>
+							</if>
+						</select> <input type="submit" name="Submit3" value="搜尋" />
+					</form>
+				</div>
+				<table width="695" border="0" cellpadding="0" cellspacing="0" class="tab_thtop">
+					<tr>
+						<th width="82" scope="col">開會日期</th>
+						<th width="52" scope="col">時間</th>
+						<th width="203" scope="col">開會地點</th>
+						<th width="203" scope="col">主題</th>
+						<th width="82" scope="col">狀態</th>
+						<th width="150" scope="col">操作</th>
+					</tr>
+					<volist id="item" name="list"> <if condition="$i%2 eq 1">
+					<tr>
+						<else />
+						<tr class="trcolor">
+					</if>
+					<td align="center">{$item.day}</td>
+					<td align="center">{$item.hours}:{$item.minutes|zeroFill}</td>
+					<td align="center">{$item.address}</td>
+					<td><a href="__URL__/view?id={$item.id}">{$item.topic}</a></td>
+					<td align="center">{$item.state}</td>
+					<td align="center"><a href="__URL__/record?id={$item.id}">記錄</a><a href="__URL__/changeState?id={$item.id}&state=會議取消">取消</a><br />
+					<a onclick="return confirm('是否刪除選擇的數據?')" href="__URL__/delete?id={$item.id}">删除</a></td>
+					</tr>
+					</volist>
+				</table>
+				<div class="pages">{$page}</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>

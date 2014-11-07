@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物業資源決策系統</title>
+
+
+
+<load href="__PUBLIC__/js/jquery-1.7.min.js" />
+<load href="__PUBLIC__/js/My97DatePicker/WdatePicker.js" />
+<load href="__PUBLIC__/js/base.js" />
+<script type="text/javascript">
+	$(function() {
+		$('#province').change(function() {
+			getCity()
+		});
+		//檢查用戶名是否重複
+		$("#name").live("blur", function() {
+			checkUser();
+		});
+
+	});
+	function getCity() {
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "__URL__/getCity",
+			data : "pid=" + $('#province').val(),
+			success : function(data) {
+				$("#city").empty();
+				$("<option value='請選擇'>請選擇</option>").appendTo("#city");
+				var json = eval(data);
+				$.each(json, function(k) {
+					$("<option value='"+json[k]['id']+"'>" + decodeURI(json[k]['name']) + "</option>").appendTo("#city");
+				});
+			}
+		});
+	}
+	function check() {
+		return validator.empty('name', '請輸入公司名稱');
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public/top.html" />
+	<div class="webPage">
+		<include file="Public/side.html" />
+		<div class="mainPage">
+			<include file="Public/top_menu.html" />
+			<div class="topic">公司基本資料</div>
+			<div class="mainInfo">
+				<form action="__URL__/insert" onsubmit="return check();" method="post" enctype="multipart/form-data" name="form1" id="form1">
+					<table width="695" border="0" align="center" cellpadding="0" cellspacing="1" class="tabThSide">
+						<tr>
+							<th scope="row">公司名稱</th>
+							<td><input type="text" name="name" /></td>
+						</tr>
+						<tr>
+							<th scope="row">負責人姓名</th>
+							<td><input type="text" name="leader" /></td>
+						</tr>
+						<tr>
+							<th scope="row">統一編號</th>
+							<td><input type="text" name="code"  /></td>
+						</tr>
+						<tr>
+							<th width="110" scope="row">公司電話</th>
+							<td width="587"><input type="text" name="phone" /></td>
+						</tr>
+						<tr>
+							<th scope="row">公司傳真</th>
+							<td><input type="text" name="fax" /></td>
+						</tr>
+						<tr>
+							<th scope="row">公司地址</th>
+							<td><select name="province" id="province">
+									<option value="請選擇">請選擇</option>
+									<volist name="provinces" id="item">
+									<option value="{$item.id}">{$item.name}</option>
+									</volist>
+							</select> <select name="city" id="city">
+									<option value="請選擇">請選擇</option>
+							</select> <input type="text" name="address" style="width: 300px" /></td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡人</th>
+							<td><input type="text" name="linker" /></td>
+						</tr>
+						<tr>
+							<th scope="row">聯絡人電話</th>
+							<td><input type="text" name="linkphone" /> ；行動電話 <input type="text" name="mobile" /></td>
+						</tr>
+						<tr>
+							<th scope="row">EMAIL</th>
+							<td><input type="text" name="email" /></td>
+						</tr>
+						<tr>
+							<th scope="row">上下班時間</th>
+							<td>上班 <select name="onhour">
+									<option value="00">00</option>
+									<option value="01">01</option>
+									<option value="02">02</option>
+									<option value="03">03</option>
+									<option value="04">04</option>
+									<option value="05">05</option>
+									<option value="06">06</option>
+									<option value="07">07</option>
+									<option value="08">08</option>
+									<option value="09">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+							</select> 時 <input type="text" name="onminute" style="width: 20PX" /> 分 ；下班 <select name="downhour">
+									<option value="00">00</option>
+									<option value="01">01</option>
+									<option value="02">02</option>
+									<option value="03">03</option>
+									<option value="04">04</option>
+									<option value="05">05</option>
+									<option value="06">06</option>
+									<option value="07">07</option>
+									<option value="08">08</option>
+									<option value="09">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+							</select> 時 <input type="text" name="downminute" style="width: 20PX" /> 分
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">使用期限</th>
+							<td><input type="text" name="period" class="Wdate" onFocus="WdatePicker()"  style="width: 120PX" /></td>
+						</tr>
+						<tr>
+							<th scope="row">可建帳號數</th>
+							<td><input type="text" name="usercount" style="width: 20PX" /></td>
+						</tr>
+						<tr>
+							<th scope="row">公司帳號</th>
+							<td><input type="text" name="account" /></td>
+						</tr>
+						<tr>
+							<th scope="row">密碼</th>
+							<td><input type="password" name="password" /></td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td><input type="submit" name="Submit" value="確定" /> <input type="reset" name="Submit2" value="取消" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/foot.html" />
+</body>
+</html>
